@@ -1,0 +1,218 @@
+
+export interface Feature {
+    icon: string
+    title: string
+    description: string
+}
+export type DictionaryType = {
+    metadata: {
+        title: string;
+        description: string;
+        keywords: string;
+    };
+    header: {
+        nav: {
+            home: string;
+            services: string;
+            about: string;
+            contact: string;
+            blog: string;
+        };
+        languageSwitcher: {
+            he: string;
+            ru: string;
+            en: string;
+        };
+    };
+    company: {
+        name: string;
+        address: string;
+        phone: string;
+        phoneFormatted: string;
+        email: string;
+        openingHours: string;
+    },
+    servicesPage: {
+        title: string
+        description: string
+        metaTitle: string
+        metaDescription: string
+        whyChooseUs: {
+            title: string
+            features: Feature[]
+        }
+        ctaTitle: string
+        ctaDescription: string
+        ctaButton: string
+    }
+    urls?: Record<string, string>;
+};
+
+// Дефолтные значения для обязательных полей
+const defaultDictionary: DictionaryType = {
+    metadata: {
+        title: 'Default Title',
+        description: 'Default Description',
+        keywords: 'default, keywords',
+    },
+    servicesPage: {
+        title: "Наши услуги",
+        description: "Мы предлагаем широкий спектр профессиональных услуг по переезду по всему Израилю. Каждая услуга выполняется опытной командой с современным оборудованием.",
+        metaTitle: "Услуги по переезду | Ведущая транспортная компания в Израиле",
+        metaDescription: "Профессиональные услуги по переезду для любых нужд: переезд квартиры, офиса, небольшие перевозки и др. Справедливые цены и вежливое обслуживание.",
+        whyChooseUs: {
+            title: "Почему выбирают нас?",
+            features: [
+                {
+                    icon: "🚚",
+                    title: "Современное оборудование",
+                    description: "Мы используем самое современное оборудование для безопасных и профессиональных перевозок"
+                },
+                {
+                    icon: "⏰",
+                    title: "Доступность 24/7",
+                    description: "Доступны для вас в любое время, каждый день, включая выходные и праздники"
+                },
+                {
+                    icon: "💰",
+                    title: "Справедливые цены",
+                    description: "Прозрачные цены без сюрпризов. Полная гарантия на имущество"
+                }
+            ]
+        },
+        ctaTitle: "Готовы начать?",
+        ctaDescription: "Свяжитесь с нами сегодня для получения бесплатной консультации без обязательств. Будем рады помочь вам с любыми нуждами в переезде!",
+        ctaButton: "Получить предложение"
+    },
+    company: {
+        name: "Ваша транспортная компания",
+        address: "ул. Примерная 123, Тель-Авив, Израиль",
+        phone: "+972501234567",
+        phoneFormatted: "050-123-4567",
+        email: "info@example.co.il",
+        openingHours: "Пн-Пт 08:00-18:00 | Сб 08:00-13:00"
+    },
+    header: {
+        nav: {
+            home: 'Home',
+            services: 'Services',
+            about: 'About',
+            contact: 'Contact',
+            blog: 'Blog',
+        },
+        languageSwitcher: {
+            he: 'Hebrew',
+            ru: 'Russian',
+            en: 'English',
+        },
+    },
+};
+
+export type Locale = 'he' | 'ru' | 'en';
+
+// Используем Partial<DictionaryType> для загрузки JSON
+const dictionaryLoaders: Record<Locale, () => Promise<Partial<DictionaryType>>> = {
+    he: () => import('./dictionaries/he.json').then((module) => module.default),
+    ru: () => import('./dictionaries/ru.json').then((module) => module.default),
+    en: () => import('./dictionaries/en.json').then((module) => module.default),
+};
+
+// Основная функция с мерджем дефолтных значений
+export async function getDictionary(locale: Locale): Promise<DictionaryType> {
+    try {
+        const loadedDict = await dictionaryLoaders[locale]();
+
+        // Мерджим загруженный словарь с дефолтными значениями
+        return {
+            ...defaultDictionary,
+            ...loadedDict,
+            metadata: {
+                ...defaultDictionary.metadata,
+                ...loadedDict.metadata,
+            },
+            header: {
+                ...defaultDictionary.header,
+                ...loadedDict.header,
+                nav: {
+                    ...defaultDictionary.header.nav,
+                    ...loadedDict.header?.nav,
+                },
+                languageSwitcher: {
+                    ...defaultDictionary.header.languageSwitcher,
+                    ...loadedDict.header?.languageSwitcher,
+                },
+            },
+        };
+    } catch (error) {
+        console.error(`Failed to load dictionary for locale: ${locale}`, error);
+        return defaultDictionary;
+    }
+}
+
+// Утилита для безопасного доступа к вложенным значениям
+export type NestedKeyOf<ObjectType extends object> = {
+    [Key in keyof ObjectType & (string | number)]: ObjectType[Key] extends object
+        ? `${Key}` | `${Key}.${NestedKeyOf<ObjectType[Key]>}`
+        : `${Key}`;
+}[keyof ObjectType & (string | number)];
+
+// Вспомогательная функция для получения конкретного значения по пути
+export async function getDictionaryValue(
+    locale: Locale,
+    path: NestedKeyOf<DictionaryType>
+): Promise<string> {
+    const dict = await getDictionary(locale);
+
+    // Функция безопасного получения вложенного значения
+    const getNestedValue = (obj: any, path: string): string => {
+        return path.split('.').reduce((current, key) => {
+            return current?.[key] ?? '';
+        }, obj);
+    };
+
+    return getNestedValue(dict, path);
+}
+
+// Функция для получения всех словарей сразу
+export async function getAllDictionaries(): Promise<Record<Locale, DictionaryType>> {
+    const locales: Locale[] = ['he', 'ru', 'en'];
+    const results = await Promise.allSettled(
+        locales.map(locale => getDictionary(locale))
+    );
+
+    const dictionaries: Record<Locale, DictionaryType> = {
+        he: defaultDictionary,
+        ru: defaultDictionary,
+        en: defaultDictionary,
+    };
+
+    results.forEach((result, index) => {
+        if (result.status === 'fulfilled') {
+            dictionaries[locales[index]] = result.value;
+        }
+    });
+
+    return dictionaries;
+}
+
+// Функция для получения переведенного URL
+export async function getTranslatedUrl(
+    currentPath: string,
+    targetLocale: Locale
+): Promise<string> {
+    const dict = await getDictionary(targetLocale);
+
+    // Если есть перевод в urls, используем его
+    if (dict.urls) {
+        const pathKey = Object.keys(dict.urls).find(key =>
+            currentPath.includes(key)
+        );
+
+        if (pathKey && dict.urls[pathKey]) {
+            return `/${targetLocale}/${dict.urls[pathKey]}`;
+        }
+    }
+
+    // Fallback: просто добавляем локаль к пути
+    return `/${targetLocale}${currentPath}`;
+}

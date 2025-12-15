@@ -1,0 +1,459 @@
+@use '@/styles/variables' as vars;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+
+  &.scrolled {
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+
+    .container {
+      padding: 12px 24px;
+
+      @media (max-width: vars.$mobile-breakpoint) {
+        padding: 12px 16px;
+      }
+    }
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: vars.$container-width;
+  margin: 0 auto;
+  padding: 20px 24px;
+  transition: padding 0.3s ease;
+
+  @media (max-width: vars.$mobile-breakpoint) {
+    padding: 16px;
+  }
+}
+
+.logo {
+  flex: 0 0 auto;
+
+  a {
+    display: block;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  img {
+    width: auto;
+    height: 50px;
+
+    @media (max-width: vars.$mobile-breakpoint) {
+      height: 40px;
+    }
+  }
+}
+
+.nav {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    display: none;
+  }
+}
+
+.navList {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @media (max-width: vars.$desktop-breakpoint) {
+    gap: 24px;
+  }
+}
+
+.navItem {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: vars.$primary-color;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover::after,
+  &.active::after {
+    transform: scaleX(1);
+  }
+}
+
+.navLink {
+  color: vars.$text-color;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: vars.$primary-color;
+  }
+
+  // Стили для иврита
+  [dir="rtl"] & {
+    font-family: vars.$hebrew-font;
+  }
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 0 0 auto;
+}
+
+.languageSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  @media (max-width: vars.$mobile-breakpoint) {
+    display: none;
+  }
+}
+
+.langButton {
+  background: none;
+  border: none;
+  padding: 4px 8px;
+  font-size: 14px;
+  color: vars.$text-light;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+
+  &:hover {
+    color: vars.$text-color;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  &.active {
+    color: vars.$primary-color;
+    font-weight: 600;
+    background-color: rgba(vars.$primary-color, 0.1);
+  }
+
+  // Особые стили для иврита
+  &[dir="rtl"] {
+    font-family: vars.$hebrew-font;
+  }
+}
+
+.langSeparator {
+  color: vars.$border-color;
+  user-select: none;
+}
+
+.ctaButtons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @media (max-width: vars.$mobile-breakpoint) {
+    display: none;
+  }
+}
+
+.phoneButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: rgba(vars.$primary-color, 0.1);
+  border-radius: 50px;
+  text-decoration: none;
+  color: vars.$primary-color;
+  font-weight: 600;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(vars.$primary-color, 0.2);
+    transform: translateY(-1px);
+  }
+}
+
+.phoneIcon {
+  font-size: 18px;
+}
+
+.phoneText {
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.quoteButton {
+  padding: 12px 24px;
+  background-color: vars.$primary-color;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: darken(vars.$primary-color, 10%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(vars.$primary-color, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.menuToggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    display: flex;
+  }
+
+  &:focus {
+    outline: 2px solid vars.$primary-color;
+    outline-offset: 2px;
+  }
+}
+
+.burgerLine {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: vars.$text-color;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+
+  &:nth-child(1).open {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  &:nth-child(2).open {
+    opacity: 0;
+  }
+
+  &:nth-child(3).open {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+}
+
+// Мобильное меню
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  bottom: 0;
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  transition: right 0.3s ease;
+  display: flex;
+
+  &.open {
+    right: 0;
+  }
+
+  @media (max-width: vars.$mobile-breakpoint) {
+    max-width: 100%;
+  }
+}
+
+.mobileMenuContent {
+  position: relative;
+  width: 100%;
+  padding: 100px 32px 32px;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.mobileNavList {
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+}
+
+.mobileNavItem {
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.mobileNavLink {
+  display: block;
+  padding: 16px 0;
+  color: vars.$text-color;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: vars.$primary-color;
+  }
+}
+
+.mobileLanguageSwitcher {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.mobileLangButton {
+  padding: 12px 20px;
+  background: none;
+  border: 2px solid vars.$border-color;
+  border-radius: 8px;
+  font-size: 16px;
+  color: vars.$text-color;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: vars.$primary-color;
+    color: vars.$primary-color;
+  }
+
+  &.active {
+    border-color: vars.$primary-color;
+    background-color: rgba(vars.$primary-color, 0.1);
+    color: vars.$primary-color;
+    font-weight: 600;
+  }
+
+  &[dir="rtl"] {
+    font-family: vars.$hebrew-font;
+    text-align: right;
+  }
+}
+
+.mobileContact {
+  padding-top: 24px;
+  border-top: 1px solid vars.$border-color;
+}
+
+.mobilePhone {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background-color: rgba(vars.$primary-color, 0.05);
+  border-radius: 12px;
+  text-decoration: none;
+  color: vars.$primary-color;
+  font-weight: 600;
+  font-size: 18px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba(vars.$primary-color, 0.1);
+  }
+}
+
+.mobilePhoneIcon {
+  font-size: 24px;
+}
+
+.menuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 998;
+
+  .open + & {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Специальные стили для RTL (иврит)
+[dir="rtl"] {
+  .mobileMenu {
+    right: auto;
+    left: -100%;
+
+    &.open {
+      right: auto;
+      left: 0;
+    }
+  }
+
+  .navItem::after {
+    left: auto;
+    right: 0;
+  }
+}
+
+// Адаптивные точки
+@media (max-width: vars.$desktop-breakpoint) {
+  .navList {
+    gap: 20px;
+  }
+
+  .rightSection {
+    gap: 16px;
+  }
+}
+
+@media (max-width: vars.$tablet-breakpoint) {
+  .logo img {
+    height: 40px;
+  }
+}
+
+@media (max-width: vars.$mobile-breakpoint) {
+  .mobileMenuContent {
+    padding: 80px 20px 20px;
+  }
+
+  .mobileNavLink {
+    font-size: 16px;
+    padding: 14px 0;
+  }
+}

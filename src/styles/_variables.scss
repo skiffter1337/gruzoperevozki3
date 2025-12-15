@@ -1,0 +1,69 @@
+// styles/_variables.scss
+// Цвета
+$primary-color: #3b82f6;
+$primary-dark: #1d4ed8;
+$primary-light: #93c5fd;
+
+$secondary-color: #10b981;
+$secondary-dark: #059669;
+$secondary-light: #a7f3d0;
+
+$text-color: #1f2937;
+$text-light: #6b7280;
+$text-lighter: #9ca3af;
+
+$background-color: #ffffff;
+$background-light: #f9fafb;
+$background-dark: #111827;
+
+$border-color: #e5e7eb;
+$border-dark: #d1d5db;
+
+// Шрифты
+$base-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$hebrew-font: 'Rubik', 'Arial Hebrew', 'Noto Sans Hebrew', sans-serif;
+$cyrillic-font: 'Roboto', 'Noto Sans', sans-serif;
+
+// Размеры шрифтов
+$font-xs: 12px;
+$font-sm: 14px;
+$font-base: 16px;
+$font-lg: 18px;
+$font-xl: 20px;
+$font-2xl: 24px;
+$font-3xl: 30px;
+$font-4xl: 36px;
+
+// Брейкпоинты
+$mobile-breakpoint: 640px;
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1024px;
+$wide-breakpoint: 1280px;
+
+// Контейнер
+$container-width: 1280px;
+$container-padding: 24px;
+
+// Тени
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+// Border radius
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-full: 9999px;
+
+// Анимации
+$transition-fast: 0.15s ease;
+$transition-base: 0.3s ease;
+$transition-slow: 0.5s ease;
+
+// Z-index
+$z-dropdown: 10;
+$z-sticky: 100;
+$z-modal: 1000;
+$z-popover: 10000;
