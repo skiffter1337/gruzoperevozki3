@@ -1,51 +1,34 @@
-// app/[locale]/page.tsx
-import {getDictionary} from '@/lib/dictionaries';
-import {Metadata} from 'next';
-import {LocalType} from "@/types/types";
-// import JsonLd from '@/components/seo/JsonLd';
-// import {LocalBusinessSchema} from '@/lib/schemas/local-business';
+import { Metadata } from 'next';
+import { Locale } from '../../../i18n-config';
+import { getDictionary } from '@/lib/dictionaries';
+import { buildLanguageAlternates, buildLocalizedPath } from '@/lib/localized-paths';
+import { SITE_URL } from '@/lib/site-config';
 
 type Props = {
-    params: Promise<{
-        locale: string;
-    }>;
+  params: {
+    locale: Locale;
+  };
 };
 
-export async function generateMetadata({params}: Props): Promise<Metadata> {
-    const {locale} = await params;
-    const dictionary = await getDictionary(locale as LocalType);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = params;
+  const dictionary = await getDictionary(locale);
 
-    return {
-        // title: dictionary.home.metaTitle,
-        // description: dictionary.home.metaDescription,
-        alternates: {
-            canonical: `https://ваш-сайт.co.il/${locale}`,
-            languages: {
-                'x-default': 'https://ваш-сайт.co.il',
-                'he': 'https://ваш-сайт.co.il/he',
-                'ru': 'https://ваш-сайт.co.il/ru',
-                'en': 'https://ваш-сайт.co.il/en',
-            },
-        },
-    };
+  return {
+    title: dictionary.metadata.title,
+    description: dictionary.metadata.description,
+    alternates: {
+      canonical: `${SITE_URL}${buildLocalizedPath(locale, 'home')}`,
+      languages: buildLanguageAlternates('home'),
+    },
+  };
 }
 
-export default async function HomePage({params}: Props) {
-    const {locale} = await params;
-    const dictionary = await getDictionary(locale as LocalType);
+export function generateStaticParams() {
+  const locales: Locale[] = ['he', 'ru', 'en'];
+  return locales.map((locale) => ({ locale }));
+}
 
-    const localBusinessData = {
-        // name: dictionary.company.name,
-        // address: dictionary.company.address,
-        // telephone: dictionary.company.phone,
-        // openingHours: dictionary.company.openingHours,
-        priceRange: "$$",
-    };
-
-    return (
-        <>
-            {/*<JsonLd data={LocalBusinessSchema(localBusinessData)}/>*/}
-            <div>123</div>
-        </>
-    );
+export default function HomePage() {
+  return <div className="sr-only">Landing content will be added here.</div>;
 }
