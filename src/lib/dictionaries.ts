@@ -1,8 +1,9 @@
+import { Locale } from '../../i18n-config';
 
 export interface Feature {
-    icon: string
-    title: string
-    description: string
+    icon: string;
+    title: string;
+    description: string;
 }
 export type DictionaryType = {
     metadata: {
@@ -31,20 +32,20 @@ export type DictionaryType = {
         phoneFormatted: string;
         email: string;
         openingHours: string;
-    },
+    };
     servicesPage: {
-        title: string
-        description: string
-        metaTitle: string
-        metaDescription: string
+        title: string;
+        description: string;
+        metaTitle: string;
+        metaDescription: string;
         whyChooseUs: {
-            title: string
-            features: Feature[]
-        }
-        ctaTitle: string
-        ctaDescription: string
-        ctaButton: string
-    }
+            title: string;
+            features: Feature[];
+        };
+        ctaTitle: string;
+        ctaDescription: string;
+        ctaButton: string;
+    };
     urls?: Record<string, string>;
 };
 
@@ -108,8 +109,6 @@ const defaultDictionary: DictionaryType = {
     },
 };
 
-export type Locale = 'he' | 'ru' | 'en';
-
 // Используем Partial<DictionaryType> для загрузки JSON
 const dictionaryLoaders: Record<Locale, () => Promise<Partial<DictionaryType>>> = {
     he: () => import('./dictionaries/he.json').then((module) => module.default),
@@ -164,10 +163,15 @@ export async function getDictionaryValue(
     const dict = await getDictionary(locale);
 
     // Функция безопасного получения вложенного значения
-    const getNestedValue = (obj: any, path: string): string => {
-        return path.split('.').reduce((current, key) => {
-            return current?.[key] ?? '';
+    const getNestedValue = (obj: unknown, nestedPath: string): string => {
+        const value = nestedPath.split('.').reduce<unknown>((current, key) => {
+            if (current && typeof current === 'object' && key in current) {
+                return (current as Record<string, unknown>)[key];
+            }
+            return undefined;
         }, obj);
+
+        return typeof value === 'string' ? value : '';
     };
 
     return getNestedValue(dict, path);
@@ -193,26 +197,4 @@ export async function getAllDictionaries(): Promise<Record<Locale, DictionaryTyp
     });
 
     return dictionaries;
-}
-
-// Функция для получения переведенного URL
-export async function getTranslatedUrl(
-    currentPath: string,
-    targetLocale: Locale
-): Promise<string> {
-    const dict = await getDictionary(targetLocale);
-
-    // Если есть перевод в urls, используем его
-    if (dict.urls) {
-        const pathKey = Object.keys(dict.urls).find(key =>
-            currentPath.includes(key)
-        );
-
-        if (pathKey && dict.urls[pathKey]) {
-            return `/${targetLocale}/${dict.urls[pathKey]}`;
-        }
-    }
-
-    // Fallback: просто добавляем локаль к пути
-    return `/${targetLocale}${currentPath}`;
 }

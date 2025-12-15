@@ -1,5 +1,6 @@
 import { redirect } from 'next/navigation';
+import { DEFAULT_LOCALE } from '@/lib/site-config';
 
 export default function HomePage() {
-  redirect('/he');
+  redirect(`/${DEFAULT_LOCALE}`);
 }

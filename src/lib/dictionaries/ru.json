@@ -56,7 +56,11 @@
     "openingHours": "Пн-Пт 08:00-18:00 | Сб 08:00-13:00"
   },
   "urls": {
+    "home": "",
     "services": "uslugi",
+    "about": "o-kompanii",
+    "contact": "kontakty",
+    "blog": "blog",
     "apartment-moving": "pereezd-kvartiry",
     "office-moving": "ofisnyj-pereezd"
   }
