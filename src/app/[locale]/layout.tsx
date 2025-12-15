@@ -11,13 +11,13 @@ const locales: Locale[] = ['he', 'ru', 'en'];
 
 type Props = {
   children: ReactNode;
-  params: {
+  params: Promise<{
     locale: Locale;
-  };
+  }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = params;
+  const { locale } = await params;
 
   if (!locales.includes(locale)) {
     return {};
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
-  const { locale } = params;
+  const { locale } = await params;
 
   if (!locales.includes(locale)) {
     notFound();

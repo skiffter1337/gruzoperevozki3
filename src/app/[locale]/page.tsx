@@ -5,13 +5,13 @@ import { buildLanguageAlternates, buildLocalizedPath } from '@/lib/localized-pat
 import { SITE_URL } from '@/lib/site-config';
 
 type Props = {
-  params: {
+  params: Promise<{
     locale: Locale;
-  };
+  }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = params;
+  const { locale } = await params;
   const dictionary = await getDictionary(locale);
 
   return {
@@ -22,11 +22,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: buildLanguageAlternates('home'),
     },
   };
-}
-
-export function generateStaticParams() {
-  const locales: Locale[] = ['he', 'ru', 'en'];
-  return locales.map((locale) => ({ locale }));
 }
 
 export default function HomePage() {

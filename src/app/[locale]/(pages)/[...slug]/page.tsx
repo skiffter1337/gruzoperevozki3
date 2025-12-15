@@ -10,7 +10,7 @@ import {
 import { SITE_URL } from '@/lib/site-config';
 
 interface Props {
-  params: { locale: Locale; slug: string[] };
+  params: Promise<{ locale: Locale; slug: string[] }>;
 }
 
 function getRouteFromSlug(locale: Locale, slug?: string[]): RouteKey {
@@ -20,7 +20,7 @@ function getRouteFromSlug(locale: Locale, slug?: string[]): RouteKey {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = params;
+  const { locale, slug } = await params;
   const dictionary = await getDictionary(locale);
   const route = getRouteFromSlug(locale, slug);
 
