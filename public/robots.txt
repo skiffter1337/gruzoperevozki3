@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /api/
+Disallow: /draft/
+Disallow: /preview/
+Allow: /
+Sitemap: https://site.ru/sitemap.xml

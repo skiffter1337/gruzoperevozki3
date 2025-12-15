@@ -1,63 +1,67 @@
 {
   "metadata": {
-    "title": "שירותי הובלה מקצועיים",
-    "description": "חברת הובלה מקצועית בישראל. הובלות דירות, משרדים והובלות קטנות.",
-    "keywords": "הובלות, מעבר דירה, הובלה בישראל"
+    "title": "Professional moving services",
+    "description": "Moving company in Israel. Apartment moves, office moves and small deliveries.",
+    "keywords": "moving, relocation, transport"
   },
   "header": {
     "nav": {
-      "home": "בית",
-      "services": "שירותים",
-      "about": "אודות",
-      "contact": "צור קשר",
-      "blog": "בלוג"
+      "home": "Home",
+      "services": "Services",
+      "about": "About",
+      "contact": "Contact",
+      "blog": "Blog"
     },
     "languageSwitcher": {
-      "he": "עברית",
-      "ru": "רוסית",
-      "en": "אנגלית"
+      "he": "Hebrew",
+      "ru": "Russian",
+      "en": "English"
     }
   },
   "servicesPage": {
-    "title": "Наши услуги",
-    "description": "Мы предлагаем широкий спектр профессиональных услуг по переезду по всему Израилю. Каждая услуга выполняется опытной командой с современным оборудованием.",
-    "metaTitle": "Услуги по переезду | Ведущая транспортная компания в Израиле",
-    "metaDescription": "Профессиональные услуги по переезду для любых нужд: переезд квартиры, офиса, небольшие перевозки и др. Справедливые цены и вежливое обслуживание.",
+    "title": "Our services",
+    "description": "We provide a full range of professional moving services across Israel. Every job is handled by an experienced team with modern equipment.",
+    "metaTitle": "Moving services | Leading moving company in Israel",
+    "metaDescription": "Professional moving services for any need: apartments, offices, and small deliveries. Fair prices and attentive service.",
     "whyChooseUs": {
-      "title": "Почему выбирают нас?",
+      "title": "Why choose us?",
       "features": [
         {
           "icon": "🚚",
-          "title": "Современное оборудование",
-          "description": "Мы используем самое современное оборудование для безопасных и профессиональных перевозок"
+          "title": "Modern equipment",
+          "description": "We use the latest equipment for safe, professional moves"
         },
         {
           "icon": "⏰",
-          "title": "Доступность 24/7",
-          "description": "Доступны для вас в любое время, каждый день, включая выходные и праздники"
+          "title": "Availability 24/7",
+          "description": "We are available for you any time, every day"
         },
         {
           "icon": "💰",
-          "title": "Справедливые цены",
-          "description": "Прозрачные цены без сюрпризов. Полная гарантия на имущество"
+          "title": "Fair pricing",
+          "description": "Transparent pricing with full property protection"
         }
       ]
     },
-    "ctaTitle": "Готовы начать?",
-    "ctaDescription": "Свяжитесь с нами сегодня для получения бесплатной консультации без обязательств. Будем рады помочь вам с любыми нуждами в переезде!",
-    "ctaButton": "Получить предложение"
+    "ctaTitle": "Ready to start?",
+    "ctaDescription": "Contact us today for a free quote with no obligation. We are happy to help with any move!",
+    "ctaButton": "Get a quote"
   },
   "company": {
-    "name": "Ваша транспортная компания",
-    "address": "ул. Примерная 123, Тель-Авив, Израиль",
+    "name": "Your moving company",
+    "address": "123 Example Street, Tel Aviv, Israel",
     "phone": "+972501234567",
     "phoneFormatted": "050-123-4567",
     "email": "info@example.co.il",
-    "openingHours": "Пн-Пт 08:00-18:00 | Сб 08:00-13:00"
+    "openingHours": "Sun-Thu 08:00-18:00 | Fri 08:00-13:00"
   },
   "urls": {
-    "services": "שירותים",
-    "apartment-moving": "הובלת-דירה",
-    "office-moving": "הובלת-משרד"
+    "home": "",
+    "services": "services",
+    "about": "about",
+    "contact": "contact",
+    "blog": "blog",
+    "apartment-moving": "apartment-moving",
+    "office-moving": "office-moving"
   }
 }
