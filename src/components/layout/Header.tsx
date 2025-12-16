@@ -28,16 +28,23 @@ interface HeaderProps {
       ru: string;
       en: string;
     };
+    company?: {
+      phone?: string;
+      phoneFormatted?: string;
+      email?: string;
+    };
   };
 }
 
-const navOrder: RouteKey[] = ['home', 'transportation',  'services', 'calculate', 'about', 'contact'];
+const navOrder: RouteKey[] = ['home', 'transportation', 'services', 'calculate', 'about', 'contact'];
 
 export default function Header({ locale, dictionary }: HeaderProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activePopup, setActivePopup] = useState<RouteKey | null>(null);
+  const [activeAccordion, setActiveAccordion] = useState<RouteKey | null>(null);
 
   const locales: Locale[] = ['ru', 'en', 'he'];
   const localeLabels: Record<Locale, string> = {
@@ -81,6 +88,69 @@ export default function Header({ locale, dictionary }: HeaderProps) {
     contact: dictionary.nav.contact,
   };
 
+  const sanitizePhone = (phone?: string) => phone?.replace(/\D/g, '');
+
+  const popupLinks: Partial<Record<RouteKey, { label: string; href: string }[]>> = {
+    transportation: [
+      {
+        label: 'Квартиры',
+        href: `${buildLocalizedPath(locale, 'transportation')}#kvartiry`,
+      },
+      {
+        label: 'Офисные',
+        href: `${buildLocalizedPath(locale, 'transportation')}#ofisnye`,
+      },
+      {
+        label: 'Частный дом',
+        href: `${buildLocalizedPath(locale, 'transportation')}#chastnyj-dom`,
+      },
+      {
+        label: 'Маленький',
+        href: `${buildLocalizedPath(locale, 'transportation')}#malyj`,
+      },
+    ],
+    services: [
+      {
+        label: 'Упаковка',
+        href: `${buildLocalizedPath(locale, 'services')}#upakovka`,
+      },
+      {
+        label: 'Хранение',
+        href: `${buildLocalizedPath(locale, 'services')}#hranenie`,
+      },
+      {
+        label: 'Поздние перевозки',
+        href: `${buildLocalizedPath(locale, 'services')}#pozdnie-perevozki`,
+      },
+    ],
+    contact: [
+      {
+        label: dictionary.company?.phoneFormatted ?? 'Телефон',
+        href: dictionary.company?.phone ? `tel:${dictionary.company.phone}` : '#',
+      },
+      {
+        label: dictionary.company?.email ?? 'Email',
+        href: dictionary.company?.email ? `mailto:${dictionary.company.email}` : '#',
+      },
+      {
+        label: 'WhatsApp',
+        href: sanitizePhone(dictionary.company?.phone)
+          ? `https://wa.me/${sanitizePhone(dictionary.company?.phone)}`
+          : '#',
+      },
+      {
+        label: 'Facebook',
+        href: '#',
+      },
+    ],
+  };
+
+  const hasPopup = (route: RouteKey) => Boolean(popupLinks[route]);
+
+  const toggleAccordion = (route: RouteKey) => {
+    setActiveAccordion((prev) => (prev === route ? null : route));
+  };
+
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
@@ -90,11 +160,35 @@ export default function Header({ locale, dictionary }: HeaderProps) {
               <li
                 key={route}
                 className={`${styles.navItem} ${isActive(route) ? styles.active : ''}`}
+                onMouseEnter={() => hasPopup(route) && setActivePopup(route)}
+                onMouseLeave={() => setActivePopup((current) => (current === route ? null : current))}
               >
-                <span>↓</span>
-                <Link href={buildLocalizedPath(locale, route)} className={styles.navLink}>
+                <Link
+                  href={buildLocalizedPath(locale, route)}
+                  className={`${styles.navLink} ${hasPopup(route) ? styles.navLinkWithPopup : ''}`}
+                  onClick={(event) => {
+                    if (hasPopup(route)) {
+                      event.preventDefault();
+                      setActivePopup((current) => (current === route ? null : route));
+                    }
+                  }}
+                >
                   {navLabels[route]}
                 </Link>
+
+                {hasPopup(route) && activePopup === route && (
+                  <div className={styles.popupMenu}>
+                    <ul>
+                      {popupLinks[route]?.map((link) => (
+                        <li key={link.href}>
+                          <Link href={link.href} className={styles.popupLink}>
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
@@ -129,13 +223,45 @@ export default function Header({ locale, dictionary }: HeaderProps) {
             <ul className={styles.mobileNavList}>
               {navOrder.map((route) => (
                 <li key={route} className={styles.mobileNavItem}>
-                  <Link
-                    href={buildLocalizedPath(locale, route)}
-                    className={styles.mobileNavLink}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {navLabels[route]}
-                  </Link>
+                  {hasPopup(route) ? (
+                    <>
+                      <button
+                        className={`${styles.mobileNavLink} ${styles.mobileAccordionTrigger} ${
+                          activeAccordion === route ? styles.expanded : ''
+                        }`}
+                        onClick={() => toggleAccordion(route)}
+                        type="button"
+                        aria-expanded={activeAccordion === route}
+                      >
+                        {navLabels[route]}
+                        <span className={styles.accordionIcon}>{activeAccordion === route ? '−' : '+'}</span>
+                      </button>
+                      <div
+                        className={`${styles.mobileSubmenu} ${
+                          activeAccordion === route ? styles.openSubmenu : ''
+                        }`}
+                      >
+                        {popupLinks[route]?.map((link) => (
+                          <Link
+                            key={link.href}
+                            href={link.href}
+                            className={styles.mobileSubmenuLink}
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </>
+                  ) : (
+                    <Link
+                      href={buildLocalizedPath(locale, route)}
+                      className={styles.mobileNavLink}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {navLabels[route]}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

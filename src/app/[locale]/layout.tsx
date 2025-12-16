@@ -61,6 +61,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         dictionary={{
           nav: dictionary.header.nav,
           languageSwitcher: dictionary.header.languageSwitcher,
+          company: dictionary.company,
         }}
       />
       <main className="min-h-screen">{children}</main>
