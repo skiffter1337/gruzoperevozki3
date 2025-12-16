@@ -92,12 +92,75 @@
   color: vars.$primary-color;
   font-family: "Monserrat", sans-serif;
   font-weight: 500;
+
+  &:hover .navLinkWithPopup,
+  &:focus-within .navLinkWithPopup {
+    color: vars.$primary-color;
+  }
 }
 
 .navLink {
   // Стили для иврита
   [dir="rtl"] & {
     font-family: vars.$hebrew-font;
+  }
+}
+
+.navLinkWithPopup {
+  position: relative;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+
+  &:after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-left: 8px;
+    border-bottom: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: rotate(45deg);
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgba(vars.$primary-color, 0.08);
+  }
+}
+
+.popupMenu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 200px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  padding: 16px 0;
+  z-index: 1002;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.popupLink {
+  display: block;
+  padding: 8px 16px;
+  color: vars.$text-color;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgba(vars.$primary-color, 0.1);
+    color: vars.$primary-color;
   }
 }
 
@@ -242,6 +305,44 @@
   font-weight: 500;
   transition: color 0.2s ease;
 
+}
+
+.mobileAccordionTrigger {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.accordionIcon {
+  font-size: 22px;
+}
+
+.mobileSubmenu {
+  display: none;
+  flex-direction: column;
+  margin-top: 8px;
+  background-color: vars.$primary-color;
+  border-radius: 12px;
+  padding: 12px;
+  gap: 8px;
+}
+
+.openSubmenu {
+  display: flex;
+}
+
+.mobileSubmenuLink {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.08);
 }
 
 .mobileLanguageSwitcher {
