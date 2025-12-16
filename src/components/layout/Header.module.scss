@@ -108,20 +108,9 @@
 
 .navLinkWithPopup {
   position: relative;
-  padding: 10px 12px;
   border-radius: 8px;
   transition: background-color 0.2s ease;
 
-  &:after {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    margin-left: 8px;
-    border-bottom: 1px solid currentColor;
-    border-right: 1px solid currentColor;
-    transform: rotate(45deg);
-  }
 
   &:hover,
   &:focus-visible {
@@ -129,9 +118,13 @@
   }
 }
 
+.mobileNav {
+  width: 100%;
+}
+
 .popupMenu {
   position: absolute;
-  top: calc(100% + 10px);
+  top: 100%;
   left: 0;
   min-width: 200px;
   background: #fff;
@@ -274,7 +267,7 @@
 .mobileMenuContent {
   position: relative;
   width: 100%;
-  padding: 100px 32px 32px;
+  padding: 100px 0px 0px;
   overflow-y: auto;
   z-index: 1;
   display: flex;
@@ -304,7 +297,7 @@
   font-size: 30px;
   font-weight: 500;
   transition: color 0.2s ease;
-
+  padding: 0 32px;
 }
 
 .mobileAccordionTrigger {
@@ -327,7 +320,6 @@
   flex-direction: column;
   margin-top: 8px;
   background-color: vars.$primary-color;
-  border-radius: 12px;
   padding: 12px;
   gap: 8px;
 }
@@ -339,10 +331,12 @@
 .mobileSubmenuLink {
   color: #fff;
   text-decoration: none;
-  font-size: 16px;
-  padding: 10px 12px;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.08);
+  font-size: 20px;
+  padding: 0 32px;
+
+  &:hover {
+    font-weight: 700;
+  }
 }
 
 .mobileLanguageSwitcher {
@@ -382,28 +376,6 @@
 .mobileContact {
   padding-top: 24px;
   border-top: 1px solid vars.$border-color;
-}
-
-.mobilePhone {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px;
-  background-color: rgba(vars.$primary-color, 0.05);
-  border-radius: 12px;
-  text-decoration: none;
-  color: vars.$primary-color;
-  font-weight: 600;
-  font-size: 18px;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: rgba(vars.$primary-color, 0.1);
-  }
-}
-
-.mobilePhoneIcon {
-  font-size: 24px;
 }
 
 .menuOverlay {
