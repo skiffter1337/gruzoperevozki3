@@ -5,6 +5,25 @@
     "keywords": "moving, relocation, transport"
   },
   "header": {
+    "popups": {
+      "transportation": [
+        {"label": "Apartments", "path": "apartments"},
+        {"label": "Offices", "path": "offices"},
+        {"label": "Private house", "path": "private-house"},
+        {"label": "Small move", "path": "small-move"}
+      ],
+      "services": [
+        {"label": "Packing", "path": "packing"},
+        {"label": "Storage", "path": "storage"},
+        {"label": "Late moves", "path": "late-moves"}
+      ],
+      "contact": [
+        {"label": "Call us", "href": "tel:{phone}"},
+        {"label": "Email", "href": "mailto:{email}"},
+        {"label": "WhatsApp", "href": "https://wa.me/{phoneDigits}"},
+        {"label": "Facebook", "href": "#"}
+      ]
+    },
     "nav": {
       "home": "Home",
       "transportation": "Transportation",

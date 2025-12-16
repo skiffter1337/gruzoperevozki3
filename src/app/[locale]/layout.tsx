@@ -59,6 +59,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <Header
         locale={locale}
         dictionary={{
+          popups: dictionary.header.popups,
           nav: dictionary.header.nav,
           languageSwitcher: dictionary.header.languageSwitcher,
           company: dictionary.company,

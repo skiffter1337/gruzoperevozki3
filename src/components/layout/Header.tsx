@@ -14,6 +14,7 @@ import styles from './Header.module.scss';
 interface HeaderProps {
     locale: Locale;
     dictionary: {
+        popups?: Partial<Record<RouteKey, { label: string; path?: string; href?: string }[]>>;
         nav: {
             home: string;
             transportation: string;
@@ -90,60 +91,48 @@ export default function Header({locale, dictionary}: HeaderProps) {
 
     const sanitizePhone = (phone?: string) => phone?.replace(/\D/g, '');
 
-    const popupLinks: Partial<Record<RouteKey, { label: string; href: string }[]>> = {
-        transportation: [
-            {
-                label: 'Квартиры',
-                href: `${buildLocalizedPath(locale, 'transportation')}#kvartiry`,
-            },
-            {
-                label: 'Офисные',
-                href: `${buildLocalizedPath(locale, 'transportation')}#ofisnye`,
-            },
-            {
-                label: 'Частный дом',
-                href: `${buildLocalizedPath(locale, 'transportation')}#chastnyj-dom`,
-            },
-            {
-                label: 'Маленький',
-                href: `${buildLocalizedPath(locale, 'transportation')}#malyj`,
-            },
-        ],
-        services: [
-            {
-                label: 'Упаковка',
-                href: `${buildLocalizedPath(locale, 'services')}#upakovka`,
-            },
-            {
-                label: 'Хранение',
-                href: `${buildLocalizedPath(locale, 'services')}#hranenie`,
-            },
-            {
-                label: 'Поздние перевозки',
-                href: `${buildLocalizedPath(locale, 'services')}#pozdnie-perevozki`,
-            },
-        ],
-        contact: [
-            {
-                label: dictionary.company?.phoneFormatted ?? 'Телефон',
-                href: dictionary.company?.phone ? `tel:${dictionary.company.phone}` : '#',
-            },
-            {
-                label: dictionary.company?.email ?? 'Email',
-                href: dictionary.company?.email ? `mailto:${dictionary.company.email}` : '#',
-            },
-            {
-                label: 'WhatsApp',
-                href: sanitizePhone(dictionary.company?.phone)
-                    ? `https://wa.me/${sanitizePhone(dictionary.company?.phone)}`
-                    : '#',
-            },
-            {
-                label: 'Facebook',
-                href: '#',
-            },
-        ],
+    const replacePlaceholders = (value: string) => {
+        const replacements: Record<string, string> = {
+            '{phone}': dictionary.company?.phone ?? '',
+            '{phoneDigits}': sanitizePhone(dictionary.company?.phone) ?? '',
+            '{email}': dictionary.company?.email ?? '',
+        };
+
+        let hasMissingValue = false;
+
+        const replaced = Object.entries(replacements).reduce((current, [key, replacement]) => {
+            if (current.includes(key) && !replacement) {
+                hasMissingValue = true;
+            }
+
+            return current.replaceAll(key, replacement);
+        }, value);
+
+        return hasMissingValue ? '' : replaced;
     };
+
+    const popupLinks: Partial<Record<RouteKey, { label: string; href: string }[]>> = Object.fromEntries(
+        Object.entries(dictionary.popups ?? {}).map(([routeKey, links]) => {
+            const route = routeKey as RouteKey;
+
+            const formattedLinks = (links ?? []).map((link) => {
+                const href = link.path
+                    ? `${buildLocalizedPath(locale, route)}/${link.path.replace(/^\//, '')}`
+                    : link.href
+                        ? replacePlaceholders(link.href)
+                        : '#';
+
+                const hasPlaceholders = href.includes('{');
+
+                return {
+                    label: link.label,
+                    href: !hasPlaceholders && href ? href : '#',
+                };
+            });
+
+            return [route, formattedLinks];
+        })
+    );
 
     const hasPopup = (route: RouteKey) => Boolean(popupLinks[route]);
 
