@@ -155,7 +155,7 @@
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
+  width: 35px;
   height: 21px;
   background: none;
   border: none;
@@ -166,18 +166,13 @@
   @media (max-width: vars.$desktop-breakpoint) {
     display: flex;
   }
-
-  &:focus {
-    outline: 2px solid vars.$primary-color;
-    outline-offset: 2px;
-  }
 }
 
 .burgerLine {
   display: block;
   width: 100%;
   height: 3px;
-  background-color: vars.$text-color;
+  background-color: vars.$primary-color;
   border-radius: 2px;
   transition: all 0.3s ease;
 
@@ -197,6 +192,7 @@
 // Мобильное меню
 // Полноэкранное мобильное меню
 .mobileMenu {
+  height: 100vh;
   position: fixed;
   inset: 0;
   background-color: white;
@@ -209,6 +205,7 @@
   &.open {
     transform: translateY(0);
   }
+
 }
 
 .mobileMenuContent {
@@ -219,7 +216,7 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 32px;
 }
 
@@ -229,8 +226,8 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .mobileNavItem {
@@ -239,17 +236,12 @@
 
 .mobileNavLink {
   display: block;
-  padding: 16px 0;
-  color: vars.$text-color;
+  color: vars.$primary-color;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 30px;
   font-weight: 500;
-  text-align: center;
   transition: color 0.2s ease;
 
-  &:hover {
-    color: vars.$primary-color;
-  }
 }
 
 .mobileLanguageSwitcher {
@@ -355,6 +347,5 @@
 
   .mobileNavLink {
     font-size: 16px;
-    padding: 14px 0;
   }
 }
