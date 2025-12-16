@@ -1,5 +1,4 @@
 'use client';
-'use client';
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -40,15 +39,29 @@ export default function Header({ locale, dictionary }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  const locales: Locale[] = ['ru', 'en', 'he'];
+  const localeLabels: Record<Locale, string> = {
+    ru: 'RU',
+    en: 'EN',
+    he: 'HE',
+  };
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleLanguageChange = async (newLocale: Locale) => {
-    if (newLocale === locale) return;
-    const translatedPath = getTranslatedUrl(pathname, newLocale);
+  const getNextLocale = () => {
+    const currentIndex = locales.indexOf(locale);
+    const nextIndex = (currentIndex + 1) % locales.length;
+    return locales[nextIndex];
+  };
+
+  const handleLanguageChange = async (newLocale?: Locale) => {
+    const targetLocale = newLocale ?? getNextLocale();
+    if (targetLocale === locale) return;
+    const translatedPath = getTranslatedUrl(pathname, targetLocale);
     router.push(translatedPath);
   };
 
@@ -86,16 +99,13 @@ export default function Header({ locale, dictionary }: HeaderProps) {
             ))}
           </ul>
           <div className={styles.languageSwitcher}>
-            {(['he', 'ru', 'en'] as Locale[]).map((lng) => (
-                <button
-                    key={lng}
-                    className={`${styles.langButton} ${locale === lng ? styles.active : ''}`}
-                    onClick={() => handleLanguageChange(lng)}
-                    aria-pressed={locale === lng}
-                >
-                  {dictionary.languageSwitcher[lng]}
-                </button>
-            ))}
+            <button
+              className={`${styles.langButton} ${styles.active}`}
+              onClick={() => handleLanguageChange()}
+              aria-pressed
+            >
+              {localeLabels[locale]}
+            </button>
           </div>
         </nav>
 
@@ -132,18 +142,15 @@ export default function Header({ locale, dictionary }: HeaderProps) {
           </nav>
 
           <div className={styles.mobileLanguageSwitcher}>
-            {(['he', 'ru', 'en'] as Locale[]).map((lng) => (
-              <button
-                key={lng}
-                className={`${styles.mobileLangButton} ${locale === lng ? styles.active : ''}`}
-                onClick={() => {
-                  handleLanguageChange(lng);
-                  setIsMenuOpen(false);
-                }}
-              >
-                {dictionary.languageSwitcher[lng]}
-              </button>
-            ))}
+            <button
+              className={`${styles.mobileLangButton} ${styles.active}`}
+              onClick={() => {
+                handleLanguageChange();
+                setIsMenuOpen(false);
+              }}
+            >
+              {localeLabels[locale]}
+            </button>
           </div>
         </div>
 
