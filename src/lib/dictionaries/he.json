@@ -7,15 +7,15 @@
   "header": {
     "popups": {
       "transportation": [
-        {"label": "דירות", "path": "diyrot"},
-        {"label": "משרדים", "path": "mishradim"},
-        {"label": "בית פרטי", "path": "bayit-prati"},
-        {"label": "הובלה קטנה", "path": "hovala-ktana"}
+        {"label": "דירות", "path": "דירות"},
+        {"label": "משרדים", "path": "משרדים"},
+        {"label": "בית פרטי", "path": "בית-פרטי"},
+        {"label": "הובלה קטנה", "path": "הובלה-קטנה"}
       ],
       "services": [
-        {"label": "אריזה", "path": "ariza"},
-        {"label": "אחסון", "path": "akhson"},
-        {"label": "הובלות מאוחרות", "path": "hovalot-meukharot"}
+        {"label": "אריזה", "path": "אריזה"},
+        {"label": "אחסון", "path": "אחסון"},
+        {"label": "הובלות מאוחרות", "path": "הובלות-מאוחרות"}
       ],
       "contact": [
         {"label": "התקשרו אלינו", "href": "tel:{phone}"},

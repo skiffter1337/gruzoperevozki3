@@ -298,6 +298,10 @@
   font-weight: 500;
   transition: color 0.2s ease;
   padding: 0 32px;
+
+  @media (max-width: vars.$mobile-breakpoint) {
+    padding: 0 16px;
+  }
 }
 
 .mobileAccordionTrigger {
@@ -311,9 +315,7 @@
   gap: 12px;
 }
 
-.accordionIcon {
-  font-size: 22px;
-}
+
 
 .mobileSubmenu {
   display: none;
@@ -337,6 +339,7 @@
   &:hover {
     font-weight: 700;
   }
+
 }
 
 .mobileLanguageSwitcher {
@@ -415,7 +418,7 @@
 
 @media (max-width: vars.$mobile-breakpoint) {
   .mobileMenuContent {
-    padding: 80px 20px 20px;
+    padding: 80px 0 0;
   }
 
   .mobileNavLink {

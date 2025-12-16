@@ -227,8 +227,9 @@ export default function Header({locale, dictionary}: HeaderProps) {
                                                 aria-expanded={activeAccordion === route}
                                             >
                                                 {navLabels[route]}
-                                                <span
-                                                    className={styles.accordionIcon}>{activeAccordion === route ? '−' : '+'}</span>
+                                                <span>
+                                                    {/*<ChevronRightIcon />*/}
+                                                </span>
                                             </button>
                                             <div
                                                 className={`${styles.mobileSubmenu} ${
