@@ -5,6 +5,25 @@
     "keywords": "הובלות, מעבר דירה, הובלה בישראל"
   },
   "header": {
+    "popups": {
+      "transportation": [
+        {"label": "דירות", "path": "diyrot"},
+        {"label": "משרדים", "path": "mishradim"},
+        {"label": "בית פרטי", "path": "bayit-prati"},
+        {"label": "הובלה קטנה", "path": "hovala-ktana"}
+      ],
+      "services": [
+        {"label": "אריזה", "path": "ariza"},
+        {"label": "אחסון", "path": "akhson"},
+        {"label": "הובלות מאוחרות", "path": "hovalot-meukharot"}
+      ],
+      "contact": [
+        {"label": "התקשרו אלינו", "href": "tel:{phone}"},
+        {"label": "שלחו אימייל", "href": "mailto:{email}"},
+        {"label": "וואטסאפ", "href": "https://wa.me/{phoneDigits}"},
+        {"label": "פייסבוק", "href": "#"}
+      ]
+    },
     "nav": {
       "home": "בית",
       "transportation": "הוֹבָלָה",

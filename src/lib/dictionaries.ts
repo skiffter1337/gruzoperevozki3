@@ -1,4 +1,5 @@
 import { Locale } from '../../i18n-config';
+import { RouteKey } from './localized-paths';
 
 export interface Feature {
     icon: string;
@@ -12,6 +13,7 @@ export type DictionaryType = {
         keywords: string;
     };
     header: {
+        popups?: Partial<Record<RouteKey, PopupLink[]>>;
         nav: {
             home: string;
             transportation: string;
@@ -49,6 +51,12 @@ export type DictionaryType = {
         ctaButton: string;
     };
     urls?: Record<string, string>;
+};
+
+type PopupLink = {
+    label: string;
+    path?: string;
+    href?: string;
 };
 
 // Дефолтные значения для обязательных полей
@@ -96,6 +104,25 @@ const defaultDictionary: DictionaryType = {
         openingHours: "Пн-Пт 08:00-18:00 | Сб 08:00-13:00"
     },
     header: {
+        popups: {
+            transportation: [
+                { label: "Apartments", path: "kvartiry" },
+                { label: "Offices", path: "ofisnye" },
+                { label: "Private house", path: "chastnyj-dom" },
+                { label: "Small move", path: "malyj" },
+            ],
+            services: [
+                { label: "Packing", path: "upakovka" },
+                { label: "Storage", path: "hranenie" },
+                { label: "Late moves", path: "pozdnie-perevozki" },
+            ],
+            contact: [
+                { label: "Call us", href: "tel:{phone}" },
+                { label: "Email", href: "mailto:{email}" },
+                { label: "WhatsApp", href: "https://wa.me/{phoneDigits}" },
+                { label: "Facebook", href: "#" },
+            ],
+        },
         nav: {
             "home": "Home",
             "transportation": "Transportation",
@@ -136,6 +163,10 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             header: {
                 ...defaultDictionary.header,
                 ...loadedDict.header,
+                popups: {
+                    ...defaultDictionary.header.popups,
+                    ...loadedDict.header?.popups,
+                },
                 nav: {
                     ...defaultDictionary.header.nav,
                     ...loadedDict.header?.nav,

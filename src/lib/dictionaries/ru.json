@@ -5,6 +5,25 @@
     "keywords": "переезды, перевозка, транспортные услуги"
   },
   "header": {
+    "popups": {
+      "transportation": [
+        {"label": "Квартиры", "path": "квартиры"},
+        {"label": "Офисные", "path": "офисные"},
+        {"label": "Частный дом", "path": "частный-дом"},
+        {"label": "Маленький переезд", "path": "маленький-переезд"}
+      ],
+      "services": [
+        {"label": "Упаковка", "path": "упаковка"},
+        {"label": "Хранение", "path": "хранение"},
+        {"label": "Поздние перевозки", "path": "поздние-перевозки"}
+      ],
+      "contact": [
+        {"label": "Позвонить нам", "href": "tel:{phone}"},
+        {"label": "Написать на email", "href": "mailto:{email}"},
+        {"label": "WhatsApp", "href": "https://wa.me/{phoneDigits}"},
+        {"label": "Facebook", "href": "#"}
+      ]
+    },
     "nav": {
       "home": "Главная",
       "transportation": "Перевозки",
