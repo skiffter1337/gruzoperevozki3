@@ -328,7 +328,7 @@
   transition: all 0.3s ease;
   z-index: 998;
 
-  .open + & {
+  .mobileMenu.open & {
     opacity: 1;
     visibility: visible;
   }
