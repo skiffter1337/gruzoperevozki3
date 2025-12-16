@@ -66,14 +66,14 @@
   flex: 1;
   justify-content: center;
 
-  @media (max-width: vars.$tablet-breakpoint) {
+  @media (max-width: vars.$desktop-breakpoint) {
     display: none;
   }
 }
 
 .navList {
   display: flex;
-  gap: 32px;
+  gap: 8px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -85,36 +85,16 @@
 
 .navItem {
   position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: vars.$primary-color;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-  }
-
-  &:hover::after,
-  &.active::after {
-    transform: scaleX(1);
-  }
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: vars.$primary-color;
+  font-family: "Monserrat", sans-serif;
+  font-weight: 500;
 }
 
 .navLink {
-  color: vars.$text-color;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: vars.$primary-color;
-  }
-
   // Стили для иврита
   [dir="rtl"] & {
     font-family: vars.$hebrew-font;
@@ -170,64 +150,6 @@
   user-select: none;
 }
 
-.ctaButtons {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-
-  @media (max-width: vars.$mobile-breakpoint) {
-    display: none;
-  }
-}
-
-.phoneButton {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background-color: rgba(vars.$primary-color, 0.1);
-  border-radius: 50px;
-  text-decoration: none;
-  color: vars.$primary-color;
-  font-weight: 600;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: rgba(vars.$primary-color, 0.2);
-    transform: translateY(-1px);
-  }
-}
-
-.phoneIcon {
-  font-size: 18px;
-}
-
-.phoneText {
-  font-size: 15px;
-  white-space: nowrap;
-}
-
-.quoteButton {
-  padding: 12px 24px;
-  background-color: vars.$primary-color;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-
-  &:hover {
-    background-color: darken(vars.$primary-color, 10%);
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(vars.$primary-color, 0.3);
-  }
-
-  &:active {
-    transform: translateY(0);
-  }
-}
 
 .menuToggle {
   display: none;
@@ -241,7 +163,7 @@
   padding: 0;
   z-index: 1001;
 
-  @media (max-width: vars.$tablet-breakpoint) {
+  @media (max-width: vars.$desktop-breakpoint) {
     display: flex;
   }
 

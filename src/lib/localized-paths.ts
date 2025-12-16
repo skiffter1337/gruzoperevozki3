@@ -1,31 +1,37 @@
 import { Locale } from "../../i18n-config";
 import { DEFAULT_LOCALE, SITE_URL, SUPPORTED_LOCALES } from "./site-config";
 
-export type RouteKey = "home" | "services" | "about" | "contact" | "blog";
+export type RouteKey = "home" | "transportation" | "services" | "calculate" | "articles" | "about" | "contact";
 
 type LocalizedSegments = Record<Locale, Record<RouteKey, string>>;
 
 const localizedSegments: LocalizedSegments = {
   he: {
     home: "",
+    transportation: "הובלות",
     services: "שירותים",
+    calculate: "חישוב-עלות",
+    articles: "מאמרים",
     about: "אודות",
     contact: "צור-קשר",
-    blog: "בלוג",
   },
   ru: {
     home: "",
-    services: "uslugi",
-    about: "o-kompanii",
-    contact: "kontakty",
-    blog: "blog",
+    transportation: "перевозки",
+    services: "дополнительные-услуги",
+    calculate: "рассчитать-стоимость",
+    articles: "статьи",
+    about: "о-нас",
+    contact: "контакты",
   },
   en: {
     home: "",
+    transportation: "transportation",
     services: "services",
+    calculate: "calculate-cost",
+    articles: "articles",
     about: "about",
     contact: "contact",
-    blog: "blog",
   },
 };
 

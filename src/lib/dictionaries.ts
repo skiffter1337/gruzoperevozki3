@@ -14,10 +14,12 @@ export type DictionaryType = {
     header: {
         nav: {
             home: string;
+            transportation: string;
             services: string;
+            calculate: string;
+            articles: string;
             about: string;
             contact: string;
-            blog: string;
         };
         languageSwitcher: {
             he: string;
@@ -95,11 +97,13 @@ const defaultDictionary: DictionaryType = {
     },
     header: {
         nav: {
-            home: 'Home',
-            services: 'Services',
-            about: 'About',
-            contact: 'Contact',
-            blog: 'Blog',
+            "home": "Home",
+            "transportation": "Transportation",
+            "services": "Additional services",
+            "calculate": "Calculate cost",
+            "articles": "Articles",
+            "about": "About",
+            "contact": "Contact"
         },
         languageSwitcher: {
             he: 'Hebrew',

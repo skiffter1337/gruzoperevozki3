@@ -7,10 +7,12 @@
   "header": {
     "nav": {
       "home": "Home",
-      "services": "Services",
+      "transportation": "Transportation",
+      "services": "Additional services",
+      "calculate": "Calculate cost",
+      "articles": "Articles",
       "about": "About",
-      "contact": "Contact",
-      "blog": "Blog"
+      "contact": "Contact"
     },
     "languageSwitcher": {
       "he": "Hebrew",
@@ -57,11 +59,11 @@
   },
   "urls": {
     "home": "",
+    "transportation": "transportation",
     "services": "services",
+    "calculate": "calculate-cost",
+    "articles": "articles",
     "about": "about",
-    "contact": "contact",
-    "blog": "blog",
-    "apartment-moving": "apartment-moving",
-    "office-moving": "office-moving"
+    "contact": "contact"
   }
 }

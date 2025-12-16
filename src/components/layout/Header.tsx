@@ -2,7 +2,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Locale } from '../../../i18n-config';
@@ -18,30 +17,24 @@ interface HeaderProps {
   dictionary: {
     nav: {
       home: string;
+      transportation: string;
       services: string;
+      calculate: string;
+      articles: string;
       about: string;
       contact: string;
-      blog: string;
     };
     languageSwitcher: {
       he: string;
       ru: string;
       en: string;
     };
-    buttons: {
-      getQuote: string;
-      callNow: string;
-    };
-  };
-  companyInfo?: {
-    phone: string;
-    phoneFormatted?: string;
   };
 }
 
-const navOrder: RouteKey[] = ['home', 'services', 'about', 'contact', 'blog'];
+const navOrder: RouteKey[] = ['home', 'transportation',  'services', 'calculate', 'about', 'contact'];
 
-export default function Header({ locale, dictionary, companyInfo }: HeaderProps) {
+export default function Header({ locale, dictionary }: HeaderProps) {
   const pathname = usePathname();
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -67,27 +60,17 @@ export default function Header({ locale, dictionary, companyInfo }: HeaderProps)
 
   const navLabels: Record<RouteKey, string> = {
     home: dictionary.nav.home,
+    transportation: dictionary.nav.transportation,
     services: dictionary.nav.services,
+    calculate: dictionary.nav.calculate,
+    articles: dictionary.nav.articles,
     about: dictionary.nav.about,
     contact: dictionary.nav.contact,
-    blog: dictionary.nav.blog,
   };
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
-        <div className={styles.logo}>
-          <Link href={`/${locale}`} aria-label="Home">
-            <Image
-              src="/logo.svg"
-              alt="Company Logo"
-              width={180}
-              height={60}
-              priority
-            />
-          </Link>
-        </div>
-
         <nav className={styles.nav}>
           <ul className={styles.navList}>
             {navOrder.map((route) => (
@@ -95,37 +78,28 @@ export default function Header({ locale, dictionary, companyInfo }: HeaderProps)
                 key={route}
                 className={`${styles.navItem} ${isActive(route) ? styles.active : ''}`}
               >
+                <span>↓</span>
                 <Link href={buildLocalizedPath(locale, route)} className={styles.navLink}>
                   {navLabels[route]}
                 </Link>
               </li>
             ))}
           </ul>
+          <div className={styles.languageSwitcher}>
+            {(['he', 'ru', 'en'] as Locale[]).map((lng) => (
+                <button
+                    key={lng}
+                    className={`${styles.langButton} ${locale === lng ? styles.active : ''}`}
+                    onClick={() => handleLanguageChange(lng)}
+                    aria-pressed={locale === lng}
+                >
+                  {dictionary.languageSwitcher[lng]}
+                </button>
+            ))}
+          </div>
         </nav>
 
         <div className={styles.rightSection}>
-          <div className={styles.languageSwitcher}>
-            {(['he', 'ru', 'en'] as Locale[]).map((lng) => (
-              <button
-                key={lng}
-                className={`${styles.langButton} ${locale === lng ? styles.active : ''}`}
-                onClick={() => handleLanguageChange(lng)}
-                aria-pressed={locale === lng}
-              >
-                {dictionary.languageSwitcher[lng]}
-              </button>
-            ))}
-          </div>
-
-          <div className={styles.ctaButtons}>
-            {companyInfo?.phone && (
-              <a href={`tel:${companyInfo.phone}`} className={styles.callButton}>
-                {dictionary.buttons.callNow}
-              </a>
-            )}
-            <button className={styles.quoteButton}>{dictionary.buttons.getQuote}</button>
-          </div>
-
           <button
             className={styles.menuToggle}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -171,15 +145,6 @@ export default function Header({ locale, dictionary, companyInfo }: HeaderProps)
               </button>
             ))}
           </div>
-
-          {companyInfo?.phone && (
-            <div className={styles.mobileContact}>
-              <a href={`tel:${companyInfo.phone}`} className={styles.mobilePhone}>
-                <span className={styles.mobilePhoneIcon}>📞</span>
-                {companyInfo.phoneFormatted || companyInfo.phone}
-              </a>
-            </div>
-          )}
         </div>
 
         <div

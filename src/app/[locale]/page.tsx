@@ -25,5 +25,5 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default function HomePage() {
-  return <div className="sr-only">Landing content will be added here.</div>;
+  return <div>Landing content will be added here.</div>;
 }

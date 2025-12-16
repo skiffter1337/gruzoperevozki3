@@ -7,10 +7,12 @@
   "header": {
     "nav": {
       "home": "בית",
-      "services": "שירותים",
+      "transportation": "הוֹבָלָה",
+      "services": "שירותים נוספים",
+      "calculate": "חשב עלות",
+      "articles": "מאמרים",
       "about": "אודות",
-      "contact": "צור קשר",
-      "blog": "בלוג"
+      "contact": "צור קשר"
     },
     "languageSwitcher": {
       "he": "עברית",
@@ -57,11 +59,11 @@
   },
   "urls": {
     "home": "",
+    "transportation": "הובלות",
     "services": "שירותים",
+    "calculate": "חישוב-עלות",
+    "articles": "מאמרים",
     "about": "אודות",
-    "contact": "צור-קשר",
-    "blog": "בלוג",
-    "apartment-moving": "הובלת-דירה",
-    "office-moving": "הובלת-משרד"
+    "contact": "צור-קשר"
   }
 }

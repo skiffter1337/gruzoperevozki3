@@ -61,14 +61,6 @@ export default async function LocaleLayout({ children, params }: Props) {
         dictionary={{
           nav: dictionary.header.nav,
           languageSwitcher: dictionary.header.languageSwitcher,
-          buttons: {
-            getQuote: 'Get Quote',
-            callNow: 'Call Now',
-          },
-        }}
-        companyInfo={{
-          phone: '+972501234567',
-          phoneFormatted: '050-123-4567',
         }}
       />
       <main className="min-h-screen">{children}</main>

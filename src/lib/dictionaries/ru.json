@@ -7,10 +7,12 @@
   "header": {
     "nav": {
       "home": "Главная",
-      "services": "Услуги",
+      "transportation": "Перевозки",
+      "services": "Дополнительные услуги",
+      "calculate": "Рассчитать стоимость",
+      "articles": "Статьи",
       "about": "О нас",
-      "contact": "Контакты",
-      "blog": "Блог"
+      "contact": "Контакты"
     },
     "languageSwitcher": {
       "he": "Иврит",
@@ -57,11 +59,11 @@
   },
   "urls": {
     "home": "",
-    "services": "uslugi",
-    "about": "o-kompanii",
-    "contact": "kontakty",
-    "blog": "blog",
-    "apartment-moving": "pereezd-kvartiry",
-    "office-moving": "ofisnyj-pereezd"
+    "transportation": "перевозки",
+    "services": "дополнительные-услуги",
+    "calculate": "рассчитать-стоимость",
+    "articles": "статьи",
+    "about": "о-нас",
+    "contact": "контакты"
   }
 }
