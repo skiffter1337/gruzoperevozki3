@@ -204,7 +204,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                         >
                             {localeLabels[locale]}
                         </button>
-                        {isLanguagePopupOpen && (
+                        {!isLanguagePopupOpen && (
                             <div className={`${styles.popupMenu} ${styles.languagePopupMenu}`}>
                                 <ul>
                                     {locales

@@ -166,7 +166,7 @@
     width: 5px;
     height: 19px;
     background-color: vars.$primary-color;
-    border-radius: 2.5px; // Закругление 2.5px для высоты 19px
+    border-radius: 2.5px;
     opacity: 0;
     transition: opacity 0.2s ease;
   }
@@ -210,6 +210,12 @@
   right: 0;
   left: auto;
   padding: 12px;
+  width: 100px;
+  min-width: 0;
+
+  ul {
+    gap: 4px;
+  }
 }
 
 .languageOption {
@@ -227,7 +233,7 @@
 
   &:hover,
   &:focus-visible {
-    background-color: rgba(239, 49, 36, 0.1);
+    background-color: rgba(vars.$primary-color, 0.1);
   }
 }
 
@@ -365,13 +371,12 @@
 }
 
 
-
 .mobileSubmenu {
   display: none;
   flex-direction: column;
   margin-top: 8px;
   background-color: vars.$primary-color;
-  padding: 12px;
+  padding: 12px 32px 12px 32px;
   gap: 8px;
 }
 
@@ -383,12 +388,31 @@
   color: #fff;
   text-decoration: none;
   font-size: 20px;
-  padding: 0 32px;
+  padding: 0 0 0 16px;
+  position: relative;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     font-weight: 700;
+
+    &::before {
+      opacity: 1;
+    }
   }
 
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 19px;
+    background-color: #fff;
+    border-radius: 2.5px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
 }
 
 .mobileLanguageSwitcher {
