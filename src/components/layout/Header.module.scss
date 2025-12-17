@@ -190,6 +190,16 @@
   }
 }
 
+.mobileHeaderLanguage {
+  display: none;
+
+  @media (max-width: vars.$desktop-breakpoint) {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+}
+
 .langButton {
   background: none;
   border: none;
