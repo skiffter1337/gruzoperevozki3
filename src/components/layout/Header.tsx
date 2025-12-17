@@ -204,7 +204,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                         >
                             {localeLabels[locale]}
                         </button>
-                        {!isLanguagePopupOpen && (
+                        {isLanguagePopupOpen && (
                             <div className={`${styles.popupMenu} ${styles.languagePopupMenu}`}>
                                 <ul>
                                     {locales
@@ -226,6 +226,16 @@ export default function Header({locale, dictionary}: HeaderProps) {
                 </nav>
 
                 <div className={styles.rightSection}>
+                    <button
+                        className={styles.menuToggle}
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={isMenuOpen}
+                    >
+                        <span className={`${styles.burgerLine} ${isMenuOpen ? styles.open : ''}`}/>
+                        <span className={`${styles.burgerLine} ${isMenuOpen ? styles.open : ''}`}/>
+                        <span className={`${styles.burgerLine} ${isMenuOpen ? styles.open : ''}`}/>
+                    </button>
                     <div
                         className={`${styles.languageSwitcher} ${styles.mobileHeaderLanguage}`}
                         onMouseEnter={() => setIsLanguagePopupOpen(true)}
@@ -258,16 +268,6 @@ export default function Header({locale, dictionary}: HeaderProps) {
                             </div>
                         )}
                     </div>
-                    <button
-                        className={styles.menuToggle}
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-                        aria-expanded={isMenuOpen}
-                    >
-                        <span className={`${styles.burgerLine} ${isMenuOpen ? styles.open : ''}`}/>
-                        <span className={`${styles.burgerLine} ${isMenuOpen ? styles.open : ''}`}/>
-                        <span className={`${styles.burgerLine} ${isMenuOpen ? styles.open : ''}`}/>
-                    </button>
                 </div>
             </div>
 
@@ -327,18 +327,6 @@ export default function Header({locale, dictionary}: HeaderProps) {
                             ))}
                         </ul>
                     </nav>
-
-                    <div className={styles.mobileLanguageSwitcher}>
-                        <button
-                            className={`${styles.mobileLangButton} ${styles.active}`}
-                            onClick={() => {
-                                handleLanguageChange();
-                                setIsMenuOpen(false);
-                            }}
-                        >
-                            {localeLabels[locale]}
-                        </button>
-                    </div>
                 </div>
 
                 <div
