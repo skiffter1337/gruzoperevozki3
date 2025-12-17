@@ -10,7 +10,7 @@ import {
 } from '@/lib/localized-paths';
 import {getTranslatedUrl} from '@/lib/url-helper';
 import styles from './Header.module.scss';
-import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
+import ChevronRightIcon from '../../../public/chevronRight.svg';
 
 interface HeaderProps {
     locale: Locale;
