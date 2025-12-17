@@ -209,6 +209,16 @@
   cursor: pointer;
   transition: all 0.2s ease;
   border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  :global(svg) {
+    display: block;
+    width: 32px;
+    height: 21px;
+    flex-shrink: 0;
+  }
 
   // Особые стили для иврита
   &[dir="rtl"] {
@@ -240,6 +250,13 @@
   padding: 8px;
   border-radius: 8px;
   transition: background-color 0.2s ease;
+
+  :global(svg) {
+    display: block;
+    width: 32px;
+    height: 21px;
+    flex-shrink: 0;
+  }
 
   &:hover,
   &:focus-visible {

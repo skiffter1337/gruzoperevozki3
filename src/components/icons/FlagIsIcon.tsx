@@ -1,17 +1,21 @@
 export default function FlagIsIcon() {
-    
     return (
-        <svg width="44" height="28" viewBox="0 0 44 28" fill="none" xmlns="http://www.w3.org/2000/svg"
-             xmlnsXlink="http://www.w3.org/1999/xlink">
-            <rect width="43.1818" height="27.4793" fill="url(#pattern0_1692_2414)"/>
-            <defs>
-                <pattern id="pattern0_1692_2414" patternContentUnits="objectBoundingBox" width="1" height="1">
-                    <use xlinkHref="#image0_1692_2414" transform="matrix(0.00195313 0 0 0.0030692 0 -0.285714)"/>
-                </pattern>
-                <image id="image0_1692_2414" width="512" height="512" preserveAspectRatio="none"
-                       xlinkHref="data:image/png;base64,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"/>
-            </defs>
+        <svg
+            width="32"
+            height="22"
+            viewBox="0 0 32 22"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden
+        >
+            <rect width="32" height="22" rx="2" fill="#F5F5F5" />
+            <path d="M0 4h32" stroke="#0B64CF" strokeWidth="3" />
+            <path d="M0 18h32" stroke="#0B64CF" strokeWidth="3" />
+            <path
+                d="M16 6.6l2.1 3.8h-4.2L16 6.6zm0 8.8l-2.1-3.8h4.2L16 15.4zm-3.7-6.4l2.1 3.8-2.1 3.8-2.1-3.8 2.1-3.8zm7.4 0l2.1 3.8-2.1 3.8-2.1-3.8 2.1-3.8z"
+                fill="#0B64CF"
+            />
+            <path d="M12.3 9h7.4l-3.7 6.6L12.3 9z" stroke="#0B64CF" strokeWidth="0.8" fill="none" />
+            <rect x="0.5" y="0.5" width="31" height="21" rx="1.5" stroke="#D6D6D6" />
         </svg>
-
     );
 }
