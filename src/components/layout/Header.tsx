@@ -10,6 +10,7 @@ import {
 } from '@/lib/localized-paths';
 import {getTranslatedUrl} from '@/lib/url-helper';
 import styles from './Header.module.scss';
+import ChevronRightIcon from '../../../public/chevronRight.svg';
 
 interface HeaderProps {
     locale: Locale;
@@ -227,8 +228,13 @@ export default function Header({locale, dictionary}: HeaderProps) {
                                                 aria-expanded={activeAccordion === route}
                                             >
                                                 {navLabels[route]}
-                                                <span>
-                                                    {/*<ChevronRightIcon />*/}
+                                                <span
+                                                    className={`${styles.accordionIcon} ${
+                                                        activeAccordion === route ? styles.accordionIconExpanded : ''
+                                                    }`}
+                                                    aria-hidden
+                                                >
+                                                    <ChevronRightIcon focusable="false" />
                                                 </span>
                                             </button>
                                             <div
