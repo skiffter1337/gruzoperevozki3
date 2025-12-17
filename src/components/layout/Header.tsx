@@ -11,7 +11,7 @@ import {
 import {getTranslatedUrl} from '@/lib/url-helper';
 import styles from './Header.module.scss';
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
-import FlagRuIcon from '@/components/icons/FlagEnIcon';
+import FlagRuIcon from '@/components/icons/FlagRuIcon';
 import FlagEnIcon from '@/components/icons/FlagEnIcon';
 import FlagIsIcon from '@/components/icons/FlagIsIcon';
 
@@ -50,6 +50,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
     const [isScrolled, setIsScrolled] = useState(false);
     const [activePopup, setActivePopup] = useState<RouteKey | null>(null);
     const [activeAccordion, setActiveAccordion] = useState<RouteKey | null>(null);
+    const [isLanguagePopupOpen, setIsLanguagePopupOpen] = useState(false);
 
     const locales: Locale[] = ['ru', 'en', 'he'];
     const localeLabels: Record<Locale, ReactNode> = {
@@ -75,6 +76,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
         if (targetLocale === locale) return;
         const translatedPath = getTranslatedUrl(pathname, targetLocale);
         router.push(translatedPath);
+        setIsLanguagePopupOpen(false);
     };
 
     const isActive = (route: RouteKey) => {
@@ -189,14 +191,37 @@ export default function Header({locale, dictionary}: HeaderProps) {
                             </li>
                         ))}
                     </ul>
-                    <div className={styles.languageSwitcher}>
+                    <div
+                        className={styles.languageSwitcher}
+                        onMouseEnter={() => setIsLanguagePopupOpen(true)}
+                        onMouseLeave={() => setIsLanguagePopupOpen(false)}
+                    >
                         <button
                             className={`${styles.langButton} ${styles.active}`}
-                            onClick={() => handleLanguageChange()}
+                            onClick={() => setIsLanguagePopupOpen((current) => !current)}
                             aria-pressed
+                            aria-expanded={isLanguagePopupOpen}
                         >
                             {localeLabels[locale]}
                         </button>
+                        {isLanguagePopupOpen && (
+                            <div className={`${styles.popupMenu} ${styles.languagePopupMenu}`}>
+                                <ul>
+                                    {locales
+                                        .filter((item) => item !== locale)
+                                        .map((availableLocale) => (
+                                            <li key={availableLocale}>
+                                                <button
+                                                    className={styles.languageOption}
+                                                    onClick={() => handleLanguageChange(availableLocale)}
+                                                >
+                                                    {localeLabels[availableLocale]}
+                                                </button>
+                                            </li>
+                                        ))}
+                                </ul>
+                            </div>
+                        )}
                     </div>
                 </nav>
 
