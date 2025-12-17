@@ -1,0 +1,130 @@
+@import '@/styles/_variables.scss';
+
+.banner {
+  background: $primary-color;
+  color: $color-white;
+  padding: 64px 16px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $container-width;
+  padding: 0 $container-padding;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.description {
+  max-width: 760px;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.formWrapper {
+  width: min(760px, 100%);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: $shadow-md;
+  border-radius: $radius-lg;
+  padding: 24px;
+  backdrop-filter: blur(6px);
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  text-align: left;
+}
+
+.label {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: $radius-md;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.9);
+  color: $text-color;
+  font-size: 15px;
+  transition: border-color $transition-base, box-shadow $transition-base;
+}
+
+.input:focus {
+  outline: none;
+  border-color: $secondary-light;
+  box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.35);
+}
+
+.button {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: $radius-md;
+  border: none;
+  background: $secondary-color;
+  color: $color-white;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background $transition-base, transform $transition-fast;
+  letter-spacing: 0.5px;
+}
+
+.button:hover {
+  background: $secondary-dark;
+  transform: translateY(-1px);
+}
+
+.button:focus-visible {
+  outline: 3px solid rgba(147, 197, 253, 0.6);
+  outline-offset: 2px;
+}
+
+.error {
+  color: #ffe0e0;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .fieldDate {
+    grid-column: span 2;
+  }
+
+  .actions {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: $tablet-breakpoint) {
+  .formWrapper {
+    padding: 20px;
+  }
+}
