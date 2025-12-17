@@ -192,6 +192,11 @@
 
 .mobileHeaderLanguage {
   display: none;
+  z-index: 9999;
+
+  &.menuOpen {
+    display: flex;
+  }
 
   @media (max-width: vars.$desktop-breakpoint) {
     display: flex;
@@ -204,14 +209,16 @@
   background: none;
   border: none;
   padding: 4px 8px;
-  font-size: 14px;
-  color: vars.$text-light;
+  color: vars.$primary-color;
   cursor: pointer;
   transition: all 0.2s ease;
   border-radius: 4px;
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
 
   :global(svg) {
     display: block;
@@ -228,9 +235,13 @@
 .languagePopupMenu {
   right: 0;
   left: auto;
-  padding: 12px;
+  padding: 0;
   width: 100px;
+  height: 100px;
   min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   ul {
     gap: 4px;
@@ -249,6 +260,11 @@
   padding: 8px;
   border-radius: 8px;
   transition: background-color 0.2s ease;
+
+  color: vars.$primary-color;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 100%;
 
   :global(svg) {
     display: block;
@@ -329,7 +345,7 @@
 .mobileMenuContent {
   position: relative;
   width: 100%;
-  padding: 100px 0px 0px;
+  padding: 80px 0px 0px;
   overflow-y: auto;
   z-index: 1;
   display: flex;
@@ -353,13 +369,22 @@
 }
 
 .mobileNavLink {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: vars.$primary-color;
   text-decoration: none;
   font-size: 30px;
   font-weight: 500;
   transition: color 0.2s ease;
   padding: 0 32px;
+
+  :global(svg) {
+    display: block;
+    width: 16px;
+    height: 16px;
+    color: vars.$primary-color;
+  }
 
   @media (max-width: vars.$mobile-breakpoint) {
     padding: 0 16px;
@@ -389,7 +414,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    color: inherit;
+    color: vars.$primary-color;
   }
 }
 

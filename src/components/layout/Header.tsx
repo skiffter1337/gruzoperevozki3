@@ -11,6 +11,7 @@ import {
 import {getTranslatedUrl} from '@/lib/url-helper';
 import styles from './Header.module.scss';
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
+import ChevronDownIcon from '@/components/icons/ChevronDownIcon';
 import FlagRuIcon from '@/components/icons/FlagRuIcon';
 import FlagEnIcon from '@/components/icons/FlagEnIcon';
 import FlagIsIcon from '@/components/icons/FlagIsIcon';
@@ -53,10 +54,15 @@ export default function Header({locale, dictionary}: HeaderProps) {
     const [isLanguagePopupOpen, setIsLanguagePopupOpen] = useState(false);
 
     const locales: Locale[] = ['ru', 'en', 'he'];
-    const localeLabels: Record<Locale, ReactNode> = {
+    const localeIcons: Record<Locale, ReactNode> = {
         ru: <FlagRuIcon/>,
         en: <FlagEnIcon/>,
         he: <FlagIsIcon/>,
+    };
+    const localeLabels: Record<Locale, string> = {
+        ru: "RU",
+        en: "EN",
+        he: "HE",
     };
 
     useEffect(() => {
@@ -202,7 +208,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                             aria-pressed
                             aria-expanded={isLanguagePopupOpen}
                         >
-                            {localeLabels[locale]}
+                            {localeIcons[locale]}
                         </button>
                         {isLanguagePopupOpen && (
                             <div className={`${styles.popupMenu} ${styles.languagePopupMenu}`}>
@@ -215,7 +221,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                                                     className={styles.languageOption}
                                                     onClick={() => handleLanguageChange(availableLocale)}
                                                 >
-                                                    {localeLabels[availableLocale]}
+                                                    {localeIcons[availableLocale]}
                                                 </button>
                                             </li>
                                         ))}
@@ -237,7 +243,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                         <span className={`${styles.burgerLine} ${isMenuOpen ? styles.open : ''}`}/>
                     </button>
                     <div
-                        className={`${styles.languageSwitcher} ${styles.mobileHeaderLanguage}`}
+                        className={`${styles.languageSwitcher} ${styles.mobileHeaderLanguage} ${isMenuOpen ? styles.menuOpen : ''}`}
                         onMouseEnter={() => setIsLanguagePopupOpen(true)}
                         onMouseLeave={() => setIsLanguagePopupOpen(false)}
                     >
@@ -247,6 +253,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                             aria-pressed
                             aria-expanded={isLanguagePopupOpen}
                         >
+                            <ChevronDownIcon/>
                             {localeLabels[locale]}
                         </button>
                         {isLanguagePopupOpen && (
@@ -255,7 +262,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                                     {locales
                                         .filter((item) => item !== locale)
                                         .map((availableLocale) => (
-                                            <li key={availableLocale}>
+                                            <li key={availableLocale} className={styles.langOption}>
                                                 <button
                                                     className={styles.languageOption}
                                                     onClick={() => handleLanguageChange(availableLocale)}
@@ -320,7 +327,10 @@ export default function Header({locale, dictionary}: HeaderProps) {
                                             className={styles.mobileNavLink}
                                             onClick={() => setIsMenuOpen(false)}
                                         >
+
                                             {navLabels[route]}
+                                            <ChevronRightIcon focusable="false" />
+
                                         </Link>
                                     )}
                                 </li>
