@@ -41,12 +41,10 @@
   },
   "homeHero": {
     "title": "רוצים להזמין הובלה?",
-    "description": "מלאו את פרטי המסלול והתאריך — כל השדות חובה כדי שנוכל להכין הצעת מחיר מדויקת ולחזור אליכם במהירות.",
     "fromLabel": "מאיפה",
     "fromPlaceholder": "עיר",
     "toLabel": "לאן",
     "toPlaceholder": "עיר",
-    "dateLabel": "תאריך",
     "datePlaceholder": "בחרו תאריך",
     "submit": "שלחו",
     "requiredMessage": "נא למלא את כל השדות"

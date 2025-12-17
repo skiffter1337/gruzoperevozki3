@@ -41,12 +41,10 @@
   },
   "homeHero": {
     "title": "WANT TO BOOK A MOVE?",
-    "description": "Share your route and date — all fields are required so we can prepare an accurate quote and contact you quickly.",
     "fromLabel": "From",
     "fromPlaceholder": "City",
     "toLabel": "To",
     "toPlaceholder": "City",
-    "dateLabel": "Date",
     "datePlaceholder": "Choose a date",
     "submit": "Submit",
     "requiredMessage": "Please fill in all fields"

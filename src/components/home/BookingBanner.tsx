@@ -6,6 +6,7 @@ import { Locale } from '../../../i18n-config';
 import { buildLocalizedPath } from '@/lib/localized-paths';
 import styles from './BookingBanner.module.scss';
 import { DictionaryType } from '@/lib/dictionaries';
+import GradientButton from "@/components/gradient-button/GradientButton";
 
 type BookingBannerProps = {
   locale: Locale;
@@ -80,7 +81,6 @@ export default function BookingBanner({ locale, dictionary }: BookingBannerProps
         <h1 id="booking-title" className={styles.title}>
           {dictionary.title}
         </h1>
-        <p className={styles.description}>{dictionary.description}</p>
 
         <div className={styles.formWrapper}>
           <form className={styles.form} onSubmit={handleSubmit} noValidate>
@@ -123,9 +123,6 @@ export default function BookingBanner({ locale, dictionary }: BookingBannerProps
             </div>
 
             <div className={`${styles.field} ${styles.fieldDate}`}>
-              <label htmlFor="date" className={styles.label}>
-                {dictionary.dateLabel}
-              </label>
               <input
                 id="date"
                 name="date"
@@ -141,10 +138,10 @@ export default function BookingBanner({ locale, dictionary }: BookingBannerProps
               {errors.date && <span className={styles.error}>{errors.date}</span>}
             </div>
 
-            <div className={`${styles.field} ${styles.actions}`}>
-              <button type="submit" className={styles.button} aria-label={dictionary.submit}>
+            <div className={styles.actions}>
+              <GradientButton type="submit" ariaLabel={dictionary.submit}>
                 {dictionary.submit}
-              </button>
+              </GradientButton>
             </div>
           </form>
         </div>

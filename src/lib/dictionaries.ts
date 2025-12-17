@@ -31,12 +31,10 @@ export type DictionaryType = {
     };
     homeHero: {
         title: string;
-        description: string;
         fromLabel: string;
         fromPlaceholder: string;
         toLabel: string;
         toPlaceholder: string;
-        dateLabel: string;
         datePlaceholder: string;
         submit: string;
         requiredMessage: string;
@@ -80,7 +78,6 @@ type PopupLink = {
     href?: string;
 };
 
-// Дефолтные значения для обязательных полей
 const defaultDictionary: DictionaryType = {
     metadata: {
         title: 'Default Title',
@@ -89,12 +86,10 @@ const defaultDictionary: DictionaryType = {
     },
     homeHero: {
         title: "Хотите заказать перевозку?",
-        description: "Оставьте детали маршрута и даты, чтобы мы подготовили для вас предложение. Все поля обязательны, чтобы мы могли связаться с вами и рассчитать стоимость.",
         fromLabel: "Откуда",
         fromPlaceholder: "Город",
         toLabel: "Куда",
         toPlaceholder: "Город",
-        dateLabel: "Дата",
         datePlaceholder: "Выберите дату",
         submit: "Нажмите",
         requiredMessage: "Пожалуйста, заполните все поля",
@@ -182,19 +177,16 @@ const defaultDictionary: DictionaryType = {
     },
 };
 
-// Используем Partial<DictionaryType> для загрузки JSON
 const dictionaryLoaders: Record<Locale, () => Promise<Partial<DictionaryType>>> = {
     he: () => import('./dictionaries/he.json').then((module) => module.default),
     ru: () => import('./dictionaries/ru.json').then((module) => module.default),
     en: () => import('./dictionaries/en.json').then((module) => module.default),
 };
 
-// Основная функция с мерджем дефолтных значений
 export async function getDictionary(locale: Locale): Promise<DictionaryType> {
     try {
         const loadedDict = await dictionaryLoaders[locale]();
 
-        // Мерджим загруженный словарь с дефолтными значениями
         return {
             ...defaultDictionary,
             ...loadedDict,
@@ -233,21 +225,18 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
     }
 }
 
-// Утилита для безопасного доступа к вложенным значениям
 export type NestedKeyOf<ObjectType extends object> = {
     [Key in keyof ObjectType & (string | number)]: ObjectType[Key] extends object
         ? `${Key}` | `${Key}.${NestedKeyOf<ObjectType[Key]>}`
         : `${Key}`;
 }[keyof ObjectType & (string | number)];
 
-// Вспомогательная функция для получения конкретного значения по пути
 export async function getDictionaryValue(
     locale: Locale,
     path: NestedKeyOf<DictionaryType>
 ): Promise<string> {
     const dict = await getDictionary(locale);
 
-    // Функция безопасного получения вложенного значения
     const getNestedValue = (obj: unknown, nestedPath: string): string => {
         const value = nestedPath.split('.').reduce<unknown>((current, key) => {
             if (current && typeof current === 'object' && key in current) {
@@ -262,7 +251,6 @@ export async function getDictionaryValue(
     return getNestedValue(dict, path);
 }
 
-// Функция для получения всех словарей сразу
 export async function getAllDictionaries(): Promise<Record<Locale, DictionaryType>> {
     const locales: Locale[] = ['he', 'ru', 'en'];
     const results = await Promise.allSettled(

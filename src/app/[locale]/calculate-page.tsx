@@ -77,7 +77,6 @@ export default async function CalculatePage({ params, searchParams }: CalculateP
                 <dd className={styles.value}>{to || '—'}</dd>
               </div>
               <div className={styles.dataItem}>
-                <dt className={styles.label}>{dictionary.homeHero.dateLabel}</dt>
                 <dd className={styles.value}>{date || '—'}</dd>
               </div>
             </dl>

@@ -3,7 +3,7 @@
 .banner {
   background: $primary-color;
   color: $color-white;
-  padding: 64px 16px;
+  padding: 120px 16px 64px;
 }
 
 .container {
@@ -18,27 +18,18 @@
 }
 
 .title {
-  font-size: clamp(24px, 4vw, 36px);
+  font-size: clamp(24px, 4vw, 64px);
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-}
-
-.description {
-  max-width: 760px;
-  font-size: 16px;
-  line-height: 1.6;
-  opacity: 0.9;
+  max-width: 663px;
+  line-height: 87%;
 }
 
 .formWrapper {
   width: min(760px, 100%);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: $shadow-md;
   border-radius: $radius-lg;
   padding: 24px;
-  backdrop-filter: blur(6px);
 }
 
 .form {
@@ -50,21 +41,22 @@
 .field {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
   gap: 8px;
   text-align: left;
 }
 
 .label {
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.3px;
+  font-weight: 700;
+  font-size: clamp(14px, 4vw, 47px);
+  line-height: 87%;
+  text-transform: uppercase;
+  margin-bottom: 48px;
 }
 
 .input {
   width: 100%;
   padding: 12px 14px;
-  border-radius: $radius-md;
+  border-radius: $radius-lg;
   border: 1px solid rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.9);
   color: $text-color;
@@ -78,29 +70,11 @@
   box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.35);
 }
 
-.button {
+/* Обновленные стили для центрирования кнопки */
+.actions {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  padding: 14px 16px;
-  border-radius: $radius-md;
-  border: none;
-  background: $secondary-color;
-  color: $color-white;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background $transition-base, transform $transition-fast;
-  letter-spacing: 0.5px;
-}
-
-.button:hover {
-  background: $secondary-dark;
-  transform: translateY(-1px);
-}
-
-.button:focus-visible {
-  outline: 3px solid rgba(147, 197, 253, 0.6);
-  outline-offset: 2px;
 }
 
 .error {
@@ -120,11 +94,17 @@
 
   .actions {
     grid-column: span 2;
+    max-width: 545px;
+    margin: 16px auto;
   }
 }
 
 @media (max-width: $tablet-breakpoint) {
   .formWrapper {
     padding: 20px;
+  }
+
+  .actions {
+    margin: 0 auto;
   }
 }
