@@ -183,6 +183,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  position: relative;
 
   @media (max-width: vars.$mobile-breakpoint) {
     display: none;
@@ -202,6 +203,31 @@
   // Особые стили для иврита
   &[dir="rtl"] {
     font-family: vars.$hebrew-font;
+  }
+}
+
+.languagePopupMenu {
+  right: 0;
+  left: auto;
+  padding: 12px;
+}
+
+.languageOption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgba(239, 49, 36, 0.1);
   }
 }
 
