@@ -250,6 +250,13 @@
   border-radius: 8px;
   transition: background-color 0.2s ease;
 
+  :global(svg) {
+    display: block;
+    width: 32px;
+    height: 21px;
+    flex-shrink: 0;
+  }
+
   &:hover,
   &:focus-visible {
     background-color: rgba(vars.$primary-color, 0.1);
