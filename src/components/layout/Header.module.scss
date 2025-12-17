@@ -110,12 +110,6 @@
   position: relative;
   border-radius: 8px;
   transition: background-color 0.2s ease;
-
-
-  &:hover,
-  &:focus-visible {
-    background-color: rgba(vars.$primary-color, 0.08);
-  }
 }
 
 .mobileNav {
@@ -129,8 +123,8 @@
   min-width: 200px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-  padding: 16px 0;
+  border: 2px solid vars.$primary-color;
+  padding: 16px 8px;
   z-index: 1002;
 
   ul {
@@ -139,21 +133,42 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
   }
 }
 
 .popupLink {
+  font-size: 20px;
+  color: vars.$color-black;
+  line-height: 78%;
   display: block;
-  padding: 8px 16px;
-  color: vars.$text-color;
+  font-weight: 500;
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
+  position: relative;
+  padding-left: 16px;
 
   &:hover,
   &:focus-visible {
-    background-color: rgba(vars.$primary-color, 0.1);
     color: vars.$primary-color;
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 19px;
+    background-color: vars.$primary-color;
+    border-radius: 2.5px; // Закругление 2.5px для высоты 19px
+    opacity: 0;
+    transition: opacity 0.2s ease;
   }
 }
 
@@ -183,17 +198,6 @@
   cursor: pointer;
   transition: all 0.2s ease;
   border-radius: 4px;
-
-  &:hover {
-    color: vars.$text-color;
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-  &.active {
-    color: vars.$primary-color;
-    font-weight: 600;
-    background-color: rgba(vars.$primary-color, 0.1);
-  }
 
   // Особые стили для иврита
   &[dir="rtl"] {

@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect, useState} from 'react';
+import {ReactNode, useEffect, useState} from 'react';
 import Link from 'next/link';
 import {usePathname, useRouter} from 'next/navigation';
 import {Locale} from '../../../i18n-config';
@@ -10,7 +10,10 @@ import {
 } from '@/lib/localized-paths';
 import {getTranslatedUrl} from '@/lib/url-helper';
 import styles from './Header.module.scss';
-import ChevronRightIcon from '../../../public/chevronRight.svg';
+import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
+import FlagRuIcon from '@/components/icons/FlagEnIcon';
+import FlagEnIcon from '@/components/icons/FlagEnIcon';
+import FlagIsIcon from '@/components/icons/FlagIsIcon';
 
 interface HeaderProps {
     locale: Locale;
@@ -49,10 +52,10 @@ export default function Header({locale, dictionary}: HeaderProps) {
     const [activeAccordion, setActiveAccordion] = useState<RouteKey | null>(null);
 
     const locales: Locale[] = ['ru', 'en', 'he'];
-    const localeLabels: Record<Locale, string> = {
-        ru: 'RU',
-        en: 'EN',
-        he: 'HE',
+    const localeLabels: Record<Locale, ReactNode> = {
+        ru: <FlagRuIcon/>,
+        en: <FlagEnIcon/>,
+        he: <FlagIsIcon/>,
     };
 
     useEffect(() => {
