@@ -226,6 +226,38 @@ export default function Header({locale, dictionary}: HeaderProps) {
                 </nav>
 
                 <div className={styles.rightSection}>
+                    <div
+                        className={`${styles.languageSwitcher} ${styles.mobileHeaderLanguage}`}
+                        onMouseEnter={() => setIsLanguagePopupOpen(true)}
+                        onMouseLeave={() => setIsLanguagePopupOpen(false)}
+                    >
+                        <button
+                            className={`${styles.langButton} ${styles.active}`}
+                            onClick={() => setIsLanguagePopupOpen((current) => !current)}
+                            aria-pressed
+                            aria-expanded={isLanguagePopupOpen}
+                        >
+                            {localeLabels[locale]}
+                        </button>
+                        {isLanguagePopupOpen && (
+                            <div className={`${styles.popupMenu} ${styles.languagePopupMenu}`}>
+                                <ul>
+                                    {locales
+                                        .filter((item) => item !== locale)
+                                        .map((availableLocale) => (
+                                            <li key={availableLocale}>
+                                                <button
+                                                    className={styles.languageOption}
+                                                    onClick={() => handleLanguageChange(availableLocale)}
+                                                >
+                                                    {localeLabels[availableLocale]}
+                                                </button>
+                                            </li>
+                                        ))}
+                                </ul>
+                            </div>
+                        )}
+                    </div>
                     <button
                         className={styles.menuToggle}
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
