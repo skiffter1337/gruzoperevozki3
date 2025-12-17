@@ -1,0 +1,77 @@
+@import '@/styles/_variables.scss';
+
+.section {
+  padding: 72px 16px;
+  background: $background-light;
+  min-height: 60vh;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header {
+  text-align: center;
+  display: grid;
+  gap: 12px;
+}
+
+.title {
+  font-size: clamp(26px, 4vw, 36px);
+  font-weight: 700;
+  color: $text-color;
+}
+
+.description {
+  font-size: 18px;
+  color: $text-light;
+  line-height: 1.6;
+}
+
+.card {
+  background: $color-white;
+  border: 1px solid $border-color;
+  border-radius: $radius-lg;
+  padding: 24px;
+  box-shadow: $shadow-sm;
+}
+
+.dataGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: $tablet-breakpoint) {
+  .dataGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.dataItem {
+  display: grid;
+  gap: 6px;
+}
+
+.label {
+  font-size: 14px;
+  color: $text-light;
+  font-weight: 600;
+}
+
+.value {
+  font-size: 16px;
+  color: $text-color;
+  word-break: break-word;
+}
+
+.placeholder {
+  font-size: 16px;
+  color: $text-color;
+  line-height: 1.5;
+}

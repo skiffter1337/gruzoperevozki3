@@ -39,6 +39,18 @@
       "en": "English"
     }
   },
+  "homeHero": {
+    "title": "WANT TO BOOK A MOVE?",
+    "description": "Share your route and date — all fields are required so we can prepare an accurate quote and contact you quickly.",
+    "fromLabel": "From",
+    "fromPlaceholder": "City",
+    "toLabel": "To",
+    "toPlaceholder": "City",
+    "dateLabel": "Date",
+    "datePlaceholder": "Choose a date",
+    "submit": "Submit",
+    "requiredMessage": "Please fill in all fields"
+  },
   "servicesPage": {
     "title": "Our services",
     "description": "We provide a full range of professional moving services across Israel. Every job is handled by an experienced team with modern equipment.",
@@ -67,6 +79,15 @@
     "ctaTitle": "Ready to start?",
     "ctaDescription": "Contact us today for a free quote with no obligation. We are happy to help with any move!",
     "ctaButton": "Get a quote"
+  },
+  "calculatePage": {
+    "title": "Calculate cost",
+    "description": "Tell us the origin, destination, and date so we can build your quote immediately.",
+    "metaTitle": "Calculate moving cost | Quick estimate",
+    "metaDescription": "Estimate your moving cost across Israel by providing your route and preferred date.",
+    "placeholderNotice": "A full pricing form will appear here soon. We have stored the details you provided.",
+    "receivedDataTitle": "Received details",
+    "missingData": "No data was provided. Please return to the home page and complete the form."
   },
   "company": {
     "name": "Your moving company",

@@ -29,6 +29,18 @@ export type DictionaryType = {
             en: string;
         };
     };
+    homeHero: {
+        title: string;
+        description: string;
+        fromLabel: string;
+        fromPlaceholder: string;
+        toLabel: string;
+        toPlaceholder: string;
+        dateLabel: string;
+        datePlaceholder: string;
+        submit: string;
+        requiredMessage: string;
+    };
     company: {
         name: string;
         address: string;
@@ -50,6 +62,15 @@ export type DictionaryType = {
         ctaDescription: string;
         ctaButton: string;
     };
+    calculatePage: {
+        title: string;
+        description: string;
+        metaTitle: string;
+        metaDescription: string;
+        placeholderNotice: string;
+        receivedDataTitle: string;
+        missingData: string;
+    };
     urls?: Record<string, string>;
 };
 
@@ -65,6 +86,18 @@ const defaultDictionary: DictionaryType = {
         title: 'Default Title',
         description: 'Default Description',
         keywords: 'default, keywords',
+    },
+    homeHero: {
+        title: "Хотите заказать перевозку?",
+        description: "Оставьте детали маршрута и даты, чтобы мы подготовили для вас предложение. Все поля обязательны, чтобы мы могли связаться с вами и рассчитать стоимость.",
+        fromLabel: "Откуда",
+        fromPlaceholder: "Город",
+        toLabel: "Куда",
+        toPlaceholder: "Город",
+        dateLabel: "Дата",
+        datePlaceholder: "Выберите дату",
+        submit: "Нажмите",
+        requiredMessage: "Пожалуйста, заполните все поля",
     },
     servicesPage: {
         title: "Наши услуги",
@@ -94,6 +127,15 @@ const defaultDictionary: DictionaryType = {
         ctaTitle: "Готовы начать?",
         ctaDescription: "Свяжитесь с нами сегодня для получения бесплатной консультации без обязательств. Будем рады помочь вам с любыми нуждами в переезде!",
         ctaButton: "Получить предложение"
+    },
+    calculatePage: {
+        title: "Рассчитать стоимость",
+        description: "Введите детали маршрута, и мы подготовим для вас точную стоимость перевозки.",
+        metaTitle: "Рассчитать стоимость переезда | Быстрый расчет",
+        metaDescription: "Узнайте стоимость перевозки по Израилю, указав города отправления и назначения, а также дату переезда.",
+        placeholderNotice: "Расширенная форма появится здесь. Мы используем введенные вами данные, чтобы подготовить расчет.",
+        receivedDataTitle: "Полученные данные",
+        missingData: "Данные не были переданы. Пожалуйста, вернитесь и заполните форму.",
     },
     company: {
         name: "Ваша транспортная компания",
@@ -175,6 +217,14 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
                     ...defaultDictionary.header.languageSwitcher,
                     ...loadedDict.header?.languageSwitcher,
                 },
+            },
+            homeHero: {
+                ...defaultDictionary.homeHero,
+                ...loadedDict.homeHero,
+            },
+            calculatePage: {
+                ...defaultDictionary.calculatePage,
+                ...loadedDict.calculatePage,
             },
         };
     } catch (error) {
