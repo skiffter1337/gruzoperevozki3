@@ -315,6 +315,25 @@
   gap: 12px;
 }
 
+.accordionIcon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  color: vars.$text-color;
+  transition: transform 0.2s ease;
+
+  :global(svg) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+  }
+}
+
+.accordionIconExpanded {
+  transform: rotate(90deg);
+}
+
 
 
 .mobileSubmenu {
