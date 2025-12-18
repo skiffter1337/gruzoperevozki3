@@ -55,10 +55,10 @@
     "sliderNext": "Next slide",
     "sliderItemLabelPrefix": "Open service page",
     "sliderItems": [
-      {"title": "Crane transport", "slug": "crane-transport"},
-      {"title": "Transport services", "slug": "transport-services"},
-      {"title": "Furniture moving", "slug": "furniture-moving"},
-      {"title": "Apartment move", "slug": "apartment-move"}
+      {"title": "Crane transport", "slug": "crane-transport", "image": "crane"},
+      {"title": "Transport services", "slug": "transport-services", "image": "transport"},
+      {"title": "Furniture moving", "slug": "furniture-moving", "image": "furniture"},
+      {"title": "Apartment move", "slug": "apartment-move", "image": "flat"}
     ]
   },
   "servicesPage": {

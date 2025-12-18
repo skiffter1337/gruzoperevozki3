@@ -1,6 +1,7 @@
 'use client';
 
-import { TouchEvent, useMemo, useState } from 'react';
+import Image, { StaticImageData } from 'next/image';
+import { TouchEvent, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
@@ -8,6 +9,10 @@ import GradientButton from '@/components/gradient-button/GradientButton';
 import { DictionaryType } from '@/lib/dictionaries';
 import { buildLocalizedPath } from '@/lib/localized-paths';
 import { Locale } from '../../../i18n-config';
+import craneImage from '@/assets/images/crane.png';
+import transportImage from '@/assets/images/transport.png';
+import furnitureImage from '@/assets/images/furniture.png';
+import flatImage from '@/assets/images/flat.png';
 import styles from './ServicesSlider.module.scss';
 
 type ServicesSliderProps = {
@@ -19,18 +24,46 @@ export default function ServicesSlider({ locale, dictionary }: ServicesSliderPro
   const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [slidesPerView, setSlidesPerView] = useState(1);
 
   const sliderBasePath = useMemo(() => buildLocalizedPath(locale, 'services'), [locale]);
   const totalSlides = dictionary.sliderItems.length;
+  const maxSlideIndex = Math.max(totalSlides - slidesPerView, 0);
+  const clampedSlide = Math.min(currentSlide, maxSlideIndex);
+  const slideWidthPercentage = 100 / slidesPerView;
+  const totalPages = Math.max(totalSlides - slidesPerView + 1, 1);
+
+  const slideImages: Record<string, StaticImageData> = {
+    crane: craneImage,
+    transport: transportImage,
+    furniture: furnitureImage,
+    flat: flatImage,
+  };
+
+  useEffect(() => {
+    const getSlidesPerView = () => {
+      if (typeof window === 'undefined') return 1;
+      if (window.innerWidth >= 1200) return 3;
+      if (window.innerWidth >= 840) return 2;
+      return 1;
+    };
+
+    const handleResize = () => setSlidesPerView(getSlidesPerView());
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const goToSlide = (nextIndex: number) => {
     if (!totalSlides) return;
-    const normalizedIndex = (nextIndex + totalSlides) % totalSlides;
+    const normalizedIndex = (nextIndex + maxSlideIndex + 1) % (maxSlideIndex + 1);
     setCurrentSlide(normalizedIndex);
   };
 
-  const handleNext = () => goToSlide(currentSlide + 1);
-  const handlePrev = () => goToSlide(currentSlide - 1);
+  const handleNext = () => goToSlide(clampedSlide + 1);
+  const handlePrev = () => goToSlide(clampedSlide - 1);
 
   const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
     setTouchStart(event.touches[0].clientX);
@@ -78,20 +111,35 @@ export default function ServicesSlider({ locale, dictionary }: ServicesSliderPro
             >
               <div
                   className={styles.sliderTrack}
-                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                  style={{
+                    transform: `translateX(-${clampedSlide * slideWidthPercentage}%)`,
+                    // @ts-expect-error CSS custom properties typing
+                    '--slides-per-view': slidesPerView,
+                  }}
               >
-                {dictionary.sliderItems.map((item) => (
-                    <Link
-                        key={item.slug}
-                        href={`${sliderBasePath}/${item.slug}`}
-                        className={styles.slide}
-                        aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
-                        prefetch={false}
-                    >
-                      <span className={styles.slideTitle}>{item.title}</span>
-                      <div className={styles.imagePlaceholder} aria-hidden="true" />
-                    </Link>
-                ))}
+                {dictionary.sliderItems.map((item) => {
+                  const image = slideImages[item.image];
+
+                  return (
+                      <Link
+                          key={item.slug}
+                          href={`${sliderBasePath}/${item.slug}`}
+                          className={styles.slide}
+                          aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
+                          prefetch={false}
+                      >
+                        <span className={styles.slideTitle}>{item.title}</span>
+                        {image && (
+                        <Image
+                            src={image}
+                            alt={item.title}
+                            className={styles.slideImage}
+                            sizes="(max-width: 839px) 100vw, (max-width: 1199px) 50vw, 33vw"
+                          />
+                        )}
+                      </Link>
+                  );
+                })}
               </div>
             </div>
 
@@ -107,13 +155,13 @@ export default function ServicesSlider({ locale, dictionary }: ServicesSliderPro
 
           </div>
           <div className={styles.dots} role="tablist" aria-label={dictionary.sliderHeading}>
-            {dictionary.sliderItems.map((item, index) => (
+            {Array.from({ length: totalPages }).map((_, index) => (
                 <button
-                    key={item.slug}
+                    key={`dot-${index}`}
                     type="button"
-                    className={`${styles.dot} ${currentSlide === index ? styles.dotActive : ''}`.trim()}
-                    aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
-                    aria-pressed={currentSlide === index}
+                    className={`${styles.dot} ${clampedSlide === index ? styles.dotActive : ''}`.trim()}
+                    aria-label={`${dictionary.sliderItemLabelPrefix} ${index + 1}`}
+                    aria-pressed={clampedSlide === index}
                     onClick={() => goToSlide(index)}
                 />
             ))}
