@@ -106,7 +106,7 @@ const defaultDictionary: DictionaryType = {
         submit: "Нажмите",
         submitLabel: "чтобы рассчитать стоимость перевозки",
         requiredMessage: "Пожалуйста, заполните все поля",
-        sliderHeading: "Популярные услуги",
+        sliderHeading: "Услуги",
         sliderCta: "Подробнее",
         sliderPrevious: "Предыдущий слайд",
         sliderNext: "Следующий слайд",

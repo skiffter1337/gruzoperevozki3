@@ -60,62 +60,68 @@ export default function ServicesSlider({ locale, dictionary }: ServicesSliderPro
           </h2>
         </div>
 
-        <div className={styles.sliderWrapper}>
-          <button
-            type="button"
-            className={`${styles.navButton} ${styles.navButtonLeft}`}
-            aria-label={dictionary.sliderPrevious}
-            onClick={handlePrev}
-          >
-            <ChevronRightIcon focusable="false" />
-          </button>
-
-          <div
-            className={styles.sliderViewport}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            <div
-              className={styles.sliderTrack}
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {dictionary.sliderItems.map((item) => (
-                <Link
-                  key={item.slug}
-                  href={`${sliderBasePath}/${item.slug}`}
-                  className={styles.slide}
-                  aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
-                  prefetch={false}
-                >
-                  <span className={styles.slideTitle}>{item.title}</span>
-                  <div className={styles.imagePlaceholder} aria-hidden="true" />
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <button
-            type="button"
-            className={styles.navButton}
-            aria-label={dictionary.sliderNext}
-            onClick={handleNext}
-          >
-            <ChevronRightIcon focusable="false" />
-          </button>
-        </div>
-
-        <div className={styles.dots} role="tablist" aria-label={dictionary.sliderHeading}>
-          {dictionary.sliderItems.map((item, index) => (
+        <div className={styles.wrapper}>
+          <div className={styles.sliderWrapper}>
             <button
-              key={item.slug}
-              type="button"
-              className={`${styles.dot} ${currentSlide === index ? styles.dotActive : ''}`.trim()}
-              aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
-              aria-pressed={currentSlide === index}
-              onClick={() => goToSlide(index)}
-            />
-          ))}
+                type="button"
+                className={`${styles.navButton} ${styles.navButtonLeft}`}
+                aria-label={dictionary.sliderPrevious}
+                onClick={handlePrev}
+            >
+              <ChevronRightIcon focusable="false" />
+            </button>
+
+            <div
+                className={styles.sliderViewport}
+                onTouchStart={handleTouchStart}
+                onTouchEnd={handleTouchEnd}
+            >
+              <div
+                  className={styles.sliderTrack}
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              >
+                {dictionary.sliderItems.map((item) => (
+                    <Link
+                        key={item.slug}
+                        href={`${sliderBasePath}/${item.slug}`}
+                        className={styles.slide}
+                        aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
+                        prefetch={false}
+                    >
+                      <span className={styles.slideTitle}>{item.title}</span>
+                      <div className={styles.imagePlaceholder} aria-hidden="true" />
+                    </Link>
+                ))}
+              </div>
+            </div>
+
+            <button
+                type="button"
+                className={styles.navButton}
+                aria-label={dictionary.sliderNext}
+                onClick={handleNext}
+            >
+              <ChevronRightIcon focusable="false" />
+            </button>
+
+
+          </div>
+          <div className={styles.dots} role="tablist" aria-label={dictionary.sliderHeading}>
+            {dictionary.sliderItems.map((item, index) => (
+                <button
+                    key={item.slug}
+                    type="button"
+                    className={`${styles.dot} ${currentSlide === index ? styles.dotActive : ''}`.trim()}
+                    aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
+                    aria-pressed={currentSlide === index}
+                    onClick={() => goToSlide(index)}
+                />
+            ))}
+          </div>
         </div>
+
+
+
 
         <div className={styles.sliderCta}>
           <GradientButton

@@ -23,38 +23,41 @@
 }
 
 .sliderTitle {
-  font-size: clamp(24px, 4vw, 42px);
-  font-weight: 800;
-  letter-spacing: 0.4px;
+  font-size: clamp(24px, 4vw, 64px);
   text-transform: uppercase;
   color: $primary-color;
+  font-weight: 700;
+  line-height: 87%;
+  text-align: center;
+  vertical-align: middle;
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 .sliderWrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   width: 100%;
-  margin-top: 32px;
 }
 
 .navButton {
+  all: unset;
   background: transparent;
-  border: 2px solid $primary-color;
   color: $primary-color;
   width: 56px;
   height: 56px;
-  border-radius: $radius-full;
   display: grid;
   place-items: center;
-  transition: background-color $transition-base, color $transition-base, border-color $transition-base;
-}
+  cursor: pointer;
 
-.navButton:hover,
-.navButton:focus-visible {
-  background: $primary-color;
-  color: $color-white;
-  border-color: $primary-dark;
+  &:hover {
+    background: transparent;
+  }
 }
 
 .navButtonLeft {
@@ -74,7 +77,8 @@
 }
 
 .slide {
-  min-width: 100%;
+  max-width: 377px;
+  width: 100%;
   background: $primary-color;
   color: $color-white;
   border-radius: $radius-lg;
@@ -89,8 +93,11 @@
 
 .slideTitle {
   font-size: clamp(20px, 4vw, 32px);
-  font-weight: 800;
   text-align: center;
+  font-weight: 700;
+  line-height: 87%;
+  vertical-align: middle;
+
 }
 
 .imagePlaceholder {
@@ -112,7 +119,7 @@
   width: 12px;
   height: 12px;
   border-radius: $radius-full;
-  background: $primary-light;
+  background: $primary-color;
   border: 1px solid $primary-color;
   transition: transform $transition-fast, background-color $transition-base;
 }
@@ -123,7 +130,6 @@
 }
 
 .sliderCta {
-  margin-top: 16px;
   display: flex;
   justify-content: center;
 }

@@ -51,6 +51,13 @@
   line-height: 87%;
   text-transform: uppercase;
   margin-bottom: 48px;
+
+  @media (max-width: $tablet-breakpoint) {
+    margin-bottom: 32px;
+  }
+  @media (max-width: $mobile-breakpoint) {
+    margin-bottom: 16px;
+  }
 }
 
 .input {
