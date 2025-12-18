@@ -3,7 +3,7 @@
 .container {
   margin: 0 auto;
   max-width: $container-width;
-  padding: 0 $container-padding;
+  padding: 0 12px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -13,7 +13,7 @@
 
 .sliderSection {
   background: $color-white;
-  padding: 64px 16px 96px;
+  padding: 64px 0 96px;
   color: $text-color;
 }
 
@@ -43,7 +43,7 @@
   justify-content: center;
   width: 100%;
   position: relative;
-  padding: 0 72px;
+  padding: 0;
 }
 
 .navButton {
@@ -78,6 +78,7 @@
   flex: 1;
   overflow: hidden;
   max-width: none;
+  padding: 0 16px;
 }
 
 .sliderTrack {
@@ -85,12 +86,12 @@
   gap: 16px;
   transition: transform $transition-slow;
   will-change: transform;
-  width: calc(100% + (var(--slides-per-view, 1) - 1) * 16px);
+  width: max-content;
 }
 
 .slide {
-  flex: 0 0 calc(100% / var(--slides-per-view, 1));
-  width: 100%;
+  flex: 0 0 var(--slide-width, calc((100% - (var(--slides-per-view, 1) - 1) * 16px) / var(--slides-per-view, 1)));
+  width: var(--slide-width, 100%);
   background: $primary-color;
   color: $color-white;
   border-radius: $radius-lg;
@@ -148,10 +149,6 @@
 }
 
 @media (max-width: $mobile-breakpoint) {
-  .sliderWrapper {
-    padding: 0 48px;
-  }
-
   .navButton {
     width: 44px;
     height: 44px;
