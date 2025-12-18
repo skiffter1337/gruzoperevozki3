@@ -1,7 +1,7 @@
 'use client';
 
 import Image, {StaticImageData} from 'next/image';
-import {TouchEvent, useEffect, useMemo, useState} from 'react';
+import {TouchEvent, useEffect, useMemo, useRef, useState} from 'react';
 import Link from 'next/link';
 import {useRouter} from 'next/navigation';
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
@@ -25,6 +25,8 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
     const [currentSlide, setCurrentSlide] = useState(0);
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [slidesPerView, setSlidesPerView] = useState(1);
+    const [slideMetrics, setSlideMetrics] = useState<{width: number; step: number} | null>(null);
+    const sliderViewportRef = useRef<HTMLDivElement | null>(null);
 
     const sliderBasePath = useMemo(() => buildLocalizedPath(locale, 'services'), [locale]);
     const totalSlides = dictionary.sliderItems.length;
@@ -55,6 +57,35 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
 
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+
+    useEffect(() => {
+        const GAP = 16;
+        const MIN_GUTTER = 16;
+
+        const calculateSlideMetrics = () => {
+            const viewport = sliderViewportRef.current;
+            if (!viewport) return;
+
+            const viewportWidth = viewport.clientWidth;
+            const gutters = Math.max(MIN_GUTTER * 2, slidesPerView === 1 ? MIN_GUTTER * 2 : 0);
+            const availableWidth = Math.max(viewportWidth - gutters - GAP * (slidesPerView - 1), 0);
+            const widthPerSlide = slidesPerView === 1
+                ? Math.min(370, viewportWidth - MIN_GUTTER * 2)
+                : availableWidth / slidesPerView;
+
+            const effectiveGap = slidesPerView > 1 ? GAP : 0;
+
+            setSlideMetrics({
+                width: widthPerSlide,
+                step: widthPerSlide + effectiveGap,
+            });
+        };
+
+        calculateSlideMetrics();
+        window.addEventListener('resize', calculateSlideMetrics);
+
+        return () => window.removeEventListener('resize', calculateSlideMetrics);
+    }, [slidesPerView]);
 
     const goToSlide = (nextIndex: number) => {
         if (!totalSlides) return;
@@ -106,15 +137,19 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
 
                         <div
                             className={styles.sliderViewport}
+                            ref={sliderViewportRef}
                             onTouchStart={handleTouchStart}
                             onTouchEnd={handleTouchEnd}
                         >
                             <div
                                 className={styles.sliderTrack}
                                 style={{
-                                    transform: `translateX(-${clampedSlide * slideWidthPercentage}%)`,
+                                    transform: slideMetrics
+                                        ? `translateX(-${clampedSlide * slideMetrics.step}px)`
+                                        : `translateX(-${clampedSlide * slideWidthPercentage}%)`,
                                     // @ts-expect-error CSS custom properties typing
                                     '--slides-per-view': slidesPerView,
+                                    '--slide-width': slideMetrics ? `${slideMetrics.width}px` : undefined,
                                 }}
                             >
                                 {dictionary.sliderItems.map((item) => {
