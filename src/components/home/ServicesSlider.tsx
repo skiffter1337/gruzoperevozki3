@@ -146,7 +146,7 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
 
                         <button
                             type="button"
-                            className={styles.navButton}
+                            className={`${styles.navButton} ${styles.navButtonRight}`}
                             aria-label={dictionary.sliderNext}
                             onClick={handleNext}
                         >
