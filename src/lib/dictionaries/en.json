@@ -47,6 +47,7 @@
     "toPlaceholder": "City",
     "datePlaceholder": "Choose a date",
     "submit": "Submit",
+    "submitLabel": "to calculate the cost of transportation",
     "requiredMessage": "Please fill in all fields"
   },
   "servicesPage": {

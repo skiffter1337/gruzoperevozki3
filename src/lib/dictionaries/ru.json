@@ -47,6 +47,7 @@
     "toPlaceholder": "Город",
     "datePlaceholder": "Выберите дату",
     "submit": "Нажмите",
+    "submitLabel": "чтобы рассчитать стоимость перевозки",
     "requiredMessage": "Пожалуйста, заполните все поля"
   },
   "servicesPage": {

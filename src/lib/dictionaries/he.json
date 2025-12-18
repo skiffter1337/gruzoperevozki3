@@ -47,6 +47,7 @@
     "toPlaceholder": "עיר",
     "datePlaceholder": "בחרו תאריך",
     "submit": "שלחו",
+    "submitLabel": "כדי לחשב את עלות ההובלה",
     "requiredMessage": "נא למלא את כל השדות"
   },
   "servicesPage": {

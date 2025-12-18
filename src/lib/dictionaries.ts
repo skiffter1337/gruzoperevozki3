@@ -37,6 +37,7 @@ export type DictionaryType = {
         toPlaceholder: string;
         datePlaceholder: string;
         submit: string;
+        submitLabel: string;
         requiredMessage: string;
     };
     company: {
@@ -92,6 +93,7 @@ const defaultDictionary: DictionaryType = {
         toPlaceholder: "Город",
         datePlaceholder: "Выберите дату",
         submit: "Нажмите",
+        submitLabel: "чтобы рассчитать стоимость перевозки",
         requiredMessage: "Пожалуйста, заполните все поля",
     },
     servicesPage: {
