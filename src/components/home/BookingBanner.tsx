@@ -142,6 +142,9 @@ export default function BookingBanner({ locale, dictionary }: BookingBannerProps
               <GradientButton type="submit" ariaLabel={dictionary.submit}>
                 {dictionary.submit}
               </GradientButton>
+              <div className={styles.submitLabel}>
+                {dictionary.submitLabel}
+              </div>
             </div>
           </form>
         </div>

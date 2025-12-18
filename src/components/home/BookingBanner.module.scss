@@ -75,6 +75,17 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  flex-direction: column;
+  gap: 32px;
+  @media (min-width: $tablet-breakpoint) {
+    gap: 16px;
+  }
+}
+
+.submitLabel {
+  font-weight: 700;
+  text-align: center;
+  font-size: clamp(14px, 4vw, 29px);
 }
 
 .error {
