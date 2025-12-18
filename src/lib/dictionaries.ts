@@ -6,6 +6,11 @@ export interface Feature {
     title: string;
     description: string;
 }
+
+export interface HomeSliderItem {
+    title: string;
+    slug: string;
+}
 export type DictionaryType = {
     metadata: {
         title: string;
@@ -39,6 +44,12 @@ export type DictionaryType = {
         submit: string;
         submitLabel: string;
         requiredMessage: string;
+        sliderHeading: string;
+        sliderCta: string;
+        sliderPrevious: string;
+        sliderNext: string;
+        sliderItemLabelPrefix: string;
+        sliderItems: HomeSliderItem[];
     };
     company: {
         name: string;
@@ -95,6 +106,17 @@ const defaultDictionary: DictionaryType = {
         submit: "Нажмите",
         submitLabel: "чтобы рассчитать стоимость перевозки",
         requiredMessage: "Пожалуйста, заполните все поля",
+        sliderHeading: "Популярные услуги",
+        sliderCta: "Подробнее",
+        sliderPrevious: "Предыдущий слайд",
+        sliderNext: "Следующий слайд",
+        sliderItemLabelPrefix: "Перейти к услуге",
+        sliderItems: [
+            { title: "Перевозка краном", slug: "perevozka-kranom" },
+            { title: "Транспортные услуги", slug: "transportnye-uslugi" },
+            { title: "Перевозка мебели", slug: "perevozka-mebeli" },
+            { title: "Квартирный переезд", slug: "kvartirnyj-pereezd" },
+        ],
     },
     servicesPage: {
         title: "Наши услуги",
