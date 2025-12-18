@@ -516,6 +516,10 @@
     right: auto;
     left: 0;
     transform: translateY(-100%);
+
+    &.open {
+      transform: translateY(0);
+    }
   }
 
   .navItem::after {
