@@ -1,6 +1,7 @@
 'use client';
 
-import { TouchEvent, useMemo, useState } from 'react';
+import Image from 'next/image';
+import { CSSProperties, TouchEvent, useEffect, useMemo, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
@@ -18,6 +19,7 @@ type ServicesSliderProps = {
 export default function ServicesSlider({ locale, dictionary }: ServicesSliderProps) {
   const router = useRouter();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [slidesPerView, setSlidesPerView] = useState(1);
   const [touchStart, setTouchStart] = useState<number | null>(null);
 
   const sliderBasePath = useMemo(() => buildLocalizedPath(locale, 'services'), [locale]);
@@ -51,6 +53,34 @@ export default function ServicesSlider({ locale, dictionary }: ServicesSliderPro
     setTouchStart(null);
   };
 
+  useEffect(() => {
+    const calculateSlidesPerView = () => {
+      if (window.innerWidth >= 1024) return 3;
+      if (window.innerWidth >= 768) return 2;
+      return 1;
+    };
+
+    const updateSlidesPerView = () => {
+      setSlidesPerView(calculateSlidesPerView());
+    };
+
+    updateSlidesPerView();
+    window.addEventListener('resize', updateSlidesPerView);
+
+    return () => window.removeEventListener('resize', updateSlidesPerView);
+  }, []);
+
+  const slideShift = totalSlides ? (currentSlide * 100) / totalSlides : 0;
+
+  const trackStyle = useMemo(
+    () =>
+      ({
+        transform: `translateX(-${slideShift}%)`,
+        '--slides-per-view': slidesPerView,
+      } satisfies CSSProperties),
+    [slideShift, slidesPerView],
+  );
+
   return (
     <section className={styles.sliderSection} aria-labelledby="services-slider-title">
       <div className={styles.container}>
@@ -77,7 +107,7 @@ export default function ServicesSlider({ locale, dictionary }: ServicesSliderPro
           >
             <div
               className={styles.sliderTrack}
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+              style={trackStyle}
             >
               {dictionary.sliderItems.map((item) => (
                 <Link
@@ -88,7 +118,13 @@ export default function ServicesSlider({ locale, dictionary }: ServicesSliderPro
                   prefetch={false}
                 >
                   <span className={styles.slideTitle}>{item.title}</span>
-                  <div className={styles.imagePlaceholder} aria-hidden="true" />
+                  <Image
+                    src={`/image/${item.slug}.svg`}
+                    alt={item.title}
+                    width={377}
+                    height={377}
+                    className={styles.slideImage}
+                  />
                 </Link>
               ))}
             </div>
