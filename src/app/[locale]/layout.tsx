@@ -6,6 +6,7 @@ import { getDictionary } from '@/lib/dictionaries';
 import { buildLanguageAlternates, buildLocalizedPath } from '@/lib/localized-paths';
 import { SITE_URL } from '@/lib/site-config';
 import { notFound } from 'next/navigation';
+import LocaleDirection from '@/components/LocaleDirection';
 
 const locales: Locale[] = ['he', 'ru', 'en'];
 
@@ -53,9 +54,11 @@ export default async function LocaleLayout({ children, params }: Props) {
   }
 
   const dictionary = await getDictionary(locale);
+  const direction = locale === 'he' ? 'rtl' : 'ltr';
 
   return (
-    <>
+    <div dir={direction} lang={locale} className={direction === 'rtl' ? 'rtl' : undefined}>
+      <LocaleDirection dir={direction} lang={locale} />
       <Header
         locale={locale}
         dictionary={{
@@ -66,7 +69,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         }}
       />
       <main className="min-h-screen">{children}</main>
-    </>
+    </div>
   );
 }
 
