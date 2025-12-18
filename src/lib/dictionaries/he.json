@@ -55,10 +55,10 @@
     "sliderNext": "שקופית הבאה",
     "sliderItemLabelPrefix": "פתח דף שירות",
     "sliderItems": [
-      {"title": "הובלה עם מנוף", "slug": "הובלה-עם-מנוף"},
-      {"title": "שירותי תחבורה", "slug": "שירותי-תחבורה"},
-      {"title": "הובלת רהיטים", "slug": "הובלת-רהיטים"},
-      {"title": "הובלת דירה", "slug": "הובלת-דירה"}
+      {"title": "הובלה עם מנוף", "slug": "הובלה-עם-מנוף", "image": "crane"},
+      {"title": "שירותי תחבורה", "slug": "שירותי-תחבורה", "image": "transport"},
+      {"title": "הובלת רהיטים", "slug": "הובלת-רהיטים", "image": "furniture"},
+      {"title": "הובלת דירה", "slug": "הובלת-דירה", "image": "flat"}
     ]
   },
   "servicesPage": {

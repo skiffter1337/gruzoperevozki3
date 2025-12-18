@@ -10,6 +10,7 @@ export interface Feature {
 export interface HomeSliderItem {
     title: string;
     slug: string;
+    image: 'crane' | 'transport' | 'furniture' | 'flat';
 }
 export type DictionaryType = {
     metadata: {
@@ -112,10 +113,10 @@ const defaultDictionary: DictionaryType = {
         sliderNext: "Следующий слайд",
         sliderItemLabelPrefix: "Перейти к услуге",
         sliderItems: [
-            { title: "Перевозка краном", slug: "perevozka-kranom" },
-            { title: "Транспортные услуги", slug: "transportnye-uslugi" },
-            { title: "Перевозка мебели", slug: "perevozka-mebeli" },
-            { title: "Квартирный переезд", slug: "kvartirnyj-pereezd" },
+            { title: "Перевозка краном", slug: "perevozka-kranom", image: 'crane' },
+            { title: "Транспортные услуги", slug: "transportnye-uslugi", image: 'transport' },
+            { title: "Перевозка мебели", slug: "perevozka-mebeli", image: 'furniture' },
+            { title: "Квартирный переезд", slug: "kvartirnyj-pereezd", image: 'flat' },
         ],
     },
     servicesPage: {
