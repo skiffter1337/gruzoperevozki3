@@ -4,6 +4,7 @@ import { getDictionary } from '@/lib/dictionaries';
 import { buildLanguageAlternates, buildLocalizedPath } from '@/lib/localized-paths';
 import { SITE_URL } from '@/lib/site-config';
 import BookingBanner from '@/components/home/BookingBanner';
+import ServicesSlider from '@/components/home/ServicesSlider';
 
 type Props = {
   params: Promise<{
@@ -36,5 +37,10 @@ export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   const dictionary = await getDictionary(locale);
 
-  return <BookingBanner locale={locale} dictionary={dictionary.homeHero} />;
+  return (
+    <>
+      <BookingBanner locale={locale} dictionary={dictionary.homeHero} />
+      <ServicesSlider locale={locale} dictionary={dictionary.homeHero} />
+    </>
+  );
 }

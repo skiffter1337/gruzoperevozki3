@@ -1,0 +1,144 @@
+@import '@/styles/_variables.scss';
+
+.container {
+  margin: 0 auto;
+  max-width: $container-width;
+  padding: 0 $container-padding;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  text-align: center;
+}
+
+.sliderSection {
+  background: $color-white;
+  padding: 64px 16px 96px;
+  color: $text-color;
+}
+
+.sliderHeader {
+  width: 100%;
+  text-align: center;
+}
+
+.sliderTitle {
+  font-size: clamp(24px, 4vw, 42px);
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: $primary-color;
+}
+
+.sliderWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 32px;
+}
+
+.navButton {
+  background: transparent;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  width: 56px;
+  height: 56px;
+  border-radius: $radius-full;
+  display: grid;
+  place-items: center;
+  transition: background-color $transition-base, color $transition-base, border-color $transition-base;
+}
+
+.navButton:hover,
+.navButton:focus-visible {
+  background: $primary-color;
+  color: $color-white;
+  border-color: $primary-dark;
+}
+
+.navButtonLeft {
+  transform: rotate(180deg);
+}
+
+.sliderViewport {
+  flex: 1;
+  overflow: hidden;
+  max-width: 960px;
+}
+
+.sliderTrack {
+  display: flex;
+  transition: transform $transition-slow;
+  will-change: transform;
+}
+
+.slide {
+  min-width: 100%;
+  background: $primary-color;
+  color: $color-white;
+  border-radius: $radius-lg;
+  padding: 32px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  box-shadow: $shadow-lg;
+}
+
+.slideTitle {
+  font-size: clamp(20px, 4vw, 32px);
+  font-weight: 800;
+  text-align: center;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: clamp(160px, 40vw, 320px);
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.15));
+  border: 1px dashed rgba(255, 255, 255, 0.5);
+}
+
+.dots {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 24px 0 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: $radius-full;
+  background: $primary-light;
+  border: 1px solid $primary-color;
+  transition: transform $transition-fast, background-color $transition-base;
+}
+
+.dotActive {
+  background: $primary-color;
+  transform: scale(1.15);
+}
+
+.sliderCta {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .sliderWrapper {
+    gap: 8px;
+  }
+
+  .navButton {
+    width: 44px;
+    height: 44px;
+  }
+
+  .slide {
+    padding: 24px 20px;
+  }
+}
