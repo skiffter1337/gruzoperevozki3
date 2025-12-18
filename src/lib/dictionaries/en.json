@@ -48,7 +48,18 @@
     "datePlaceholder": "Choose a date",
     "submit": "Submit",
     "submitLabel": "to calculate the cost of transportation",
-    "requiredMessage": "Please fill in all fields"
+    "requiredMessage": "Please fill in all fields",
+    "sliderHeading": "Featured services",
+    "sliderCta": "Learn more",
+    "sliderPrevious": "Previous slide",
+    "sliderNext": "Next slide",
+    "sliderItemLabelPrefix": "Open service page",
+    "sliderItems": [
+      {"title": "Crane transport", "slug": "crane-transport"},
+      {"title": "Transport services", "slug": "transport-services"},
+      {"title": "Furniture moving", "slug": "furniture-moving"},
+      {"title": "Apartment move", "slug": "apartment-move"}
+    ]
   },
   "servicesPage": {
     "title": "Our services",

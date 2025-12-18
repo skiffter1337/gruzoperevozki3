@@ -2,11 +2,11 @@
 
 import { FormEvent, useMemo, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { Locale } from '../../../i18n-config';
-import { buildLocalizedPath } from '@/lib/localized-paths';
-import styles from './BookingBanner.module.scss';
+import GradientButton from '@/components/gradient-button/GradientButton';
 import { DictionaryType } from '@/lib/dictionaries';
-import GradientButton from "@/components/gradient-button/GradientButton";
+import { buildLocalizedPath } from '@/lib/localized-paths';
+import { Locale } from '../../../i18n-config';
+import styles from './BookingBanner.module.scss';
 
 type BookingBannerProps = {
   locale: Locale;
@@ -142,9 +142,7 @@ export default function BookingBanner({ locale, dictionary }: BookingBannerProps
               <GradientButton type="submit" ariaLabel={dictionary.submit}>
                 {dictionary.submit}
               </GradientButton>
-              <div className={styles.submitLabel}>
-                {dictionary.submitLabel}
-              </div>
+              <div className={styles.submitLabel}>{dictionary.submitLabel}</div>
             </div>
           </form>
         </div>

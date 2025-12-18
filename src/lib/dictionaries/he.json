@@ -48,7 +48,18 @@
     "datePlaceholder": "בחרו תאריך",
     "submit": "שלחו",
     "submitLabel": "כדי לחשב את עלות ההובלה",
-    "requiredMessage": "נא למלא את כל השדות"
+    "requiredMessage": "נא למלא את כל השדות",
+    "sliderHeading": "שירותים מובילים",
+    "sliderCta": "למידע נוסף",
+    "sliderPrevious": "שקופית קודמת",
+    "sliderNext": "שקופית הבאה",
+    "sliderItemLabelPrefix": "פתח דף שירות",
+    "sliderItems": [
+      {"title": "הובלה עם מנוף", "slug": "הובלה-עם-מנוף"},
+      {"title": "שירותי תחבורה", "slug": "שירותי-תחבורה"},
+      {"title": "הובלת רהיטים", "slug": "הובלת-רהיטים"},
+      {"title": "הובלת דירה", "slug": "הובלת-דירה"}
+    ]
   },
   "servicesPage": {
     "title": "השירותים שלנו",
