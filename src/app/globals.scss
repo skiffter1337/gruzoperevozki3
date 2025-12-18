@@ -24,6 +24,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+[dir='rtl'] {
+  direction: rtl;
+}
+
+.rtl {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Rubik', 'Arial Hebrew', 'Noto Sans Hebrew', sans-serif;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
