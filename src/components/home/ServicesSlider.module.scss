@@ -82,11 +82,11 @@
   flex: 0 0 calc(100% / var(--slides-per-view, 1));
   max-width: 377px;
   width: 100%;
-  min-height: 377px;
+  max-height: 377px;
   background: $primary-color;
   color: $color-white;
   border-radius: $radius-lg;
-  padding: 32px;
+  padding: 32px 32px 0;
   text-decoration: none;
   display: flex;
   flex-direction: column;
