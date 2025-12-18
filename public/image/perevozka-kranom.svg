@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 377 377" role="img" aria-label="Перевозка краном">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+  </defs>
+  <rect width="377" height="377" rx="24" fill="url(#grad1)" />
+  <g fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M70 270h240" />
+    <path d="M100 270v-60l90-70 80 40-40 90" />
+    <circle cx="120" cy="270" r="22" fill="#ffffff" stroke="none" />
+    <circle cx="240" cy="270" r="22" fill="#ffffff" stroke="none" />
+    <path d="M190 140v-50l-30-20" />
+    <path d="M190 90h30" />
+  </g>
+  <text x="50%" y="340" fill="#ffffff" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" text-anchor="middle">Перевозка краном</text>
+</svg>
