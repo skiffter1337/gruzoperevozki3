@@ -60,17 +60,20 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
 
     useEffect(() => {
         const GAP = 16;
-        const MIN_GUTTER = 16;
 
         const calculateSlideMetrics = () => {
             const viewport = sliderViewportRef.current;
             if (!viewport) return;
 
             const viewportWidth = viewport.clientWidth;
-            const gutters = Math.max(MIN_GUTTER * 2, slidesPerView === 1 ? MIN_GUTTER * 2 : 0);
-            const availableWidth = Math.max(viewportWidth - gutters - GAP * (slidesPerView - 1), 0);
+            const computedStyle = window.getComputedStyle(viewport);
+            const horizontalPadding =
+                parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight);
+
+            const contentWidth = Math.max(viewportWidth - horizontalPadding, 0);
+            const availableWidth = Math.max(contentWidth - GAP * (slidesPerView - 1), 0);
             const widthPerSlide = slidesPerView === 1
-                ? Math.min(370, viewportWidth - MIN_GUTTER * 2)
+                ? contentWidth
                 : availableWidth / slidesPerView;
 
             const effectiveGap = slidesPerView > 1 ? GAP : 0;
@@ -82,9 +85,21 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
         };
 
         calculateSlideMetrics();
+
+        const observer = typeof ResizeObserver !== 'undefined'
+            ? new ResizeObserver(() => calculateSlideMetrics())
+            : null;
+
+        if (observer && sliderViewportRef.current) {
+            observer.observe(sliderViewportRef.current);
+        }
+
         window.addEventListener('resize', calculateSlideMetrics);
 
-        return () => window.removeEventListener('resize', calculateSlideMetrics);
+        return () => {
+            observer?.disconnect();
+            window.removeEventListener('resize', calculateSlideMetrics);
+        };
     }, [slidesPerView]);
 
     const goToSlide = (nextIndex: number) => {
