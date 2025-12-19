@@ -159,6 +159,7 @@ export default function RegionsSlider({dictionary}: RegionsSliderProps) {
                                         aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
                                     >
                                         <div className={styles.slideImageWrapper}>
+                                            <div className={styles.slideTitle}>{item.title}</div>
                                             <Image
                                                 src={item.image || '/images/region-placeholder.svg'}
                                                 alt={item.title}
@@ -167,9 +168,7 @@ export default function RegionsSlider({dictionary}: RegionsSliderProps) {
                                                 className={styles.slideImage}
                                                 priority={index < 2}
                                             />
-                                            <div className={styles.slideOverlay} aria-hidden="true" />
                                         </div>
-                                        <span className={styles.slideTitle}>{item.title}</span>
                                     </div>
                                 ))}
                             </div>

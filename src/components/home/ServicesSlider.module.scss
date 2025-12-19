@@ -81,7 +81,7 @@
 }
 
 .slideTitle {
-  font-size: clamp(31px, 4vw, 32px);
+  font-size: clamp(26px, 3vw, 36px);
   text-align: center;
   font-weight: 700;
   line-height: 1.1;
@@ -92,7 +92,7 @@
 .slideImage {
   width: 100%;
   max-width: 240px;
-  max-height: 250px;
+  max-height: 240px;
   height: auto;
   object-fit: contain;
   margin-top: auto;

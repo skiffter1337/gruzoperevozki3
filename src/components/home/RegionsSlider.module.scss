@@ -66,12 +66,18 @@
   width: 370px;
   height: 370px;
   border-radius: $radius-lg;
+  padding: 32px 24px 0;
   overflow: hidden;
   color: $color-white;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
+  transition: transform $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
 }
 
 .slideImageWrapper {
@@ -80,31 +86,46 @@
   border-radius: inherit;
   overflow: hidden;
 }
+.slideImageWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20%;
+  background: linear-gradient(
+                  to bottom,
+                  rgba(255, 255, 255, 0.4) 0%,
+                  rgba(255, 255, 255, 0.25) 40%,
+                  rgba(255, 255, 255, 0.1) 70%,
+                  transparent 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+  backdrop-filter: blur(1.5px);
+}
 
 .slideImage {
   object-fit: cover;
+  filter: brightness(1.15);
+  transition: filter 0.3s ease;
 }
 
-.slideOverlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.55) 100%);
-}
 
 .slideTitle {
   position: relative;
   z-index: 1;
-  padding: 20px 24px 24px;
+  padding: 32px 24px 24px;
   width: 100%;
-  font-size: clamp(26px, 3vw, 30px);
+  font-size: clamp(26px, 3vw, 36px);
   font-weight: 700;
-  line-height: 1.1;
-  text-align: left;
+  text-align: center;
+  color: $color-black;
+  line-height: 87%;
 }
 
 .navButton {
   all: unset;
-  background: rgba(255, 255, 255, 0.14);
   color: $color-white;
   width: 48px;
   height: 48px;
@@ -117,11 +138,6 @@
   z-index: 10;
   transition: opacity $transition-base, background-color $transition-base;
   border-radius: $radius-full;
-
-  &:hover:not(:disabled) {
-    opacity: 0.9;
-    background: rgba(255, 255, 255, 0.24);
-  }
 
   &:disabled {
     opacity: 0.3;
