@@ -67,6 +67,7 @@
     "sliderNext": "אזור הבא",
     "sliderItemLabelPrefix": "צפו באזור",
     "sliderItems": [
+      {"title": "שְׁפֵלָה", "image": "/images/region-placeholder.svg"},
       {"title": "שרון", "image": "/images/region-placeholder.svg"},
       {"title": "מרכז", "image": "/images/region-placeholder.svg"},
       {"title": "דרום", "image": "/images/region-placeholder.svg"},

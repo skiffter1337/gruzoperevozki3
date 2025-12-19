@@ -137,6 +137,7 @@ const defaultDictionary: DictionaryType = {
         sliderNext: 'Следующий район',
         sliderItemLabelPrefix: 'Показать район',
         sliderItems: [
+            { title: 'Низменность', image: '/images/region-placeholder.svg' },
             { title: 'Шарон', image: '/images/region-placeholder.svg' },
             { title: 'Центр', image: '/images/region-placeholder.svg' },
             { title: 'Юг', image: '/images/region-placeholder.svg' },
