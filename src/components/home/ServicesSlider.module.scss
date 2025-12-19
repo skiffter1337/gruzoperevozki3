@@ -23,7 +23,7 @@
 }
 
 .sliderTitle {
-  font-size: clamp(24px, 4vw, 64px);
+  font-size: clamp(60px, 4vw, 64px);
   text-transform: uppercase;
   color: $primary-color;
   font-weight: 700;
@@ -36,106 +36,121 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
+  position: relative;
 }
+
 .sliderWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   position: relative;
-  padding: 0;
+}
+
+.sliderViewport {
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto; // Центрируем
+}
+
+.sliderTrack {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  padding: 8px 0; // Для теней
+}
+
+.slide {
+  flex-shrink: 0;
+  background: $primary-color;
+  color: $color-white;
+  border-radius: $radius-lg;
+  padding: 32px 24px 0;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform $transition-base;
+  box-sizing: border-box;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.slideTitle {
+  font-size: clamp(31px, 4vw, 32px);
+  text-align: center;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.slideImage {
+  width: 100%;
+  max-width: 240px;
+  max-height: 250px;
+  height: auto;
+  object-fit: contain;
+  margin-top: auto;
 }
 
 .navButton {
   all: unset;
   background: transparent;
   color: $primary-color;
-  width: 56px;
-  height: 56px;
+  width: 48px;
+  height: 48px;
   display: grid;
   place-items: center;
   cursor: pointer;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 10;
+  transition: opacity $transition-base;
 
-  &:hover {
-    background: transparent;
+  &:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
   }
 }
 
 .navButtonLeft {
-  left: 0;
+  left: -60px;
   transform: translateY(-50%) rotate(180deg);
 }
 
 .navButtonRight {
-  right: 0;
-}
-
-.sliderViewport {
-  flex: 1;
-  overflow: hidden;
-  max-width: none;
-  padding: 0 16px;
-}
-
-.sliderTrack {
-  display: flex;
-  gap: 16px;
-  transition: transform $transition-slow;
-  will-change: transform;
-  width: max-content;
-}
-
-.slide {
-  flex: 0 0 var(--slide-width, calc((100% - (var(--slides-per-view, 1) - 1) * 16px) / var(--slides-per-view, 1)));
-  width: var(--slide-width, 100%);
-  background: $primary-color;
-  color: $color-white;
-  border-radius: $radius-lg;
-  padding: 32px 32px 0;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  box-shadow: $shadow-lg;
-}
-
-.slideTitle {
-  font-size: clamp(20px, 4vw, 32px);
-  text-align: center;
-  font-weight: 700;
-  line-height: 87%;
-  vertical-align: middle;
-
-}
-
-.slideImage {
-  width: 100%;
-  max-width: 240px;
-  height: auto;
-  object-fit: contain;
-  margin-top: auto;
+  right: -60px;
 }
 
 .dots {
   display: flex;
   gap: 12px;
   justify-content: center;
-  margin: 24px 0 8px;
+  margin-top: 24px;
 }
 
 .dot {
   width: 12px;
   height: 12px;
   border-radius: $radius-full;
-  background: $primary-color;
+  background: transparent;
   border: 1px solid $primary-color;
   transition: transform $transition-fast, background-color $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .dotActive {
@@ -148,18 +163,63 @@
   justify-content: center;
 }
 
-@media (max-width: $mobile-breakpoint) {
-  .navButton {
-    width: 44px;
-    height: 44px;
-  }
-
+// Медиа-запросы
+@media (min-width: 1200px) {
   .sliderViewport {
-    width: 100%;
+    width: calc(370px * 3 + 32px); // 3 слайда по 370px + 2 промежутка по 16px
   }
 
   .slide {
-    padding: 24px 20px;
-    min-height: 320px;
+    width: 370px !important;
+    height: 370px !important;
+  }
+}
+
+@media (min-width: 840px) and (max-width: 1199px) {
+  .sliderViewport {
+    width: calc(370px * 2 + 16px); // 2 слайда по 370px + 1 промежуток 16px
+  }
+
+  .slide {
+    width: 370px !important;
+    height: 370px !important;
+  }
+
+  .navButton {
+    display: none !important; // Скрываем стрелки на планшетах
+  }
+}
+
+@media (max-width: 839px) {
+  .sliderViewport {
+    width: 370px; // 1 слайд
+  }
+
+  .slide {
+    width: 370px !important;
+    height: 370px !important;
+  }
+
+  .navButton {
+    display: none !important; // Скрываем стрелки на мобилках
+  }
+
+  .slide {
+    padding: 24px 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .sliderViewport {
+    width: calc(100vw - 40px); // Адаптивная ширина на мобилках
+    max-width: 370px;
+  }
+
+  .slide {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 370px;
+    aspect-ratio: 1;
+    padding: 20px 16px 0;
   }
 }

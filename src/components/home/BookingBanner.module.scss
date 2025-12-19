@@ -9,7 +9,6 @@
 .container {
   margin: 0 auto;
   max-width: $container-width;
-  padding: 0 $container-padding;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -18,7 +17,7 @@
 }
 
 .title {
-  font-size: clamp(24px, 4vw, 64px);
+  font-size: clamp(35px, 4vw, 64px);
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;

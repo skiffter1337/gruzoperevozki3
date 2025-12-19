@@ -25,14 +25,14 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
     const [currentSlide, setCurrentSlide] = useState(0);
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [slidesPerView, setSlidesPerView] = useState(1);
-    const [slideMetrics, setSlideMetrics] = useState<{width: number; step: number} | null>(null);
-    const sliderViewportRef = useRef<HTMLDivElement | null>(null);
+    const [showArrows, setShowArrows] = useState(false);
+    const sliderTrackRef = useRef<HTMLDivElement>(null);
 
     const sliderBasePath = useMemo(() => buildLocalizedPath(locale, 'services'), [locale]);
     const totalSlides = dictionary.sliderItems.length;
-    const maxSlideIndex = Math.max(totalSlides - slidesPerView, 0);
-    const clampedSlide = Math.min(currentSlide, maxSlideIndex);
-    const slideWidthPercentage = 100 / slidesPerView;
+    const gap = 16;
+
+    // Рассчитываем общее количество "страниц" (пакетов слайдов)
     const totalPages = Math.max(totalSlides - slidesPerView + 1, 1);
 
     const slideImages: Record<string, StaticImageData> = {
@@ -42,74 +42,84 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
         flat: flatImage,
     };
 
+    // Определяем количество видимых слайдов в зависимости от ширины экрана
     useEffect(() => {
-        const getSlidesPerView = () => {
-            if (typeof window === 'undefined') return 1;
-            if (window.innerWidth >= 1200) return 3;
-            if (window.innerWidth >= 840) return 2;
-            return 1;
+        const updateLayout = () => {
+            if (typeof window === 'undefined') return;
+
+            const width = window.innerWidth;
+            let newSlidesPerView = 1;
+            let newShowArrows = false;
+
+            if (width >= 1200) {
+                newSlidesPerView = 3;
+                newShowArrows = true;
+            } else if (width >= 840) {
+                newSlidesPerView = 2;
+                newShowArrows = false;
+            } else {
+                newSlidesPerView = 1;
+                newShowArrows = false;
+            }
+
+            if (newSlidesPerView !== slidesPerView) {
+                setSlidesPerView(newSlidesPerView);
+                setCurrentSlide(0);
+            }
+
+            if (newShowArrows !== showArrows) {
+                setShowArrows(newShowArrows);
+            }
         };
 
-        const handleResize = () => setSlidesPerView(getSlidesPerView());
+        updateLayout();
 
-        handleResize();
+        const handleResize = () => {
+            updateLayout();
+        };
+
         window.addEventListener('resize', handleResize);
 
         return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    }, [slidesPerView, showArrows]);
 
-    useEffect(() => {
-        const GAP = 16;
+    // Ширина слайда фиксированная - 370px
+    const slideWidth = 370;
+    const slideStep = slideWidth + gap;
 
-        const calculateSlideMetrics = () => {
-            const viewport = sliderViewportRef.current;
-            if (!viewport) return;
-
-            const viewportWidth = viewport.clientWidth;
-            const computedStyle = window.getComputedStyle(viewport);
-            const horizontalPadding =
-                parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight);
-
-            const contentWidth = Math.max(viewportWidth - horizontalPadding, 0);
-            const availableWidth = Math.max(contentWidth - GAP * (slidesPerView - 1), 0);
-            const widthPerSlide = slidesPerView === 1
-                ? contentWidth
-                : availableWidth / slidesPerView;
-
-            const effectiveGap = slidesPerView > 1 ? GAP : 0;
-
-            setSlideMetrics({
-                width: widthPerSlide,
-                step: widthPerSlide + effectiveGap,
-            });
-        };
-
-        calculateSlideMetrics();
-
-        const observer = typeof ResizeObserver !== 'undefined'
-            ? new ResizeObserver(() => calculateSlideMetrics())
-            : null;
-
-        if (observer && sliderViewportRef.current) {
-            observer.observe(sliderViewportRef.current);
-        }
-
-        window.addEventListener('resize', calculateSlideMetrics);
-
-        return () => {
-            observer?.disconnect();
-            window.removeEventListener('resize', calculateSlideMetrics);
-        };
-    }, [slidesPerView]);
-
+    // Циклическая навигация
     const goToSlide = (nextIndex: number) => {
         if (!totalSlides) return;
-        const normalizedIndex = (nextIndex + maxSlideIndex + 1) % (maxSlideIndex + 1);
-        setCurrentSlide(normalizedIndex);
+
+        // Для циклической навигации
+        if (nextIndex < 0) {
+            setCurrentSlide(totalPages - 1);
+        } else if (nextIndex >= totalPages) {
+            setCurrentSlide(0);
+        } else {
+            setCurrentSlide(nextIndex);
+        }
     };
 
-    const handleNext = () => goToSlide(clampedSlide + 1);
-    const handlePrev = () => goToSlide(clampedSlide - 1);
+    const handleNext = () => {
+        if (slidesPerView >= totalSlides) return;
+
+        if (currentSlide < totalPages - 1) {
+            goToSlide(currentSlide + 1);
+        } else {
+            goToSlide(0);
+        }
+    };
+
+    const handlePrev = () => {
+        if (slidesPerView >= totalSlides) return;
+
+        if (currentSlide > 0) {
+            goToSlide(currentSlide - 1);
+        } else {
+            goToSlide(totalPages - 1);
+        }
+    };
 
     const handleTouchStart = (event: TouchEvent<HTMLDivElement>) => {
         setTouchStart(event.touches[0].clientX);
@@ -130,6 +140,9 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
         setTouchStart(null);
     };
 
+    // Проверяем, нужно ли показывать стрелки
+    const shouldShowArrows = showArrows && totalSlides > slidesPerView;
+
     return (
         <section className={styles.sliderSection} aria-labelledby="services-slider-title">
             <div className={styles.container}>
@@ -141,30 +154,28 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
 
                 <div className={styles.wrapper}>
                     <div className={styles.sliderWrapper}>
-                        <button
-                            type="button"
-                            className={`${styles.navButton} ${styles.navButtonLeft}`}
-                            aria-label={dictionary.sliderPrevious}
-                            onClick={handlePrev}
-                        >
-                            <ChevronRightIcon focusable="false"/>
-                        </button>
+                        {shouldShowArrows && (
+                            <button
+                                type="button"
+                                className={`${styles.navButton} ${styles.navButtonLeft}`}
+                                aria-label={dictionary.sliderPrevious}
+                                onClick={handlePrev}
+                            >
+                                <ChevronRightIcon focusable="false"/>
+                            </button>
+                        )}
 
                         <div
                             className={styles.sliderViewport}
-                            ref={sliderViewportRef}
                             onTouchStart={handleTouchStart}
                             onTouchEnd={handleTouchEnd}
                         >
                             <div
                                 className={styles.sliderTrack}
+                                ref={sliderTrackRef}
                                 style={{
-                                    transform: slideMetrics
-                                        ? `translateX(-${clampedSlide * slideMetrics.step}px)`
-                                        : `translateX(-${clampedSlide * slideWidthPercentage}%)`,
-                                    // @ts-expect-error CSS custom properties typing
-                                    '--slides-per-view': slidesPerView,
-                                    '--slide-width': slideMetrics ? `${slideMetrics.width}px` : undefined,
+                                    transform: `translateX(-${currentSlide * slideStep}px)`,
+                                    gap: `${gap}px`,
                                 }}
                             >
                                 {dictionary.sliderItems.map((item) => {
@@ -180,45 +191,49 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
                                         >
                                             <span className={styles.slideTitle}>{item.title}</span>
 
-                                                {image && (
-                                                    <Image
-                                                        src={image}
-                                                        alt={item.title}
-                                                        className={styles.slideImage}
-                                                        sizes="(max-width: 839px) 100vw, (max-width: 1199px) 50vw, 33vw"
-                                                    />
-                                                )}
+                                            {image && (
+                                                <Image
+                                                    src={image}
+                                                    alt={item.title}
+                                                    className={styles.slideImage}
+                                                    sizes="370px"
+                                                    width={370}
+                                                    height={370}
+                                                />
+                                            )}
                                         </Link>
                                     );
                                 })}
                             </div>
                         </div>
 
-                        <button
-                            type="button"
-                            className={`${styles.navButton} ${styles.navButtonRight}`}
-                            aria-label={dictionary.sliderNext}
-                            onClick={handleNext}
-                        >
-                            <ChevronRightIcon focusable="false"/>
-                        </button>
-
-
-                    </div>
-                    <div className={styles.dots} role="tablist" aria-label={dictionary.sliderHeading}>
-                        {Array.from({length: totalPages}).map((_, index) => (
+                        {shouldShowArrows && (
                             <button
-                                key={`dot-${index}`}
                                 type="button"
-                                className={`${styles.dot} ${clampedSlide === index ? styles.dotActive : ''}`.trim()}
-                                aria-label={`${dictionary.sliderItemLabelPrefix} ${index + 1}`}
-                                aria-pressed={clampedSlide === index}
-                                onClick={() => goToSlide(index)}
-                            />
-                        ))}
+                                className={`${styles.navButton} ${styles.navButtonRight}`}
+                                aria-label={dictionary.sliderNext}
+                                onClick={handleNext}
+                            >
+                                <ChevronRightIcon focusable="false"/>
+                            </button>
+                        )}
                     </div>
-                </div>
 
+                    {totalPages > 1 && (
+                        <div className={styles.dots} role="tablist" aria-label={dictionary.sliderHeading}>
+                            {Array.from({length: totalPages}).map((_, index) => (
+                                <button
+                                    key={`dot-${index}`}
+                                    type="button"
+                                    className={`${styles.dot} ${currentSlide === index ? styles.dotActive : ''}`.trim()}
+                                    aria-label={`${dictionary.sliderItemLabelPrefix} ${index + 1}`}
+                                    aria-pressed={currentSlide === index}
+                                    onClick={() => setCurrentSlide(index)}
+                                />
+                            ))}
+                        </div>
+                    )}
+                </div>
 
                 <div className={styles.sliderCta}>
                     <GradientButton
