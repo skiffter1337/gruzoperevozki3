@@ -67,12 +67,12 @@
     "sliderNext": "אזור הבא",
     "sliderItemLabelPrefix": "צפו באזור",
     "sliderItems": [
-      {"title": "שְׁפֵלָה", "image": "/images/lowland.png"},
-      {"title": "שרון", "image": "/images/sharon.png"},
-      {"title": "מרכז", "image": "/images/center.png"},
-      {"title": "דרום", "image": "/images/south.png"},
-      {"title": "צפון", "image": "/images/north.png"},
-      {"title": "ירושלים והסביבה", "image": "/images/jerusalem.png"}
+      {"title": "שְׁפֵלָה", "slug": "השפלה", "image": "/images/lowland.png"},
+      {"title": "שרון", "slug": "השרון", "image": "/images/sharon.png"},
+      {"title": "מרכז", "slug": "המרכז", "image": "/images/center.png"},
+      {"title": "דרום", "slug": "הדרום", "image": "/images/south.png"},
+      {"title": "צפון", "slug": "הצפון", "image": "/images/north.png"},
+      {"title": "ירושלים והסביבה", "slug": "ירושלים-והסביבה", "image": "/images/jerusalem.png"}
     ]
   },
   "servicesPage": {

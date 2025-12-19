@@ -42,7 +42,7 @@ export default async function HomePage({ params }: Props) {
     <>
       <BookingBanner locale={locale} dictionary={dictionary.homeHero} />
       <ServicesSlider locale={locale} dictionary={dictionary.homeHero} />
-      <RegionsSlider dictionary={dictionary.homeRegions} />
+      <RegionsSlider locale={locale} dictionary={dictionary.homeRegions} />
     </>
   );
 }

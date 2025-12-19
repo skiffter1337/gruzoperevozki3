@@ -15,6 +15,7 @@ export interface HomeSliderItem {
 
 export interface RegionSliderItem {
     title: string;
+    slug: string;
     image?: string;
 }
 export type DictionaryType = {
@@ -137,12 +138,12 @@ const defaultDictionary: DictionaryType = {
         sliderNext: 'Следующий район',
         sliderItemLabelPrefix: 'Показать район',
         sliderItems: [
-            {title: "Низменность", image: "/images/lowland.png"},
-            {title: "Шарон", image: "/images/sharon.png"},
-            {title: "Центр", image: "/images/center.png"},
-            {title: "Юг", image: "/images/south.png"},
-            {title: "Север", image: "/images/north.png"},
-            {title: "Иерусалим и окрестности", image: "/images/jerusalem.png"}
+            {title: "Низменность", slug: "nizinnost", image: "/images/lowland.png"},
+            {title: "Шарон", slug: "sharon", image: "/images/sharon.png"},
+            {title: "Центр", slug: "centr", image: "/images/center.png"},
+            {title: "Юг", slug: "yug", image: "/images/south.png"},
+            {title: "Север", slug: "sever", image: "/images/north.png"},
+            {title: "Иерусалим и окрестности", slug: "ierusalim-i-okrestnosti", image: "/images/jerusalem.png"}
         ],
     },
     servicesPage: {
