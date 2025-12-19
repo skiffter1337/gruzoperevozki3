@@ -76,6 +76,32 @@
       {"title": "Иерусалим и окрестности", "slug": "иерусалим-и-окрестности", "image": "/images/jerusalem.png"}
     ]
   },
+  "homeCarriers": {
+    "title": "Лучшие перевозчики",
+    "subtitle": "Выберите необходимую территорию обслуживания",
+    "previousTabLabel": "Предыдущая территория",
+    "nextTabLabel": "Следующая территория",
+    "cardAriaLabel": "перейти на сайт перевозчика",
+    "tabs": [
+      {"label": "Юг", "value": "south"},
+      {"label": "Север", "value": "north"},
+      {"label": "Иерусалим", "value": "jerusalem"},
+      {"label": "Низменность", "value": "lowland"},
+      {"label": "Шэрон", "value": "sharon"},
+      {"label": "Координаты", "value": "coordinates"}
+    ],
+    "carriers": [
+      {"name": "Negev Logistic", "region": "south", "image": "/images/south.png", "url": "https://example.com/negev-logistic"},
+      {"name": "Red Sea Cargo", "region": "south", "image": "/images/south.png", "url": "https://example.com/red-sea-cargo"},
+      {"name": "Galil Express", "region": "north", "image": "/images/north.png", "url": "https://example.com/galil-express"},
+      {"name": "Kineret Movers", "region": "north", "image": "/images/north.png", "url": "https://example.com/kineret-movers"},
+      {"name": "Jerusalem Bridge", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/jerusalem-bridge"},
+      {"name": "Golden City Logistics", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/golden-city-logistics"},
+      {"name": "Sharon Sky", "region": "sharon", "image": "/images/sharon.png", "url": "https://example.com/sharon-sky"},
+      {"name": "Coastal Line", "region": "lowland", "image": "/images/lowland.png", "url": "https://example.com/coastal-line"},
+      {"name": "Gush Dan Cargo", "region": "coordinates", "image": "/images/center.png", "url": "https://example.com/gush-dan-cargo"}
+    ]
+  },
   "servicesPage": {
     "title": "Наши услуги",
     "description": "Мы предлагаем широкий спектр профессиональных услуг по переезду по всему Израилю. Каждая услуга выполняется опытной командой с современным оборудованием.",

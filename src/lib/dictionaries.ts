@@ -18,6 +18,18 @@ export interface RegionSliderItem {
     slug: string;
     image?: string;
 }
+
+export interface CarrierTab {
+    label: string;
+    value: 'south' | 'north' | 'jerusalem' | 'lowland' | 'sharon' | 'coordinates';
+}
+
+export interface CarrierItem {
+    name: string;
+    region: CarrierTab['value'];
+    image: string;
+    url: string;
+}
 export type DictionaryType = {
     metadata: {
         title: string;
@@ -64,6 +76,15 @@ export type DictionaryType = {
         sliderNext: string;
         sliderItemLabelPrefix: string;
         sliderItems: RegionSliderItem[];
+    };
+    homeCarriers: {
+        title: string;
+        subtitle: string;
+        previousTabLabel: string;
+        nextTabLabel: string;
+        cardAriaLabel: string;
+        tabs: CarrierTab[];
+        carriers: CarrierItem[];
     };
     company: {
         name: string;
@@ -144,6 +165,32 @@ const defaultDictionary: DictionaryType = {
             {title: "Юг", slug: "yug", image: "/images/south.png"},
             {title: "Север", slug: "sever", image: "/images/north.png"},
             {title: "Иерусалим и окрестности", slug: "ierusalim-i-okrestnosti", image: "/images/jerusalem.png"}
+        ],
+    },
+    homeCarriers: {
+        title: 'Лучшие перевозчики',
+        subtitle: 'Выберите необходимую территорию обслуживания',
+        previousTabLabel: 'Предыдущая территория',
+        nextTabLabel: 'Следующая территория',
+        cardAriaLabel: 'перейти на сайт перевозчика',
+        tabs: [
+            {label: 'Юг', value: 'south'},
+            {label: 'Север', value: 'north'},
+            {label: 'Иерусалим', value: 'jerusalem'},
+            {label: 'Низменность', value: 'lowland'},
+            {label: 'Шэрон', value: 'sharon'},
+            {label: 'Координаты', value: 'coordinates'},
+        ],
+        carriers: [
+            {name: 'Negev Logistic', region: 'south', image: '/images/south.png', url: 'https://example.com/negev-logistic'},
+            {name: 'Red Sea Cargo', region: 'south', image: '/images/south.png', url: 'https://example.com/red-sea-cargo'},
+            {name: 'Galil Express', region: 'north', image: '/images/north.png', url: 'https://example.com/galil-express'},
+            {name: 'Kineret Movers', region: 'north', image: '/images/north.png', url: 'https://example.com/kineret-movers'},
+            {name: 'Jerusalem Bridge', region: 'jerusalem', image: '/images/jerusalem.png', url: 'https://example.com/jerusalem-bridge'},
+            {name: 'Golden City Logistics', region: 'jerusalem', image: '/images/jerusalem.png', url: 'https://example.com/golden-city-logistics'},
+            {name: 'Sharon Sky', region: 'sharon', image: '/images/sharon.png', url: 'https://example.com/sharon-sky'},
+            {name: 'Coastal Line', region: 'lowland', image: '/images/lowland.png', url: 'https://example.com/coastal-line'},
+            {name: 'Gush Dan Cargo', region: 'coordinates', image: '/images/center.png', url: 'https://example.com/gush-dan-cargo'},
         ],
     },
     servicesPage: {
@@ -274,6 +321,12 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             homeRegions: {
                 ...defaultDictionary.homeRegions,
                 ...loadedDict.homeRegions,
+            },
+            homeCarriers: {
+                ...defaultDictionary.homeCarriers,
+                ...loadedDict.homeCarriers,
+                tabs: loadedDict.homeCarriers?.tabs ?? defaultDictionary.homeCarriers.tabs,
+                carriers: loadedDict.homeCarriers?.carriers ?? defaultDictionary.homeCarriers.carriers,
             },
             calculatePage: {
                 ...defaultDictionary.calculatePage,

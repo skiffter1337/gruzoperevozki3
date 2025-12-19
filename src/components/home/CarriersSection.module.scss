@@ -1,0 +1,246 @@
+@use 'sass:color';
+
+.section {
+  background: #ffffff;
+  color: #1f2937;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 16px 88px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  font-size: 32px;
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #475569;
+}
+
+.tabsShell {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tabsWrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.tabsTrack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.tabButton {
+  border: none;
+  background: transparent;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1f2937;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border-right: 1px solid #e2e8f0;
+}
+
+.tabButton:last-child {
+  border-right: none;
+}
+
+.tabActive {
+  background: #0ea5e9;
+  color: #ffffff;
+}
+
+.tabButton:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: -2px;
+}
+
+.tabNavControls {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tabNavButton {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #0f172a;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.tabNavButton:hover {
+  transform: translateY(-2px);
+}
+
+.tabNavButton:focus-visible {
+  outline: 2px solid #0ea5e9;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.cardLink {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  min-height: 220px;
+  display: block;
+  isolation: isolate;
+  background: #0f172a;
+  color: #ffffff;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cardLink:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 60px rgba(15, 23, 42, 0.18);
+}
+
+.cardImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 30%, rgba(15, 23, 42, 0.72) 100%);
+  z-index: 1;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  padding: 18px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 1023px) {
+  .container {
+    padding: 64px 14px 72px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    gap: 24px;
+    padding: 48px 12px 56px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .tabsWrapper {
+    overflow: visible;
+  }
+
+  .tabsTrack {
+    display: flex;
+    flex-wrap: nowrap;
+    transform: translateX(var(--tab-offset, 0));
+    transition: transform 0.25s ease;
+    border-radius: 18px;
+  }
+
+  .tabButton {
+    min-width: 100%;
+    border-right: 1px solid #e2e8f0;
+  }
+
+  .tabNavControls {
+    display: flex;
+  }
+
+  .cardsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cardLink {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 45%;
+    align-items: stretch;
+    box-shadow: 0 14px 36px rgba(15, 23, 42, 0.16);
+  }
+
+  .cardOverlay {
+    display: none;
+  }
+
+  .cardContent {
+    position: relative;
+    padding: 16px;
+    background: #f8fafc;
+    color: #0f172a;
+    text-shadow: none;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .cardImage {
+    position: relative;
+    height: 100%;
+  }
+}
+
