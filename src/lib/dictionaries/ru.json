@@ -68,12 +68,12 @@
     "sliderNext": "Следующий район",
     "sliderItemLabelPrefix": "Показать район",
     "sliderItems": [
-      {"title": "Низменность", "image": "/images/lowland.png"},
-      {"title": "Шарон", "image": "/images/sharon.png"},
-      {"title": "Центр", "image": "/images/center.png"},
-      {"title": "Юг", "image": "/images/south.png"},
-      {"title": "Север", "image": "/images/north.png"},
-      {"title": "Иерусалим и окрестности", "image": "/images/jerusalem.png"}
+      {"title": "Низменность", "slug": "низменность", "image": "/images/lowland.png"},
+      {"title": "Шарон", "slug": "шарон", "image": "/images/sharon.png"},
+      {"title": "Центр", "slug": "центр", "image": "/images/center.png"},
+      {"title": "Юг", "slug": "юг", "image": "/images/south.png"},
+      {"title": "Север", "slug": "север", "image": "/images/north.png"},
+      {"title": "Иерусалим и окрестности", "slug": "иерусалим-и-окрестности", "image": "/images/jerusalem.png"}
     ]
   },
   "servicesPage": {

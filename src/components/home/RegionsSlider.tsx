@@ -1,16 +1,20 @@
 'use client';
 
 import Image from 'next/image';
-import {TouchEvent, useEffect, useRef, useState} from 'react';
+import Link from 'next/link';
+import {TouchEvent, useEffect, useMemo, useRef, useState} from 'react';
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
 import {DictionaryType} from '@/lib/dictionaries';
+import {buildLocalizedPath} from '@/lib/localized-paths';
+import {Locale} from '../../../i18n-config';
 import styles from './RegionsSlider.module.scss';
 
 type RegionsSliderProps = {
+    locale: Locale;
     dictionary: DictionaryType['homeRegions'];
 };
 
-export default function RegionsSlider({dictionary}: RegionsSliderProps) {
+export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [slidesPerView, setSlidesPerView] = useState(1);
@@ -21,6 +25,8 @@ export default function RegionsSlider({dictionary}: RegionsSliderProps) {
     const gap = 16;
     const slideWidth = 370;
     const slideStep = slideWidth + gap;
+
+    const sliderBasePath = useMemo(() => buildLocalizedPath(locale, 'home'), [locale]);
 
     const totalPages = Math.max(totalSlides - slidesPerView + 1, 1);
 
@@ -153,10 +159,12 @@ export default function RegionsSlider({dictionary}: RegionsSliderProps) {
                                 }}
                             >
                                 {dictionary.sliderItems.map((item, index) => (
-                                    <div
+                                    <Link
                                         key={`${item.title}-${index}`}
+                                        href={`${sliderBasePath}/${item.slug}`}
                                         className={styles.slide}
                                         aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
+                                        prefetch={false}
                                     >
                                         <div className={styles.slideImageWrapper}>
                                             <div className={styles.slideTitle}>{item.title}</div>
@@ -169,7 +177,7 @@ export default function RegionsSlider({dictionary}: RegionsSliderProps) {
                                                 priority={index < 2}
                                             />
                                         </div>
-                                    </div>
+                                    </Link>
                                 ))}
                             </div>
                         </div>

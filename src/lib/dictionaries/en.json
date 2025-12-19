@@ -67,12 +67,12 @@
     "sliderNext": "Next area",
     "sliderItemLabelPrefix": "View area",
     "sliderItems": [
-      {"title": "Lowland", "image": "/images/lowland.png"},
-      {"title": "Sharon", "image": "/images/sharon.png"},
-      {"title": "Center", "image": "/images/center.png"},
-      {"title": "South", "image": "/images/south.png"},
-      {"title": "North", "image": "/images/north.png"},
-      {"title": "Jerusalem area", "image": "/images/jerusalem.png"}
+      {"title": "Lowland", "slug": "lowland", "image": "/images/lowland.png"},
+      {"title": "Sharon", "slug": "sharon", "image": "/images/sharon.png"},
+      {"title": "Center", "slug": "center", "image": "/images/center.png"},
+      {"title": "South", "slug": "south", "image": "/images/south.png"},
+      {"title": "North", "slug": "north", "image": "/images/north.png"},
+      {"title": "Jerusalem area", "slug": "jerusalem-area", "image": "/images/jerusalem.png"}
     ]
   },
   "servicesPage": {
