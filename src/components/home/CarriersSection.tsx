@@ -20,29 +20,36 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
     const [activeRegion, setActiveRegion] = useState<CarrierRegion | null>(dictionary.tabs[0]?.value ?? null);
     const [isMobile, setIsMobile] = useState(false);
     const [tabIndex, setTabIndex] = useState(0);
-    const [tabSlideWidth, setTabSlideWidth] = useState(0);
     const tabsWrapperRef = useRef<HTMLDivElement>(null);
-    const tabsTrackRef = useRef<HTMLDivElement>(null);
+    const [containerWidth, setContainerWidth] = useState(0);
 
     useEffect(() => {
         const updateViewport = () => {
             if (typeof window === 'undefined') return;
-            const mobile = window.innerWidth < 768;
-            setIsMobile(mobile);
-            if (!mobile) {
-                setTabIndex(0);
-            }
-
-            const wrapperWidth = tabsWrapperRef.current?.clientWidth ?? 0;
-            if (wrapperWidth > 0) {
-                setTabSlideWidth(wrapperWidth);
-            }
+            setIsMobile(window.innerWidth < 768);
         };
 
         updateViewport();
         window.addEventListener('resize', updateViewport);
         return () => window.removeEventListener('resize', updateViewport);
     }, []);
+
+    // Обновляем ширину контейнера при ресайзе
+    useEffect(() => {
+        if (!tabsWrapperRef.current || !isMobile) return;
+
+        const updateContainerWidth = () => {
+            const wrapper = tabsWrapperRef.current;
+            if (!wrapper) return;
+
+            const width = wrapper.clientWidth;
+            setContainerWidth(width);
+        };
+
+        updateContainerWidth();
+        window.addEventListener('resize', updateContainerWidth);
+        return () => window.removeEventListener('resize', updateContainerWidth);
+    }, [isMobile]);
 
     const filteredCarriers = useMemo(() => {
         if (!activeRegion) return dictionary.carriers;
@@ -56,16 +63,22 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
         const maxIndex = tabCount - 1;
 
         setTabIndex((current) => {
-            const nextIndex = direction === 'next'
+            return direction === 'next'
                 ? (current >= maxIndex ? 0 : current + 1)
                 : (current <= 0 ? maxIndex : current - 1);
-
-            setActiveRegion(dictionary.tabs[nextIndex]?.value ?? null);
-            return nextIndex;
         });
     };
 
-    const tabOffset = isMobile ? -tabIndex * tabSlideWidth : 0;
+    const handleTabClick = (region: CarrierRegion, index: number) => {
+        setActiveRegion(region);
+        if (isMobile) {
+            setTabIndex(index);
+        }
+    };
+
+    // Рассчитываем смещение
+    const slideWidth = containerWidth; // На мобилке слайд занимает всю ширину контейнера
+    const offset = isMobile ? -tabIndex * slideWidth : 0;
 
     return (
         <section className={styles.section} aria-labelledby="carriers-title">
@@ -81,15 +94,11 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
 
                     <div className={styles.tabsWrapper} ref={tabsWrapperRef}>
                         <div
-                            ref={tabsTrackRef}
                             className={styles.tabsTrack}
                             style={{
-                                transform: isMobile ? `translateX(${tabOffset}px)` : 'none',
-                                width: isMobile
-                                    ? tabSlideWidth
-                                        ? `${dictionary.tabs.length * tabSlideWidth}px`
-                                        : `${dictionary.tabs.length * 100}%`
-                                    : '100%',
+                                transform: isMobile ? `translateX(${offset}px)` : 'none',
+                                transition: isMobile ? 'transform 0.3s ease-in-out' : 'none',
+                                width: isMobile ? `${dictionary.tabs.length * 100}%` : '100%',
                             }}
                             role="tablist"
                             aria-label={dictionary.subtitle}
@@ -104,17 +113,10 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                         role="tab"
                                         aria-selected={isActive}
                                         id={`tab-${tab.value}`}
-                                        onClick={() => {
-                                            setActiveRegion(tab.value);
-                                            setTabIndex(index);
-                                        }}
+                                        onClick={() => handleTabClick(tab.value, index)}
                                         style={{
-                                            flexShrink: isMobile ? 0 : 1,
-                                            flexBasis: isMobile
-                                                ? tabSlideWidth
-                                                    ? `${tabSlideWidth}px`
-                                                    : '100%'
-                                                : 'auto'
+                                            // Каждый таб занимает равную долю ширины трека
+                                            flex: `0 0 ${100 / dictionary.tabs.length}%`,
                                         }}
                                     >
                                         {tab.label}
