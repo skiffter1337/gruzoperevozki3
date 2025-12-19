@@ -228,10 +228,15 @@ const defaultDictionary: DictionaryType = {
     },
 };
 
+const loadDictionary = (locale: Locale) =>
+    import(`./dictionaries/${locale}.json`).then(
+        (module) => module.default as Partial<DictionaryType>
+    );
+
 const dictionaryLoaders: Record<Locale, () => Promise<Partial<DictionaryType>>> = {
-    he: () => import('./dictionaries/he.json').then((module) => module.default),
-    ru: () => import('./dictionaries/ru.json').then((module) => module.default),
-    en: () => import('./dictionaries/en.json').then((module) => module.default),
+    he: () => loadDictionary('he'),
+    ru: () => loadDictionary('ru'),
+    en: () => loadDictionary('en'),
 };
 
 export async function getDictionary(locale: Locale): Promise<DictionaryType> {
