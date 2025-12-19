@@ -188,9 +188,6 @@ const defaultDictionary: DictionaryType = {
             {name: 'Kineret Movers', region: 'north', image: '/images/north.png', url: 'https://example.com/kineret-movers'},
             {name: 'Jerusalem Bridge', region: 'jerusalem', image: '/images/jerusalem.png', url: 'https://example.com/jerusalem-bridge'},
             {name: 'Golden City Logistics', region: 'jerusalem', image: '/images/jerusalem.png', url: 'https://example.com/golden-city-logistics'},
-            {name: 'Sharon Sky', region: 'sharon', image: '/images/sharon.png', url: 'https://example.com/sharon-sky'},
-            {name: 'Coastal Line', region: 'lowland', image: '/images/lowland.png', url: 'https://example.com/coastal-line'},
-            {name: 'Gush Dan Cargo', region: 'coordinates', image: '/images/center.png', url: 'https://example.com/gush-dan-cargo'},
         ],
     },
     servicesPage: {

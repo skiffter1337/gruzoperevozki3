@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import {useEffect, useMemo, useState} from 'react';
+import {useEffect, useMemo, useState, useRef} from 'react';
 
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
 import {DictionaryType} from '@/lib/dictionaries';
@@ -20,6 +20,7 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
     const [activeRegion, setActiveRegion] = useState<CarrierRegion | null>(null);
     const [isMobile, setIsMobile] = useState(false);
     const [tabIndex, setTabIndex] = useState(0);
+    const tabsTrackRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const updateViewport = () => {
@@ -42,13 +43,18 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
     }, [activeRegion, dictionary.carriers]);
 
     const moveTab = (direction: 'next' | 'prev') => {
-        if (!isMobile) return;
-        const lastIndex = dictionary.tabs.length - 1;
+        if (!isMobile || !tabsTrackRef.current) return;
+
+        const tabCount = dictionary.tabs.length;
+        const trackWidth = tabsTrackRef.current.scrollWidth;
+        const visibleWidth = tabsTrackRef.current.parentElement?.clientWidth || 0;
+        const maxIndex = Math.ceil(trackWidth / visibleWidth) - 1;
+
         setTabIndex((current) => {
             if (direction === 'next') {
-                return current >= lastIndex ? 0 : current + 1;
+                return current >= maxIndex ? 0 : current + 1;
             }
-            return current <= 0 ? lastIndex : current - 1;
+            return current <= 0 ? maxIndex : current - 1;
         });
     };
 
@@ -61,15 +67,17 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                     <h2 id="carriers-title" className={styles.title}>
                         {dictionary.title}
                     </h2>
-                    <p className={styles.subtitle}>{dictionary.subtitle}</p>
                 </div>
 
                 <div className={styles.tabsShell}>
+                    <p className={styles.subtitle}>{dictionary.subtitle}</p>
+
                     <div className={styles.tabsWrapper}>
                         <div
+                            ref={tabsTrackRef}
                             className={styles.tabsTrack}
                             style={{
-                                ['--tab-offset' as string]: tabOffset,
+                                transform: isMobile ? `translateX(${tabOffset})` : 'none',
                             }}
                             role="tablist"
                             aria-label={dictionary.subtitle}
@@ -81,10 +89,14 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                         key={`${tab.value}-${index}`}
                                         type="button"
                                         className={`${styles.tabButton} ${isActive ? styles.tabActive : ''}`.trim()}
-                                        aria-pressed={isActive}
-                                        onClick={() =>
-                                            setActiveRegion((prev) => (prev === tab.value ? null : tab.value))
-                                        }
+                                        role="tab"
+                                        aria-selected={isActive}
+                                        id={`tab-${tab.value}`}
+                                        onClick={() => setActiveRegion(tab.value)}
+                                        style={{
+                                            flexShrink: isMobile ? 0 : 1,
+                                            flexBasis: isMobile ? '100%' : 'auto'
+                                        }}
                                     >
                                         {tab.label}
                                     </button>
@@ -101,47 +113,58 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                 aria-label={dictionary.previousTabLabel}
                                 onClick={() => moveTab('prev')}
                             >
-                                <ChevronRightIcon focusable="false" />
+                                <ChevronRightIcon focusable="false" style={{transform: 'rotate(180deg)'}}/>
                             </button>
+                            <span className={styles.tabCounter}>
+                                {tabIndex + 1} / {dictionary.tabs.length}
+                            </span>
                             <button
                                 type="button"
                                 className={styles.tabNavButton}
                                 aria-label={dictionary.nextTabLabel}
                                 onClick={() => moveTab('next')}
                             >
-                                <ChevronRightIcon focusable="false" style={{transform: 'rotate(180deg)'}} />
+                                <ChevronRightIcon focusable="false"/>
                             </button>
                         </div>
                     )}
                 </div>
 
-                <div className={styles.cardsGrid}>
-                    {filteredCarriers.map((carrier, index) => (
-                        <a
-                            key={`${carrier.name}-${index}`}
-                            href={carrier.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.cardLink}
-                            aria-label={`${carrier.name} – ${dictionary.cardAriaLabel}`}
-                        >
-                            <div className={styles.cardImage}>
-                                <Image
-                                    src={carrier.image}
-                                    alt={carrier.name}
-                                    fill
-                                    priority={index < 2}
-                                    sizes="(max-width: 767px) 45vw, (max-width: 1023px) 50vw, 360px"
-                                    style={{objectFit: 'cover'}}
-                                />
-                                <div className={styles.cardOverlay} />
+                <div
+                    id="carriers-content"
+                    className={styles.cardsGrid}
+                    role="tabpanel"
+                    aria-labelledby={activeRegion ? `tab-${activeRegion}` : undefined}
+                >
+                    {filteredCarriers.length > 0 ? (
+                        filteredCarriers.map((carrier, index) => (
+                            <div key={`${carrier.name}-${index}`} className={styles.cardWrapper}>
+                                <a
+                                    href={carrier.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.cardLink}
+                                    aria-label={`${carrier.name} – ${dictionary.cardAriaLabel}`}
+                                >
+                                    <div className={styles.cardImage}>
+                                        <Image
+                                            src={carrier.image}
+                                            alt={carrier.name}
+                                            fill
+                                            priority={index < 2}
+                                            sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 360px"
+                                            style={{objectFit: 'cover'}}
+                                        />
+                                    </div>
+                                </a>
+                                <div className={styles.carrierName}>{carrier.name}</div>
                             </div>
-                            <div className={styles.cardContent}>{carrier.name}</div>
-                        </a>
-                    ))}
+                        ))
+                    ) : (
+                        <p className={styles.noResults}>No carriers found for this region.</p>
+                    )}
                 </div>
             </div>
         </section>
     );
 }
-
