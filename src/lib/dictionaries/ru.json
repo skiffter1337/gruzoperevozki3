@@ -1,8 +1,8 @@
 {
   "metadata": {
     "title": "Профессиональные услуги переезда",
-    "description": "Профессиональная транспортная компания в Израиле. Переезды квартир, офисов и небольшие перевозки.",
-    "keywords": "переезды, перевозка, транспортные услуги"
+    "description": "Профессиональная транспортная компания в Израиле. Переезды квартир, офисов и небольшие перевозки в Шароне, Центре, на Юге, Севере и в Иерусалиме.",
+    "keywords": "переезды, перевозка, транспортные услуги, выбор района, Шарон, Центр, Юг, Север, Иерусалим"
   },
   "header": {
     "popups": {
@@ -59,6 +59,19 @@
       {"title": "Транспортные услуги", "slug": "транспортные-услуги", "image": "transport"},
       {"title": "Перевозка мебели", "slug": "перевозка-мебели", "image": "furniture"},
       {"title": "Квартирный переезд", "slug": "квартирный-переезд", "image": "flat"}
+    ]
+  },
+  "homeRegions": {
+    "heading": "ВЫБОР РАЙОНА",
+    "sliderPrevious": "Предыдущий район",
+    "sliderNext": "Следующий район",
+    "sliderItemLabelPrefix": "Показать район",
+    "sliderItems": [
+      {"title": "Шарон", "image": "/images/region-placeholder.svg"},
+      {"title": "Центр", "image": "/images/region-placeholder.svg"},
+      {"title": "Юг", "image": "/images/region-placeholder.svg"},
+      {"title": "Север", "image": "/images/region-placeholder.svg"},
+      {"title": "Иерусалим и окрестности", "image": "/images/region-placeholder.svg"}
     ]
   },
   "servicesPage": {

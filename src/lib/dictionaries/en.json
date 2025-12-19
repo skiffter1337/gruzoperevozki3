@@ -1,8 +1,8 @@
 {
   "metadata": {
     "title": "Professional moving services",
-    "description": "Moving company in Israel. Apartment moves, office moves and small deliveries.",
-    "keywords": "moving, relocation, transport"
+    "description": "Moving company in Israel. Apartment moves, office moves and small deliveries across Sharon, Center, South, North and the Jerusalem area.",
+    "keywords": "moving, relocation, transport, area selection, Sharon, Center, South, North, Jerusalem"
   },
   "header": {
     "popups": {
@@ -59,6 +59,19 @@
       {"title": "Transport services", "slug": "transport-services", "image": "transport"},
       {"title": "Furniture moving", "slug": "furniture-moving", "image": "furniture"},
       {"title": "Apartment move", "slug": "apartment-move", "image": "flat"}
+    ]
+  },
+  "homeRegions": {
+    "heading": "AREA SELECTION",
+    "sliderPrevious": "Previous area",
+    "sliderNext": "Next area",
+    "sliderItemLabelPrefix": "View area",
+    "sliderItems": [
+      {"title": "Sharon", "image": "/images/region-placeholder.svg"},
+      {"title": "Center", "image": "/images/region-placeholder.svg"},
+      {"title": "South", "image": "/images/region-placeholder.svg"},
+      {"title": "North", "image": "/images/region-placeholder.svg"},
+      {"title": "Jerusalem area", "image": "/images/region-placeholder.svg"}
     ]
   },
   "servicesPage": {
