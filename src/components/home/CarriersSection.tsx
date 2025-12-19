@@ -20,6 +20,8 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
     const [activeRegion, setActiveRegion] = useState<CarrierRegion | null>(dictionary.tabs[0]?.value ?? null);
     const [isMobile, setIsMobile] = useState(false);
     const [tabIndex, setTabIndex] = useState(0);
+    const [tabSlideWidth, setTabSlideWidth] = useState(0);
+    const tabsWrapperRef = useRef<HTMLDivElement>(null);
     const tabsTrackRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -29,6 +31,11 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
             setIsMobile(mobile);
             if (!mobile) {
                 setTabIndex(0);
+            }
+
+            const wrapperWidth = tabsWrapperRef.current?.clientWidth ?? 0;
+            if (wrapperWidth > 0) {
+                setTabSlideWidth(wrapperWidth);
             }
         };
 
@@ -58,7 +65,7 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
         });
     };
 
-    const tabOffset = isMobile ? `-${tabIndex * 100}%` : '0';
+    const tabOffset = isMobile ? -tabIndex * tabSlideWidth : 0;
 
     return (
         <section className={styles.section} aria-labelledby="carriers-title">
@@ -72,13 +79,17 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                 <div className={styles.tabsShell}>
                     <p className={styles.subtitle}>{dictionary.subtitle}</p>
 
-                    <div className={styles.tabsWrapper}>
+                    <div className={styles.tabsWrapper} ref={tabsWrapperRef}>
                         <div
                             ref={tabsTrackRef}
                             className={styles.tabsTrack}
                             style={{
-                                transform: isMobile ? `translateX(${tabOffset})` : 'none',
-                                width: isMobile ? `${dictionary.tabs.length * 100}%` : '100%',
+                                transform: isMobile ? `translateX(${tabOffset}px)` : 'none',
+                                width: isMobile
+                                    ? tabSlideWidth
+                                        ? `${dictionary.tabs.length * tabSlideWidth}px`
+                                        : `${dictionary.tabs.length * 100}%`
+                                    : '100%',
                             }}
                             role="tablist"
                             aria-label={dictionary.subtitle}
@@ -99,7 +110,11 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                         }}
                                         style={{
                                             flexShrink: isMobile ? 0 : 1,
-                                            flexBasis: isMobile ? '100%' : 'auto'
+                                            flexBasis: isMobile
+                                                ? tabSlideWidth
+                                                    ? `${tabSlideWidth}px`
+                                                    : '100%'
+                                                : 'auto'
                                         }}
                                     >
                                         {tab.label}
