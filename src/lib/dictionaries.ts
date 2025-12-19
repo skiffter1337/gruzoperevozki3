@@ -12,6 +12,11 @@ export interface HomeSliderItem {
     slug: string;
     image: 'crane' | 'transport' | 'furniture' | 'flat';
 }
+
+export interface RegionSliderItem {
+    title: string;
+    image?: string;
+}
 export type DictionaryType = {
     metadata: {
         title: string;
@@ -51,6 +56,13 @@ export type DictionaryType = {
         sliderNext: string;
         sliderItemLabelPrefix: string;
         sliderItems: HomeSliderItem[];
+    };
+    homeRegions: {
+        heading: string;
+        sliderPrevious: string;
+        sliderNext: string;
+        sliderItemLabelPrefix: string;
+        sliderItems: RegionSliderItem[];
     };
     company: {
         name: string;
@@ -95,7 +107,7 @@ const defaultDictionary: DictionaryType = {
     metadata: {
         title: 'Default Title',
         description: 'Default Description',
-        keywords: 'default, keywords',
+        keywords: 'default, keywords, sharon, center, south, north, jerusalem',
     },
     homeHero: {
         title: "Хотите заказать перевозку?",
@@ -117,6 +129,19 @@ const defaultDictionary: DictionaryType = {
             { title: "Транспортные услуги", slug: "transportnye-uslugi", image: 'transport' },
             { title: "Перевозка мебели", slug: "perevozka-mebeli", image: 'furniture' },
             { title: "Квартирный переезд", slug: "kvartirnyj-pereezd", image: 'flat' },
+        ],
+    },
+    homeRegions: {
+        heading: 'Выбор района',
+        sliderPrevious: 'Предыдущий район',
+        sliderNext: 'Следующий район',
+        sliderItemLabelPrefix: 'Показать район',
+        sliderItems: [
+            { title: 'Шарон', image: '/images/region-placeholder.svg' },
+            { title: 'Центр', image: '/images/region-placeholder.svg' },
+            { title: 'Юг', image: '/images/region-placeholder.svg' },
+            { title: 'Север', image: '/images/region-placeholder.svg' },
+            { title: 'Иерусалим и окрестности', image: '/images/region-placeholder.svg' },
         ],
     },
     servicesPage: {
@@ -238,6 +263,10 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             homeHero: {
                 ...defaultDictionary.homeHero,
                 ...loadedDict.homeHero,
+            },
+            homeRegions: {
+                ...defaultDictionary.homeRegions,
+                ...loadedDict.homeRegions,
             },
             calculatePage: {
                 ...defaultDictionary.calculatePage,

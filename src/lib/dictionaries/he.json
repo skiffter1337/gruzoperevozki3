@@ -1,8 +1,8 @@
 {
   "metadata": {
     "title": "שירותי הובלה מקצועיים",
-    "description": "חברת הובלה מקצועית בישראל. הובלות דירות, משרדים והובלות קטנות.",
-    "keywords": "הובלות, מעבר דירה, הובלה בישראל"
+    "description": "חברת הובלות מקצועית בישראל. הובלות דירות, משרדים והובלות קטנות בפריסה ארצית – שרון, מרכז, דרום, צפון וירושלים והסביבה.",
+    "keywords": "הובלות, מעבר דירה, הובלה בישראל, בחירת אזור, שרון, מרכז, דרום, צפון, ירושלים"
   },
   "header": {
     "popups": {
@@ -59,6 +59,19 @@
       {"title": "שירותי תחבורה", "slug": "שירותי-תחבורה", "image": "transport"},
       {"title": "הובלת רהיטים", "slug": "הובלת-רהיטים", "image": "furniture"},
       {"title": "הובלת דירה", "slug": "הובלת-דירה", "image": "flat"}
+    ]
+  },
+  "homeRegions": {
+    "heading": "בחירת אזור",
+    "sliderPrevious": "אזור קודם",
+    "sliderNext": "אזור הבא",
+    "sliderItemLabelPrefix": "צפו באזור",
+    "sliderItems": [
+      {"title": "שרון", "image": "/images/region-placeholder.svg"},
+      {"title": "מרכז", "image": "/images/region-placeholder.svg"},
+      {"title": "דרום", "image": "/images/region-placeholder.svg"},
+      {"title": "צפון", "image": "/images/region-placeholder.svg"},
+      {"title": "ירושלים והסביבה", "image": "/images/region-placeholder.svg"}
     ]
   },
   "servicesPage": {

@@ -5,6 +5,7 @@ import { buildLanguageAlternates, buildLocalizedPath } from '@/lib/localized-pat
 import { SITE_URL } from '@/lib/site-config';
 import BookingBanner from '@/components/home/BookingBanner';
 import ServicesSlider from '@/components/home/ServicesSlider';
+import RegionsSlider from '@/components/home/RegionsSlider';
 
 type Props = {
   params: Promise<{
@@ -41,6 +42,7 @@ export default async function HomePage({ params }: Props) {
     <>
       <BookingBanner locale={locale} dictionary={dictionary.homeHero} />
       <ServicesSlider locale={locale} dictionary={dictionary.homeHero} />
+      <RegionsSlider dictionary={dictionary.homeRegions} />
     </>
   );
 }
