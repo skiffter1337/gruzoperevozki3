@@ -66,8 +66,6 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
             const nextIndex = direction === 'next'
                 ? (current >= maxIndex ? 0 : current + 1)
                 : (current <= 0 ? maxIndex : current - 1);
-
-            setActiveRegion(dictionary.tabs[nextIndex]?.value ?? null);
             return nextIndex;
         });
     };
