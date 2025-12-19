@@ -63,9 +63,12 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
         const maxIndex = tabCount - 1;
 
         setTabIndex((current) => {
-            return direction === 'next'
+            const nextIndex = direction === 'next'
                 ? (current >= maxIndex ? 0 : current + 1)
                 : (current <= 0 ? maxIndex : current - 1);
+
+            setActiveRegion(dictionary.tabs[nextIndex]?.value ?? null);
+            return nextIndex;
         });
     };
 
@@ -115,8 +118,11 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                         id={`tab-${tab.value}`}
                                         onClick={() => handleTabClick(tab.value, index)}
                                         style={{
-                                            // Каждый таб занимает равную долю ширины трека
-                                            flex: `0 0 ${100 / dictionary.tabs.length}%`,
+                                            // Каждый таб занимает равную долю ширины трека,
+                                            // а на мобильных полностью заполняет видимую область
+                                            flex: isMobile
+                                                ? '0 0 100%'
+                                                : `0 0 ${100 / dictionary.tabs.length}%`,
                                         }}
                                     >
                                         {tab.label}
