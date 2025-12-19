@@ -17,7 +17,7 @@ type CarriersSectionProps = {
 };
 
 export default function CarriersSection({dictionary}: CarriersSectionProps) {
-    const [activeRegion, setActiveRegion] = useState<CarrierRegion | null>(null);
+    const [activeRegion, setActiveRegion] = useState<CarrierRegion | null>(dictionary.tabs[0]?.value ?? null);
     const [isMobile, setIsMobile] = useState(false);
     const [tabIndex, setTabIndex] = useState(0);
     const tabsTrackRef = useRef<HTMLDivElement>(null);
@@ -43,18 +43,18 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
     }, [activeRegion, dictionary.carriers]);
 
     const moveTab = (direction: 'next' | 'prev') => {
-        if (!isMobile || !tabsTrackRef.current) return;
+        if (!isMobile) return;
 
         const tabCount = dictionary.tabs.length;
-        const trackWidth = tabsTrackRef.current.scrollWidth;
-        const visibleWidth = tabsTrackRef.current.parentElement?.clientWidth || 0;
-        const maxIndex = Math.ceil(trackWidth / visibleWidth) - 1;
+        const maxIndex = tabCount - 1;
 
         setTabIndex((current) => {
-            if (direction === 'next') {
-                return current >= maxIndex ? 0 : current + 1;
-            }
-            return current <= 0 ? maxIndex : current - 1;
+            const nextIndex = direction === 'next'
+                ? (current >= maxIndex ? 0 : current + 1)
+                : (current <= 0 ? maxIndex : current - 1);
+
+            setActiveRegion(dictionary.tabs[nextIndex]?.value ?? null);
+            return nextIndex;
         });
     };
 
@@ -78,6 +78,7 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                             className={styles.tabsTrack}
                             style={{
                                 transform: isMobile ? `translateX(${tabOffset})` : 'none',
+                                width: isMobile ? `${dictionary.tabs.length * 100}%` : '100%',
                             }}
                             role="tablist"
                             aria-label={dictionary.subtitle}
@@ -92,7 +93,10 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                         role="tab"
                                         aria-selected={isActive}
                                         id={`tab-${tab.value}`}
-                                        onClick={() => setActiveRegion(tab.value)}
+                                        onClick={() => {
+                                            setActiveRegion(tab.value);
+                                            setTabIndex(index);
+                                        }}
                                         style={{
                                             flexShrink: isMobile ? 0 : 1,
                                             flexBasis: isMobile ? '100%' : 'auto'

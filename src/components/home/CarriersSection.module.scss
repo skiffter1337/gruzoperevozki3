@@ -74,7 +74,12 @@
   overflow: hidden;
   width: 100%;
 
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  @media (min-width: 1024px) {
     overflow: visible;
   }
 }
@@ -87,6 +92,11 @@
   background: #f8fafc;
   transition: transform 0.3s ease-in-out;
   width: 100%;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: max-content;
+    min-width: 100%;
+  }
 
   @media (max-width: 767px) {
     display: flex;
