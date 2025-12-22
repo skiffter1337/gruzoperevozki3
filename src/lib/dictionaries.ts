@@ -1,5 +1,5 @@
-import { Locale } from '../../i18n-config';
-import { RouteKey } from './localized-paths';
+import {Locale} from '../../i18n-config';
+import {RouteKey} from './localized-paths';
 
 export interface Feature {
     icon: string;
@@ -29,7 +29,13 @@ export interface CarrierItem {
     region: CarrierTab['value'];
     image: string;
     url: string;
+    contactInfo: {
+        info: string;
+        contacts: string;
+        phoneNumber: string;
+    }
 }
+
 export type DictionaryType = {
     metadata: {
         title: string;
@@ -147,10 +153,10 @@ const defaultDictionary: DictionaryType = {
         sliderNext: "Следующий слайд",
         sliderItemLabelPrefix: "Перейти к услуге",
         sliderItems: [
-            { title: "Перевозка краном", slug: "perevozka-kranom", image: 'crane' },
-            { title: "Транспортные услуги", slug: "transportnye-uslugi", image: 'transport' },
-            { title: "Перевозка мебели", slug: "perevozka-mebeli", image: 'furniture' },
-            { title: "Квартирный переезд", slug: "kvartirnyj-pereezd", image: 'flat' },
+            {title: "Перевозка краном", slug: "perevozka-kranom", image: 'crane'},
+            {title: "Транспортные услуги", slug: "transportnye-uslugi", image: 'transport'},
+            {title: "Перевозка мебели", slug: "perevozka-mebeli", image: 'furniture'},
+            {title: "Квартирный переезд", slug: "kvartirnyj-pereezd", image: 'flat'},
         ],
     },
     homeRegions: {
@@ -182,12 +188,48 @@ const defaultDictionary: DictionaryType = {
             {label: 'Координаты', value: 'coordinates'},
         ],
         carriers: [
-            {name: 'Negev Logistic', region: 'south', image: '/images/south.png', url: 'https://example.com/negev-logistic'},
-            {name: 'Red Sea Cargo', region: 'south', image: '/images/south.png', url: 'https://example.com/red-sea-cargo'},
-            {name: 'Galil Express', region: 'north', image: '/images/north.png', url: 'https://example.com/galil-express'},
-            {name: 'Kineret Movers', region: 'north', image: '/images/north.png', url: 'https://example.com/kineret-movers'},
-            {name: 'Jerusalem Bridge', region: 'jerusalem', image: '/images/jerusalem.png', url: 'https://example.com/jerusalem-bridge'},
-            {name: 'Golden City Logistics', region: 'jerusalem', image: '/images/jerusalem.png', url: 'https://example.com/golden-city-logistics'},
+            {
+                name: 'Negev Logistic',
+                region: 'south',
+                image: '/images/south.png',
+                url: 'https://example.com/negev-logistic',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+            },
+            {
+                name: 'Red Sea Cargo',
+                region: 'south',
+                image: '/images/south.png',
+                url: 'https://example.com/red-sea-cargo',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+            },
+            {
+                name: 'Galil Express',
+                region: 'north',
+                image: '/images/north.png',
+                url: 'https://example.com/galil-express',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+            },
+            {
+                name: 'Kineret Movers',
+                region: 'north',
+                image: '/images/north.png',
+                url: 'https://example.com/kineret-movers',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+            },
+            {
+                name: 'Jerusalem Bridge',
+                region: 'jerusalem',
+                image: '/images/jerusalem.png',
+                url: 'https://example.com/jerusalem-bridge',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+            },
+            {
+                name: 'Golden City Logistics',
+                region: 'jerusalem',
+                image: '/images/jerusalem.png',
+                url: 'https://example.com/golden-city-logistics',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+            },
         ],
     },
     servicesPage: {
@@ -239,21 +281,21 @@ const defaultDictionary: DictionaryType = {
     header: {
         popups: {
             transportation: [
-                { label: "Apartments", path: "kvartiry" },
-                { label: "Offices", path: "ofisnye" },
-                { label: "Private house", path: "chastnyj-dom" },
-                { label: "Small move", path: "malyj" },
+                {label: "Apartments", path: "kvartiry"},
+                {label: "Offices", path: "ofisnye"},
+                {label: "Private house", path: "chastnyj-dom"},
+                {label: "Small move", path: "malyj"},
             ],
             services: [
-                { label: "Packing", path: "upakovka" },
-                { label: "Storage", path: "hranenie" },
-                { label: "Late moves", path: "pozdnie-perevozki" },
+                {label: "Packing", path: "upakovka"},
+                {label: "Storage", path: "hranenie"},
+                {label: "Late moves", path: "pozdnie-perevozki"},
             ],
             contact: [
-                { label: "Call us", href: "tel:{phone}" },
-                { label: "Email", href: "mailto:{email}" },
-                { label: "WhatsApp", href: "https://wa.me/{phoneDigits}" },
-                { label: "Facebook", href: "#" },
+                {label: "Call us", href: "tel:{phone}"},
+                {label: "Email", href: "mailto:{email}"},
+                {label: "WhatsApp", href: "https://wa.me/{phoneDigits}"},
+                {label: "Facebook", href: "#"},
             ],
         },
         nav: {

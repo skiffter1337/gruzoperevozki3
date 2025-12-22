@@ -1,4 +1,3 @@
-
 {
   "metadata": {
     "title": "Профессиональные услуги переезда",
@@ -8,21 +7,54 @@
   "header": {
     "popups": {
       "transportation": [
-        {"label": "Квартиры", "path": "квартиры"},
-        {"label": "Офисные", "path": "офисные"},
-        {"label": "Частный дом", "path": "частный-дом"},
-        {"label": "Маленький переезд", "path": "маленький-переезд"}
+        {
+          "label": "Квартиры",
+          "path": "квартиры"
+        },
+        {
+          "label": "Офисные",
+          "path": "офисные"
+        },
+        {
+          "label": "Частный дом",
+          "path": "частный-дом"
+        },
+        {
+          "label": "Маленький переезд",
+          "path": "маленький-переезд"
+        }
       ],
       "services": [
-        {"label": "Упаковка", "path": "упаковка"},
-        {"label": "Хранение", "path": "хранение"},
-        {"label": "Поздние перевозки", "path": "поздние-перевозки"}
+        {
+          "label": "Упаковка",
+          "path": "упаковка"
+        },
+        {
+          "label": "Хранение",
+          "path": "хранение"
+        },
+        {
+          "label": "Поздние перевозки",
+          "path": "поздние-перевозки"
+        }
       ],
       "contact": [
-        {"label": "Позвонить нам", "href": "tel:{phone}"},
-        {"label": "Написать на email", "href": "mailto:{email}"},
-        {"label": "WhatsApp", "href": "https://wa.me/{phoneDigits}"},
-        {"label": "Facebook", "href": "#"}
+        {
+          "label": "Позвонить нам",
+          "href": "tel:{phone}"
+        },
+        {
+          "label": "Написать на email",
+          "href": "mailto:{email}"
+        },
+        {
+          "label": "WhatsApp",
+          "href": "https://wa.me/{phoneDigits}"
+        },
+        {
+          "label": "Facebook",
+          "href": "#"
+        }
       ]
     },
     "nav": {
@@ -56,10 +88,26 @@
     "sliderNext": "Следующий слайд",
     "sliderItemLabelPrefix": "Перейти к услуге",
     "sliderItems": [
-      {"title": "Перевозка краном", "slug": "перевозка-краном", "image": "crane"},
-      {"title": "Транспортные услуги", "slug": "транспортные-услуги", "image": "transport"},
-      {"title": "Перевозка мебели", "slug": "перевозка-мебели", "image": "furniture"},
-      {"title": "Квартирный переезд", "slug": "квартирный-переезд", "image": "flat"}
+      {
+        "title": "Перевозка краном",
+        "slug": "перевозка-краном",
+        "image": "crane"
+      },
+      {
+        "title": "Транспортные услуги",
+        "slug": "транспортные-услуги",
+        "image": "transport"
+      },
+      {
+        "title": "Перевозка мебели",
+        "slug": "перевозка-мебели",
+        "image": "furniture"
+      },
+      {
+        "title": "Квартирный переезд",
+        "slug": "квартирный-переезд",
+        "image": "flat"
+      }
     ]
   },
   "homeRegions": {
@@ -68,12 +116,36 @@
     "sliderNext": "Следующий район",
     "sliderItemLabelPrefix": "Показать район",
     "sliderItems": [
-      {"title": "Низменность", "slug": "низменность", "image": "/images/lowland.png"},
-      {"title": "Шарон", "slug": "шарон", "image": "/images/sharon.png"},
-      {"title": "Центр", "slug": "центр", "image": "/images/center.png"},
-      {"title": "Юг", "slug": "юг", "image": "/images/south.png"},
-      {"title": "Север", "slug": "север", "image": "/images/north.png"},
-      {"title": "Иерусалим и окрестности", "slug": "иерусалим-и-окрестности", "image": "/images/jerusalem.png"}
+      {
+        "title": "Низменность",
+        "slug": "низменность",
+        "image": "/images/lowland.png"
+      },
+      {
+        "title": "Шарон",
+        "slug": "шарон",
+        "image": "/images/sharon.png"
+      },
+      {
+        "title": "Центр",
+        "slug": "центр",
+        "image": "/images/center.png"
+      },
+      {
+        "title": "Юг",
+        "slug": "юг",
+        "image": "/images/south.png"
+      },
+      {
+        "title": "Север",
+        "slug": "север",
+        "image": "/images/north.png"
+      },
+      {
+        "title": "Иерусалим и окрестности",
+        "slug": "иерусалим-и-окрестности",
+        "image": "/images/jerusalem.png"
+      }
     ]
   },
   "homeCarriers": {
@@ -83,20 +155,98 @@
     "nextTabLabel": "Следующая территория",
     "cardAriaLabel": "перейти на сайт перевозчика",
     "tabs": [
-      {"label": "Юг", "value": "south"},
-      {"label": "Север", "value": "north"},
-      {"label": "Иерусалим", "value": "jerusalem"},
-      {"label": "Низменность", "value": "lowland"},
-      {"label": "Шэрон", "value": "sharon"},
-      {"label": "Координаты", "value": "coordinates"}
+      {
+        "label": "Юг",
+        "value": "south"
+      },
+      {
+        "label": "Север",
+        "value": "north"
+      },
+      {
+        "label": "Иерусалим",
+        "value": "jerusalem"
+      },
+      {
+        "label": "Низменность",
+        "value": "lowland"
+      },
+      {
+        "label": "Шэрон",
+        "value": "sharon"
+      },
+      {
+        "label": "Координаты",
+        "value": "coordinates"
+      }
     ],
     "carriers": [
-      {"name": "Negev Logistic", "region": "south", "image": "/images/south.png", "url": "https://example.com/negev-logistic"},
-      {"name": "Red Sea Cargo", "region": "south", "image": "/images/south.png", "url": "https://example.com/red-sea-cargo"},
-      {"name": "Galil Express", "region": "north", "image": "/images/north.png", "url": "https://example.com/galil-express"},
-      {"name": "Kineret Movers", "region": "north", "image": "/images/north.png", "url": "https://example.com/kineret-movers"},
-      {"name": "Jerusalem Bridge", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/jerusalem-bridge"},
-      {"name": "Golden City Logistics", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/golden-city-logistics"}
+      {
+        "name": "Negev Logistic",
+        "region": "south",
+        "image": "/images/south.png",
+        "url": "https://example.com/negev-logistic",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "телефон"
+        }
+      },
+      {
+        "name": "Red Sea Cargo",
+        "region": "south",
+        "image": "/images/south.png",
+        "url": "https://example.com/red-sea-cargo",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "телефон"
+        }
+      },
+      {
+        "name": "Galil Express",
+        "region": "north",
+        "image": "/images/north.png",
+        "url": "https://example.com/galil-express",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "телефон"
+        }
+      },
+      {
+        "name": "Kineret Movers",
+        "region": "north",
+        "image": "/images/north.png",
+        "url": "https://example.com/kineret-movers",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "телефон"
+        }
+      },
+      {
+        "name": "Jerusalem Bridge",
+        "region": "jerusalem",
+        "image": "/images/jerusalem.png",
+        "url": "https://example.com/jerusalem-bridge",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "телефон"
+        }
+      },
+      {
+        "name": "Golden City Logistics",
+        "region": "jerusalem",
+        "image": "/images/jerusalem.png",
+        "url": "https://example.com/golden-city-logistics",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "телефон"
+        }
+      }
     ]
   },
   "servicesPage": {

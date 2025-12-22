@@ -90,12 +90,12 @@
       {"label": "גוש דן", "value": "coordinates"}
     ],
     "carriers": [
-      {"name": "Negev Logistic", "region": "south", "image": "/images/south.png", "url": "https://example.com/negev-logistic"},
-      {"name": "Red Sea Cargo", "region": "south", "image": "/images/south.png", "url": "https://example.com/red-sea-cargo"},
-      {"name": "Galil Express", "region": "north", "image": "/images/north.png", "url": "https://example.com/galil-express"},
-      {"name": "Kineret Movers", "region": "north", "image": "/images/north.png", "url": "https://example.com/kineret-movers"},
-      {"name": "Jerusalem Bridge", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/jerusalem-bridge"},
-      {"name": "Golden City Logistics", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/golden-city-logistics"}
+      {"name": "Negev Logistic", "region": "south", "image": "/images/south.png", "url": "https://example.com/negev-logistic", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
+      {"name": "Red Sea Cargo", "region": "south", "image": "/images/south.png", "url": "https://example.com/red-sea-cargo", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
+      {"name": "Galil Express", "region": "north", "image": "/images/north.png", "url": "https://example.com/galil-express", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
+      {"name": "Kineret Movers", "region": "north", "image": "/images/north.png", "url": "https://example.com/kineret-movers", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
+      {"name": "Jerusalem Bridge", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/jerusalem-bridge", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
+      {"name": "Golden City Logistics", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/golden-city-logistics", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}}
     ]
   },
   "servicesPage": {

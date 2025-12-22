@@ -7,21 +7,54 @@
   "header": {
     "popups": {
       "transportation": [
-        {"label": "Apartments", "path": "apartments"},
-        {"label": "Offices", "path": "offices"},
-        {"label": "Private house", "path": "private-house"},
-        {"label": "Small move", "path": "small-move"}
+        {
+          "label": "Apartments",
+          "path": "apartments"
+        },
+        {
+          "label": "Offices",
+          "path": "offices"
+        },
+        {
+          "label": "Private house",
+          "path": "private-house"
+        },
+        {
+          "label": "Small move",
+          "path": "small-move"
+        }
       ],
       "services": [
-        {"label": "Packing", "path": "packing"},
-        {"label": "Storage", "path": "storage"},
-        {"label": "Late moves", "path": "late-moves"}
+        {
+          "label": "Packing",
+          "path": "packing"
+        },
+        {
+          "label": "Storage",
+          "path": "storage"
+        },
+        {
+          "label": "Late moves",
+          "path": "late-moves"
+        }
       ],
       "contact": [
-        {"label": "Call us", "href": "tel:{phone}"},
-        {"label": "Email", "href": "mailto:{email}"},
-        {"label": "WhatsApp", "href": "https://wa.me/{phoneDigits}"},
-        {"label": "Facebook", "href": "#"}
+        {
+          "label": "Call us",
+          "href": "tel:{phone}"
+        },
+        {
+          "label": "Email",
+          "href": "mailto:{email}"
+        },
+        {
+          "label": "WhatsApp",
+          "href": "https://wa.me/{phoneDigits}"
+        },
+        {
+          "label": "Facebook",
+          "href": "#"
+        }
       ]
     },
     "nav": {
@@ -55,10 +88,26 @@
     "sliderNext": "Next slide",
     "sliderItemLabelPrefix": "Open service page",
     "sliderItems": [
-      {"title": "Crane transport", "slug": "crane-transport", "image": "crane"},
-      {"title": "Transport services", "slug": "transport-services", "image": "transport"},
-      {"title": "Furniture moving", "slug": "furniture-moving", "image": "furniture"},
-      {"title": "Apartment move", "slug": "apartment-move", "image": "flat"}
+      {
+        "title": "Crane transport",
+        "slug": "crane-transport",
+        "image": "crane"
+      },
+      {
+        "title": "Transport services",
+        "slug": "transport-services",
+        "image": "transport"
+      },
+      {
+        "title": "Furniture moving",
+        "slug": "furniture-moving",
+        "image": "furniture"
+      },
+      {
+        "title": "Apartment move",
+        "slug": "apartment-move",
+        "image": "flat"
+      }
     ]
   },
   "homeRegions": {
@@ -67,12 +116,36 @@
     "sliderNext": "Next area",
     "sliderItemLabelPrefix": "View area",
     "sliderItems": [
-      {"title": "Lowland", "slug": "lowland", "image": "/images/lowland.png"},
-      {"title": "Sharon", "slug": "sharon", "image": "/images/sharon.png"},
-      {"title": "Center", "slug": "center", "image": "/images/center.png"},
-      {"title": "South", "slug": "south", "image": "/images/south.png"},
-      {"title": "North", "slug": "north", "image": "/images/north.png"},
-      {"title": "Jerusalem area", "slug": "jerusalem-area", "image": "/images/jerusalem.png"}
+      {
+        "title": "Lowland",
+        "slug": "lowland",
+        "image": "/images/lowland.png"
+      },
+      {
+        "title": "Sharon",
+        "slug": "sharon",
+        "image": "/images/sharon.png"
+      },
+      {
+        "title": "Center",
+        "slug": "center",
+        "image": "/images/center.png"
+      },
+      {
+        "title": "South",
+        "slug": "south",
+        "image": "/images/south.png"
+      },
+      {
+        "title": "North",
+        "slug": "north",
+        "image": "/images/north.png"
+      },
+      {
+        "title": "Jerusalem area",
+        "slug": "jerusalem-area",
+        "image": "/images/jerusalem.png"
+      }
     ]
   },
   "homeCarriers": {
@@ -82,20 +155,98 @@
     "nextTabLabel": "Next territory",
     "cardAriaLabel": "open the carrier website",
     "tabs": [
-      {"label": "South", "value": "south"},
-      {"label": "North", "value": "north"},
-      {"label": "Jerusalem", "value": "jerusalem"},
-      {"label": "Lowland", "value": "lowland"},
-      {"label": "Sharon", "value": "sharon"},
-      {"label": "Coordinates", "value": "coordinates"}
+      {
+        "label": "South",
+        "value": "south"
+      },
+      {
+        "label": "North",
+        "value": "north"
+      },
+      {
+        "label": "Jerusalem",
+        "value": "jerusalem"
+      },
+      {
+        "label": "Lowland",
+        "value": "lowland"
+      },
+      {
+        "label": "Sharon",
+        "value": "sharon"
+      },
+      {
+        "label": "Coordinates",
+        "value": "coordinates"
+      }
     ],
     "carriers": [
-      {"name": "Negev Logistic", "region": "south", "image": "/images/south.png", "url": "https://example.com/negev-logistic"},
-      {"name": "Red Sea Cargo", "region": "south", "image": "/images/south.png", "url": "https://example.com/red-sea-cargo"},
-      {"name": "Galil Express", "region": "north", "image": "/images/north.png", "url": "https://example.com/galil-express"},
-      {"name": "Kineret Movers", "region": "north", "image": "/images/north.png", "url": "https://example.com/kineret-movers"},
-      {"name": "Jerusalem Bridge", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/jerusalem-bridge"},
-      {"name": "Golden City Logistics", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/golden-city-logistics"}
+      {
+        "name": "Negev Logistic",
+        "region": "south",
+        "image": "/images/south.png",
+        "url": "https://example.com/negev-logistic",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "phone number"
+        }
+      },
+      {
+        "name": "Red Sea Cargo",
+        "region": "south",
+        "image": "/images/south.png",
+        "url": "https://example.com/red-sea-cargo",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "phone number"
+        }
+      },
+      {
+        "name": "Galil Express",
+        "region": "north",
+        "image": "/images/north.png",
+        "url": "https://example.com/galil-express",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "phone number"
+        }
+      },
+      {
+        "name": "Kineret Movers",
+        "region": "north",
+        "image": "/images/north.png",
+        "url": "https://example.com/kineret-movers",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "phone number"
+        }
+      },
+      {
+        "name": "Jerusalem Bridge",
+        "region": "jerusalem",
+        "image": "/images/jerusalem.png",
+        "url": "https://example.com/jerusalem-bridge",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "phone number"
+        }
+      },
+      {
+        "name": "Golden City Logistics",
+        "region": "jerusalem",
+        "image": "/images/jerusalem.png",
+        "url": "https://example.com/golden-city-logistics",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "phone number"
+        }
+      }
     ]
   },
   "servicesPage": {

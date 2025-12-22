@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import {useEffect, useMemo, useState, useRef} from 'react';
+import {useEffect, useMemo, useState, useRef, TouchEvent} from 'react';
 
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
 import {DictionaryType} from '@/lib/dictionaries';
@@ -22,6 +22,11 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
     const [tabIndex, setTabIndex] = useState(0);
     const tabsWrapperRef = useRef<HTMLDivElement>(null);
     const [containerWidth, setContainerWidth] = useState(0);
+    const [touchStartX, setTouchStartX] = useState<number | null>(null);
+    const [touchEndX, setTouchEndX] = useState<number | null>(null);
+
+    // Минимальное расстояние для срабатывания свайпа
+    const minSwipeDistance = 50;
 
     useEffect(() => {
         const updateViewport = () => {
@@ -66,8 +71,8 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
             const nextIndex = direction === 'next'
                 ? (current >= maxIndex ? 0 : current + 1)
                 : (current <= 0 ? maxIndex : current - 1);
-
             setActiveRegion(dictionary.tabs[nextIndex]?.value ?? null);
+
             return nextIndex;
         });
     };
@@ -79,8 +84,40 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
         }
     };
 
+    // Обработка начала касания
+    const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+        if (!isMobile) return;
+        setTouchEndX(null);
+        setTouchStartX(e.targetTouches[0].clientX);
+    };
+
+    // Обработка движения касания
+    const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+        if (!isMobile) return;
+        setTouchEndX(e.targetTouches[0].clientX);
+    };
+
+    // Обработка окончания касания
+    const handleTouchEnd = () => {
+        if (!touchStartX || !touchEndX || !isMobile) return;
+
+        const distance = touchStartX - touchEndX;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            moveTab('next');
+        } else if (isRightSwipe) {
+            moveTab('prev');
+        }
+
+        // Сброс значений касания
+        setTouchStartX(null);
+        setTouchEndX(null);
+    };
+
     // Рассчитываем смещение
-    const slideWidth = containerWidth; // На мобилке слайд занимает всю ширину контейнера
+    const slideWidth = containerWidth;
     const offset = isMobile ? -tabIndex * slideWidth : 0;
 
     return (
@@ -95,7 +132,13 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                 <div className={styles.tabsShell}>
                     <p className={styles.subtitle}>{dictionary.subtitle}</p>
 
-                    <div className={styles.tabsWrapper} ref={tabsWrapperRef}>
+                    <div
+                        className={styles.tabsWrapper}
+                        ref={tabsWrapperRef}
+                        onTouchStart={handleTouchStart}
+                        onTouchMove={handleTouchMove}
+                        onTouchEnd={handleTouchEnd}
+                    >
                         <div
                             className={styles.tabsTrack}
                             style={{
@@ -117,13 +160,7 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                         aria-selected={isActive}
                                         id={`tab-${tab.value}`}
                                         onClick={() => handleTabClick(tab.value, index)}
-                                        style={{
-                                            // Каждый таб занимает равную долю ширины трека,
-                                            // а на мобильных полностью заполняет видимую область
-                                            flex: isMobile
-                                                ? '0 0 100%'
-                                                : `0 0 ${100 / dictionary.tabs.length}%`,
-                                        }}
+                                        style={{flex: `0 0 ${100 / dictionary.tabs.length}%`}}
                                     >
                                         {tab.label}
                                     </button>
@@ -142,9 +179,24 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                             >
                                 <ChevronRightIcon focusable="false" style={{transform: 'rotate(180deg)'}}/>
                             </button>
-                            <span className={styles.tabCounter}>
-                                {tabIndex + 1} / {dictionary.tabs.length}
-                            </span>
+
+                            <div className={styles.tabDots} role="tablist" aria-label="Выбор региона">
+                                {dictionary.tabs.map((_, index) => (
+                                    <button
+                                        key={`dot-${index}`}
+                                        type="button"
+                                        className={`${styles.tabDot} ${tabIndex === index ? styles.tabDotActive : ''}`.trim()}
+                                        role="tab"
+                                        aria-selected={tabIndex === index}
+                                        aria-label={`Перейти к табу ${index + 1}`}
+                                        onClick={() => {
+                                            setTabIndex(index);
+                                            setActiveRegion(dictionary.tabs[index]?.value ?? null);
+                                        }}
+                                    />
+                                ))}
+                            </div>
+
                             <button
                                 type="button"
                                 className={styles.tabNavButton}
@@ -184,7 +236,20 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                         />
                                     </div>
                                 </a>
-                                <div className={styles.carrierName}>{carrier.name}</div>
+                                <div className={styles.carrierInfo}>
+                                    <div className={styles.carrierName}>{carrier.name}</div>
+                                    <ul className={styles.carrierContacts}>
+                                        <li>
+                                            {carrier.contactInfo.info}
+                                        </li>
+                                        <li>
+                                            {carrier.contactInfo.contacts}
+                                        </li>
+                                        <li>
+                                            {carrier.contactInfo.phoneNumber}
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         ))
                     ) : (
