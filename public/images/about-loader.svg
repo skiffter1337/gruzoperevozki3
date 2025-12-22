@@ -1,0 +1,37 @@
+<svg width="640" height="480" viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Mover carrying boxes illustration</title>
+  <desc id="desc">Minimal illustration of a mover lifting packages near a delivery truck.</desc>
+  <rect width="640" height="480" rx="26" fill="url(#bg)"/>
+  <path d="M64 368c0-48 38-86 86-86h232c48 0 86 38 86 86" fill="#ffffff" opacity="0.9"/>
+  <path d="M152 204h254c18 0 34 12 38 30l20 94c3 14-8 28-23 28H119c-14 0-24-13-21-27l19-95c4-18 20-30 38-30Z" fill="#F2F4FF"/>
+  <rect x="170" y="160" width="200" height="120" rx="18" fill="#CED7FF"/>
+  <rect x="186" y="172" width="170" height="82" rx="14" fill="#E8ECFF"/>
+  <rect x="260" y="148" width="38" height="126" rx="10" fill="#0A1D80" opacity="0.8"/>
+  <path d="M278 136a22 22 0 1 1 0 44 22 22 0 0 1 0-44Z" fill="#0A1D80"/>
+  <path d="M211 310c4-18 20-30 38-30h42c18 0 34 12 38 30l7 29H204l7-29Z" fill="#13227D"/>
+  <rect x="246" y="250" width="64" height="68" rx="18" fill="#182A8C"/>
+  <path d="M308 260c0 12-12 21-28 21s-28-9-28-21 12-22 28-22 28 10 28 22Z" fill="#0A1D80"/>
+  <path d="M323 210a28 28 0 0 1-56 0c0-15 13-28 28-28s28 13 28 28Z" fill="#102380"/>
+  <path d="M302 192c-9 5-21 5-30 0 1-11 8-20 17-20s16 9 13 20Z" fill="#0A1D80"/>
+  <path d="M178 332h294v16H178v-16Z" fill="#CBD5FF"/>
+  <path d="M212 332c-8 24-28 40-56 40h-28" stroke="#0A1D80" stroke-width="10" stroke-linecap="round"/>
+  <path d="M430 332c8 24 28 40 56 40h28" stroke="#0A1D80" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="202" cy="372" r="26" fill="#0A1D80"/>
+  <circle cx="438" cy="372" r="26" fill="#0A1D80"/>
+  <rect x="352" y="220" width="56" height="46" rx="10" fill="#122783"/>
+  <rect x="382" y="200" width="80" height="74" rx="14" fill="#1B2D90"/>
+  <rect x="398" y="210" width="52" height="44" rx="10" fill="#2237A7"/>
+  <rect x="214" y="190" width="40" height="38" rx="8" fill="#1B2D90"/>
+  <rect x="214" y="210" width="40" height="12" rx="6" fill="#2237A7"/>
+  <rect x="430" y="168" width="48" height="48" rx="10" fill="#102380"/>
+  <rect x="438" y="176" width="32" height="32" rx="8" fill="#2237A7"/>
+  <rect x="272" y="272" width="44" height="34" rx="10" fill="#0F1E7D"/>
+  <rect x="260" y="284" width="64" height="14" rx="7" fill="#142688"/>
+  <path d="M356 248c-8 0-14 6-14 14v34h16v-18h12c8 0 14-6 14-14s-6-16-14-16h-14Z" fill="#0A1D80"/>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="640" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF2FF"/>
+      <stop offset="1" stop-color="#DDE3FF"/>
+    </linearGradient>
+  </defs>
+</svg>

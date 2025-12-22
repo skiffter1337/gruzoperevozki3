@@ -249,6 +249,11 @@
       }
     ]
   },
+  "homeAbout": {
+    "title": "About us",
+    "description": "Your professional and reliable partner for freight transportation in Israel. We take on tasks of any complexity and scale: from small deliveries of individual items to organizing large apartment and office moves across the country. Our goal is to ensure a comfortable and safe transfer of your property. We provide a full range of services, including professional packing, disassembly, careful loading, transportation and final assembly of furniture at your new place, guaranteeing transparent pricing and precise timelines. Entrust logistics to us, and we will turn your move into a simple and predictable task.",
+    "imageAlt": "Mover standing near a delivery truck"
+  },
   "servicesPage": {
     "title": "Our services",
     "description": "We provide a full range of professional moving services across Israel. Every job is handled by an experienced team with modern equipment.",

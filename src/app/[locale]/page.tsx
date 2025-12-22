@@ -7,6 +7,7 @@ import BookingBanner from '@/components/home/BookingBanner';
 import CarriersSection from '@/components/home/CarriersSection';
 import ServicesSlider from '@/components/home/ServicesSlider';
 import RegionsSlider from '@/components/home/RegionsSlider';
+import AboutSection from '@/components/home/AboutSection';
 
 type Props = {
   params: Promise<{
@@ -45,6 +46,7 @@ export default async function HomePage({ params }: Props) {
       <ServicesSlider locale={locale} dictionary={dictionary.homeHero} />
       <RegionsSlider locale={locale} dictionary={dictionary.homeRegions} />
       <CarriersSection locale={locale} dictionary={dictionary.homeCarriers} />
+      <AboutSection dictionary={dictionary.homeAbout} />
     </>
   );
 }
