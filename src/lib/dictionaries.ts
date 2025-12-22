@@ -86,6 +86,11 @@ export type DictionaryType = {
         tabs: CarrierTab[];
         carriers: CarrierItem[];
     };
+    homeAbout: {
+        title: string;
+        description: string;
+        imageAlt: string;
+    };
     company: {
         name: string;
         address: string;
@@ -189,6 +194,12 @@ const defaultDictionary: DictionaryType = {
             {name: 'Jerusalem Bridge', region: 'jerusalem', image: '/images/jerusalem.png', url: 'https://example.com/jerusalem-bridge'},
             {name: 'Golden City Logistics', region: 'jerusalem', image: '/images/jerusalem.png', url: 'https://example.com/golden-city-logistics'},
         ],
+    },
+    homeAbout: {
+        title: 'О нас',
+        description:
+            'Ваш профессиональный и надежный партнер по грузоперевозкам в Израиле. Мы берем на себя задачи любой сложности и объема: от небольших перевозок отдельных предметов до организации масштабных квартирных и офисных переездов по всей стране. Наша цель — обеспечить комфортный и безопасный трансфер вашего имущества. Мы предоставляем полный комплекс услуг, включая профессиональную упаковку, демонтаж, бережную погрузку, транспортировку и финальную сборку мебели на новом месте, гарантируя прозрачность расчетов и точность сроков. Доверьте нам логистику, и мы превратим ваш переезд в простую и предсказуемую задачу.',
+        imageAlt: 'Грузчик рядом с грузовиком',
     },
     servicesPage: {
         title: "Наши услуги",
