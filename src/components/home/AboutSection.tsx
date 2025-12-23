@@ -1,4 +1,3 @@
-// app/components/AboutSection/AboutSection.tsx
 import Image from 'next/image';
 import {DictionaryType} from '@/lib/dictionaries';
 import styles from './AboutSection.module.scss';
@@ -15,16 +14,7 @@ export default function AboutSection({dictionary}: AboutSectionProps) {
             itemScope
             itemType="https://schema.org/AboutPage"
         >
-            <Image
-                src="/images/aboutUs.png"
-                alt={dictionary.imageAlt}
-                width="617"
-                height="792"
-                className={styles.bgImage}
-                priority
-            />
             <div className={styles.innerLeft} />
-
 
             <div className={styles.innerRight}>
                 <div className={styles.rightPanel}>
@@ -32,12 +22,22 @@ export default function AboutSection({dictionary}: AboutSectionProps) {
                         <h2 id="about-title" className={styles.title} itemProp="headline">
                             {dictionary.title}
                         </h2>
-
                         <p className={styles.description} itemProp="description">
                             {dictionary.description}
                         </p>
                     </div>
                 </div>
+            </div>
+
+            <div className={styles.bgImageContainer}>
+                <Image
+                    src="/images/aboutUs.png"
+                    alt={dictionary.imageAlt}
+                    width="617"
+                    height="792"
+                    className={styles.bgImage}
+                    priority
+                />
             </div>
         </section>
     );

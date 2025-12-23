@@ -8,8 +8,12 @@
   position: relative;
   z-index: 2;
   direction: ltr;
+
   @media (max-width: $desktop-breakpoint) {
     height: auto;
+    min-height: auto;
+    flex-direction: column;
+    padding: 0;
   }
 }
 
@@ -17,7 +21,6 @@
   min-height: 680px;
   background: $primary-color;
   width: 50%;
-
   clip-path: polygon(
                   81% 0%,
                   0% 0%,
@@ -43,9 +46,23 @@
   align-items: center;
   justify-content: center;
   padding: 0 32px;
+  z-index: 1;
 
   @media (max-width: $desktop-breakpoint) {
-    width: auto;
+    width: 100%;
+    min-height: auto;
+    padding: 36px 32px 40px;
+
+    order: 1;
+  }
+}
+
+.rightPanel {
+  width: 100%;
+  max-width: 500px;
+
+  @media (max-width: $desktop-breakpoint) {
+    max-width: 100%;
   }
 }
 
@@ -54,22 +71,34 @@
   flex-direction: column;
   gap: 8px;
   color: $color-white;
-}
-
-.title {
-  font-weight: 700;
-  font-size: clamp(40px, 4vw, 45px);
-  line-height: 87%;
 
   @media (max-width: $desktop-breakpoint) {
     text-align: center;
   }
 }
 
+.title {
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 87%;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  @media (max-width: $desktop-breakpoint) {
+    text-align: center;
+    font-size: 60px;
+  }
+}
+
 .description {
   font-weight: 500;
-  font-size: clamp(18px, 4vw, 20px);
+  font-size: 20px;
   line-height: 110%;
+  margin: 0;
+  text-align: left;
+
+  @media (max-width: $desktop-breakpoint) {
+    font-size: 22px;
+  }
 }
 
 .bgImage {
@@ -77,12 +106,101 @@
   object-fit: contain;
   top: -9%;
   z-index: 2;
+  height: auto;
 
-  //@media (max-width: $desktop-breakpoint) {
-  //  top: 65%;
-  //  width: 100%;
-  //  transform: scaleX(-1);
-  //  background: $primary-color;
-  //  clip-path: inset(18.7% 0 20% 0);
-  //}
+  transform: translateX(-50%);
+
+  @media (max-width: $desktop-breakpoint) {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    transform: scaleX(-1) translateX(0);
+    order: 2;
+  }
+}
+
+// Контейнер для картинки в мобильной версии
+.bgImageContainer {
+  position: absolute;
+  left: 25%;
+  top: -10%;
+
+  img {
+    max-height: 800px;
+  }
+
+  @media (max-width: $desktop-breakpoint) {
+
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    left: auto;
+    top: auto;
+    width: 100%;
+    order: 2;
+    position: relative;
+    padding: 0 0 40px;
+
+    // Градиентный фон: верхняя часть синяя, нижняя белая
+    &::before {
+      box-shadow: 2px 0 0 $primary-color;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 70%;
+      background: $primary-color;
+      z-index: 0;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 30%;
+      background: $color-white;
+      z-index: 0;
+    }
+
+    @media (max-width: 480px) {
+      &::before {
+        height: 60%;
+      }
+
+      &::after {
+        height: 40%;
+      }
+    }
+
+    .bgImage {
+      position: relative;
+      z-index: 1;
+      max-height: 550px;
+      width: auto;
+      object-fit: contain;
+      transform: scaleX(-1);
+
+      @media (max-width: 480px) {
+        max-width: 500px;
+        max-height: 580px;
+        clip-path: inset(0 0 20% 0);
+
+      }
+    }
+
+  }
+
+  // Для планшетов (по желанию)
+  @media (min-width: 768px) and (max-width: $desktop-breakpoint) {
+    .bgImage {
+      max-height: 450px;
+      max-width: 450px;
+    }
+  }
 }
