@@ -141,7 +141,7 @@
     width: 100%;
     order: 2;
     position: relative;
-    padding: 0 0 40px;
+
 
     // Градиентный фон: верхняя часть синяя, нижняя белая
     &::before {
@@ -169,11 +169,11 @@
 
     @media (max-width: 480px) {
       &::before {
-        height: 60%;
+        height: 70%;
       }
 
       &::after {
-        height: 40%;
+        height: 30%;
       }
     }
 

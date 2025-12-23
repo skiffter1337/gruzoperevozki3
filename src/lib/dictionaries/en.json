@@ -268,23 +268,23 @@
       },
       {
         "title": "Deliveries from 250 shekels",
-        "icon": "price.svg"
+        "icon": "transportation.svg"
       },
       {
         "title": "Lowest prices on the market",
-        "icon": "low-price.svg"
+        "icon": "lowPrice.svg"
       },
       {
         "title": "Deliveries across the country",
-        "icon": "country.svg"
+        "icon": "map.svg"
       },
       {
         "title": "Urgent moves: same day and Saturday service",
-        "icon": "express.svg"
+        "icon": "speed.svg"
       },
       {
         "title": "Full-service moves: from disassembly and packing to transportation",
-        "icon": "full-service.svg"
+        "icon": "check.svg"
       },
       {
         "title": "Only vetted carriers and movers",

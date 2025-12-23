@@ -116,24 +116,24 @@
         "icon": "economy.svg"
       },
       {
-        "title": "הובלות החל מ-250 ש\\"ח",
-        "icon": "price.svg"
+        "title": "הובלות החל מ-250 ש\\ח",
+        "icon": "transportation.svg"
       },
       {
         "title": "המחירים הנמוכים ביותר בשוק",
-        "icon": "low-price.svg"
+        "icon": "lowPrice.svg"
       },
       {
         "title": "הובלות בכל רחבי הארץ",
-        "icon": "country.svg"
+        "icon": "map.svg"
       },
       {
         "title": "הובלות דחופות: באותו היום וגם בשבת",
-        "icon": "express.svg"
+        "icon": "speed.svg"
       },
       {
         "title": "מכלול שירותים מלא: מפירוק ואריזה ועד להובלה",
-        "icon": "full-service.svg"
+        "icon": "check.svg"
       },
       {
         "title": "רק מובילים וסבלים בדוקים",

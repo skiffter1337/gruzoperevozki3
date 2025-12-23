@@ -6,6 +6,8 @@ import {useEffect, useMemo, useState, TouchEvent} from 'react';
 import {DictionaryType} from '@/lib/dictionaries';
 
 import styles from './WhyUsSection.module.scss';
+import {ArrowLeft} from "@/components/icons/ArrowLeft";
+import {ArrowRight} from "@/components/icons/ArrowRight";
 
 type WhyUsSectionProps = {
     dictionary: DictionaryType['homeWhyUs'];
@@ -14,29 +16,6 @@ type WhyUsSectionProps = {
 const slideWidth = 370;
 const slideGap = 16;
 
-const ArrowSvg = ({className}: {className?: string}) => (
-    <svg
-        className={className}
-        width="238"
-        height="186"
-        viewBox="0 0 238 186"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden
-        focusable="false"
-    >
-        <path
-            d="M10 14C42 50 107 66 153 90C198 114 220 143 225 176"
-            stroke="#2A2E89"
-            strokeWidth="6"
-            strokeLinecap="round"
-        />
-        <path
-            d="M230.741 170.014C232.831 172.661 232.386 176.408 229.739 178.498L196.953 204.709C194.306 206.799 190.559 206.354 188.469 203.707C186.379 201.06 186.824 197.313 189.471 195.223L217.57 172.752L195.099 144.653C193.009 142.006 193.454 138.259 196.101 136.169C198.748 134.079 202.495 134.524 204.585 137.171L230.741 170.014Z"
-            fill="#2A2E89"
-        />
-    </svg>
-);
 
 export default function WhyUsSection({dictionary}: WhyUsSectionProps) {
     const [isSlider, setIsSlider] = useState(false);
@@ -121,8 +100,8 @@ export default function WhyUsSection({dictionary}: WhyUsSectionProps) {
                     </h2>
                     {!isSlider && (
                         <div className={styles.headingArrows} aria-hidden>
-                            <ArrowSvg className={`${styles.arrow} ${styles.arrowLeft}`} />
-                            <ArrowSvg className={`${styles.arrow} ${styles.arrowRight}`} />
+                            <ArrowLeft />
+                            <ArrowRight />
                         </div>
                     )}
                 </div>
@@ -153,14 +132,12 @@ export default function WhyUsSection({dictionary}: WhyUsSectionProps) {
                                         itemType="https://schema.org/ListItem"
                                     >
                                         <meta itemProp="position" content={`${index + 1}`} />
-                                        <div className={styles.iconWrapper}>
                                             <Image
                                                 src={`/images/why-us/${card.icon}`}
                                                 alt={`${dictionary.iconAltPrefix} ${card.title}`}
                                                 width={80}
                                                 height={80}
                                             />
-                                        </div>
                                         <p className={styles.cardText} itemProp="name">
                                             {card.title}
                                         </p>
@@ -194,14 +171,12 @@ export default function WhyUsSection({dictionary}: WhyUsSectionProps) {
                                 itemType="https://schema.org/ListItem"
                             >
                                 <meta itemProp="position" content="1" />
-                                <div className={styles.iconWrapper}>
                                     <Image
                                         src={`/images/why-us/${cards[0].icon}`}
                                         alt={`${dictionary.iconAltPrefix} ${cards[0].title}`}
                                         width={80}
                                         height={80}
                                     />
-                                </div>
                                 <p className={styles.cardText} itemProp="name">
                                     {cards[0].title}
                                 </p>

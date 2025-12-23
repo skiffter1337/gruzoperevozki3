@@ -268,23 +268,23 @@
       },
       {
         "title": "Перевозки от 250 шекелей",
-        "icon": "price.svg"
+        "icon": "transportation.svg"
       },
       {
         "title": "Самые низкие цены на рынке",
-        "icon": "low-price.svg"
+        "icon": "lowPrice.svg"
       },
       {
         "title": "Перевозки по всей стране",
-        "icon": "country.svg"
+        "icon": "map.svg"
       },
       {
         "title": "Срочные перевозки: день в день, а также в субботу",
-        "icon": "express.svg"
+        "icon": "speed.svg"
       },
       {
         "title": "Полный комплекс услуг: от разборки и упаковки, до транспортировки",
-        "icon": "full-service.svg"
+        "icon": "check.svg"
       },
       {
         "title": "Только проверенные перевозчики и грузчики",
