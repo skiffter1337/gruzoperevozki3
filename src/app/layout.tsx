@@ -1,7 +1,13 @@
 import type { Metadata } from 'next';
+import { Montserrat } from 'next/font/google';
+import { ReactNode } from 'react';
 import { DEFAULT_LOCALE } from '@/lib/site-config';
 import './globals.scss';
-import { ReactNode } from 'react';
+
+const montserrat = Montserrat({
+  subsets: ['latin', 'cyrillic'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -21,7 +27,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body>{children}</body>
+      <body className={montserrat.className}>{children}</body>
     </html>
   );
 }
