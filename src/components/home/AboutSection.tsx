@@ -1,35 +1,41 @@
+// app/components/AboutSection/AboutSection.tsx
 import Image from 'next/image';
-
-import { DictionaryType } from '@/lib/dictionaries';
-
+import {DictionaryType} from '@/lib/dictionaries';
 import styles from './AboutSection.module.scss';
 
 type AboutSectionProps = {
     dictionary: DictionaryType['homeAbout'];
 };
 
-export default function AboutSection({ dictionary }: AboutSectionProps) {
+export default function AboutSection({dictionary}: AboutSectionProps) {
     return (
-        <section className={styles.section} aria-labelledby="about-title">
-            <div className={styles.inner}>
-                <div className={styles.leftPanel}>
-                    <div className={styles.imageFrame}>
-                        <Image
-                            src="/images/about-loader.svg"
-                            alt={dictionary.imageAlt}
-                            fill
-                            priority
-                            sizes="(max-width: 767px) 80vw, (max-width: 1199px) 45vw, 520px"
-                        />
-                    </div>
-                </div>
+        <section
+            className={styles.section}
+            aria-labelledby="about-title"
+            itemScope
+            itemType="https://schema.org/AboutPage"
+        >
+            <Image
+                src="/images/aboutUs.png"
+                alt={dictionary.imageAlt}
+                width="617"
+                height="792"
+                className={styles.bgImage}
+                priority
+            />
+            <div className={styles.innerLeft} />
 
+
+            <div className={styles.innerRight}>
                 <div className={styles.rightPanel}>
                     <div className={styles.content}>
-                        <h2 id="about-title" className={styles.title}>
+                        <h2 id="about-title" className={styles.title} itemProp="headline">
                             {dictionary.title}
                         </h2>
-                        <p className={styles.description}>{dictionary.description}</p>
+
+                        <p className={styles.description} itemProp="description">
+                            {dictionary.description}
+                        </p>
                     </div>
                 </div>
             </div>
