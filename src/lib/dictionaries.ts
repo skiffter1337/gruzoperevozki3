@@ -36,6 +36,11 @@ export interface CarrierItem {
     }
 }
 
+export interface AdvantageItem {
+    title: string;
+    icon: string;
+}
+
 export type DictionaryType = {
     metadata: {
         title: string;
@@ -96,6 +101,15 @@ export type DictionaryType = {
         title: string;
         description: string;
         imageAlt: string;
+    };
+    homeWhyUs: {
+        title: string;
+        sliderAriaLabel: string;
+        previousSlideLabel: string;
+        nextSlideLabel: string;
+        dotLabelPrefix: string;
+        iconAltPrefix: string;
+        cards: AdvantageItem[];
     };
     company: {
         name: string;
@@ -242,6 +256,23 @@ const defaultDictionary: DictionaryType = {
         description:
             'Ваш профессиональный и надежный партнер по грузоперевозкам в Израиле. Мы берем на себя задачи любой сложности и объема: от небольших перевозок отдельных предметов до организации масштабных квартирных и офисных переездов по всей стране. Наша цель — обеспечить комфортный и безопасный трансфер вашего имущества. Мы предоставляем полный комплекс услуг, включая профессиональную упаковку, демонтаж, бережную погрузку, транспортировку и финальную сборку мебели на новом месте, гарантируя прозрачность расчетов и точность сроков. Доверьте нам логистику, и мы превратим ваш переезд в простую и предсказуемую задачу.',
         imageAlt: 'Грузчик рядом с грузовиком',
+    },
+    homeWhyUs: {
+        title: 'ПОЧЕМУ МЫ?',
+        sliderAriaLabel: 'Причины выбрать нашу компанию',
+        previousSlideLabel: 'Предыдущая причина',
+        nextSlideLabel: 'Следующая причина',
+        dotLabelPrefix: 'Перейти к преимуществу',
+        iconAltPrefix: 'Иконка преимущества',
+        cards: [
+            {title: 'Экономия до 45% (лучший выбор перевозчика)', icon: 'economy.svg'},
+            {title: 'Перевозки от 250 шекелей', icon: 'price.svg'},
+            {title: 'Самые низкие цены на рынке', icon: 'low-price.svg'},
+            {title: 'Перевозки по всей стране', icon: 'country.svg'},
+            {title: 'Срочные перевозки: день в день, а также в субботу', icon: 'express.svg'},
+            {title: 'Полный комплекс услуг: от разборки и упаковки, до транспортировки', icon: 'full-service.svg'},
+            {title: 'Только проверенные перевозчики и грузчики', icon: 'trusted.svg'},
+        ],
     },
     servicesPage: {
         title: "Наши услуги",

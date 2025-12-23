@@ -1,0 +1,190 @@
+@import '@/styles/_variables.scss';
+
+.section {
+  background: $color-white;
+}
+
+.container {
+  max-width: 1142px;
+  margin: 0 auto;
+  padding: 80px 16px 88px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  @media (max-width: 1023px) {
+    padding: 64px 14px 72px;
+    gap: 32px;
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    padding: 48px 12px 56px;
+    gap: 28px;
+  }
+}
+
+.heading {
+  position: relative;
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(42px, 4vw, 64px);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  color: $primary-color;
+}
+
+.headingArrows {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+
+  @media (max-width: 1200px) {
+    top: 70%;
+  }
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.arrow {
+  max-width: 220px;
+
+  &.arrowLeft {
+    transform: scaleX(-1);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px 24px;
+  justify-items: center;
+}
+
+.desktopLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+
+.card {
+  width: 370px;
+  height: 180px;
+  background: #2A2E89;
+  border-radius: 24px;
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  color: $color-white;
+  box-shadow: 0 18px 46px rgba(42, 46, 137, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 56px rgba(42, 46, 137, 0.24);
+  }
+}
+
+.cardPrimary {
+  margin: 0 auto;
+}
+
+.iconWrapper {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: grid;
+  place-items: center;
+}
+
+.cardText {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sliderViewport {
+  overflow: hidden;
+}
+
+.sliderTrack {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  will-change: transform;
+  padding: 4px;
+}
+
+.dots {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba($primary-color, 0.35);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background: rgba($primary-color, 0.55);
+    transform: scale(1.1);
+  }
+}
+
+.dotActive {
+  background: $primary-color;
+  transform: scale(1.2);
+}
+
+@media (max-width: 1200px) {
+  .grid {
+    gap: 28px 16px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .grid {
+    display: none;
+  }
+
+  .card {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: $tablet-breakpoint) {
+  .container {
+    gap: 24px;
+  }
+
+  .cardText {
+    font-size: 18px;
+  }
+}
