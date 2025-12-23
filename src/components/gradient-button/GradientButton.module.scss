@@ -5,7 +5,7 @@
   border: 4px solid $color-white;
   border-radius: 180px;
   padding: 32px;
-  font-family: "Monserrat", sans-serif;
+  font-family: $base-font;
   font-weight: 700;
   font-size: clamp(42px, 4vw, 72px);
   line-height: 87%;
