@@ -170,6 +170,45 @@
     "ctaDescription": "צור קשר עוד היום לקבלת הצעת מחיר ללא התחייבות. נשמח לעזור לך עם כל צורך בהובלה!",
     "ctaButton": "קבל הצעת מחיר"
   },
+  "homeArticles": {
+    "title": "מאמרים",
+    "sectionAriaLabel": "מאמרים חדשים על הובלות ומעברים",
+    "sliderAriaLabel": "רשימת מאמרים",
+    "previousSlideLabel": "המאמר הקודם",
+    "nextSlideLabel": "המאמר הבא",
+    "dotLabelPrefix": "עבור למאמר",
+    "readMoreCta": "לקרוא...",
+    "readMoreInline": "לקרוא...",
+    "allArticlesCta": "כל המאמרים",
+    "allArticlesAriaLabel": "לעבור לכל המאמרים",
+    "imageAltPrefix": "אילוסטרציה של המאמר",
+    "articles": [
+      {
+        "title": "איך להתכונן למעבר דירה",
+        "excerpt": "צ'ק ליסט למעבר רגוע ללא לחץ.",
+        "slug": "how-to-prepare-for-a-move",
+        "image": "/images/articles/article-1.svg"
+      },
+      {
+        "title": "הובלת רהיטים בלי נזק",
+        "excerpt": "טיפים לאריזה, קשירה והגנה מקצועית.",
+        "slug": "moving-furniture-without-damage",
+        "image": "/images/articles/article-2.svg"
+      },
+      {
+        "title": "איך לבחור מוביל",
+        "excerpt": "קריטריונים לבחירת חברת הובלות אמינה.",
+        "slug": "how-to-choose-a-carrier",
+        "image": "/images/articles/article-3.svg"
+      },
+      {
+        "title": "כמה עולה מעבר",
+        "excerpt": "מה משפיע על המחיר ואיך אפשר לחסוך.",
+        "slug": "how-much-does-moving-cost",
+        "image": "/images/articles/article-4.svg"
+      }
+    ]
+  },
   "calculatePage": {
     "title": "חשב עלות",
     "description": "ציינו נקודת מוצא, יעד ותאריך ונכין עבורכם הצעת מחיר מיידית.",

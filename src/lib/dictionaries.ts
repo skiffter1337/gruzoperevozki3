@@ -41,6 +41,13 @@ export interface AdvantageItem {
     icon: string;
 }
 
+export interface ArticleItem {
+    title: string;
+    excerpt: string;
+    slug: string;
+    image: string;
+}
+
 export type DictionaryType = {
     metadata: {
         title: string;
@@ -110,6 +117,20 @@ export type DictionaryType = {
         dotLabelPrefix: string;
         iconAltPrefix: string;
         cards: AdvantageItem[];
+    };
+    homeArticles: {
+        title: string;
+        sectionAriaLabel: string;
+        sliderAriaLabel: string;
+        previousSlideLabel: string;
+        nextSlideLabel: string;
+        dotLabelPrefix: string;
+        readMoreCta: string;
+        readMoreInline: string;
+        allArticlesCta: string;
+        allArticlesAriaLabel: string;
+        imageAltPrefix: string;
+        articles: ArticleItem[];
     };
     company: {
         name: string;
@@ -274,6 +295,45 @@ const defaultDictionary: DictionaryType = {
             {title: 'Только проверенные перевозчики и грузчики', icon: 'trusted.svg'},
         ],
     },
+    homeArticles: {
+        title: 'СТАТЬИ',
+        sectionAriaLabel: 'Новые статьи о перевозках и переездах',
+        sliderAriaLabel: 'Список статей',
+        previousSlideLabel: 'Предыдущая статья',
+        nextSlideLabel: 'Следующая статья',
+        dotLabelPrefix: 'Перейти к статье',
+        readMoreCta: 'Читать...',
+        readMoreInline: 'Читать...',
+        allArticlesCta: 'Все статьи',
+        allArticlesAriaLabel: 'Перейти ко всем статьям',
+        imageAltPrefix: 'Иллюстрация статьи',
+        articles: [
+            {
+                title: 'Как подготовиться к переезду',
+                excerpt: 'Чек-лист подготовки к переезду без стресса.',
+                slug: 'kak-podgotovitsya-k-pereezdu',
+                image: '/images/articles/article-1.svg',
+            },
+            {
+                title: 'Перевозка мебели без повреждений',
+                excerpt: 'Упаковка, крепления и другие советы от профессионалов.',
+                slug: 'perevozka-mebeli-bez-povrezhdenij',
+                image: '/images/articles/article-2.svg',
+            },
+            {
+                title: 'Как выбрать перевозчика',
+                excerpt: 'Критерии выбора надежной компании для перевозки.',
+                slug: 'kak-vybrat-perevozchika',
+                image: '/images/articles/article-3.svg',
+            },
+            {
+                title: 'Сколько стоит переезд',
+                excerpt: 'Что влияет на стоимость перевозки и как сэкономить.',
+                slug: 'skolko-stoit-pereezd',
+                image: '/images/articles/article-4.svg',
+            },
+        ],
+    },
     servicesPage: {
         title: "Наши услуги",
         description: "Мы предлагаем широкий спектр профессиональных услуг по переезду по всему Израилю. Каждая услуга выполняется опытной командой с современным оборудованием.",
@@ -408,6 +468,29 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
                 ...loadedDict.homeCarriers,
                 tabs: loadedDict.homeCarriers?.tabs ?? defaultDictionary.homeCarriers.tabs,
                 carriers: loadedDict.homeCarriers?.carriers ?? defaultDictionary.homeCarriers.carriers,
+            },
+            homeAbout: {
+                ...defaultDictionary.homeAbout,
+                ...loadedDict.homeAbout,
+            },
+            homeWhyUs: {
+                ...defaultDictionary.homeWhyUs,
+                ...loadedDict.homeWhyUs,
+                cards: loadedDict.homeWhyUs?.cards ?? defaultDictionary.homeWhyUs.cards,
+            },
+            homeArticles: {
+                ...defaultDictionary.homeArticles,
+                ...loadedDict.homeArticles,
+                articles: loadedDict.homeArticles?.articles ?? defaultDictionary.homeArticles.articles,
+            },
+            servicesPage: {
+                ...defaultDictionary.servicesPage,
+                ...loadedDict.servicesPage,
+                whyChooseUs: {
+                    ...defaultDictionary.servicesPage.whyChooseUs,
+                    ...loadedDict.servicesPage?.whyChooseUs,
+                    features: loadedDict.servicesPage?.whyChooseUs?.features ?? defaultDictionary.servicesPage.whyChooseUs.features,
+                },
             },
             calculatePage: {
                 ...defaultDictionary.calculatePage,

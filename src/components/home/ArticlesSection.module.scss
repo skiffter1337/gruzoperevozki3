@@ -1,0 +1,242 @@
+@import '@/styles/_variables.scss';
+
+.section {
+  background: $color-white;
+  transition: background-color $transition-base;
+
+  @media (max-width: 1023px) {
+    background: $primary-blue;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 88px 16px 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  box-sizing: border-box;
+
+  @media (max-width: 1023px) {
+    padding: 64px 14px 72px;
+    gap: 32px;
+  }
+
+  @media (max-width: $tablet-breakpoint) {
+    padding: 56px 12px 64px;
+    gap: 28px;
+  }
+}
+
+.titleWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-size: clamp(42px, 4vw, 64px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  color: $primary-blue;
+
+  @media (max-width: 1023px) {
+    color: $color-white;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 20px;
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.card {
+  background: $primary-color;
+  border-radius: 24px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: $color-white;
+  text-decoration: none;
+  min-height: 196px;
+  transition: transform $transition-base, box-shadow $transition-base;
+  box-shadow: $shadow-md;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+.cardImageWrapper {
+  flex: 0 0 96px;
+  height: 96px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.cardImage {
+  object-fit: cover;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.cardExcerpt {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cardButtonWrapper {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cardCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  border-radius: 999px;
+  background: linear-gradient(#1660E9, #0D3683);
+  border: 2px solid $color-white;
+  font-weight: 600;
+  font-size: 14px;
+  color: $color-white;
+  text-decoration: none;
+}
+
+.sliderWrapper {
+  display: none;
+
+  @media (max-width: 1023px) {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.sliderViewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.sliderTrack {
+  display: flex;
+  align-items: stretch;
+  transition: transform $transition-base;
+}
+
+.slide {
+  background: $primary-blue;
+  border-radius: 20px;
+  padding: 20px 18px 24px;
+  color: $color-white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: $shadow-md;
+}
+
+.slideTitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.slideImageWrapper {
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.slideImage {
+  object-fit: cover;
+}
+
+.slideExcerpt {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.slideReadMore {
+  margin-top: auto;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: underline;
+  color: $color-white;
+}
+
+.allArticlesButton {
+  display: inline-flex;
+  align-self: center;
+}
+
+.ctaButton {
+  background: linear-gradient(#1660E9, #0D3683);
+  border: 4px solid $color-white;
+  border-radius: 180px;
+  padding: 18px 36px;
+  font-weight: 700;
+  font-size: clamp(18px, 3vw, 28px);
+  line-height: 1.1;
+  text-align: center;
+  color: $color-white;
+  text-decoration: none;
+
+  @media (max-width: $tablet-breakpoint) {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid $color-white;
+  background: transparent;
+  opacity: 0.6;
+  transition: opacity $transition-fast, background-color $transition-fast;
+
+  &.dotActive {
+    opacity: 1;
+    background: $color-white;
+  }
+}

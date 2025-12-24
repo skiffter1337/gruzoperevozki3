@@ -321,6 +321,45 @@
     "ctaDescription": "Свяжитесь с нами сегодня для получения бесплатной консультации без обязательств. Будем рады помочь вам с любыми нуждами в переезде!",
     "ctaButton": "Получить предложение"
   },
+  "homeArticles": {
+    "title": "СТАТЬИ",
+    "sectionAriaLabel": "Новые статьи о перевозках и переездах",
+    "sliderAriaLabel": "Список статей",
+    "previousSlideLabel": "Предыдущая статья",
+    "nextSlideLabel": "Следующая статья",
+    "dotLabelPrefix": "Перейти к статье",
+    "readMoreCta": "Читать...",
+    "readMoreInline": "Читать...",
+    "allArticlesCta": "Все статьи",
+    "allArticlesAriaLabel": "Перейти ко всем статьям",
+    "imageAltPrefix": "Иллюстрация статьи",
+    "articles": [
+      {
+        "title": "Как подготовиться к переезду",
+        "excerpt": "Чек-лист подготовки к переезду без стресса.",
+        "slug": "kak-podgotovitsya-k-pereezdu",
+        "image": "/images/articles/article-1.svg"
+      },
+      {
+        "title": "Перевозка мебели без повреждений",
+        "excerpt": "Упаковка, крепления и другие советы от профессионалов.",
+        "slug": "perevozka-mebeli-bez-povrezhdenij",
+        "image": "/images/articles/article-2.svg"
+      },
+      {
+        "title": "Как выбрать перевозчика",
+        "excerpt": "Критерии выбора надежной компании для перевозки.",
+        "slug": "kak-vybrat-perevozchika",
+        "image": "/images/articles/article-3.svg"
+      },
+      {
+        "title": "Сколько стоит переезд",
+        "excerpt": "Что влияет на стоимость перевозки и как сэкономить.",
+        "slug": "skolko-stoit-pereezd",
+        "image": "/images/articles/article-4.svg"
+      }
+    ]
+  },
   "calculatePage": {
     "title": "Рассчитать стоимость",
     "description": "Укажите города отправления и назначения, выберите дату, и мы сразу подготовим предложение.",
