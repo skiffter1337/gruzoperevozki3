@@ -185,7 +185,7 @@
       object-fit: contain;
       transform: scaleX(-1);
 
-      @media (max-width: 480px) {
+      @media (max-width: $tablet-breakpoint) {
         max-width: 500px;
         max-height: 580px;
         clip-path: inset(0 0 20% 0);

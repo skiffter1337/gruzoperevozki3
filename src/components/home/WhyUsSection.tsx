@@ -15,7 +15,6 @@ type WhyUsSectionProps = {
     locale: Locale;
 };
 
-const slideWidth = 370;
 const slideGap = 16;
 
 export default function WhyUsSection({dictionary, locale}: WhyUsSectionProps) {
@@ -24,10 +23,16 @@ export default function WhyUsSection({dictionary, locale}: WhyUsSectionProps) {
     const [slidesPerView, setSlidesPerView] = useState(1);
     const [touchStartX, setTouchStartX] = useState<number | null>(null);
     const [touchEndX, setTouchEndX] = useState<number | null>(null);
+    const [containerWidth, setContainerWidth] = useState(0);
 
     const totalSlides = dictionary.cards.length;
-    const sliderStep = slideWidth + slideGap;
     const cards = useMemo(() => dictionary.cards, [dictionary.cards]);
+
+    // Рассчитываем ширину слайда на основе ширины контейнера и количества слайдов
+    const slideWidth = useMemo(() => {
+        if (!containerWidth || !slidesPerView) return 320;
+        return (containerWidth - (slidesPerView - 1) * slideGap) / slidesPerView;
+    }, [containerWidth, slidesPerView]);
 
     const totalPages = useMemo(() => Math.max(totalSlides - slidesPerView + 1, 1), [slidesPerView, totalSlides]);
 
@@ -36,6 +41,7 @@ export default function WhyUsSection({dictionary, locale}: WhyUsSectionProps) {
         return Math.min(currentSlide, totalPages - 1);
     }, [currentSlide, totalPages]);
 
+    const sliderStep = slideWidth + slideGap;
     const sliderOffset = -(activeSlide * sliderStep);
 
     useEffect(() => {
@@ -43,22 +49,39 @@ export default function WhyUsSection({dictionary, locale}: WhyUsSectionProps) {
             if (typeof window === 'undefined') return;
 
             const width = window.innerWidth;
-            const sliderEnabled = width < 1200;
-            const newSlidesPerView = sliderEnabled && width >= 840 ? 2 : 1;
 
-            setIsSlider(sliderEnabled);
+            if (width < 1024) {
+                setIsSlider(true);
 
-            setSlidesPerView((prev) => {
-                if (prev !== newSlidesPerView) {
-                    setCurrentSlide(0);
+                if (width >= 768) {
+                    setSlidesPerView(2);
+                } else {
+                    setSlidesPerView(1);
                 }
-                return newSlidesPerView;
-            });
+            } else {
+                setIsSlider(false);
+                setSlidesPerView(1);
+            }
+
+            const container = document.querySelector(`.${styles.container}`) as HTMLElement;
+            if (container) {
+                const style = window.getComputedStyle(container);
+                const paddingLeft = parseInt(style.paddingLeft) || 0;
+                const paddingRight = parseInt(style.paddingRight) || 0;
+                const availableWidth = container.clientWidth - paddingLeft - paddingRight;
+                setContainerWidth(availableWidth);
+            }
         };
 
         updateLayout();
         window.addEventListener('resize', updateLayout);
-        return () => window.removeEventListener('resize', updateLayout);
+
+        window.addEventListener('load', updateLayout);
+
+        return () => {
+            window.removeEventListener('resize', updateLayout);
+            window.removeEventListener('load', updateLayout);
+        };
     }, []);
 
     const goToSlide = (index: number) => {
@@ -123,9 +146,10 @@ export default function WhyUsSection({dictionary, locale}: WhyUsSectionProps) {
                 </div>
 
                 {isSlider ? (
-                    <div className={styles.slider} dir={locale === 'he' ? 'ltr' : undefined}>
+                    <div className={styles.sliderWrapper} dir={locale === 'he' ? 'ltr' : undefined}>
                         <div
                             className={styles.sliderViewport}
+                            style={{ width: `${containerWidth}px` }}
                             onTouchStart={handleTouchStart}
                             onTouchMove={handleTouchMove}
                             onTouchEnd={handleTouchEnd}
@@ -143,17 +167,22 @@ export default function WhyUsSection({dictionary, locale}: WhyUsSectionProps) {
                                     <article
                                         key={`${card.title}-${index}`}
                                         className={styles.card}
+                                        style={{
+                                            width: `${slideWidth}px`,
+                                            flexShrink: 0
+                                        }}
                                         itemProp="itemListElement"
                                         itemScope
                                         itemType="https://schema.org/ListItem"
                                     >
                                         <meta itemProp="position" content={`${index + 1}`} />
-                                            <Image
-                                                src={`/images/why-us/${card.icon}`}
-                                                alt={`${dictionary.iconAltPrefix} ${card.title}`}
-                                                width={80}
-                                                height={80}
-                                            />
+                                        <Image
+                                            src={`/images/why-us/${card.icon}`}
+                                            alt={`${dictionary.iconAltPrefix} ${card.title}`}
+                                            width={80}
+                                            height={80}
+                                            className={styles.cardIcon}
+                                        />
                                         <p className={styles.cardText} itemProp="name">
                                             {card.title}
                                         </p>
@@ -187,12 +216,13 @@ export default function WhyUsSection({dictionary, locale}: WhyUsSectionProps) {
                                 itemType="https://schema.org/ListItem"
                             >
                                 <meta itemProp="position" content="1" />
-                                    <Image
-                                        src={`/images/why-us/${cards[0].icon}`}
-                                        alt={`${dictionary.iconAltPrefix} ${cards[0].title}`}
-                                        width={80}
-                                        height={80}
-                                    />
+                                <Image
+                                    src={`/images/why-us/${cards[0].icon}`}
+                                    alt={`${dictionary.iconAltPrefix} ${cards[0].title}`}
+                                    width={80}
+                                    height={80}
+                                    className={styles.cardIcon}
+                                />
                                 <p className={styles.cardText} itemProp="name">
                                     {cards[0].title}
                                 </p>
@@ -216,6 +246,7 @@ export default function WhyUsSection({dictionary, locale}: WhyUsSectionProps) {
                                             alt={`${dictionary.iconAltPrefix} ${card.title}`}
                                             width={80}
                                             height={80}
+                                            className={styles.cardIcon}
                                         />
                                     </div>
                                     <p className={styles.cardText} itemProp="name">
