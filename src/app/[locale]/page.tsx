@@ -48,7 +48,7 @@ export default async function HomePage({ params }: Props) {
       <RegionsSlider locale={locale} dictionary={dictionary.homeRegions} />
       <CarriersSection locale={locale} dictionary={dictionary.homeCarriers} />
       <AboutSection dictionary={dictionary.homeAbout} />
-      <WhyUsSection dictionary={dictionary.homeWhyUs} />
+      <WhyUsSection locale={locale} dictionary={dictionary.homeWhyUs} />
     </>
   );
 }

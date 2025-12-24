@@ -4,6 +4,7 @@ import Image from 'next/image';
 import {useEffect, useMemo, useState, TouchEvent} from 'react';
 
 import {DictionaryType} from '@/lib/dictionaries';
+import {Locale} from '../../../i18n-config';
 
 import styles from './WhyUsSection.module.scss';
 import {ArrowLeft} from "@/components/icons/ArrowLeft";
@@ -11,15 +12,16 @@ import {ArrowRight} from "@/components/icons/ArrowRight";
 
 type WhyUsSectionProps = {
     dictionary: DictionaryType['homeWhyUs'];
+    locale: Locale;
 };
 
 const slideWidth = 370;
 const slideGap = 16;
 
-
-export default function WhyUsSection({dictionary}: WhyUsSectionProps) {
+export default function WhyUsSection({dictionary, locale}: WhyUsSectionProps) {
     const [isSlider, setIsSlider] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [slidesPerView, setSlidesPerView] = useState(1);
     const [touchStartX, setTouchStartX] = useState<number | null>(null);
     const [touchEndX, setTouchEndX] = useState<number | null>(null);
 
@@ -27,17 +29,31 @@ export default function WhyUsSection({dictionary}: WhyUsSectionProps) {
     const sliderStep = slideWidth + slideGap;
     const cards = useMemo(() => dictionary.cards, [dictionary.cards]);
 
+    const totalPages = useMemo(() => Math.max(totalSlides - slidesPerView + 1, 1), [slidesPerView, totalSlides]);
+
     const activeSlide = useMemo(() => {
-        if (!totalSlides) return 0;
-        return Math.min(currentSlide, totalSlides - 1);
-    }, [currentSlide, totalSlides]);
+        if (!totalPages) return 0;
+        return Math.min(currentSlide, totalPages - 1);
+    }, [currentSlide, totalPages]);
 
     const sliderOffset = -(activeSlide * sliderStep);
 
     useEffect(() => {
         const updateLayout = () => {
             if (typeof window === 'undefined') return;
-            setIsSlider(window.innerWidth < 1024);
+
+            const width = window.innerWidth;
+            const sliderEnabled = width < 1200;
+            const newSlidesPerView = sliderEnabled && width >= 840 ? 2 : 1;
+
+            setIsSlider(sliderEnabled);
+
+            setSlidesPerView((prev) => {
+                if (prev !== newSlidesPerView) {
+                    setCurrentSlide(0);
+                }
+                return newSlidesPerView;
+            });
         };
 
         updateLayout();
@@ -46,10 +62,10 @@ export default function WhyUsSection({dictionary}: WhyUsSectionProps) {
     }, []);
 
     const goToSlide = (index: number) => {
-        if (!totalSlides) return;
+        if (!totalPages) return;
         if (index < 0) {
-            setCurrentSlide(totalSlides - 1);
-        } else if (index >= totalSlides) {
+            setCurrentSlide(totalPages - 1);
+        } else if (index >= totalPages) {
             setCurrentSlide(0);
         } else {
             setCurrentSlide(index);
@@ -107,7 +123,7 @@ export default function WhyUsSection({dictionary}: WhyUsSectionProps) {
                 </div>
 
                 {isSlider ? (
-                    <div className={styles.slider}>
+                    <div className={styles.slider} dir={locale === 'he' ? 'ltr' : undefined}>
                         <div
                             className={styles.sliderViewport}
                             onTouchStart={handleTouchStart}
@@ -147,9 +163,9 @@ export default function WhyUsSection({dictionary}: WhyUsSectionProps) {
                         </div>
 
                         <div className={styles.dots} role="tablist" aria-label={dictionary.sliderAriaLabel}>
-                            {cards.map((card, index) => (
+                            {Array.from({length: totalPages}).map((_, index) => (
                                 <button
-                                    key={`dot-${card.title}-${index}`}
+                                    key={`dot-${index}`}
                                     type="button"
                                     className={`${styles.dot} ${activeSlide === index ? styles.dotActive : ''}`.trim()}
                                     aria-label={`${dictionary.dotLabelPrefix} ${index + 1}`}
