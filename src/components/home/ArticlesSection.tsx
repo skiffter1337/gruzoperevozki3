@@ -134,7 +134,8 @@ export default function ArticlesSection({locale, dictionary}: ArticlesSectionPro
                                 <Image
                                     src={article.image}
                                     alt={`${dictionary.imageAltPrefix} ${article.title}`}
-                                    fill
+                                    width={300}
+                                    height={283}
                                     className={styles.cardImage}
                                     sizes="(max-width: 1200px) 180px, 200px"
                                     priority={index < 2}

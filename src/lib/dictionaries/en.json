@@ -335,28 +335,28 @@
     "imageAltPrefix": "Article illustration",
     "articles": [
       {
-        "title": "How to prepare for a move",
+        "title": "Еш",
         "excerpt": "A checklist for a stress-free move.",
         "slug": "how-to-prepare-for-a-move",
-        "image": "/images/articles/article-1.svg"
+        "image": "/images/articles/articlePlaceholder.png"
       },
       {
         "title": "Moving furniture without damage",
         "excerpt": "Packing, fasteners, and other professional tips.",
         "slug": "moving-furniture-without-damage",
-        "image": "/images/articles/article-2.svg"
+        "image": "/images/articles/articlePlaceholder.png"
       },
       {
         "title": "How to choose a carrier",
         "excerpt": "Criteria for selecting a reliable moving company.",
         "slug": "how-to-choose-a-carrier",
-        "image": "/images/articles/article-3.svg"
+        "image": "/images/articles/articlePlaceholder.png"
       },
       {
         "title": "How much does moving cost",
         "excerpt": "What affects moving costs and how to save.",
         "slug": "how-much-does-moving-cost",
-        "image": "/images/articles/article-4.svg"
+        "image": "/images/articles/articlePlaceholder.png"
       }
     ]
   },
