@@ -321,6 +321,45 @@
     "ctaDescription": "Contact us today for a free quote with no obligation. We are happy to help with any move!",
     "ctaButton": "Get a quote"
   },
+  "homeArticles": {
+    "title": "ARTICLES",
+    "sectionAriaLabel": "Latest moving and transportation articles",
+    "sliderAriaLabel": "Article list",
+    "previousSlideLabel": "Previous article",
+    "nextSlideLabel": "Next article",
+    "dotLabelPrefix": "Go to article",
+    "readMoreCta": "Read...",
+    "readMoreInline": "Read...",
+    "allArticlesCta": "All articles",
+    "allArticlesAriaLabel": "Go to all articles",
+    "imageAltPrefix": "Article illustration",
+    "articles": [
+      {
+        "title": "How to prepare for a move",
+        "excerpt": "A checklist for a stress-free move.",
+        "slug": "how-to-prepare-for-a-move",
+        "image": "/images/articles/article-1.svg"
+      },
+      {
+        "title": "Moving furniture without damage",
+        "excerpt": "Packing, fasteners, and other professional tips.",
+        "slug": "moving-furniture-without-damage",
+        "image": "/images/articles/article-2.svg"
+      },
+      {
+        "title": "How to choose a carrier",
+        "excerpt": "Criteria for selecting a reliable moving company.",
+        "slug": "how-to-choose-a-carrier",
+        "image": "/images/articles/article-3.svg"
+      },
+      {
+        "title": "How much does moving cost",
+        "excerpt": "What affects moving costs and how to save.",
+        "slug": "how-much-does-moving-cost",
+        "image": "/images/articles/article-4.svg"
+      }
+    ]
+  },
   "calculatePage": {
     "title": "Calculate cost",
     "description": "Tell us the origin, destination, and date so we can build your quote immediately.",
