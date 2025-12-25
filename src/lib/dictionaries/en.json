@@ -307,15 +307,15 @@
         "name": "Alexey Morozov",
         "company": "LogiMove",
         "review": "They arranged our move in a single day: loaded, carefully wrapped, and delivered without a scratch. I will recommend them to colleagues.",
-        "avatar": "/images/testimonials/person-1.svg",
+        "avatar": "/images/testimonials/person1.png",
         "carrierUrl": "https://example.com/logimove",
         "rating": 5
       },
       {
-        "name": "Maria Goldman",
+        "name": "אנטון",
         "company": "Galil Express",
         "review": "The team was punctual, arrived exactly on time, and handled our belongings with care. The final price was even better than expected.",
-        "avatar": "/images/testimonials/person-2.svg",
+        "avatar": "/images/testimonials/person2.png",
         "carrierUrl": "https://example.com/galil-express",
         "rating": 5
       },
@@ -323,7 +323,7 @@
         "name": "Daniel Katz",
         "company": "Negev Logistic",
         "review": "Booked an office relocation. Clear pricing, great communication, and excellent packing of our equipment — everything arrived safe and sound.",
-        "avatar": "/images/testimonials/person-3.svg",
+        "avatar": "/images/testimonials/person3.png",
         "carrierUrl": "https://example.com/negev-logistic",
         "rating": 5
       }

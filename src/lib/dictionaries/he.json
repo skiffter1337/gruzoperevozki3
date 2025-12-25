@@ -156,7 +156,7 @@
         "name": "אלכסיי מורוזוב",
         "company": "LogiMove",
         "review": "ארגנו לנו הובלה ביום אחד: העמיסו, עטפו בזהירות והגיעו ללא שריטה. אמליץ גם לעמיתים.",
-        "avatar": "/images/testimonials/person-1.svg",
+        "avatar": "/images/testimonials/person1.png",
         "carrierUrl": "https://example.com/logimove",
         "rating": 5
       },
@@ -164,7 +164,7 @@
         "name": "מריה גולדמן",
         "company": "Galil Express",
         "review": "הצוות הגיע בדיוק בזמן והתייחס לציוד בעדינות. המחיר הסופי יצא אפילו טוב יותר מהצפוי.",
-        "avatar": "/images/testimonials/person-2.svg",
+        "avatar": "/images/testimonials/person2.png",
         "carrierUrl": "https://example.com/galil-express",
         "rating": 5
       },
@@ -172,7 +172,7 @@
         "name": "דניאל כץ",
         "company": "Negev Logistic",
         "review": "הזמנו מעבר משרד. מחיר ברור, תקשורת מצוינת ואריזה מעולה לציוד – הכל הגיע בשלמותו.",
-        "avatar": "/images/testimonials/person-3.svg",
+        "avatar": "/images/testimonials/person3.png",
         "carrierUrl": "https://example.com/negev-logistic",
         "rating": 5
       }

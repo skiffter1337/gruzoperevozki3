@@ -332,16 +332,16 @@ const defaultDictionary: DictionaryType = {
                 company: 'LogiMove',
                 review:
                     'Организовали перевозку за сутки: погрузили, аккуратно упаковали и доставили без единой царапины. Буду рекомендовать коллегам.',
-                avatar: '/images/testimonials/person-1.svg',
+                avatar: '/images/testimonials/person1.png',
                 carrierUrl: 'https://example.com/logimove',
                 rating: 5,
             },
             {
-                name: 'Мария Голдман',
+                name: 'Антон',
                 company: 'Galil Express',
                 review:
                     'Пунктуальная команда: приехали точно в оговоренное время и бережно отнеслись к вещам. Получилось даже дешевле, чем ожидали.',
-                avatar: '/images/testimonials/person-2.svg',
+                avatar: '/images/testimonials/person2.png',
                 carrierUrl: 'https://example.com/galil-express',
                 rating: 5,
             },
@@ -350,7 +350,7 @@ const defaultDictionary: DictionaryType = {
                 company: 'Negev Logistic',
                 review:
                     'Заказывали офисный переезд. Удобный расчет стоимости, четкая коммуникация и отличная упаковка техники — все приехало целым.',
-                avatar: '/images/testimonials/person-3.svg',
+                avatar: '/images/testimonials/person3.png',
                 carrierUrl: 'https://example.com/negev-logistic',
                 rating: 5,
             },
