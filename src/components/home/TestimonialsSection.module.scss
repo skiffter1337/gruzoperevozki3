@@ -174,12 +174,12 @@
 }
 
 .navButtonLeft {
-  left: 60px;
+  left: -60px;
   transform: translateY(-50%) rotate(180deg);
 }
 
 .navButtonRight {
-  right: 60px;
+  right: -60px;
 }
 
 div.dots {
