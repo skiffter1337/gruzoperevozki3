@@ -11,17 +11,20 @@ import Footer from '@/components/layout/Footer';
 
 const locales: Locale[] = ['he', 'ru', 'en'];
 
+const isLocale = (value: string): value is Locale =>
+  locales.includes(value as Locale);
+
 type Props = {
   children: ReactNode;
   params: Promise<{
-    locale: Locale;
+    locale: string;
   }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
-  if (!locales.includes(locale)) {
+  if (!isLocale(locale)) {
     return {};
   }
 
@@ -50,7 +53,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
 
-  if (!locales.includes(locale)) {
+  if (!isLocale(locale)) {
     notFound();
   }
 
