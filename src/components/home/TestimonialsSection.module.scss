@@ -154,7 +154,7 @@
   color: $primary-color;
   width: 48px;
   height: 48px;
-  display: grid;
+  display: none;
   place-items: center;
   cursor: pointer;
   position: absolute;
@@ -224,10 +224,6 @@ div.dots {
   .sliderViewport {
     width: calc(370px * 2 + 16px);
   }
-
-  .navButton {
-    display: none !important;
-  }
 }
 
 @media (min-width: 1024px) and (max-width: 1199px) {
@@ -240,9 +236,11 @@ div.dots {
   .sliderViewport {
     width: 370px;
   }
+}
 
+@media (min-width: 1200px) {
   .navButton {
-    display: none !important;
+    display: grid;
   }
 }
 
