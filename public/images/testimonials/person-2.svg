@@ -1,0 +1,18 @@
+<svg width="320" height="320" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title>Customer portrait with green palette</title>
+  <desc>Vector illustration of a woman on an emerald gradient background</desc>
+  <defs>
+    <linearGradient id="bg2" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B7C62"/>
+      <stop offset="100%" stop-color="#24B08A"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="320" rx="32" fill="url(#bg2)"/>
+  <circle cx="160" cy="128" r="80" fill="#E8FFF7"/>
+  <circle cx="160" cy="124" r="58" fill="#0E8A6F"/>
+  <circle cx="160" cy="118" r="52" fill="#F7FFFD"/>
+  <path d="M160 94c-20 0-34 16-34 46 0 17 5 30 13 38 7 7 14 10 21 10s14-3 21-10c8-8 13-21 13-38 0-30-14-46-34-46z" fill="#0B7C62"/>
+  <path d="M160 104c15 0 24 12 24 32 0 26-13 40-24 40s-24-14-24-40c0-20 9-32 24-32z" fill="#F7FFFD"/>
+  <path d="M160 192c-34 0-62 17-78 46 21 17 49 28 78 28s57-11 78-28c-16-29-44-46-78-46z" fill="#0B7C62"/>
+  <path d="M160 200c-28 0-52 13-64 34 16 12 36 20 64 20s48-8 64-20c-12-21-36-34-64-34z" fill="#F7FFFD"/>
+</svg>

@@ -48,6 +48,15 @@ export interface ArticleItem {
     image: string;
 }
 
+export interface TestimonialItem {
+    name: string;
+    company: string;
+    review: string;
+    avatar: string;
+    carrierUrl: string;
+    rating: number;
+}
+
 export type DictionaryType = {
     metadata: {
         title: string;
@@ -117,6 +126,18 @@ export type DictionaryType = {
         dotLabelPrefix: string;
         iconAltPrefix: string;
         cards: AdvantageItem[];
+    };
+    homeTestimonials: {
+        title: string;
+        sliderAriaLabel: string;
+        previousSlideLabel: string;
+        nextSlideLabel: string;
+        dotLabelPrefix: string;
+        ratingLabelSuffix: string;
+        avatarAltPrefix: string;
+        cardAriaLabelPrefix: string;
+        ctaLabel: string;
+        sliderItems: TestimonialItem[];
     };
     homeArticles: {
         title: string;
@@ -293,6 +314,46 @@ const defaultDictionary: DictionaryType = {
             {title: 'Срочные перевозки: день в день, а также в субботу', icon: 'express.svg'},
             {title: 'Полный комплекс услуг: от разборки и упаковки, до транспортировки', icon: 'full-service.svg'},
             {title: 'Только проверенные перевозчики и грузчики', icon: 'trusted.svg'},
+        ],
+    },
+    homeTestimonials: {
+        title: 'ОТЗЫВЫ',
+        sliderAriaLabel: 'Отзывы клиентов о перевозках',
+        previousSlideLabel: 'Предыдущий отзыв',
+        nextSlideLabel: 'Следующий отзыв',
+        dotLabelPrefix: 'Перейти к отзыву',
+        ratingLabelSuffix: 'звезд из пяти',
+        avatarAltPrefix: 'Фото клиента',
+        cardAriaLabelPrefix: 'Перейти на сайт перевозчика',
+        ctaLabel: 'Оставить отзыв',
+        sliderItems: [
+            {
+                name: 'Алексей Морозов',
+                company: 'LogiMove',
+                review:
+                    'Организовали перевозку за сутки: погрузили, аккуратно упаковали и доставили без единой царапины. Буду рекомендовать коллегам.',
+                avatar: '/images/testimonials/person-1.svg',
+                carrierUrl: 'https://example.com/logimove',
+                rating: 5,
+            },
+            {
+                name: 'Мария Голдман',
+                company: 'Galil Express',
+                review:
+                    'Пунктуальная команда: приехали точно в оговоренное время и бережно отнеслись к вещам. Получилось даже дешевле, чем ожидали.',
+                avatar: '/images/testimonials/person-2.svg',
+                carrierUrl: 'https://example.com/galil-express',
+                rating: 5,
+            },
+            {
+                name: 'Даниэль Кац',
+                company: 'Negev Logistic',
+                review:
+                    'Заказывали офисный переезд. Удобный расчет стоимости, четкая коммуникация и отличная упаковка техники — все приехало целым.',
+                avatar: '/images/testimonials/person-3.svg',
+                carrierUrl: 'https://example.com/negev-logistic',
+                rating: 5,
+            },
         ],
     },
     homeArticles: {
@@ -477,6 +538,11 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
                 ...defaultDictionary.homeWhyUs,
                 ...loadedDict.homeWhyUs,
                 cards: loadedDict.homeWhyUs?.cards ?? defaultDictionary.homeWhyUs.cards,
+            },
+            homeTestimonials: {
+                ...defaultDictionary.homeTestimonials,
+                ...loadedDict.homeTestimonials,
+                sliderItems: loadedDict.homeTestimonials?.sliderItems ?? defaultDictionary.homeTestimonials.sliderItems,
             },
             homeArticles: {
                 ...defaultDictionary.homeArticles,

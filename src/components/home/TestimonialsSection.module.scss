@@ -1,0 +1,252 @@
+@import '@/styles/_variables.scss';
+
+.testimonialsSection {
+  background: $color-white;
+  padding: 96px 0;
+  color: $text-color;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: $container-width;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+}
+
+.title {
+  font-size: clamp(52px, 4vw, 64px);
+  color: $primary-color;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 0.9;
+}
+
+.sliderArea {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.sliderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.sliderViewport {
+  overflow-x: hidden;
+  overflow-y: visible;
+  position: relative;
+  margin: 0 auto;
+}
+
+.sliderTrack {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  padding: 72px 0 16px;
+}
+
+.slide {
+  flex-shrink: 0;
+  background: $primary-color;
+  color: $color-white;
+  border-radius: $radius-lg;
+  padding: 96px 24px 24px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 370px;
+  height: 370px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 18px 32px rgba(0, 7, 142, 0.14);
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.avatarWrapper {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 128px;
+  height: 128px;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.avatarRing {
+  width: 120px;
+  height: 120px;
+  border-radius: $radius-full;
+  background: $color-white;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: $radius-full;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  height: 100%;
+}
+
+.name {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.company {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.rating {
+  display: flex;
+  gap: 4px;
+  color: #FACC15;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.review {
+  font-size: 16px;
+  line-height: 1.45;
+  margin: 0;
+  color: $color-white;
+}
+
+.navButton {
+  all: unset;
+  background: transparent;
+  color: $primary-color;
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  transition: opacity $transition-base;
+
+  &:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }
+}
+
+.navButtonLeft {
+  left: -60px;
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.navButtonRight {
+  right: -60px;
+}
+
+div.dots {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: $radius-full;
+  background: transparent;
+  border: 1px solid $primary-color;
+  transition: transform $transition-fast, background-color $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.dotActive {
+  background: $primary-color;
+  transform: scale(1.15);
+}
+
+.ctaWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+@media (min-width: 1200px) {
+  .sliderViewport {
+    width: calc(370px * 3 + 32px);
+  }
+}
+
+@media (min-width: 840px) and (max-width: 1199px) {
+  .sliderViewport {
+    width: calc(370px * 2 + 16px);
+  }
+
+  .navButton {
+    display: none !important;
+  }
+}
+
+@media (max-width: 839px) {
+  .sliderViewport {
+    width: 370px;
+  }
+
+  .navButton {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .sliderViewport {
+    width: calc(100vw - 40px);
+    max-width: 370px;
+  }
+
+  .slide {
+    width: 100% !important;
+    height: auto;
+    min-height: 360px;
+  }
+}
