@@ -79,7 +79,7 @@
 
   &:hover,
   &:focus-visible {
-    color: lighten($color-white, 5%);
+    color: $color-white;
     opacity: 0.9;
   }
 }
