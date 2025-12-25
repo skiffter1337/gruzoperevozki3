@@ -106,6 +106,7 @@ export default function ArticlesSection({locale, dictionary}: ArticlesSectionPro
 
     return (
         <section
+            id="articles-section"
             className={styles.section}
             aria-label={dictionary.sectionAriaLabel}
             itemScope

@@ -127,7 +127,11 @@ export default function TestimonialsSection({locale, dictionary}: TestimonialsSe
     const shouldShowArrows = showArrows && totalSlides > slidesPerView;
 
     return (
-        <section className={styles.testimonialsSection} aria-labelledby="testimonials-title">
+        <section
+            id="testimonials-section"
+            className={styles.testimonialsSection}
+            aria-labelledby="testimonials-title"
+        >
             <div className={styles.container}>
                 <h2 id="testimonials-title" className={styles.title}>
                     {dictionary.title}

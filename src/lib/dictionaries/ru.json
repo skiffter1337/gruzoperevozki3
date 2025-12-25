@@ -72,6 +72,54 @@
       "en": "Английский"
     }
   },
+  "footer": {
+    "ariaLabel": "Навигация по футеру",
+    "columns": {
+      "home": {
+        "title": "Главная",
+        "links": [
+          {"label": "О нас", "anchor": "about"},
+          {"label": "Статьи", "anchor": "articles"},
+          {"label": "Услуги", "anchor": "services"},
+          {"label": "Отзывы", "anchor": "testimonials"},
+          {"label": "Почему мы", "anchor": "whyUs"},
+          {"label": "Выбор района", "anchor": "regions"},
+          {"label": "Лучшие перевозчики", "anchor": "carriers"},
+          {"label": "Рассчитать стоимость", "anchor": "calculate"}
+        ]
+      },
+      "transportation": {
+        "title": "Перевозки",
+        "links": [
+          {"label": "Квартиры", "path": "квартиры"},
+          {"label": "Офисный переезд", "path": "офисные"},
+          {"label": "Частный дом", "path": "частный-дом"},
+          {"label": "Маленький переезд", "path": "маленький-переезд"}
+        ]
+      },
+      "services": {
+        "title": "Доп. услуги",
+        "links": [
+          {"label": "Упаковка", "path": "упаковка"},
+          {"label": "Хранение", "path": "хранение"},
+          {"label": "Поздние перевозки", "path": "поздние-перевозки"}
+        ]
+      },
+      "contacts": {
+        "title": "Контакты",
+        "addressLabel": "Адрес",
+        "emailLabel": "Почта",
+        "phoneLabel": "Телефон",
+        "socialLabel": "Мы в соцсетях",
+        "socialLinks": [
+          {"label": "Facebook", "href": "https://facebook.com", "network": "facebook"},
+          {"label": "WhatsApp", "href": "https://wa.me/{phoneDigits}", "network": "whatsapp"},
+          {"label": "Telegram", "href": "https://t.me/example", "network": "telegram"},
+          {"label": "Twitter", "href": "https://twitter.com", "network": "twitter"}
+        ]
+      }
+    }
+  },
   "homeHero": {
     "title": "ХОТИТЕ ЗАКАЗАТЬ ПЕРЕВОЗКУ?",
     "fromLabel": "Откуда",

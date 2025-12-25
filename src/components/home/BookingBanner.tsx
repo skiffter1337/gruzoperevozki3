@@ -76,7 +76,11 @@ export default function BookingBanner({ locale, dictionary }: BookingBannerProps
   };
 
   return (
-    <section className={styles.banner} aria-labelledby="booking-title">
+    <section
+      id="booking-section"
+      className={styles.banner}
+      aria-labelledby="booking-title"
+    >
       <div className={styles.container}>
         <h1 id="booking-title" className={styles.title}>
           {dictionary.title}

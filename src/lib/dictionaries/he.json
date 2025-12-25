@@ -39,6 +39,54 @@
       "en": "אנגלית"
     }
   },
+  "footer": {
+    "ariaLabel": "ניווט פוטר",
+    "columns": {
+      "home": {
+        "title": "דף הבית",
+        "links": [
+          {"label": "אודות", "anchor": "about"},
+          {"label": "מאמרים", "anchor": "articles"},
+          {"label": "שירותים", "anchor": "services"},
+          {"label": "חוות דעת", "anchor": "testimonials"},
+          {"label": "למה אנחנו", "anchor": "whyUs"},
+          {"label": "בחירת אזור", "anchor": "regions"},
+          {"label": "המובילים הטובים ביותר", "anchor": "carriers"},
+          {"label": "חישוב עלות", "anchor": "calculate"}
+        ]
+      },
+      "transportation": {
+        "title": "הובלות",
+        "links": [
+          {"label": "דירות", "path": "דירות"},
+          {"label": "מעבר משרד", "path": "משרדים"},
+          {"label": "בית פרטי", "path": "בית-פרטי"},
+          {"label": "הובלה קטנה", "path": "הובלה-קטנה"}
+        ]
+      },
+      "services": {
+        "title": "שירותים נוספים",
+        "links": [
+          {"label": "אריזה", "path": "אריזה"},
+          {"label": "אחסון", "path": "אחסון"},
+          {"label": "הובלות מאוחרות", "path": "הובלות-מאוחרות"}
+        ]
+      },
+      "contacts": {
+        "title": "צור קשר",
+        "addressLabel": "כתובת",
+        "emailLabel": "דוא\"ל",
+        "phoneLabel": "טלפון",
+        "socialLabel": "ברשתות החברתיות",
+        "socialLinks": [
+          {"label": "Facebook", "href": "https://facebook.com", "network": "facebook"},
+          {"label": "WhatsApp", "href": "https://wa.me/{phoneDigits}", "network": "whatsapp"},
+          {"label": "Telegram", "href": "https://t.me/example", "network": "telegram"},
+          {"label": "Twitter", "href": "https://twitter.com", "network": "twitter"}
+        ]
+      }
+    }
+  },
   "homeHero": {
     "title": "רוצים להזמין הובלה?",
     "fromLabel": "מאיפה",

@@ -144,7 +144,11 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
     const shouldShowArrows = showArrows && totalSlides > slidesPerView;
 
     return (
-        <section className={styles.sliderSection} aria-labelledby="services-slider-title">
+        <section
+            id="services-section"
+            className={styles.sliderSection}
+            aria-labelledby="services-slider-title"
+        >
             <div className={styles.container}>
                 <div className={styles.sliderHeader}>
                     <h2 id="services-slider-title" className={styles.sliderTitle}>

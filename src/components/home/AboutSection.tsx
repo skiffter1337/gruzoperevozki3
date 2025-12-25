@@ -9,6 +9,7 @@ type AboutSectionProps = {
 export default function AboutSection({dictionary}: AboutSectionProps) {
     return (
         <section
+            id="about-section"
             className={styles.section}
             aria-labelledby="about-title"
             itemScope

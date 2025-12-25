@@ -124,7 +124,11 @@ export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) 
     const shouldShowArrows = showArrows && totalSlides > slidesPerView;
 
     return (
-        <section className={styles.sliderSection} aria-labelledby="regions-slider-title">
+        <section
+            id="regions-section"
+            className={styles.sliderSection}
+            aria-labelledby="regions-slider-title"
+        >
             <div className={styles.container}>
                 <div className={styles.sliderHeader}>
                     <h2 id="regions-slider-title" className={styles.sliderTitle}>
