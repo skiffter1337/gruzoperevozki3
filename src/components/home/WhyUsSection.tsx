@@ -127,6 +127,7 @@ export default function WhyUsSection({dictionary, locale}: WhyUsSectionProps) {
 
     return (
         <section
+            id="why-us-section"
             className={styles.section}
             aria-labelledby="why-us-title"
             itemScope

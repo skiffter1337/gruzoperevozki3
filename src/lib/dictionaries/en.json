@@ -72,6 +72,54 @@
       "en": "English"
     }
   },
+  "footer": {
+    "ariaLabel": "Footer navigation",
+    "columns": {
+      "home": {
+        "title": "Home",
+        "links": [
+          {"label": "About us", "anchor": "about"},
+          {"label": "Articles", "anchor": "articles"},
+          {"label": "Services", "anchor": "services"},
+          {"label": "Reviews", "anchor": "testimonials"},
+          {"label": "Why us", "anchor": "whyUs"},
+          {"label": "Area selection", "anchor": "regions"},
+          {"label": "Top carriers", "anchor": "carriers"},
+          {"label": "Calculate cost", "anchor": "calculate"}
+        ]
+      },
+      "transportation": {
+        "title": "Transportation",
+        "links": [
+          {"label": "Apartments", "path": "apartments"},
+          {"label": "Office move", "path": "offices"},
+          {"label": "Private house", "path": "private-house"},
+          {"label": "Small move", "path": "small-move"}
+        ]
+      },
+      "services": {
+        "title": "Extra services",
+        "links": [
+          {"label": "Packing", "path": "packing"},
+          {"label": "Storage", "path": "storage"},
+          {"label": "Late moves", "path": "late-moves"}
+        ]
+      },
+      "contacts": {
+        "title": "Contacts",
+        "addressLabel": "Address",
+        "emailLabel": "Email",
+        "phoneLabel": "Phone",
+        "socialLabel": "Find us online",
+        "socialLinks": [
+          {"label": "Facebook", "href": "https://facebook.com", "network": "facebook"},
+          {"label": "WhatsApp", "href": "https://wa.me/{phoneDigits}", "network": "whatsapp"},
+          {"label": "Telegram", "href": "https://t.me/example", "network": "telegram"},
+          {"label": "Twitter", "href": "https://twitter.com", "network": "twitter"}
+        ]
+      }
+    }
+  },
   "homeHero": {
     "title": "WANT TO BOOK A MOVE?",
     "fromLabel": "From",

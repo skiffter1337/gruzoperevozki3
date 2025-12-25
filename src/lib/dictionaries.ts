@@ -57,6 +57,56 @@ export interface TestimonialItem {
     rating: number;
 }
 
+export interface FooterLink {
+    label: string;
+    /**
+     * Optional anchor or slug key that will be resolved inside the footer component
+     * to a localized URL or in-page anchor.
+     */
+    anchor?:
+        | 'about'
+        | 'articles'
+        | 'services'
+        | 'testimonials'
+        | 'whyUs'
+        | 'regions'
+        | 'carriers'
+        | 'calculate';
+    path?: string;
+}
+
+export interface FooterSocialLink {
+    label: string;
+    href: string;
+    network: 'facebook' | 'whatsapp' | 'telegram' | 'twitter';
+}
+
+export interface FooterDictionary {
+    ariaLabel: string;
+    columns: {
+        home: {
+            title: string;
+            links: FooterLink[];
+        };
+        transportation: {
+            title: string;
+            links: FooterLink[];
+        };
+        services: {
+            title: string;
+            links: FooterLink[];
+        };
+        contacts: {
+            title: string;
+            addressLabel: string;
+            emailLabel: string;
+            phoneLabel: string;
+            socialLabel: string;
+            socialLinks: FooterSocialLink[];
+        };
+    };
+}
+
 export type DictionaryType = {
     metadata: {
         title: string;
@@ -174,7 +224,7 @@ export type DictionaryType = {
         ctaDescription: string;
         ctaButton: string;
     };
-    calculatePage: {
+        calculatePage: {
         title: string;
         description: string;
         metaTitle: string;
@@ -183,6 +233,7 @@ export type DictionaryType = {
         receivedDataTitle: string;
         missingData: string;
     };
+    footer: FooterDictionary;
     urls?: Record<string, string>;
 };
 
@@ -476,6 +527,54 @@ const defaultDictionary: DictionaryType = {
             en: 'English',
         },
     },
+    footer: {
+        ariaLabel: 'Навигация по футеру',
+        columns: {
+            home: {
+                title: 'Главная',
+                links: [
+                    {label: 'О нас', anchor: 'about'},
+                    {label: 'Статьи', anchor: 'articles'},
+                    {label: 'Услуги', anchor: 'services'},
+                    {label: 'Отзывы', anchor: 'testimonials'},
+                    {label: 'Почему мы', anchor: 'whyUs'},
+                    {label: 'Выбор района', anchor: 'regions'},
+                    {label: 'Лучшие перевозчики', anchor: 'carriers'},
+                    {label: 'Рассчитать стоимость', anchor: 'calculate'},
+                ],
+            },
+            transportation: {
+                title: 'Перевозки',
+                links: [
+                    {label: 'Квартиры', path: 'квартиры'},
+                    {label: 'Офисный переезд', path: 'офисные'},
+                    {label: 'Частный дом', path: 'частный-дом'},
+                    {label: 'Маленький переезд', path: 'маленький-переезд'},
+                ],
+            },
+            services: {
+                title: 'Доп. услуги',
+                links: [
+                    {label: 'Упаковка', path: 'упаковка'},
+                    {label: 'Хранение', path: 'хранение'},
+                    {label: 'Поздние перевозки', path: 'поздние-перевозки'},
+                ],
+            },
+            contacts: {
+                title: 'Контакты',
+                addressLabel: 'Адрес',
+                emailLabel: 'Почта',
+                phoneLabel: 'Телефон',
+                socialLabel: 'Мы в соцсетях',
+                socialLinks: [
+                    {label: 'Facebook', href: 'https://facebook.com', network: 'facebook'},
+                    {label: 'WhatsApp', href: 'https://wa.me/', network: 'whatsapp'},
+                    {label: 'Telegram', href: 'https://t.me/', network: 'telegram'},
+                    {label: 'Twitter', href: 'https://twitter.com', network: 'twitter'},
+                ],
+            },
+        },
+    },
 };
 
 const loadDictionary = (locale: Locale) =>
@@ -514,6 +613,35 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
                 languageSwitcher: {
                     ...defaultDictionary.header.languageSwitcher,
                     ...loadedDict.header?.languageSwitcher,
+                },
+            },
+            footer: {
+                ...defaultDictionary.footer,
+                ...loadedDict.footer,
+                columns: {
+                    home: {
+                        ...defaultDictionary.footer.columns.home,
+                        ...loadedDict.footer?.columns?.home,
+                        links: loadedDict.footer?.columns?.home?.links ?? defaultDictionary.footer.columns.home.links,
+                    },
+                    transportation: {
+                        ...defaultDictionary.footer.columns.transportation,
+                        ...loadedDict.footer?.columns?.transportation,
+                        links: loadedDict.footer?.columns?.transportation?.links
+                            ?? defaultDictionary.footer.columns.transportation.links,
+                    },
+                    services: {
+                        ...defaultDictionary.footer.columns.services,
+                        ...loadedDict.footer?.columns?.services,
+                        links: loadedDict.footer?.columns?.services?.links
+                            ?? defaultDictionary.footer.columns.services.links,
+                    },
+                    contacts: {
+                        ...defaultDictionary.footer.columns.contacts,
+                        ...loadedDict.footer?.columns?.contacts,
+                        socialLinks: loadedDict.footer?.columns?.contacts?.socialLinks
+                            ?? defaultDictionary.footer.columns.contacts.socialLinks,
+                    },
                 },
             },
             homeHero: {

@@ -7,6 +7,7 @@ import { buildLanguageAlternates, buildLocalizedPath } from '@/lib/localized-pat
 import { SITE_URL } from '@/lib/site-config';
 import { notFound } from 'next/navigation';
 import LocaleDirection from '@/components/LocaleDirection';
+import Footer from '@/components/layout/Footer';
 
 const locales: Locale[] = ['he', 'ru', 'en'];
 
@@ -69,6 +70,11 @@ export default async function LocaleLayout({ children, params }: Props) {
         }}
       />
       <main className="min-h-screen">{children}</main>
+      <Footer
+        locale={locale}
+        dictionary={dictionary.footer}
+        company={dictionary.company}
+      />
     </div>
   );
 }
