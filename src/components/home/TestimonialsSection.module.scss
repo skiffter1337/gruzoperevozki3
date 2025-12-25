@@ -218,13 +218,19 @@ div.dots {
   }
 }
 
-@media (min-width: 840px) and (max-width: 1199px) {
+@media (min-width: 840px) and (max-width: 1023px) {
   .sliderViewport {
     width: calc(370px * 2 + 16px);
   }
 
   .navButton {
     display: none !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .sliderViewport {
+    width: calc(370px * 2 + 16px);
   }
 }
 
