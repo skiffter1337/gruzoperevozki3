@@ -7,6 +7,7 @@ import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
 import TelegramIcon from '@/components/icons/TelegramIcon';
 import TwitterIcon from '@/components/icons/TwitterIcon';
 import styles from './Footer.module.scss';
+import {JSX} from "react";
 
 type FooterProps = {
     locale: Locale;
@@ -73,7 +74,6 @@ export default function Footer({locale, dictionary, company}: FooterProps) {
                             <span className={styles.columnTitle}>{dictionary.columns.home.title}</span>
                             <span className={styles.headerSquare} aria-hidden />
                         </div>
-                        <span className={styles.columnUnderline} aria-hidden />
 
                         <ul className={styles.linksList}>
                             {dictionary.columns.home.links.map((link) => (

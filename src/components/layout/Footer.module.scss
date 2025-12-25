@@ -21,7 +21,6 @@
   }
 
   @media (max-width: $tablet-breakpoint) {
-    grid-template-columns: 1fr;
     gap: 28px;
   }
 }
@@ -39,11 +38,16 @@
   font-weight: 700;
   font-size: 20px;
   text-transform: uppercase;
+  border-bottom: 2px solid white;
+  width: fit-content;
+  padding-bottom: 12px;
 }
 
 .columnTitle {
   display: inline-block;
-  line-height: 1.1;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 100%;
 }
 
 .headerSquare {
@@ -51,14 +55,7 @@
   height: 12px;
   border: 2px solid $color-white;
   border-radius: 3px;
-}
-
-.columnUnderline {
-  display: block;
-  height: 2px;
-  width: 100%;
-  margin-top: 12px;
-  background: rgba($color-white, 0.6);
+  background-color: $color-white;
 }
 
 .linksList {
@@ -72,10 +69,13 @@
 
 .link {
   color: $color-white;
-  font-size: 16px;
-  line-height: 1.4;
+
   text-decoration: none;
   transition: color $transition-fast ease, opacity $transition-fast ease;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+
 
   &:hover,
   &:focus-visible {
@@ -102,9 +102,8 @@
 }
 
 .contactRow {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 8px 12px;
+  display: flex;
+ flex-direction: column;
 
   @media (max-width: $tablet-breakpoint) {
     grid-template-columns: 1fr;
@@ -119,8 +118,9 @@
 }
 
 .contactValue {
-  margin: 0;
-  color: rgba($color-white, 0.92);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
 }
 
 .socialBlock {

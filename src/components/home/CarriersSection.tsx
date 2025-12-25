@@ -121,11 +121,7 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
     const offset = isMobile ? -tabIndex * slideWidth : 0;
 
     return (
-        <section
-            id="carriers-section"
-            className={styles.section}
-            aria-labelledby="carriers-title"
-        >
+        <section className={styles.section} aria-labelledby="carriers-title">
             <div className={styles.container}>
                 <div className={styles.header}>
                     <h2 id="carriers-title" className={styles.title}>
@@ -228,8 +224,6 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                     rel="noopener noreferrer"
                                     className={styles.cardLink}
                                     aria-label={`${carrier.name} – ${dictionary.cardAriaLabel}`}
-                                    itemScope
-                                    itemType="https://schema.org/Organization"
                                 >
                                     <div className={styles.cardImage}>
                                         <Image
@@ -241,21 +235,21 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                             style={{objectFit: 'cover'}}
                                         />
                                     </div>
-                                    <div className={styles.carrierInfo}>
-                                        <div className={styles.carrierName} itemProp="name">{carrier.name}</div>
-                                        <ul className={styles.carrierContacts}>
-                                            <li>
-                                                {carrier.contactInfo.info}
-                                            </li>
-                                            <li>
-                                                {carrier.contactInfo.contacts}
-                                            </li>
-                                            <li itemProp="telephone">
-                                                {carrier.contactInfo.phoneNumber}
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </a>
+                                <div className={styles.carrierInfo}>
+                                    <div className={styles.carrierName}>{carrier.name}</div>
+                                    <ul className={styles.carrierContacts}>
+                                        <li>
+                                            {carrier.contactInfo.info}
+                                        </li>
+                                        <li>
+                                            {carrier.contactInfo.contacts}
+                                        </li>
+                                        <li>
+                                            {carrier.contactInfo.phoneNumber}
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         ))
                     ) : (
