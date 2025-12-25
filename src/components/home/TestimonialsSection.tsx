@@ -43,7 +43,7 @@ export default function TestimonialsSection({locale, dictionary}: TestimonialsSe
                 newShowArrows = true;
             } else if (width >= 1024) {
                 newSlidesPerView = 2;
-                newShowArrows = true;
+                newShowArrows = false;
             } else if (width >= 840) {
                 newSlidesPerView = 2;
                 newShowArrows = false;
