@@ -3,6 +3,8 @@ import { Locale } from '../../../i18n-config';
 import { getDictionary } from '@/lib/dictionaries';
 import { buildLanguageAlternates, buildLocalizedPath } from '@/lib/localized-paths';
 import { SITE_URL } from '@/lib/site-config';
+import Breadcrumbs from '@/components/navigation/Breadcrumbs';
+import CalculatorForm from '@/components/calculate/CalculatorForm';
 import styles from './calculate.module.scss';
 
 export type CalculatePageProps = {
@@ -46,44 +48,32 @@ export default async function CalculatePage({ params, searchParams }: CalculateP
   const from = extractValue('from');
   const to = extractValue('to');
   const date = extractValue('date');
-  const hasValues = Boolean(from || to || date);
-
   return (
-    <section className={styles.section} aria-labelledby="calculate-title">
+    <section className={styles.page} aria-labelledby="calculate-title">
       <div className={styles.container}>
         <header className={styles.header}>
+          <div className={styles.breadcrumbsWrapper}>
+            <Breadcrumbs
+              items={[
+                {
+                  label: dictionary.header.nav.home,
+                  href: buildLocalizedPath(locale, 'home'),
+                },
+                { label: dictionary.calculatePage.breadcrumbCurrent, current: true },
+              ]}
+            />
+          </div>
           <h1 id="calculate-title" className={styles.title}>
-            {dictionary.calculatePage.title}
+            {dictionary.calculatePage.heroHeading}
           </h1>
-          <p className={styles.description}>{dictionary.calculatePage.description}</p>
+          <p className={styles.lead}>{dictionary.calculatePage.description}</p>
         </header>
 
-        <div className={styles.card}>
-          <p className={styles.placeholder}>{dictionary.calculatePage.placeholderNotice}</p>
-        </div>
-
-        <div className={styles.card}>
-          <h2 className={styles.title} style={{ fontSize: '22px' }}>
-            {dictionary.calculatePage.receivedDataTitle}
-          </h2>
-          {hasValues ? (
-            <dl className={styles.dataGrid}>
-              <div className={styles.dataItem}>
-                <dt className={styles.label}>{dictionary.homeHero.fromLabel}</dt>
-                <dd className={styles.value}>{from || '—'}</dd>
-              </div>
-              <div className={styles.dataItem}>
-                <dt className={styles.label}>{dictionary.homeHero.toLabel}</dt>
-                <dd className={styles.value}>{to || '—'}</dd>
-              </div>
-              <div className={styles.dataItem}>
-                <dd className={styles.value}>{date || '—'}</dd>
-              </div>
-            </dl>
-          ) : (
-            <p className={styles.placeholder}>{dictionary.calculatePage.missingData}</p>
-          )}
-        </div>
+        <CalculatorForm
+          dictionary={dictionary.calculatePage}
+          heroDictionary={dictionary.homeHero}
+          initialValues={{ from, to, date }}
+        />
       </div>
     </section>
   );

@@ -71,6 +71,9 @@ export default function Header({locale, dictionary}: HeaderProps) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const calculatePath = buildLocalizedPath(locale, 'calculate');
+    const isCalculatePage = pathname.startsWith(calculatePath);
+
     const getNextLocale = () => {
         const currentIndex = locales.indexOf(locale);
         const nextIndex = (currentIndex + 1) % locales.length;
@@ -153,7 +156,11 @@ export default function Header({locale, dictionary}: HeaderProps) {
     };
 
     return (
-        <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+        <header
+            className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${
+                isCalculatePage ? styles.primaryVariant : ''
+            }`}
+        >
             <div className={styles.container}>
                 <nav className={styles.nav}>
                     <ul className={styles.navList}>

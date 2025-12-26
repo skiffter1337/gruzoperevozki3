@@ -224,7 +224,7 @@ export type DictionaryType = {
         ctaDescription: string;
         ctaButton: string;
     };
-        calculatePage: {
+    calculatePage: {
         title: string;
         description: string;
         metaTitle: string;
@@ -232,6 +232,33 @@ export type DictionaryType = {
         placeholderNotice: string;
         receivedDataTitle: string;
         missingData: string;
+        breadcrumbCurrent: string;
+        heroHeading: string;
+        dateLabel: string;
+        elevatorLabel: string;
+        floorLabel: string;
+        floorOptions: string[];
+        serviceTypeLabel: string;
+        serviceOptions: string[];
+        roomTabsLabel: string;
+        roomTabs: {
+            livingRoom: string;
+            kitchen: string;
+            bedroom: string;
+            hallway: string;
+            kids: string;
+            other: string;
+        };
+        presetItems: string[];
+        itemNameLabel: string;
+        itemNamePlaceholder: string;
+        customItemLabel: string;
+        customItemPlaceholder: string;
+        addButton: string;
+        decreaseLabel: string;
+        increaseLabel: string;
+        assemblyLabel: string;
+        submitCta: string;
     };
     footer: FooterDictionary;
     urls?: Record<string, string>;
@@ -483,6 +510,41 @@ const defaultDictionary: DictionaryType = {
         placeholderNotice: "Расширенная форма появится здесь. Мы используем введенные вами данные, чтобы подготовить расчет.",
         receivedDataTitle: "Полученные данные",
         missingData: "Данные не были переданы. Пожалуйста, вернитесь и заполните форму.",
+        breadcrumbCurrent: "Калькулятор стоимости",
+        heroHeading: "Калькулятор стоимости переезда",
+        dateLabel: "Дата",
+        elevatorLabel: "Есть лифт?",
+        floorLabel: "Какой этаж?",
+        floorOptions: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10+'],
+        serviceTypeLabel: "Тип услуги",
+        serviceOptions: [
+            'Перевозка 1-комнатной квартиры',
+            'Перевозка 2-комнатной квартиры',
+            'Перевозка 3-комнатной квартиры',
+            'Перевозка 4-комнатной квартиры',
+            'Перевозка 5-комнатной квартиры',
+            'Перевозка дома',
+            'Перевозка офиса',
+        ],
+        roomTabsLabel: 'Комнаты',
+        roomTabs: {
+            livingRoom: 'Гостиная',
+            kitchen: 'Кухня',
+            bedroom: 'Спальня',
+            hallway: 'Прихожая',
+            kids: 'Детская',
+            other: 'Другое',
+        },
+        presetItems: ['Диван', 'Торшер', 'Шкаф', 'Книжная полка', 'Телевизор', 'Журнальный столик'],
+        itemNameLabel: 'Название предмета',
+        itemNamePlaceholder: 'Введите название предмета',
+        customItemLabel: 'Добавить свой предмет',
+        customItemPlaceholder: 'Введите название',
+        addButton: 'Добавить',
+        decreaseLabel: 'Уменьшить количество',
+        increaseLabel: 'Увеличить количество',
+        assemblyLabel: 'Нужна разборка / сборка',
+        submitCta: 'Рассчитать',
     },
     company: {
         name: "Ваша транспортная компания",
