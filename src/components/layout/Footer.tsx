@@ -23,7 +23,6 @@ const anchorTargets: Record<NonNullable<FooterLink['anchor']>, string> = {
     whyUs: 'why-us-section',
     regions: 'regions-section',
     carriers: 'carriers-section',
-    calculate: 'booking-section',
 };
 
 const socialIconMap: Record<FooterSocialLink['network'], JSX.Element> = {
@@ -40,6 +39,7 @@ export default function Footer({locale, dictionary, company}: FooterProps) {
 
     const buildAnchorHref = (anchor?: FooterLink['anchor']) => {
         if (!anchor) return homePath;
+        if (anchor === 'calculate') return buildLocalizedPath(locale, 'calculate');
         const targetId = anchorTargets[anchor];
         if (!targetId) return homePath;
         return `${homePath}#${targetId}`;
