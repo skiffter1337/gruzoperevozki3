@@ -301,7 +301,42 @@
     "metaDescription": "העריכו את עלות ההובלה בישראל לפי מסלול ותאריך מועדפים.",
     "placeholderNotice": "כאן תופיע בקרוב טופס מפורט. שמרנו את המידע שמילאתם.",
     "receivedDataTitle": "נתונים שהתקבלו",
-    "missingData": "לא התקבל מידע. חזרו לעמוד הבית ומלאו את הטופס."
+    "missingData": "לא התקבל מידע. חזרו לעמוד הבית ומלאו את הטופס.",
+    "breadcrumbCurrent": "מחשב עלות",
+    "heroHeading": "מחשבון עלות מעבר",
+    "dateLabel": "תאריך",
+    "elevatorLabel": "יש מעלית?",
+    "floorLabel": "באיזו קומה?",
+    "floorOptions": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"],
+    "serviceTypeLabel": "סוג שירות",
+    "serviceOptions": [
+      "הובלת דירת חדר",
+      "הובלת דירת 2 חדרים",
+      "הובלת דירת 3 חדרים",
+      "הובלת דירת 4 חדרים",
+      "הובלת דירת 5 חדרים",
+      "הובלת בית",
+      "הובלת משרד"
+    ],
+    "roomTabsLabel": "חדרים",
+    "roomTabs": {
+      "livingRoom": "סלון",
+      "kitchen": "מטבח",
+      "bedroom": "חדר שינה",
+      "hallway": "מבואה",
+      "kids": "חדר ילדים",
+      "other": "אחר"
+    },
+    "presetItems": ["ספה", "מנורת רצפה", "ארון", "ספרייה", "טלוויזיה", "שולחן קפה"],
+    "itemNameLabel": "שם הפריט",
+    "itemNamePlaceholder": "הזן שם פריט",
+    "customItemLabel": "הוסף פריט משלך",
+    "customItemPlaceholder": "הזן שם",
+    "addButton": "הוסף",
+    "decreaseLabel": "הפחת כמות",
+    "increaseLabel": "הוסף כמות",
+    "assemblyLabel": "נדרש פירוק / הרכבה",
+    "submitCta": "חשב"
   },
   "company": {
     "name": "חברת ההובלות שלך",

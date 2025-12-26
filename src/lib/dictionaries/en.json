@@ -452,7 +452,42 @@
     "metaDescription": "Estimate your moving cost across Israel by providing your route and preferred date.",
     "placeholderNotice": "A full pricing form will appear here soon. We have stored the details you provided.",
     "receivedDataTitle": "Received details",
-    "missingData": "No data was provided. Please return to the home page and complete the form."
+    "missingData": "No data was provided. Please return to the home page and complete the form.",
+    "breadcrumbCurrent": "Cost calculator",
+    "heroHeading": "Moving cost calculator",
+    "dateLabel": "Date",
+    "elevatorLabel": "Is there an elevator?",
+    "floorLabel": "Which floor?",
+    "floorOptions": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"],
+    "serviceTypeLabel": "Service type",
+    "serviceOptions": [
+      "1-room apartment move",
+      "2-room apartment move",
+      "3-room apartment move",
+      "4-room apartment move",
+      "5-room apartment move",
+      "House move",
+      "Office move"
+    ],
+    "roomTabsLabel": "Rooms",
+    "roomTabs": {
+      "livingRoom": "Living room",
+      "kitchen": "Kitchen",
+      "bedroom": "Bedroom",
+      "hallway": "Hallway",
+      "kids": "Kids room",
+      "other": "Other"
+    },
+    "presetItems": ["Sofa", "Floor lamp", "Wardrobe", "Bookshelf", "TV", "Coffee table"],
+    "itemNameLabel": "Item name",
+    "itemNamePlaceholder": "Enter item name",
+    "customItemLabel": "Add your item",
+    "customItemPlaceholder": "Enter name",
+    "addButton": "Add",
+    "decreaseLabel": "Decrease quantity",
+    "increaseLabel": "Increase quantity",
+    "assemblyLabel": "Need dismantling / assembly",
+    "submitCta": "Calculate"
   },
   "company": {
     "name": "Your moving company",

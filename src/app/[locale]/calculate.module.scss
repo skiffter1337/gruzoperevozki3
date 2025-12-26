@@ -1,77 +1,243 @@
-@import '@/styles/_variables.scss';
+@use '@/styles/variables' as vars;
 
-.section {
-  padding: 72px 16px;
-  background: $background-light;
-  min-height: 60vh;
+.page {
+  padding: 120px 16px 80px;
+  background: vars.$color-white;
 }
 
 .container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 $container-padding;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  padding: 0 vars.$container-padding;
+  display: grid;
+  gap: 32px;
 }
 
 .header {
-  text-align: center;
   display: grid;
   gap: 12px;
+  text-align: center;
+}
+
+.breadcrumbsWrapper {
+  justify-self: start;
+  margin-bottom: 8px;
 }
 
 .title {
-  font-size: clamp(26px, 4vw, 36px);
-  font-weight: 700;
-  color: $text-color;
+  font-size: clamp(30px, 4vw, 42px);
+  font-weight: 800;
+  color: vars.$text-color;
 }
 
-.description {
+.lead {
+  color: vars.$text-light;
   font-size: 18px;
-  color: $text-light;
+  max-width: 860px;
+  margin: 0 auto;
   line-height: 1.6;
 }
 
-.card {
-  background: $color-white;
-  border: 1px solid $border-color;
-  border-radius: $radius-lg;
-  padding: 24px;
-  box-shadow: $shadow-sm;
-}
-
-.dataGrid {
+.calculatorCard {
+  background: vars.$primary-color;
+  border-radius: vars.$radius-xl;
+  padding: 32px;
+  color: vars.$color-white;
+  box-shadow: vars.$shadow-lg;
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 24px;
 }
 
-@media (min-width: $tablet-breakpoint) {
-  .dataGrid {
+.formGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+
+  @media (min-width: vars.$tablet-breakpoint) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.dataItem {
+.field {
   display: grid;
-  gap: 6px;
+  gap: 8px;
 }
 
 .label {
   font-size: 14px;
-  color: $text-light;
   font-weight: 600;
 }
 
-.value {
+.input,
+.select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: vars.$radius-md;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: vars.$color-white;
+  color: vars.$text-color;
   font-size: 16px;
-  color: $text-color;
-  word-break: break-word;
 }
 
-.placeholder {
-  font-size: 16px;
-  color: $text-color;
-  line-height: 1.5;
+.checkboxField {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 14px;
+  border-radius: vars.$radius-md;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.checkboxField input {
+  width: 18px;
+  height: 18px;
+}
+
+.inlineSmallInputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.serviceRow {
+  display: grid;
+  gap: 8px;
+}
+
+.innerCard {
+  background: vars.$color-white;
+  border-radius: vars.$radius-lg;
+  padding: 20px;
+  color: vars.$text-color;
+  display: grid;
+  gap: 16px;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.tab {
+  padding: 12px 14px;
+  border-radius: vars.$radius-md;
+  border: 1px solid vars.$border-color;
+  background: vars.$background-light;
+  color: vars.$text-color;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all vars.$transition-base;
+
+  &:hover,
+  &:focus-visible,
+  &.active {
+    background: vars.$primary-color;
+    color: vars.$color-white;
+    border-color: vars.$primary-color;
+  }
+}
+
+.inventoryPanel {
+  background: vars.$primary-blue;
+  color: vars.$color-white;
+  border-radius: vars.$radius-lg;
+  padding: 20px;
+  display: grid;
+  gap: 16px;
+}
+
+.inventoryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.inventoryColumn {
+  display: grid;
+  gap: 12px;
+}
+
+.itemInput {
+  display: grid;
+  gap: 8px;
+}
+
+.itemList {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: vars.$radius-md;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.itemRow {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.counterButton {
+  width: 32px;
+  height: 32px;
+  border-radius: vars.$radius-sm;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: transparent;
+  color: vars.$color-white;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.itemName {
+  font-weight: 600;
+}
+
+.count {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.customRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+}
+
+.scrollList {
+  max-height: 220px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: vars.$radius-md;
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.scrollItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 10px 12px;
+  border-radius: vars.$radius-sm;
+}
+
+.assemblyRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.ctaRow {
+  display: flex;
+  justify-content: center;
+}
+
+.gradientButton {
+  min-width: 240px;
 }

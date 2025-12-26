@@ -61,7 +61,11 @@ export default async function LocaleLayout({ children, params }: Props) {
   const direction = locale === 'he' ? 'rtl' : 'ltr';
 
   return (
-    <div dir={direction} lang={locale} className={direction === 'rtl' ? 'rtl' : undefined}>
+    <div
+      dir={direction}
+      lang={locale}
+      className={`page-shell ${direction === 'rtl' ? 'rtl' : ''}`.trim()}
+    >
       <LocaleDirection dir={direction} lang={locale} />
       <Header
         locale={locale}
@@ -72,7 +76,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           company: dictionary.company,
         }}
       />
-      <main className="min-h-screen">{children}</main>
+      <main className="page-main">{children}</main>
       <Footer
         locale={locale}
         dictionary={dictionary.footer}
