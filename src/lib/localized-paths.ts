@@ -41,7 +41,8 @@ export function getSegment(locale: Locale, route: RouteKey): string {
 
 export function buildLocalizedPath(locale: Locale, route: RouteKey): string {
   const segment = getSegment(locale, route);
-  return segment ? `/${locale}/${segment}` : `/${locale}`;
+  const encodedSegment = segment ? encodeURI(segment) : "";
+  return encodedSegment ? `/${locale}/${encodedSegment}` : `/${locale}`;
 }
 
 export function buildAbsoluteUrl(locale: Locale, route: RouteKey): string {
