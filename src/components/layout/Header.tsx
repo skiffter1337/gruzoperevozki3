@@ -71,7 +71,9 @@ export default function Header({locale, dictionary}: HeaderProps) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const calculatePath = buildLocalizedPath(locale, 'calculate');
+    const getComparablePath = (route: RouteKey) => decodeURI(buildLocalizedPath(locale, route));
+
+    const calculatePath = getComparablePath('calculate');
     const isCalculatePage = pathname.startsWith(calculatePath);
 
     const getNextLocale = () => {
@@ -89,7 +91,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
     };
 
     const isActive = (route: RouteKey) => {
-        const target = buildLocalizedPath(locale, route);
+        const target = getComparablePath(route);
         if (route === 'home') return pathname === `/${locale}` || pathname === `/${locale}/`;
         return pathname.startsWith(target);
     };
