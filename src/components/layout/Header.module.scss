@@ -14,25 +14,14 @@
     background-color: vars.$primary-color;
     color: vars.$color-white;
 
-    .navItem,
-    .navLink,
-    .popupLink,
-    .rightSection,
-    .languageSwitcher,
-    .mobileNavLink,
-    .mobileNavItem,
-    .langButton,
-    .languageOption {
+    .navLink{
       color: vars.$color-white;
     }
 
     .navLinkWithPopup,
+    .langButton,
     .navItem {
       color: vars.$color-white;
-    }
-
-    .popupMenu {
-      border-color: rgba(255, 255, 255, 0.3);
     }
 
     .burgerLine {
@@ -128,10 +117,7 @@
   font-family: vars.$base-font;
   font-weight: 500;
 
-  &:hover .navLinkWithPopup,
-  &:focus-within .navLinkWithPopup {
-    color: vars.$primary-color;
-  }
+
 }
 
 .navLink {

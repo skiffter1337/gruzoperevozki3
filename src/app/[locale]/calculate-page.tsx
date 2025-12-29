@@ -66,7 +66,6 @@ export default async function CalculatePage({ params, searchParams }: CalculateP
           <h1 id="calculate-title" className={styles.title}>
             {dictionary.calculatePage.heroHeading}
           </h1>
-          <p className={styles.lead}>{dictionary.calculatePage.description}</p>
         </header>
 
         <CalculatorForm

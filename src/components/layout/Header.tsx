@@ -260,7 +260,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                             aria-pressed
                             aria-expanded={isLanguagePopupOpen}
                         >
-                            <ChevronDownIcon/>
+                            <ChevronDownIcon color={isCalculatePage ? "white" : "#00078E"}/>
                             {localeLabels[locale]}
                         </button>
                         {isLanguagePopupOpen && (

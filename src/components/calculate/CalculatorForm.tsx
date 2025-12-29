@@ -289,7 +289,7 @@ export default function CalculatorForm({
       </div>
 
       <div className={styles.ctaRow}>
-        <GradientButton type="submit" ariaLabel={dictionary.submitCta} className={styles.gradientButton}>
+        <GradientButton type="submit" ariaLabel={dictionary.submitCta}>
           {dictionary.submitCta}
         </GradientButton>
       </div>

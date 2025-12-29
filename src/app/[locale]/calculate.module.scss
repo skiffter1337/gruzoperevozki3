@@ -25,9 +25,11 @@
 }
 
 .title {
-  font-size: clamp(30px, 4vw, 42px);
-  font-weight: 800;
-  color: vars.$text-color;
+  font-size: clamp(30px, 4vw, 64px);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: vars.$primary-blue;
+  margin: 32px 0;
 }
 
 .lead {

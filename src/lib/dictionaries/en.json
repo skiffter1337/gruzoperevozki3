@@ -447,7 +447,6 @@
   },
   "calculatePage": {
     "title": "Calculate cost",
-    "description": "Tell us the origin, destination, and date so we can build your quote immediately.",
     "metaTitle": "Calculate moving cost | Quick estimate",
     "metaDescription": "Estimate your moving cost across Israel by providing your route and preferred date.",
     "placeholderNotice": "A full pricing form will appear here soon. We have stored the details you provided.",

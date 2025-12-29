@@ -226,7 +226,6 @@ export type DictionaryType = {
     };
     calculatePage: {
         title: string;
-        description: string;
         metaTitle: string;
         metaDescription: string;
         placeholderNotice: string;
@@ -504,7 +503,6 @@ const defaultDictionary: DictionaryType = {
     },
     calculatePage: {
         title: "Рассчитать стоимость",
-        description: "Введите детали маршрута, и мы подготовим для вас точную стоимость перевозки.",
         metaTitle: "Рассчитать стоимость переезда | Быстрый расчет",
         metaDescription: "Узнайте стоимость перевозки по Израилю, указав города отправления и назначения, а также дату переезда.",
         placeholderNotice: "Расширенная форма появится здесь. Мы используем введенные вами данные, чтобы подготовить расчет.",
