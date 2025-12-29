@@ -41,8 +41,7 @@ export function getSegment(locale: Locale, route: RouteKey): string {
 
 export function buildLocalizedPath(locale: Locale, route: RouteKey): string {
   const segment = getSegment(locale, route);
-  const encodedSegment = segment ? encodeURI(segment) : "";
-  return encodedSegment ? `/${locale}/${encodedSegment}` : `/${locale}`;
+  return segment ? `/${locale}/${segment}` : `/${locale}`;
 }
 
 export function buildAbsoluteUrl(locale: Locale, route: RouteKey): string {
@@ -76,7 +75,8 @@ export function switchLocalePath(pathname: string, targetLocale: Locale): string
   }
 
   const [firstSegment, ...rest] = remainingSegments;
-  const matchedRoute = resolveRouteKey(currentLocale as Locale, firstSegment || "") || "home";
+  const decodedFirstSegment = firstSegment ? decodeURIComponent(firstSegment) : "";
+  const matchedRoute = resolveRouteKey(currentLocale as Locale, decodedFirstSegment) || "home";
   const targetPath = buildLocalizedPath(targetLocale, matchedRoute);
 
   return rest.length ? `${targetPath}/${rest.join("/")}` : targetPath;
