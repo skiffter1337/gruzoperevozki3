@@ -30,7 +30,7 @@ export default function CalculatorForm({
     to: initialValues.to,
     date: initialValues.date,
     hasElevator: false,
-    floor: dictionary.floorOptions[0] ?? '1',
+    floor: '',
     serviceType: dictionary.serviceOptions[0] ?? '',
     needsAssembly: false,
   });
@@ -93,9 +93,10 @@ export default function CalculatorForm({
 
   return (
     <form className={styles.calculatorCard} onSubmit={handleSubmit} noValidate>
-      <div className={styles.formGrid}>
+      <div className={styles.form}>
+        <div className={styles.destinationContainer}>
         <div className={styles.field}>
-          <label htmlFor="from" className={styles.label}>
+          <label htmlFor="from" className={styles.destLabel}>
             {heroDictionary.fromLabel}
           </label>
           <input
@@ -108,25 +109,89 @@ export default function CalculatorForm({
             autoComplete="address-level2"
           />
         </div>
-        <div className={styles.field}>
-          <label htmlFor="to" className={styles.label}>
-            {heroDictionary.toLabel}
-          </label>
-          <input
-            id="to"
-            name="to"
-            className={styles.input}
-            placeholder={heroDictionary.toPlaceholder}
-            value={values.to}
-            onChange={(event) => updateValue('to', event.target.value)}
-            autoComplete="address-level2"
-          />
+          <div className={styles.inlineSmallInputs}>
+            <label className={styles.checkboxField}>
+              <input
+                  type="checkbox"
+                  name="elevator"
+                  checked={values.hasElevator}
+                  onChange={(event) => updateValue('hasElevator', event.target.checked)}
+              />
+              <span className={styles.customCheckbox} />
+              <span>{dictionary.elevatorLabel}</span>
+            </label>
+
+            <div className={styles.field}>
+              <select
+                  id="floor"
+                  name="floor"
+                  className={styles.select}
+                  value={values.floor}
+                  onChange={(event) => updateValue('floor', event.target.value)}
+              >
+                <option value="" disabled>
+                  {dictionary.floorLabel} {/* Плейсхолдер */}
+                </option>
+                {dictionary.floorOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                ))}
+              </select>
+            </div>
+          </div>
         </div>
-        <div className={styles.field}>
-          <label htmlFor="date" className={styles.label}>
-            {dictionary.dateLabel}
-          </label>
-          <input
+        <div className={styles.destinationContainer}>
+          <div className={styles.field}>
+            <label htmlFor="to" className={styles.destLabel}>
+              {heroDictionary.toLabel}
+            </label>
+            <input
+                id="to"
+                name="to"
+                className={styles.input}
+                placeholder={heroDictionary.toPlaceholder}
+                value={values.to}
+                onChange={(event) => updateValue('to', event.target.value)}
+                autoComplete="address-level2"
+            />
+          </div>
+          <div className={styles.inlineSmallInputs}>
+            <label className={styles.checkboxField}>
+              <input
+                  type="checkbox"
+                  name="elevator"
+                  checked={values.hasElevator}
+                  onChange={(event) => updateValue('hasElevator', event.target.checked)}
+              />
+              <span className={styles.customCheckbox} />
+              <span>{dictionary.elevatorLabel}</span>
+            </label>
+
+            <div className={styles.field}>
+              <select
+                  id="floor"
+                  name="floor"
+                  className={styles.select}
+                  value={values.floor}
+                  onChange={(event) => updateValue('floor', event.target.value)}
+              >
+                <option value="" disabled>
+                  {dictionary.floorLabel} {/* Плейсхолдер */}
+                </option>
+                {dictionary.floorOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div className={styles.field}>
+        <input
             id="date"
             name="date"
             type="date"
@@ -134,40 +199,10 @@ export default function CalculatorForm({
             min={today}
             value={values.date}
             onChange={(event) => updateValue('date', event.target.value)}
-          />
-        </div>
+        />
       </div>
 
-      <div className={styles.inlineSmallInputs}>
-        <label className={styles.checkboxField}>
-          <input
-            type="checkbox"
-            name="elevator"
-            checked={values.hasElevator}
-            onChange={(event) => updateValue('hasElevator', event.target.checked)}
-          />
-          <span>{dictionary.elevatorLabel}</span>
-        </label>
 
-        <div className={styles.field}>
-          <label htmlFor="floor" className={styles.label}>
-            {dictionary.floorLabel}
-          </label>
-          <select
-            id="floor"
-            name="floor"
-            className={styles.select}
-            value={values.floor}
-            onChange={(event) => updateValue('floor', event.target.value)}
-          >
-            {dictionary.floorOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
 
       <div className={styles.serviceRow}>
         <label htmlFor="service" className={styles.label}>
@@ -284,6 +319,7 @@ export default function CalculatorForm({
             checked={values.needsAssembly}
             onChange={(event) => updateValue('needsAssembly', event.target.checked)}
           />
+          <span className={styles.customCheckbox} />
           <span>{dictionary.assemblyLabel}</span>
         </label>
       </div>
