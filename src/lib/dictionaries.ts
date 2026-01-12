@@ -233,6 +233,7 @@ export type DictionaryType = {
         missingData: string;
         breadcrumbCurrent: string;
         breadcrumbSubmit: string;
+        breadcrumbSubmitted: string;
         heroHeading: string;
         dateLabel: string;
         elevatorLabel: string;
@@ -259,6 +260,7 @@ export type DictionaryType = {
         increaseLabel: string;
         assemblyLabel: string;
         submitCta: string;
+        submittingCta: string;
         successTitle: string;
         successMessage: string;
         contactPrompt: string;
@@ -267,6 +269,8 @@ export type DictionaryType = {
         contactCommentLabel: string;
         sendCta: string;
         consentLabel: string;
+        submissionSuccessMessage: string;
+        submitError: string;
         validation: {
             requiredFrom: string;
             requiredTo: string;
@@ -527,6 +531,7 @@ const defaultDictionary: DictionaryType = {
         missingData: "Данные не были переданы. Пожалуйста, вернитесь и заполните форму.",
         breadcrumbCurrent: "Калькулятор стоимости",
         breadcrumbSubmit: "Отправить заявку",
+        breadcrumbSubmitted: "Заявка отправлена",
         heroHeading: "Калькулятор стоимости переезда",
         dateLabel: "Дата",
         elevatorLabel: "Есть лифт?",
@@ -561,6 +566,7 @@ const defaultDictionary: DictionaryType = {
         increaseLabel: 'Увеличить количество',
         assemblyLabel: 'Нужна разборка / сборка',
         submitCta: 'Рассчитать',
+        submittingCta: 'Отправляем...',
         successTitle: 'ПОЛУЧИЛОСЬ!',
         successMessage: 'Мы рассчитали стоимость вашей грузоперевозки!',
         contactPrompt: 'Введите данные, чтобы мы связались с вами.',
@@ -569,6 +575,8 @@ const defaultDictionary: DictionaryType = {
         contactCommentLabel: 'Комментарий',
         sendCta: 'Отправить',
         consentLabel: 'Я подтверждаю правила и условия',
+        submissionSuccessMessage: 'ВАША ЗАЯВКА УСПЕШНО ОТПРАВЛЕНА!',
+        submitError: 'Не удалось отправить заявку. Попробуйте еще раз позже.',
         validation: {
             requiredFrom: 'Укажите город отправления',
             requiredTo: 'Укажите город назначения',
