@@ -284,7 +284,7 @@ export default function CalculatorForm({
                   value={customItemName}
                   onChange={(event) => setCustomItemName(event.target.value)}
                 />
-                <button type="button" className={styles.counterButton} onClick={addCustomItem}>
+                <button type="button" className={styles.addItemBtn} onClick={addCustomItem}>
                   {dictionary.addButton}
                 </button>
               </div>
@@ -303,16 +303,16 @@ export default function CalculatorForm({
                   +
                 </button>
                 <div className={styles.count}>{item.count}</div>
-                <span className={styles.itemSeparator}>–</span>
-                <div className={styles.itemName}>{item.name}</div>
                 <button
-                  type="button"
-                  className={styles.counterButton}
-                  onClick={() => updateItemCount(item.name, -1)}
-                  aria-label={dictionary.decreaseLabel}
+                    type="button"
+                    className={styles.counterButton}
+                    onClick={() => updateItemCount(item.name, -1)}
+                    aria-label={dictionary.decreaseLabel}
                 >
                   −
                 </button>
+                <div className={styles.itemName}>{item.name}</div>
+
               </div>
             ))}
           </div>
