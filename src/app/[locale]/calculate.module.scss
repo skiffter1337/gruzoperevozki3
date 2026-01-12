@@ -55,10 +55,10 @@
   gap: 20px;
 }
 
-.form{
+.form {
   display: flex;
   gap: 16px;
-width: 100%;
+  width: 100%;
 }
 
 .destinationContainer {
@@ -67,16 +67,25 @@ width: 100%;
   gap: 16px;
   width: 100%;
 }
+
 .field {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 12px;
 }
 
 .label {
-  font-size: 14px;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 87%;
+}
+
+.submitLabel {
+  text-align: end;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 87%;
 }
 
 .destLabel {
@@ -90,6 +99,7 @@ width: 100%;
   align-self: flex-start;
 }
 
+
 .input,
 .select {
   width: 100%;
@@ -100,6 +110,14 @@ width: 100%;
   color: vars.$text-color;
   font-size: 16px;
   height: 50px;
+}
+
+.submitInput {
+  height: 100px;
+ border-radius: 32px;
+  font-weight: 600;
+  font-size: 33px;
+  line-height: 87%;
 }
 
 .checkboxField {
@@ -309,7 +327,6 @@ width: 100%;
 }
 
 
-
 .customRow {
   display: flex;
   align-items: center;
@@ -332,6 +349,7 @@ width: 100%;
   input[type="checkbox"] {
     display: none;
   }
+
   .customCheckbox {
     width: 28px;
     height: 28px;
@@ -385,13 +403,14 @@ width: 100%;
 }
 
 .successCard {
-  background: vars.$primary-blue;
+  background: vars.$primary-color;
   border-radius: vars.$radius-xl;
-  padding: 32px;
+  padding: 48px;
   color: vars.$color-white;
   display: grid;
-  gap: 24px;
+  gap: 72px;
   box-shadow: vars.$shadow-lg;
+  justify-content: center;
 }
 
 .successHeader {
@@ -401,7 +420,7 @@ width: 100%;
 }
 
 .successTitle {
-  font-size: clamp(26px, 3vw, 40px);
+  font-size: clamp(26px, 3vw, 64px);
   font-weight: 700;
   text-transform: uppercase;
   margin: 0;
@@ -409,40 +428,49 @@ width: 100%;
 
 .successMessage,
 .successPrompt {
-  margin: 0;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 87%;
+  text-align: center;
 }
 
 .contactForm {
   display: grid;
-  gap: 20px;
+  gap: 100px;
+  max-width: 670px;
 }
 
 .contactFields {
   display: grid;
-  gap: 16px;
+  gap: 36px;
 }
 
 .textarea {
   height: auto;
-  min-height: 96px;
+  min-height: 168px;
   resize: vertical;
+  border-radius: 32px;
+  font-weight: 600;
+  font-size: 33px;
+  line-height: 87%;
 }
 
 .contactActions {
   display: grid;
-  gap: 12px;
+  gap: 32px;
   justify-items: center;
   text-align: center;
 }
 
 .consentRow {
   display: inline-flex;
+  flex-direction: row-reverse;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
-  font-weight: 500;
+
   color: vars.$color-white;
+  font-weight: 700;
+  font-size: 24px;
 
   input[type='checkbox'] {
     display: none;

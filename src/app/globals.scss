@@ -32,6 +32,7 @@ body {
 
 .page-main {
   flex: 1;
+  background: white;
 }
 
 [dir='rtl'] {
@@ -59,4 +60,9 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+
+input, textarea, select {
+  font-family: Montserrat, serif;
 }

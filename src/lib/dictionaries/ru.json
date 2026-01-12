@@ -492,7 +492,7 @@
     "successMessage": "Мы рассчитали стоимость вашей грузоперевозки!",
     "contactPrompt": "Введите данные, чтобы мы связались с вами.",
     "contactNameLabel": "ФИО",
-    "contactPhoneLabel": "Номер телефона",
+    "contactPhoneLabel": "Номер",
     "contactCommentLabel": "Комментарий",
     "sendCta": "Отправить",
     "consentLabel": "Я подтверждаю правила и условия",
