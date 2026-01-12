@@ -13,7 +13,18 @@ type CalculatorFormProps = {
     to: string;
     date: string;
   };
-  onSuccess?: () => void;
+  onSuccess?: (payload: {
+    route: string;
+    date: string;
+    fromHasElevator: boolean;
+    fromFloor: string;
+    toHasElevator: boolean;
+    toFloor: string;
+    serviceType: string;
+    needsAssembly: boolean;
+    items: InventoryItem[];
+    activeRoom: keyof DictionaryType['calculatePage']['roomTabs'];
+  }) => void;
 };
 
 type InventoryItem = {
@@ -112,8 +123,7 @@ export default function CalculatorForm({
       activeRoom,
     };
 
-    console.log('Calculate payload', payload);
-    onSuccess?.();
+    onSuccess?.(payload);
   };
 
   const filteredItems = items.filter((item) => {
