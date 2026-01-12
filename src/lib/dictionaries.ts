@@ -232,6 +232,7 @@ export type DictionaryType = {
         receivedDataTitle: string;
         missingData: string;
         breadcrumbCurrent: string;
+        breadcrumbSubmit: string;
         heroHeading: string;
         dateLabel: string;
         elevatorLabel: string;
@@ -258,6 +259,22 @@ export type DictionaryType = {
         increaseLabel: string;
         assemblyLabel: string;
         submitCta: string;
+        successTitle: string;
+        successMessage: string;
+        contactPrompt: string;
+        contactNameLabel: string;
+        contactPhoneLabel: string;
+        contactCommentLabel: string;
+        sendCta: string;
+        consentLabel: string;
+        validation: {
+            requiredFrom: string;
+            requiredTo: string;
+            requiredDate: string;
+            requiredName: string;
+            requiredPhone: string;
+            requiredConsent: string;
+        };
     };
     footer: FooterDictionary;
     urls?: Record<string, string>;
@@ -509,6 +526,7 @@ const defaultDictionary: DictionaryType = {
         receivedDataTitle: "Полученные данные",
         missingData: "Данные не были переданы. Пожалуйста, вернитесь и заполните форму.",
         breadcrumbCurrent: "Калькулятор стоимости",
+        breadcrumbSubmit: "Отправить заявку",
         heroHeading: "Калькулятор стоимости переезда",
         dateLabel: "Дата",
         elevatorLabel: "Есть лифт?",
@@ -543,6 +561,22 @@ const defaultDictionary: DictionaryType = {
         increaseLabel: 'Увеличить количество',
         assemblyLabel: 'Нужна разборка / сборка',
         submitCta: 'Рассчитать',
+        successTitle: 'ПОЛУЧИЛОСЬ!',
+        successMessage: 'Мы рассчитали стоимость вашей грузоперевозки!',
+        contactPrompt: 'Введите данные, чтобы мы связались с вами.',
+        contactNameLabel: 'ФИО',
+        contactPhoneLabel: 'Номер телефона',
+        contactCommentLabel: 'Комментарий',
+        sendCta: 'Отправить',
+        consentLabel: 'Я подтверждаю правила и условия',
+        validation: {
+            requiredFrom: 'Укажите город отправления',
+            requiredTo: 'Укажите город назначения',
+            requiredDate: 'Выберите дату переезда',
+            requiredName: 'Укажите ваше имя',
+            requiredPhone: 'Укажите номер телефона',
+            requiredConsent: 'Подтвердите правила и условия',
+        },
     },
     company: {
         name: "Ваша транспортная компания",

@@ -13,6 +13,7 @@ type CalculatorFormProps = {
     to: string;
     date: string;
   };
+  onSuccess?: () => void;
 };
 
 type InventoryItem = {
@@ -24,6 +25,7 @@ export default function CalculatorForm({
   dictionary,
   heroDictionary,
   initialValues,
+  onSuccess,
 }: CalculatorFormProps) {
   const [values, setValues] = useState({
     from: initialValues.from,
@@ -43,6 +45,7 @@ export default function CalculatorForm({
   const [items, setItems] = useState<InventoryItem[]>(
     dictionary.presetItems.map((name) => ({ name, count: 1 }))
   );
+  const [errors, setErrors] = useState<{ from?: string; to?: string; date?: string }>({});
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
 
@@ -80,6 +83,22 @@ export default function CalculatorForm({
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    const nextErrors: { from?: string; to?: string; date?: string } = {};
+    if (!values.from.trim()) {
+      nextErrors.from = dictionary.validation.requiredFrom;
+    }
+    if (!values.to.trim()) {
+      nextErrors.to = dictionary.validation.requiredTo;
+    }
+    if (!values.date) {
+      nextErrors.date = dictionary.validation.requiredDate;
+    }
+
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length > 0) {
+      return;
+    }
+
     const payload = {
       route: `${values.from} → ${values.to}`,
       date: values.date,
@@ -94,6 +113,7 @@ export default function CalculatorForm({
     };
 
     console.log('Calculate payload', payload);
+    onSuccess?.();
   };
 
   const filteredItems = items.filter((item) => {
@@ -103,28 +123,36 @@ export default function CalculatorForm({
 
   return (
     <div className={styles.formWrapper}>
-    <form
-      id="calculate-form"
-      className={styles.calculatorCard}
-      onSubmit={handleSubmit}
-      noValidate
-    >
-      <div className={styles.form}>
-        <div className={styles.destinationContainer}>
-        <div className={styles.field}>
-          <label htmlFor="from" className={styles.destLabel}>
-            {heroDictionary.fromLabel}
-          </label>
-          <input
-            id="from"
-            name="from"
-            className={styles.input}
-            placeholder={heroDictionary.fromPlaceholder}
-            value={values.from}
-            onChange={(event) => updateValue('from', event.target.value)}
-            autoComplete="address-level2"
-          />
-        </div>
+      <form
+        id="calculate-form"
+        className={styles.calculatorCard}
+        onSubmit={handleSubmit}
+        noValidate
+      >
+        <div className={styles.form}>
+          <div className={styles.destinationContainer}>
+            <div className={styles.field}>
+              <label htmlFor="from" className={styles.destLabel}>
+                {heroDictionary.fromLabel}
+              </label>
+              <input
+                id="from"
+                name="from"
+                className={`${styles.input} ${errors.from ? styles.inputError : ''}`}
+                placeholder={heroDictionary.fromPlaceholder}
+                value={values.from}
+                onChange={(event) => updateValue('from', event.target.value)}
+                autoComplete="address-level2"
+                required
+                aria-invalid={Boolean(errors.from)}
+                aria-describedby={errors.from ? 'from-error' : undefined}
+              />
+              {errors.from && (
+                <span id="from-error" className={styles.errorText} role="alert">
+                  {errors.from}
+                </span>
+              )}
+            </div>
           <div className={styles.inlineSmallInputs}>
             <label className={styles.checkboxField}>
               <input
@@ -165,12 +193,20 @@ export default function CalculatorForm({
             <input
                 id="to"
                 name="to"
-                className={styles.input}
+                className={`${styles.input} ${errors.to ? styles.inputError : ''}`}
                 placeholder={heroDictionary.toPlaceholder}
                 value={values.to}
                 onChange={(event) => updateValue('to', event.target.value)}
                 autoComplete="address-level2"
+                required
+                aria-invalid={Boolean(errors.to)}
+                aria-describedby={errors.to ? 'to-error' : undefined}
             />
+            {errors.to && (
+              <span id="to-error" className={styles.errorText} role="alert">
+                {errors.to}
+              </span>
+            )}
           </div>
           <div className={styles.inlineSmallInputs}>
             <label className={styles.checkboxField}>
@@ -207,15 +243,26 @@ export default function CalculatorForm({
 
       </div>
       <div className={styles.field}>
+        <label htmlFor="date" className={styles.label}>
+          {dictionary.dateLabel}
+        </label>
         <input
-            id="date"
-            name="date"
-            type="date"
-            className={styles.input}
-            min={today}
-            value={values.date}
-            onChange={(event) => updateValue('date', event.target.value)}
+          id="date"
+          name="date"
+          type="date"
+          className={`${styles.input} ${errors.date ? styles.inputError : ''}`}
+          min={today}
+          value={values.date}
+          onChange={(event) => updateValue('date', event.target.value)}
+          required
+          aria-invalid={Boolean(errors.date)}
+          aria-describedby={errors.date ? 'date-error' : undefined}
         />
+        {errors.date && (
+          <span id="date-error" className={styles.errorText} role="alert">
+            {errors.date}
+          </span>
+        )}
       </div>
 
 
@@ -257,13 +304,13 @@ export default function CalculatorForm({
 
         <div className={styles.inventoryPanel}>
           <div className={styles.itemFilters}>
-            <div className={styles.itemInput}>
-              <label htmlFor="itemSearch" className={styles.label}>
-                Название предмета
-              </label>
-              <input
-                id="itemSearch"
-                name="itemSearch"
+          <div className={styles.itemInput}>
+            <label htmlFor="itemSearch" className={styles.label}>
+                {dictionary.itemNameLabel}
+            </label>
+            <input
+              id="itemSearch"
+              name="itemSearch"
                 className={styles.input}
                 placeholder={dictionary.itemNamePlaceholder}
                 value={searchTerm}
@@ -271,10 +318,10 @@ export default function CalculatorForm({
               />
             </div>
 
-            <div className={styles.itemInput}>
-              <label htmlFor="customItem" className={styles.label}>
-                Добавить свой предмет
-              </label>
+          <div className={styles.itemInput}>
+            <label htmlFor="customItem" className={styles.label}>
+                {dictionary.customItemLabel}
+            </label>
               <div className={styles.customRow}>
                 <input
                   id="customItem"

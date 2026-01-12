@@ -453,6 +453,7 @@
     "receivedDataTitle": "Received details",
     "missingData": "No data was provided. Please return to the home page and complete the form.",
     "breadcrumbCurrent": "Cost calculator",
+    "breadcrumbSubmit": "Submit request",
     "heroHeading": "Moving cost calculator",
     "dateLabel": "Date",
     "elevatorLabel": "Is there an elevator?",
@@ -486,7 +487,23 @@
     "decreaseLabel": "Decrease quantity",
     "increaseLabel": "Increase quantity",
     "assemblyLabel": "Need dismantling / assembly",
-    "submitCta": "Calculate"
+    "submitCta": "Calculate",
+    "successTitle": "SUCCESS!",
+    "successMessage": "We calculated the cost of your move!",
+    "contactPrompt": "Enter your details so we can contact you.",
+    "contactNameLabel": "Full name",
+    "contactPhoneLabel": "Phone number",
+    "contactCommentLabel": "Comment",
+    "sendCta": "Send",
+    "consentLabel": "I confirm the rules and terms",
+    "validation": {
+      "requiredFrom": "Enter the departure city",
+      "requiredTo": "Enter the destination city",
+      "requiredDate": "Select a moving date",
+      "requiredName": "Enter your full name",
+      "requiredPhone": "Enter your phone number",
+      "requiredConsent": "Please confirm the rules and terms"
+    }
   },
   "company": {
     "name": "Your moving company",

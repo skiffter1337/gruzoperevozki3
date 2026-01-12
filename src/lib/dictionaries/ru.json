@@ -453,6 +453,7 @@
     "receivedDataTitle": "Полученные данные",
     "missingData": "Данные не были переданы. Вернитесь на главную и заполните форму.",
     "breadcrumbCurrent": "Калькулятор стоимости",
+    "breadcrumbSubmit": "Отправить заявку",
     "heroHeading": "Калькулятор стоимости переезда",
     "dateLabel": "Дата",
     "elevatorLabel": "Есть лифт?",
@@ -486,7 +487,23 @@
     "decreaseLabel": "Уменьшить количество",
     "increaseLabel": "Увеличить количество",
     "assemblyLabel": "Нужна разборка / сборка",
-    "submitCta": "Рассчитать"
+    "submitCta": "Рассчитать",
+    "successTitle": "ПОЛУЧИЛОСЬ!",
+    "successMessage": "Мы рассчитали стоимость вашей грузоперевозки!",
+    "contactPrompt": "Введите данные, чтобы мы связались с вами.",
+    "contactNameLabel": "ФИО",
+    "contactPhoneLabel": "Номер телефона",
+    "contactCommentLabel": "Комментарий",
+    "sendCta": "Отправить",
+    "consentLabel": "Я подтверждаю правила и условия",
+    "validation": {
+      "requiredFrom": "Укажите город отправления",
+      "requiredTo": "Укажите город назначения",
+      "requiredDate": "Выберите дату переезда",
+      "requiredName": "Укажите ваше имя",
+      "requiredPhone": "Укажите номер телефона",
+      "requiredConsent": "Подтвердите правила и условия"
+    }
   },
   "company": {
     "name": "Ваша транспортная компания",

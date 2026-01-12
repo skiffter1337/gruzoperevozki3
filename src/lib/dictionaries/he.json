@@ -302,6 +302,7 @@
     "receivedDataTitle": "נתונים שהתקבלו",
     "missingData": "לא התקבל מידע. חזרו לעמוד הבית ומלאו את הטופס.",
     "breadcrumbCurrent": "מחשב עלות",
+    "breadcrumbSubmit": "שליחת בקשה",
     "heroHeading": "מחשבון עלות מעבר",
     "dateLabel": "תאריך",
     "elevatorLabel": "יש מעלית?",
@@ -335,7 +336,23 @@
     "decreaseLabel": "הפחת כמות",
     "increaseLabel": "הוסף כמות",
     "assemblyLabel": "נדרש פירוק / הרכבה",
-    "submitCta": "חשב"
+    "submitCta": "חשב",
+    "successTitle": "הצליח!",
+    "successMessage": "חישבנו את עלות ההובלה שלך!",
+    "contactPrompt": "הזן פרטים כדי שניצור איתך קשר.",
+    "contactNameLabel": "שם מלא",
+    "contactPhoneLabel": "מספר טלפון",
+    "contactCommentLabel": "הערה",
+    "sendCta": "שליחה",
+    "consentLabel": "אני מאשר/ת את הכללים והתנאים",
+    "validation": {
+      "requiredFrom": "יש להזין עיר מוצא",
+      "requiredTo": "יש להזין עיר יעד",
+      "requiredDate": "יש לבחור תאריך",
+      "requiredName": "יש להזין שם מלא",
+      "requiredPhone": "יש להזין מספר טלפון",
+      "requiredConsent": "יש לאשר את הכללים והתנאים"
+    }
   },
   "company": {
     "name": "חברת ההובלות שלך",
