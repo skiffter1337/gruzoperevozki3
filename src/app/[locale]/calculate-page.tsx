@@ -3,8 +3,7 @@ import { Locale } from '../../../i18n-config';
 import { getDictionary } from '@/lib/dictionaries';
 import { buildLanguageAlternates, buildLocalizedPath } from '@/lib/localized-paths';
 import { SITE_URL } from '@/lib/site-config';
-import Breadcrumbs from '@/components/navigation/Breadcrumbs';
-import CalculatorForm from '@/components/calculate/CalculatorForm';
+import CalculatorPageClient from '@/components/calculate/CalculatorPageClient';
 import styles from './calculate.module.scss';
 
 export type CalculatePageProps = {
@@ -51,26 +50,11 @@ export default async function CalculatePage({ params, searchParams }: CalculateP
   return (
     <section className={styles.page} aria-labelledby="calculate-title">
       <div className={styles.container}>
-        <header className={styles.header}>
-          <div className={styles.breadcrumbsWrapper}>
-            <Breadcrumbs
-              items={[
-                {
-                  label: dictionary.header.nav.home,
-                  href: buildLocalizedPath(locale, 'home'),
-                },
-                { label: dictionary.calculatePage.breadcrumbCurrent, current: true },
-              ]}
-            />
-          </div>
-          <h1 id="calculate-title" className={styles.title}>
-            {dictionary.calculatePage.heroHeading}
-          </h1>
-        </header>
-
-        <CalculatorForm
+        <CalculatorPageClient
+          locale={locale}
           dictionary={dictionary.calculatePage}
           heroDictionary={dictionary.homeHero}
+          homeLabel={dictionary.header.nav.home}
           initialValues={{ from, to, date }}
         />
       </div>

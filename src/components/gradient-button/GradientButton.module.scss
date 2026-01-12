@@ -18,6 +18,11 @@
   }
 }
 
+.buttonDisabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .buttonSmall {
   padding: 14px 28px;
   font-size: clamp(18px, 3vw, 28px);
