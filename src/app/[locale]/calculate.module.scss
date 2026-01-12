@@ -448,6 +448,19 @@
   max-width: 670px;
 }
 
+.contactSection {
+  display: grid;
+  gap: 40px;
+}
+
+.contactPrompt {
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  color: vars.$color-white;
+  margin: 0;
+}
+
 .contactFields {
   display: grid;
   gap: 36px;

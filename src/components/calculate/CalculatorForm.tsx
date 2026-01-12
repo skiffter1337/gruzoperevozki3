@@ -48,6 +48,10 @@ export default function CalculatorForm({
     toFloor: '',
     serviceType: dictionary.serviceOptions[0] ?? '',
     needsAssembly: false,
+    fullName: '',
+    phone: '',
+    comment: '',
+    consent: false,
   });
 
   const [activeRoom, setActiveRoom] = useState<keyof typeof dictionary.roomTabs>('livingRoom');
@@ -56,7 +60,16 @@ export default function CalculatorForm({
   const [items, setItems] = useState<InventoryItem[]>(
     dictionary.presetItems.map((name) => ({ name, count: 1 }))
   );
-  const [errors, setErrors] = useState<{ from?: string; to?: string; date?: string }>({});
+  const [errors, setErrors] = useState<{
+    from?: string;
+    to?: string;
+    date?: string;
+    fullName?: string;
+    phone?: string;
+    consent?: string;
+  }>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
 
@@ -91,10 +104,17 @@ export default function CalculatorForm({
     setCustomItemName('');
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const nextErrors: { from?: string; to?: string; date?: string } = {};
+    const nextErrors: {
+      from?: string;
+      to?: string;
+      date?: string;
+      fullName?: string;
+      phone?: string;
+      consent?: string;
+    } = {};
     if (!values.from.trim()) {
       nextErrors.from = dictionary.validation.requiredFrom;
     }
@@ -103,6 +123,15 @@ export default function CalculatorForm({
     }
     if (!values.date) {
       nextErrors.date = dictionary.validation.requiredDate;
+    }
+    if (!values.fullName.trim()) {
+      nextErrors.fullName = dictionary.validation.requiredName;
+    }
+    if (!values.phone.trim()) {
+      nextErrors.phone = dictionary.validation.requiredPhone;
+    }
+    if (!values.consent) {
+      nextErrors.consent = dictionary.validation.requiredConsent;
     }
 
     setErrors(nextErrors);
@@ -121,9 +150,30 @@ export default function CalculatorForm({
       needsAssembly: values.needsAssembly,
       items,
       activeRoom,
+      fullName: values.fullName,
+      phone: values.phone,
+      comment: values.comment,
     };
 
-    onSuccess?.(payload);
+    try {
+      setIsSubmitting(true);
+      setSubmitError(null);
+      const response = await fetch('/api/calculate', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error('Request failed');
+      }
+
+      onSuccess?.();
+    } catch (error) {
+      setSubmitError(dictionary.submitError);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const filteredItems = items.filter((item) => {
@@ -387,10 +437,101 @@ export default function CalculatorForm({
         </label>
       </div>
 
+      <div className={styles.contactSection}>
+        <p className={styles.contactPrompt}>{dictionary.contactPrompt}</p>
+        <div className={styles.contactFields}>
+          <div className={styles.field}>
+            <label htmlFor="fullName" className={styles.label}>
+              {dictionary.contactNameLabel}
+            </label>
+            <input
+              id="fullName"
+              name="fullName"
+              className={`${styles.input} ${styles.submitInput} ${errors.fullName ? styles.inputError : ''}`}
+              placeholder={dictionary.contactNameLabel}
+              value={values.fullName}
+              onChange={(event) => updateValue('fullName', event.target.value)}
+              aria-invalid={Boolean(errors.fullName)}
+              aria-describedby={errors.fullName ? 'fullName-error' : undefined}
+              autoComplete="name"
+            />
+            {errors.fullName && (
+              <span id="fullName-error" className={styles.errorText} role="alert">
+                {errors.fullName}
+              </span>
+            )}
+          </div>
+
+          <div className={styles.field}>
+            <label htmlFor="phone" className={styles.submitLabel}>
+              {dictionary.contactPhoneLabel}
+            </label>
+            <input
+              id="phone"
+              name="phone"
+              className={`${styles.input} ${styles.submitInput} ${errors.phone ? styles.inputError : ''}`}
+              placeholder={dictionary.contactPhoneLabel}
+              value={values.phone}
+              onChange={(event) => updateValue('phone', event.target.value)}
+              aria-invalid={Boolean(errors.phone)}
+              aria-describedby={errors.phone ? 'phone-error' : undefined}
+              autoComplete="tel"
+            />
+            {errors.phone && (
+              <span id="phone-error" className={styles.errorText} role="alert">
+                {errors.phone}
+              </span>
+            )}
+          </div>
+
+          <div className={styles.field}>
+            <label htmlFor="comment" className={styles.submitLabel}>
+              {dictionary.contactCommentLabel}
+            </label>
+            <textarea
+              id="comment"
+              name="comment"
+              className={`${styles.input} ${styles.textarea}`}
+              placeholder={dictionary.contactCommentLabel}
+              value={values.comment}
+              onChange={(event) => updateValue('comment', event.target.value)}
+              rows={3}
+            />
+          </div>
+        </div>
+
+        <div className={styles.contactActions}>
+          <label className={styles.consentRow}>
+            <input
+              type="checkbox"
+              checked={values.consent}
+              onChange={(event) => updateValue('consent', event.target.checked)}
+            />
+            <span className={styles.customCheckbox} />
+            <span>{dictionary.consentLabel}</span>
+          </label>
+          {errors.consent && (
+            <span className={styles.errorText} role="alert">
+              {errors.consent}
+            </span>
+          )}
+          {submitError && (
+            <span className={styles.errorText} role="alert">
+              {submitError}
+            </span>
+          )}
+        </div>
+      </div>
+
     </form>
     <div className={styles.ctaRow}>
-      <GradientButton type="submit" form="calculate-form" ariaLabel={dictionary.submitCta}>
-        {dictionary.submitCta}
+      <GradientButton
+        type="submit"
+        form="calculate-form"
+        ariaLabel={dictionary.submitCta}
+        disabled={isSubmitting}
+      >
+        {isSubmitting ? dictionary.submittingCta : dictionary.submitCta}
       </GradientButton>
     </div>
     </div>
