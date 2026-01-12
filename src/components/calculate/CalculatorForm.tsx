@@ -36,6 +36,7 @@ export default function CalculatorForm({
   });
 
   const [activeRoom, setActiveRoom] = useState<keyof typeof dictionary.roomTabs>('livingRoom');
+  const [searchTerm, setSearchTerm] = useState('');
   const [customItemName, setCustomItemName] = useState('');
   const [items, setItems] = useState<InventoryItem[]>(
     dictionary.presetItems.map((name) => ({ name, count: 1 }))
@@ -91,8 +92,19 @@ export default function CalculatorForm({
     console.log('Calculate payload', payload);
   };
 
+  const filteredItems = items.filter((item) => {
+    if (!searchTerm.trim()) return true;
+    return item.name.toLowerCase().includes(searchTerm.trim().toLowerCase());
+  });
+
   return (
-    <form className={styles.calculatorCard} onSubmit={handleSubmit} noValidate>
+    <div className={styles.formWrapper}>
+    <form
+      id="calculate-form"
+      className={styles.calculatorCard}
+      onSubmit={handleSubmit}
+      noValidate
+    >
       <div className={styles.form}>
         <div className={styles.destinationContainer}>
         <div className={styles.field}>
@@ -240,51 +252,24 @@ export default function CalculatorForm({
         </div>
 
         <div className={styles.inventoryPanel}>
-          <div className={styles.inventoryGrid}>
-            <div className={styles.inventoryColumn}>
-              <div className={styles.itemInput}>
-                <label htmlFor="itemName" className={styles.label}>
-                  {dictionary.itemNameLabel}
-                </label>
-                <input
-                  id="itemName"
-                  name="itemName"
-                  className={styles.input}
-                  placeholder={dictionary.itemNamePlaceholder}
-                  value={customItemName}
-                  onChange={(event) => setCustomItemName(event.target.value)}
-                />
-              </div>
-
-              <div className={styles.itemList}>
-                {items.map((item) => (
-                  <div key={item.name} className={styles.itemRow}>
-                    <button
-                      type="button"
-                      className={styles.counterButton}
-                      onClick={() => updateItemCount(item.name, -1)}
-                      aria-label={dictionary.decreaseLabel}
-                    >
-                      −
-                    </button>
-                    <div className={styles.itemName}>{item.name}</div>
-                    <div className={styles.count}>{item.count}</div>
-                    <button
-                      type="button"
-                      className={styles.counterButton}
-                      onClick={() => updateItemCount(item.name, 1)}
-                      aria-label={dictionary.increaseLabel}
-                    >
-                      +
-                    </button>
-                  </div>
-                ))}
-              </div>
+          <div className={styles.itemFilters}>
+            <div className={styles.itemInput}>
+              <label htmlFor="itemSearch" className={styles.label}>
+                Название предмета
+              </label>
+              <input
+                id="itemSearch"
+                name="itemSearch"
+                className={styles.input}
+                placeholder={dictionary.itemNamePlaceholder}
+                value={searchTerm}
+                onChange={(event) => setSearchTerm(event.target.value)}
+              />
             </div>
 
-            <div className={styles.inventoryColumn}>
+            <div className={styles.itemInput}>
               <label htmlFor="customItem" className={styles.label}>
-                {dictionary.customItemLabel}
+                Добавить свой предмет
               </label>
               <div className={styles.customRow}>
                 <input
@@ -299,16 +284,33 @@ export default function CalculatorForm({
                   {dictionary.addButton}
                 </button>
               </div>
-
-              <div className={styles.scrollList}>
-                {items.map((item) => (
-                  <div key={`${item.name}-scroll`} className={styles.scrollItem}>
-                    <span>{item.name}</span>
-                    <span>{item.count}</span>
-                  </div>
-                ))}
-              </div>
             </div>
+          </div>
+
+          <div className={styles.itemList}>
+            {filteredItems.map((item) => (
+              <div key={item.name} className={styles.itemRow}>
+                <button
+                  type="button"
+                  className={styles.counterButton}
+                  onClick={() => updateItemCount(item.name, 1)}
+                  aria-label={dictionary.increaseLabel}
+                >
+                  +
+                </button>
+                <div className={styles.count}>{item.count}</div>
+                <span className={styles.itemSeparator}>–</span>
+                <div className={styles.itemName}>{item.name}</div>
+                <button
+                  type="button"
+                  className={styles.counterButton}
+                  onClick={() => updateItemCount(item.name, -1)}
+                  aria-label={dictionary.decreaseLabel}
+                >
+                  −
+                </button>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -324,11 +326,12 @@ export default function CalculatorForm({
         </label>
       </div>
 
-      <div className={styles.ctaRow}>
-        <GradientButton type="submit" ariaLabel={dictionary.submitCta}>
-          {dictionary.submitCta}
-        </GradientButton>
-      </div>
     </form>
+    <div className={styles.ctaRow}>
+      <GradientButton type="submit" form="calculate-form" ariaLabel={dictionary.submitCta}>
+        {dictionary.submitCta}
+      </GradientButton>
+    </div>
+    </div>
   );
 }
