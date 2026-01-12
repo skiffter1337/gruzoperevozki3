@@ -29,8 +29,10 @@ export default function CalculatorForm({
     from: initialValues.from,
     to: initialValues.to,
     date: initialValues.date,
-    hasElevator: false,
-    floor: '',
+    fromHasElevator: false,
+    fromFloor: '',
+    toHasElevator: false,
+    toFloor: '',
     serviceType: dictionary.serviceOptions[0] ?? '',
     needsAssembly: false,
   });
@@ -81,8 +83,10 @@ export default function CalculatorForm({
     const payload = {
       route: `${values.from} → ${values.to}`,
       date: values.date,
-      hasElevator: values.hasElevator,
-      floor: values.floor,
+      fromHasElevator: values.fromHasElevator,
+      fromFloor: values.fromFloor,
+      toHasElevator: values.toHasElevator,
+      toFloor: values.toFloor,
       serviceType: values.serviceType,
       needsAssembly: values.needsAssembly,
       items,
@@ -125,9 +129,9 @@ export default function CalculatorForm({
             <label className={styles.checkboxField}>
               <input
                   type="checkbox"
-                  name="elevator"
-                  checked={values.hasElevator}
-                  onChange={(event) => updateValue('hasElevator', event.target.checked)}
+                  name="fromElevator"
+                  checked={values.fromHasElevator}
+                  onChange={(event) => updateValue('fromHasElevator', event.target.checked)}
               />
               <span className={styles.customCheckbox} />
               <span>{dictionary.elevatorLabel}</span>
@@ -135,11 +139,11 @@ export default function CalculatorForm({
 
             <div className={styles.field}>
               <select
-                  id="floor"
-                  name="floor"
+                  id="fromFloor"
+                  name="fromFloor"
                   className={styles.select}
-                  value={values.floor}
-                  onChange={(event) => updateValue('floor', event.target.value)}
+                  value={values.fromFloor}
+                  onChange={(event) => updateValue('fromFloor', event.target.value)}
               >
                 <option value="" disabled>
                   {dictionary.floorLabel} {/* Плейсхолдер */}
@@ -172,9 +176,9 @@ export default function CalculatorForm({
             <label className={styles.checkboxField}>
               <input
                   type="checkbox"
-                  name="elevator"
-                  checked={values.hasElevator}
-                  onChange={(event) => updateValue('hasElevator', event.target.checked)}
+                  name="toElevator"
+                  checked={values.toHasElevator}
+                  onChange={(event) => updateValue('toHasElevator', event.target.checked)}
               />
               <span className={styles.customCheckbox} />
               <span>{dictionary.elevatorLabel}</span>
@@ -182,11 +186,11 @@ export default function CalculatorForm({
 
             <div className={styles.field}>
               <select
-                  id="floor"
-                  name="floor"
+                  id="toFloor"
+                  name="toFloor"
                   className={styles.select}
-                  value={values.floor}
-                  onChange={(event) => updateValue('floor', event.target.value)}
+                  value={values.toFloor}
+                  onChange={(event) => updateValue('toFloor', event.target.value)}
               >
                 <option value="" disabled>
                   {dictionary.floorLabel} {/* Плейсхолдер */}
