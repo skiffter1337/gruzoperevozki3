@@ -19,9 +19,14 @@ interface Props {
   params: Promise<{ locale: Locale; slug: string[] }>;
 }
 
+function decodeSlugSegment(value?: string) {
+  if (!value) return value;
+  return value.includes('%') ? decodeURIComponent(value) : value;
+}
+
 function getRouteFromSlug(locale: Locale, slug?: string[]): RouteKey {
   if (!slug || slug.length === 0) return 'home';
-  const matched = resolveRouteKey(locale, slug[0]);
+  const matched = resolveRouteKey(locale, decodeSlugSegment(slug[0]) ?? slug[0]);
   return matched || 'home';
 }
 
@@ -66,7 +71,7 @@ async function buildRegionLanguageAlternates(regionIndex: number) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const dictionary = await getDictionary(locale);
-  const regionSlug = slug?.[0];
+  const regionSlug = decodeSlugSegment(slug?.[0]);
   let regionIndex = dictionary.homeRegions.sliderItems.findIndex((item) => item.slug === regionSlug);
 
   if (regionIndex < 0 && regionSlug) {
@@ -113,7 +118,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function RegionPage({ params }: Props) {
   const { locale, slug } = await params;
   const dictionary = await getDictionary(locale);
-  const regionSlug = slug?.[0];
+  const regionSlug = decodeSlugSegment(slug?.[0]);
   let regionItem = dictionary.homeRegions.sliderItems.find((item) => item.slug === regionSlug);
 
   if (!regionItem && regionSlug) {
