@@ -29,6 +29,32 @@ function formatRegionTemplate(template: string, region: string): string {
   return template.replace('{region}', region);
 }
 
+function decodeSlug(slug?: string) {
+  if (!slug) return undefined;
+  try {
+    return decodeURIComponent(slug);
+  } catch {
+    return slug;
+  }
+}
+
+function findRegionIndexBySlug(
+  dictionaries: Awaited<ReturnType<typeof getAllDictionaries>>,
+  slug: string,
+) {
+  const resolvedSlug = decodeSlug(slug) ?? slug;
+  for (const locale of SUPPORTED_LOCALES) {
+    const index = dictionaries[locale].homeRegions.sliderItems.findIndex(
+      (item) => item.slug === resolvedSlug,
+    );
+    if (index >= 0) {
+      return index;
+    }
+  }
+
+  return -1;
+}
+
 async function buildRegionLanguageAlternates(regionIndex: number) {
   const dictionaries = await getAllDictionaries();
   const languages: Record<string, string> = {};
@@ -50,8 +76,13 @@ async function buildRegionLanguageAlternates(regionIndex: number) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const dictionary = await getDictionary(locale);
-  const regionSlug = slug?.[0];
-  const regionIndex = dictionary.homeRegions.sliderItems.findIndex((item) => item.slug === regionSlug);
+  const regionSlug = decodeSlug(slug?.[0]);
+  let regionIndex = dictionary.homeRegions.sliderItems.findIndex((item) => item.slug === regionSlug);
+
+  if (regionIndex < 0 && regionSlug) {
+    const dictionaries = await getAllDictionaries();
+    regionIndex = findRegionIndexBySlug(dictionaries, regionSlug);
+  }
 
   if (regionIndex >= 0) {
     const regionItem = dictionary.homeRegions.sliderItems[regionIndex];
@@ -92,8 +123,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function RegionPage({ params }: Props) {
   const { locale, slug } = await params;
   const dictionary = await getDictionary(locale);
-  const regionSlug = slug?.[0];
-  const regionItem = dictionary.homeRegions.sliderItems.find((item) => item.slug === regionSlug);
+  const regionSlug = decodeSlug(slug?.[0]);
+  let regionItem = dictionary.homeRegions.sliderItems.find((item) => item.slug === regionSlug);
+
+  if (!regionItem && regionSlug) {
+    const dictionaries = await getAllDictionaries();
+    const regionIndex = findRegionIndexBySlug(dictionaries, regionSlug);
+    regionItem = dictionary.homeRegions.sliderItems[regionIndex];
+  }
 
   if (!regionItem) {
     return <div className="sr-only">Content placeholder.</div>;
