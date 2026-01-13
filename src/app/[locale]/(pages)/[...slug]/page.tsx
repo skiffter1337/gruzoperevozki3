@@ -29,23 +29,13 @@ function formatRegionTemplate(template: string, region: string): string {
   return template.replace('{region}', region);
 }
 
-function decodeSlug(slug?: string) {
-  if (!slug) return undefined;
-  try {
-    return decodeURIComponent(slug);
-  } catch {
-    return slug;
-  }
-}
-
 function findRegionIndexBySlug(
   dictionaries: Awaited<ReturnType<typeof getAllDictionaries>>,
   slug: string,
 ) {
-  const resolvedSlug = decodeSlug(slug) ?? slug;
   for (const locale of SUPPORTED_LOCALES) {
     const index = dictionaries[locale].homeRegions.sliderItems.findIndex(
-      (item) => item.slug === resolvedSlug,
+      (item) => item.slug === slug,
     );
     if (index >= 0) {
       return index;
@@ -76,7 +66,7 @@ async function buildRegionLanguageAlternates(regionIndex: number) {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const dictionary = await getDictionary(locale);
-  const regionSlug = decodeSlug(slug?.[0]);
+  const regionSlug = slug?.[0];
   let regionIndex = dictionary.homeRegions.sliderItems.findIndex((item) => item.slug === regionSlug);
 
   if (regionIndex < 0 && regionSlug) {
@@ -123,7 +113,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function RegionPage({ params }: Props) {
   const { locale, slug } = await params;
   const dictionary = await getDictionary(locale);
-  const regionSlug = decodeSlug(slug?.[0]);
+  const regionSlug = slug?.[0];
   let regionItem = dictionary.homeRegions.sliderItems.find((item) => item.slug === regionSlug);
 
   if (!regionItem && regionSlug) {
