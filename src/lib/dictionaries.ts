@@ -233,6 +233,7 @@ export type DictionaryType = {
         missingData: string;
         breadcrumbCurrent: string;
         breadcrumbSubmit: string;
+        breadcrumbSuccess: string;
         heroHeading: string;
         dateLabel: string;
         elevatorLabel: string;
@@ -266,7 +267,10 @@ export type DictionaryType = {
         contactPhoneLabel: string;
         contactCommentLabel: string;
         sendCta: string;
+        sendingCta: string;
         consentLabel: string;
+        submitError: string;
+        submissionSuccessMessage: string;
         validation: {
             requiredFrom: string;
             requiredTo: string;
@@ -527,6 +531,7 @@ const defaultDictionary: DictionaryType = {
         missingData: "Данные не были переданы. Пожалуйста, вернитесь и заполните форму.",
         breadcrumbCurrent: "Калькулятор стоимости",
         breadcrumbSubmit: "Отправить заявку",
+        breadcrumbSuccess: "Заявка отправлена",
         heroHeading: "Калькулятор стоимости переезда",
         dateLabel: "Дата",
         elevatorLabel: "Есть лифт?",
@@ -568,7 +573,10 @@ const defaultDictionary: DictionaryType = {
         contactPhoneLabel: 'Номер телефона',
         contactCommentLabel: 'Комментарий',
         sendCta: 'Отправить',
+        sendingCta: 'Отправляем...',
         consentLabel: 'Я подтверждаю правила и условия',
+        submitError: 'Не удалось отправить заявку. Попробуйте еще раз.',
+        submissionSuccessMessage: 'ВАША ЗАЯВКА УСПЕШНО ОТПРАВЛЕНА!',
         validation: {
             requiredFrom: 'Укажите город отправления',
             requiredTo: 'Укажите город назначения',

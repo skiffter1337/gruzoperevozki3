@@ -454,6 +454,7 @@
     "missingData": "No data was provided. Please return to the home page and complete the form.",
     "breadcrumbCurrent": "Cost calculator",
     "breadcrumbSubmit": "Submit request",
+    "breadcrumbSuccess": "Request sent",
     "heroHeading": "Moving cost calculator",
     "dateLabel": "Date",
     "elevatorLabel": "Is there an elevator?",
@@ -495,7 +496,10 @@
     "contactPhoneLabel": "Phone number",
     "contactCommentLabel": "Comment",
     "sendCta": "Send",
+    "sendingCta": "Sending...",
     "consentLabel": "I confirm the rules and terms",
+    "submitError": "Failed to send the request. Please try again.",
+    "submissionSuccessMessage": "YOUR REQUEST HAS BEEN SENT SUCCESSFULLY!",
     "validation": {
       "requiredFrom": "Enter the departure city",
       "requiredTo": "Enter the destination city",

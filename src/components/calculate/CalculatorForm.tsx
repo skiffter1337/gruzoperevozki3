@@ -5,6 +5,19 @@ import GradientButton from '@/components/gradient-button/GradientButton';
 import { DictionaryType } from '@/lib/dictionaries';
 import styles from '@/app/[locale]/calculate.module.scss';
 
+export type CalculatorFormPayload = {
+  route: string;
+  date: string;
+  fromHasElevator: boolean;
+  fromFloor: string;
+  toHasElevator: boolean;
+  toFloor: string;
+  serviceType: string;
+  needsAssembly: boolean;
+  items: InventoryItem[];
+  activeRoom: keyof DictionaryType['calculatePage']['roomTabs'];
+};
+
 type CalculatorFormProps = {
   dictionary: DictionaryType['calculatePage'];
   heroDictionary: DictionaryType['homeHero'];
@@ -13,7 +26,7 @@ type CalculatorFormProps = {
     to: string;
     date: string;
   };
-  onSuccess?: () => void;
+  onSuccess?: (payload: CalculatorFormPayload) => void;
 };
 
 type InventoryItem = {
@@ -99,7 +112,7 @@ export default function CalculatorForm({
       return;
     }
 
-    const payload = {
+    const payload: CalculatorFormPayload = {
       route: `${values.from} → ${values.to}`,
       date: values.date,
       fromHasElevator: values.fromHasElevator,
@@ -112,8 +125,7 @@ export default function CalculatorForm({
       activeRoom,
     };
 
-    console.log('Calculate payload', payload);
-    onSuccess?.();
+    onSuccess?.(payload);
   };
 
   const filteredItems = items.filter((item) => {

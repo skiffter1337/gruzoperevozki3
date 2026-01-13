@@ -2,7 +2,7 @@
 
 import {FormEvent, useState} from 'react';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
-import CalculatorForm from '@/components/calculate/CalculatorForm';
+import CalculatorForm, {CalculatorFormPayload} from '@/components/calculate/CalculatorForm';
 import GradientButton from '@/components/gradient-button/GradientButton';
 import {DictionaryType} from '@/lib/dictionaries';
 import {buildLocalizedPath} from '@/lib/localized-paths';
@@ -41,6 +41,9 @@ export default function CalculatorPageClient({
                                                  initialValues,
                                              }: CalculatorPageClientProps) {
     const [showContactForm, setShowContactForm] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [calculatorPayload, setCalculatorPayload] = useState<CalculatorFormPayload | null>(null);
     const [contactValues, setContactValues] = useState<ContactValues>({
         fullName: '',
         phone: '',
@@ -48,6 +51,7 @@ export default function CalculatorPageClient({
         consent: false,
     });
     const [contactErrors, setContactErrors] = useState<ContactErrors>({});
+    const [submitError, setSubmitError] = useState('');
 
     const updateContactValue = <Key extends keyof ContactValues>(
         key: Key,
@@ -56,7 +60,7 @@ export default function CalculatorPageClient({
         setContactValues((prev) => ({...prev, [key]: value}));
     };
 
-    const handleContactSubmit = (event: FormEvent<HTMLFormElement>) => {
+    const handleContactSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const nextErrors: ContactErrors = {};
@@ -71,9 +75,39 @@ export default function CalculatorPageClient({
         }
 
         setContactErrors(nextErrors);
+        if (Object.keys(nextErrors).length > 0) {
+            return;
+        }
+        if (!calculatorPayload) {
+            setSubmitError(dictionary.submitError);
+            return;
+        }
+
+        setIsSubmitting(true);
+        setSubmitError('');
+        try {
+            const response = await fetch('/api/submit-request', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    calculator: calculatorPayload,
+                    contact: contactValues,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Request failed');
+            }
+
+            setIsSubmitted(true);
+        } catch (error) {
+            setSubmitError(dictionary.submitError);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
-    const breadcrumbs = showContactForm
+    const breadcrumbs = isSubmitted
         ? [
             {
                 label: homeLabel,
@@ -85,9 +119,28 @@ export default function CalculatorPageClient({
             },
             {
                 label: dictionary.breadcrumbSubmit,
+                href: buildLocalizedPath(locale as "ru" | "he" | "en", 'calculate'),
+            },
+            {
+                label: dictionary.breadcrumbSuccess,
                 current: true,
             },
         ]
+        : showContactForm
+            ? [
+                {
+                    label: homeLabel,
+                    href: buildLocalizedPath(locale as "ru" | "he" | "en", 'home'),
+                },
+                {
+                    label: dictionary.breadcrumbCurrent,
+                    href: buildLocalizedPath(locale as "ru" | "he" | "en", 'calculate'),
+                },
+                {
+                    label: dictionary.breadcrumbSubmit,
+                    current: true,
+                },
+            ]
         : [
             {
                 label: homeLabel,
@@ -113,12 +166,14 @@ export default function CalculatorPageClient({
                     dictionary={dictionary}
                     heroDictionary={heroDictionary}
                     initialValues={initialValues}
-                    onSuccess={() => setShowContactForm(true)}
+                    onSuccess={(payload) => {
+                        setCalculatorPayload(payload);
+                        setShowContactForm(true);
+                    }}
                 />
             )}
 
-
-            {showContactForm && (
+            {showContactForm && !isSubmitted && (
                 <section className={styles.successCard} aria-live="polite">
                     <div className={styles.successHeader}>
                         <h2 className={styles.successTitle}>{dictionary.successTitle}</h2>
@@ -193,9 +248,9 @@ export default function CalculatorPageClient({
                                 type="submit"
                                 ariaLabel={dictionary.sendCta}
                                 size="small"
-                                disabled={!contactValues.consent}
+                                disabled={!contactValues.consent || isSubmitting}
                             >
-                                {dictionary.sendCta}
+                                {isSubmitting ? dictionary.sendingCta : dictionary.sendCta}
                             </GradientButton>
 
                             <label className={styles.consentRow}>
@@ -212,8 +267,20 @@ export default function CalculatorPageClient({
                   {contactErrors.consent}
                 </span>
                             )}
+                            {submitError && (
+                                <span className={styles.errorText} role="alert">
+                  {submitError}
+                </span>
+                            )}
                         </div>
                     </form>
+                </section>
+            )}
+            {isSubmitted && (
+                <section className={styles.successCard} aria-live="polite">
+                    <div className={styles.submissionMessage}>
+                        {dictionary.submissionSuccessMessage}
+                    </div>
                 </section>
             )}
         </>
