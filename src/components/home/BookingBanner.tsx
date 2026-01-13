@@ -11,6 +11,7 @@ import styles from './BookingBanner.module.scss';
 type BookingBannerProps = {
   locale: Locale;
   dictionary: DictionaryType['homeHero'];
+  headingLevel?: 'h1' | 'h2' | 'h3';
 };
 
 type FormErrors = Partial<Record<'from' | 'to' | 'date', string>>;
@@ -27,12 +28,13 @@ const defaultValues: FormValues = {
   date: '',
 };
 
-export default function BookingBanner({ locale, dictionary }: BookingBannerProps) {
+export default function BookingBanner({ locale, dictionary, headingLevel = 'h1' }: BookingBannerProps) {
   const router = useRouter();
   const [values, setValues] = useState<FormValues>(defaultValues);
   const [errors, setErrors] = useState<FormErrors>({});
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
+  const HeadingTag = headingLevel;
 
   const updateField = (key: keyof FormValues, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -82,9 +84,9 @@ export default function BookingBanner({ locale, dictionary }: BookingBannerProps
       aria-labelledby="booking-title"
     >
       <div className={styles.container}>
-        <h1 id="booking-title" className={styles.title}>
+        <HeadingTag id="booking-title" className={styles.title}>
           {dictionary.title}
-        </h1>
+        </HeadingTag>
 
         <div className={styles.formWrapper}>
           <form className={styles.form} onSubmit={handleSubmit} noValidate>
