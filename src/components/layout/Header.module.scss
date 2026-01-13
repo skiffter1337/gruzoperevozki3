@@ -46,6 +46,16 @@
       }
     }
   }
+
+  &.mobileMenuOpen {
+    .burgerLine {
+      background-color: vars.$primary-color;
+    }
+
+    .langButton {
+      color: vars.$primary-color;
+    }
+  }
 }
 
 .container {
