@@ -10,6 +10,7 @@ import {
 import { DEFAULT_LOCALE, SITE_URL, SUPPORTED_LOCALES } from '@/lib/site-config';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import ArticlesSection from '@/components/home/ArticlesSection';
+import BookingBanner from '@/components/home/BookingBanner';
 import RegionAdvantagesSection from '@/components/regions/RegionAdvantagesSection';
 import RegionCarriersSection from '@/components/regions/RegionCarriersSection';
 import styles from './region.module.scss';
@@ -128,6 +129,8 @@ export default async function RegionPage({ params }: Props) {
           </h1>
         </div>
       </section>
+
+      <BookingBanner locale={locale} dictionary={dictionary.homeHero} headingLevel="h2" />
 
       <RegionAdvantagesSection
         locale={locale}
