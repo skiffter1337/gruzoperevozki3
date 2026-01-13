@@ -161,7 +161,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
         <header
             className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${
                 isPrimaryHeader ? styles.primaryVariant : ''
-            } ${isMenuOpen ? styles.mobileMenuOpen : ''}`}
+            }`}
         >
             <div className={styles.container}>
                 <nav className={styles.nav}>
@@ -262,7 +262,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                             aria-pressed
                             aria-expanded={isLanguagePopupOpen}
                         >
-                            <ChevronDownIcon color={isMenuOpen ? "#00078E" : isPrimaryHeader ? "white" : "#00078E"}/>
+                            <ChevronDownIcon color={isPrimaryHeader ? "white" : "#00078E"}/>
                             {localeLabels[locale]}
                         </button>
                         {isLanguagePopupOpen && (
