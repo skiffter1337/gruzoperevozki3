@@ -167,32 +167,38 @@
       {
         "title": "Низменность",
         "slug": "низменность",
-        "image": "/images/lowland.png"
+        "image": "/images/lowland.png",
+        "carrierRegion": "lowland"
       },
       {
         "title": "Шарон",
         "slug": "шарон",
-        "image": "/images/sharon.png"
+        "image": "/images/sharon.png",
+        "carrierRegion": "sharon"
       },
       {
         "title": "Центр",
         "slug": "центр",
-        "image": "/images/center.png"
+        "image": "/images/center.png",
+        "carrierRegion": null
       },
       {
         "title": "Юг",
         "slug": "юг",
-        "image": "/images/south.png"
+        "image": "/images/south.png",
+        "carrierRegion": "south"
       },
       {
         "title": "Север",
         "slug": "север",
-        "image": "/images/north.png"
+        "image": "/images/north.png",
+        "carrierRegion": "north"
       },
       {
         "title": "Иерусалим и окрестности",
         "slug": "иерусалим-и-окрестности",
-        "image": "/images/jerusalem.png"
+        "image": "/images/jerusalem.png",
+        "carrierRegion": "jerusalem"
       }
     ]
   },
@@ -289,6 +295,50 @@
         "region": "jerusalem",
         "image": "/images/jerusalem.png",
         "url": "https://example.com/golden-city-logistics",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "телефон"
+        }
+      },
+      {
+        "name": "Coastal Route Movers",
+        "region": "lowland",
+        "image": "/images/lowland.png",
+        "url": "https://example.com/coastal-route",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "телефон"
+        }
+      },
+      {
+        "name": "Lowland Cargo",
+        "region": "lowland",
+        "image": "/images/lowland.png",
+        "url": "https://example.com/lowland-cargo",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "телефон"
+        }
+      },
+      {
+        "name": "Sharon Express",
+        "region": "sharon",
+        "image": "/images/sharon.png",
+        "url": "https://example.com/sharon-express",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "телефон"
+        }
+      },
+      {
+        "name": "Green Valley Logistics",
+        "region": "sharon",
+        "image": "/images/sharon.png",
+        "url": "https://example.com/green-valley-logistics",
         "contactInfo": {
           "info": "Информация",
           "contacts": "контакты",
@@ -444,6 +494,15 @@
         "image": "/images/articles/articlePlaceholder.png"
       }
     ]
+  },
+  "regionPage": {
+    "metaTitle": "Перевозки в {region} | Надежные грузоперевозки",
+    "metaDescription": "Закажите перевозку в регионе {region}. Надежные перевозчики, прозрачные цены и быстрый выезд по всей территории.",
+    "breadcrumbZones": "Зоны обслуживания",
+    "orderTitle": "Хотите заказать перевозку в {region}?",
+    "advantagesTitle": "Преимущества",
+    "carriersTitle": "Перевозчики в данном регионе",
+    "noCarriers": "В этом регионе пока нет перевозчиков."
   },
   "calculatePage": {
     "title": "Рассчитать стоимость",

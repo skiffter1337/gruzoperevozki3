@@ -1,0 +1,40 @@
+@use '@/styles/variables' as vars;
+
+.page {
+  background: vars.$color-white;
+}
+
+.headerBar {
+  width: 100%;
+  height: 140px;
+  background: vars.$primary-blue;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    height: 110px;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px vars.$container-padding 48px;
+  display: grid;
+  gap: 24px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding: 24px 16px 40px;
+    gap: 16px;
+  }
+}
+
+.breadcrumbsWrapper {
+  justify-self: start;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 56px);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: vars.$primary-blue;
+  margin: 0;
+}
