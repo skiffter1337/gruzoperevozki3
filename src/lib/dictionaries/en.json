@@ -167,32 +167,38 @@
       {
         "title": "Lowland",
         "slug": "lowland",
-        "image": "/images/lowland.png"
+        "image": "/images/lowland.png",
+        "carrierRegion": "lowland"
       },
       {
         "title": "Sharon",
         "slug": "sharon",
-        "image": "/images/sharon.png"
+        "image": "/images/sharon.png",
+        "carrierRegion": "sharon"
       },
       {
         "title": "Center",
         "slug": "center",
-        "image": "/images/center.png"
+        "image": "/images/center.png",
+        "carrierRegion": null
       },
       {
         "title": "South",
         "slug": "south",
-        "image": "/images/south.png"
+        "image": "/images/south.png",
+        "carrierRegion": "south"
       },
       {
         "title": "North",
         "slug": "north",
-        "image": "/images/north.png"
+        "image": "/images/north.png",
+        "carrierRegion": "north"
       },
       {
         "title": "Jerusalem area",
         "slug": "jerusalem-area",
-        "image": "/images/jerusalem.png"
+        "image": "/images/jerusalem.png",
+        "carrierRegion": "jerusalem"
       }
     ]
   },
@@ -289,6 +295,50 @@
         "region": "jerusalem",
         "image": "/images/jerusalem.png",
         "url": "https://example.com/golden-city-logistics",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "phone number"
+        }
+      },
+      {
+        "name": "Coastal Route Movers",
+        "region": "lowland",
+        "image": "/images/lowland.png",
+        "url": "https://example.com/coastal-route",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "phone number"
+        }
+      },
+      {
+        "name": "Lowland Cargo",
+        "region": "lowland",
+        "image": "/images/lowland.png",
+        "url": "https://example.com/lowland-cargo",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "phone number"
+        }
+      },
+      {
+        "name": "Sharon Express",
+        "region": "sharon",
+        "image": "/images/sharon.png",
+        "url": "https://example.com/sharon-express",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "phone number"
+        }
+      },
+      {
+        "name": "Green Valley Logistics",
+        "region": "sharon",
+        "image": "/images/sharon.png",
+        "url": "https://example.com/green-valley-logistics",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
@@ -444,6 +494,15 @@
         "image": "/images/articles/articlePlaceholder.png"
       }
     ]
+  },
+  "regionPage": {
+    "metaTitle": "Movers in {region} | Reliable transportation",
+    "metaDescription": "Order transportation services in {region}. Trusted carriers, transparent pricing, and fast response across the area.",
+    "breadcrumbZones": "Service areas",
+    "orderTitle": "Want to order transportation in {region}?",
+    "advantagesTitle": "Advantages",
+    "carriersTitle": "Carriers in this region",
+    "noCarriers": "There are no carriers in this region yet."
   },
   "calculatePage": {
     "title": "Calculate cost",

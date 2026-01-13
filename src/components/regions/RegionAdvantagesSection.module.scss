@@ -1,0 +1,145 @@
+@use '@/styles/variables' as vars;
+
+.section {
+  background: vars.$color-white;
+}
+
+.container {
+  max-width: 1142px;
+  margin: 0 auto;
+  padding: 48px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media (max-width: 1023px) {
+    padding: 40px 14px 64px;
+  }
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding: 32px 12px 56px;
+  }
+}
+
+.title {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: vars.$primary-blue;
+  text-align: center;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  justify-items: center;
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.card {
+  width: 100%;
+  max-width: 320px;
+  height: 190px;
+  background: #2a2e89;
+  border-radius: 24px;
+  padding: 24px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  text-align: center;
+  color: vars.$color-white;
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+
+  @media (max-width: 1023px) {
+    height: 180px;
+    padding: 20px 16px;
+  }
+
+  @media (max-width: 767px) {
+    height: 160px;
+    padding: 16px 12px;
+  }
+}
+
+.cardIcon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+
+  @media (max-width: 767px) {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.cardText {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+  }
+}
+
+.sliderWrapper {
+  display: none;
+
+  @media (max-width: 1023px) {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+.sliderViewport {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+.sliderTrack {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  will-change: transform;
+}
+
+.dots {
+  height: 30px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: rgba(vars.$primary-color, 0.55);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+
+  &.dotActive {
+    background: vars.$primary-color;
+  }
+}

@@ -17,6 +17,7 @@ export interface RegionSliderItem {
     title: string;
     slug: string;
     image?: string;
+    carrierRegion: CarrierTab['value'] | null;
 }
 
 export interface CarrierTab {
@@ -203,6 +204,15 @@ export type DictionaryType = {
         imageAltPrefix: string;
         articles: ArticleItem[];
     };
+    regionPage: {
+        metaTitle: string;
+        metaDescription: string;
+        breadcrumbZones: string;
+        orderTitle: string;
+        advantagesTitle: string;
+        carriersTitle: string;
+        noCarriers: string;
+    };
     company: {
         name: string;
         address: string;
@@ -324,12 +334,12 @@ const defaultDictionary: DictionaryType = {
         sliderNext: 'Следующий район',
         sliderItemLabelPrefix: 'Показать район',
         sliderItems: [
-            {title: "Низменность", slug: "nizinnost", image: "/images/lowland.png"},
-            {title: "Шарон", slug: "sharon", image: "/images/sharon.png"},
-            {title: "Центр", slug: "centr", image: "/images/center.png"},
-            {title: "Юг", slug: "yug", image: "/images/south.png"},
-            {title: "Север", slug: "sever", image: "/images/north.png"},
-            {title: "Иерусалим и окрестности", slug: "ierusalim-i-okrestnosti", image: "/images/jerusalem.png"}
+            {title: "Низменность", slug: "nizinnost", image: "/images/lowland.png", carrierRegion: "lowland"},
+            {title: "Шарон", slug: "sharon", image: "/images/sharon.png", carrierRegion: "sharon"},
+            {title: "Центр", slug: "centr", image: "/images/center.png", carrierRegion: null},
+            {title: "Юг", slug: "yug", image: "/images/south.png", carrierRegion: "south"},
+            {title: "Север", slug: "sever", image: "/images/north.png", carrierRegion: "north"},
+            {title: "Иерусалим и окрестности", slug: "ierusalim-i-okrestnosti", image: "/images/jerusalem.png", carrierRegion: "jerusalem"}
         ],
     },
     homeCarriers: {
@@ -387,6 +397,34 @@ const defaultDictionary: DictionaryType = {
                 region: 'jerusalem',
                 image: '/images/jerusalem.png',
                 url: 'https://example.com/golden-city-logistics',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+            },
+            {
+                name: 'Coastal Route Movers',
+                region: 'lowland',
+                image: '/images/lowland.png',
+                url: 'https://example.com/coastal-route',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+            },
+            {
+                name: 'Lowland Cargo',
+                region: 'lowland',
+                image: '/images/lowland.png',
+                url: 'https://example.com/lowland-cargo',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+            },
+            {
+                name: 'Sharon Express',
+                region: 'sharon',
+                image: '/images/sharon.png',
+                url: 'https://example.com/sharon-express',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+            },
+            {
+                name: 'Green Valley Logistics',
+                region: 'sharon',
+                image: '/images/sharon.png',
+                url: 'https://example.com/green-valley-logistics',
                 contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
             },
         ],
@@ -492,6 +530,15 @@ const defaultDictionary: DictionaryType = {
                 image: '/images/articles/articlePlaceholder.png',
             },
         ],
+    },
+    regionPage: {
+        metaTitle: 'Перевозки в {region} | Надежные грузоперевозки',
+        metaDescription: 'Закажите перевозку в регионе {region}. Надежные перевозчики, прозрачные цены и быстрый выезд по всей территории.',
+        breadcrumbZones: 'Зоны обслуживания',
+        orderTitle: 'Хотите заказать перевозку в {region}?',
+        advantagesTitle: 'Преимущества',
+        carriersTitle: 'Перевозчики в данном регионе',
+        noCarriers: 'В этом регионе пока нет перевозчиков.',
     },
     servicesPage: {
         title: "Наши услуги",
@@ -778,6 +825,10 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
                 ...defaultDictionary.homeArticles,
                 ...loadedDict.homeArticles,
                 articles: loadedDict.homeArticles?.articles ?? defaultDictionary.homeArticles.articles,
+            },
+            regionPage: {
+                ...defaultDictionary.regionPage,
+                ...loadedDict.regionPage,
             },
             servicesPage: {
                 ...defaultDictionary.servicesPage,

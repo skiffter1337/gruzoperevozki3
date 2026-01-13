@@ -115,12 +115,12 @@
     "sliderNext": "אזור הבא",
     "sliderItemLabelPrefix": "צפו באזור",
     "sliderItems": [
-      {"title": "שְׁפֵלָה", "slug": "השפלה", "image": "/images/lowland.png"},
-      {"title": "שרון", "slug": "השרון", "image": "/images/sharon.png"},
-      {"title": "מרכז", "slug": "המרכז", "image": "/images/center.png"},
-      {"title": "דרום", "slug": "הדרום", "image": "/images/south.png"},
-      {"title": "צפון", "slug": "הצפון", "image": "/images/north.png"},
-      {"title": "ירושלים והסביבה", "slug": "ירושלים-והסביבה", "image": "/images/jerusalem.png"}
+      {"title": "שְׁפֵלָה", "slug": "השפלה", "image": "/images/lowland.png", "carrierRegion": "lowland"},
+      {"title": "שרון", "slug": "השרון", "image": "/images/sharon.png", "carrierRegion": "sharon"},
+      {"title": "מרכז", "slug": "המרכז", "image": "/images/center.png", "carrierRegion": null},
+      {"title": "דרום", "slug": "הדרום", "image": "/images/south.png", "carrierRegion": "south"},
+      {"title": "צפון", "slug": "הצפון", "image": "/images/north.png", "carrierRegion": "north"},
+      {"title": "ירושלים והסביבה", "slug": "ירושלים-והסביבה", "image": "/images/jerusalem.png", "carrierRegion": "jerusalem"}
     ]
   },
   "homeCarriers": {
@@ -143,7 +143,11 @@
       {"name": "Galil Express", "region": "north", "image": "/images/north.png", "url": "https://example.com/galil-express", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
       {"name": "Kineret Movers", "region": "north", "image": "/images/north.png", "url": "https://example.com/kineret-movers", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
       {"name": "Jerusalem Bridge", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/jerusalem-bridge", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
-      {"name": "Golden City Logistics", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/golden-city-logistics", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}}
+      {"name": "Golden City Logistics", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/golden-city-logistics", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
+      {"name": "Coastal Route Movers", "region": "lowland", "image": "/images/lowland.png", "url": "https://example.com/coastal-route", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
+      {"name": "Lowland Cargo", "region": "lowland", "image": "/images/lowland.png", "url": "https://example.com/lowland-cargo", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
+      {"name": "Sharon Express", "region": "sharon", "image": "/images/sharon.png", "url": "https://example.com/sharon-express", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
+      {"name": "Green Valley Logistics", "region": "sharon", "image": "/images/sharon.png", "url": "https://example.com/green-valley-logistics", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}}
     ]
   },
   "homeAbout": {
@@ -293,6 +297,15 @@
         "image": "/images/articles/articlePlaceholder.png"
       }
     ]
+  },
+  "regionPage": {
+    "metaTitle": "הובלות ב{region} | שירות אמין",
+    "metaDescription": "הזמינו הובלה באזור {region}. מובילים אמינים, מחירים שקופים ומענה מהיר בכל האזור.",
+    "breadcrumbZones": "אזורי שירות",
+    "orderTitle": "רוצים להזמין הובלה ב{region}?",
+    "advantagesTitle": "יתרונות",
+    "carriersTitle": "מובילים באזור זה",
+    "noCarriers": "עדיין אין מובילים באזור זה."
   },
   "calculatePage": {
     "title": "חשב עלות",
