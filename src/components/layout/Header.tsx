@@ -73,8 +73,8 @@ export default function Header({locale, dictionary}: HeaderProps) {
 
     const getComparablePath = (route: RouteKey) => decodeURI(buildLocalizedPath(locale, route));
 
-    const calculatePath = getComparablePath('calculate');
-    const isCalculatePage = pathname.startsWith(calculatePath);
+    const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`;
+    const isPrimaryHeader = !isHomePage;
 
     const getNextLocale = () => {
         const currentIndex = locales.indexOf(locale);
@@ -160,7 +160,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
     return (
         <header
             className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${
-                isCalculatePage ? styles.primaryVariant : ''
+                isPrimaryHeader ? styles.primaryVariant : ''
             }`}
         >
             <div className={styles.container}>
@@ -262,7 +262,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                             aria-pressed
                             aria-expanded={isLanguagePopupOpen}
                         >
-                            <ChevronDownIcon color={isCalculatePage ? "white" : "#00078E"}/>
+                            <ChevronDownIcon color={isPrimaryHeader ? "white" : "#00078E"}/>
                             {localeLabels[locale]}
                         </button>
                         {isLanguagePopupOpen && (
