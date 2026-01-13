@@ -303,6 +303,7 @@
     "missingData": "לא התקבל מידע. חזרו לעמוד הבית ומלאו את הטופס.",
     "breadcrumbCurrent": "מחשב עלות",
     "breadcrumbSubmit": "שליחת בקשה",
+    "breadcrumbSuccess": "הבקשה נשלחה",
     "heroHeading": "מחשבון עלות מעבר",
     "dateLabel": "תאריך",
     "elevatorLabel": "יש מעלית?",
@@ -344,7 +345,10 @@
     "contactPhoneLabel": "מספר טלפון",
     "contactCommentLabel": "הערה",
     "sendCta": "שליחה",
+    "sendingCta": "שולחים...",
     "consentLabel": "אני מאשר/ת את הכללים והתנאים",
+    "submitError": "שליחת הבקשה נכשלה. נסו שוב.",
+    "submissionSuccessMessage": "הבקשה נשלחה בהצלחה!",
     "validation": {
       "requiredFrom": "יש להזין עיר מוצא",
       "requiredTo": "יש להזין עיר יעד",

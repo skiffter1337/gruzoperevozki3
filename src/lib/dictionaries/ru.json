@@ -454,6 +454,7 @@
     "missingData": "Данные не были переданы. Вернитесь на главную и заполните форму.",
     "breadcrumbCurrent": "Калькулятор стоимости",
     "breadcrumbSubmit": "Отправить заявку",
+    "breadcrumbSuccess": "Заявка отправлена",
     "heroHeading": "Калькулятор стоимости переезда",
     "dateLabel": "Дата",
     "elevatorLabel": "Есть лифт?",
@@ -495,7 +496,10 @@
     "contactPhoneLabel": "Номер",
     "contactCommentLabel": "Комментарий",
     "sendCta": "Отправить",
+    "sendingCta": "Отправляем...",
     "consentLabel": "Я подтверждаю правила и условия",
+    "submitError": "Не удалось отправить заявку. Попробуйте еще раз.",
+    "submissionSuccessMessage": "ВАША ЗАЯВКА УСПЕШНО ОТПРАВЛЕНА!",
     "validation": {
       "requiredFrom": "Укажите город отправления",
       "requiredTo": "Укажите город назначения",

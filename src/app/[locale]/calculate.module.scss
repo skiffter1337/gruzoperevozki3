@@ -434,6 +434,13 @@
   text-align: center;
 }
 
+.submissionMessage {
+  text-align: center;
+  font-size: clamp(24px, 3vw, 48px);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 .contactForm {
   display: grid;
   gap: 100px;
