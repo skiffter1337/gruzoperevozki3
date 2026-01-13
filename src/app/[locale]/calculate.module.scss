@@ -11,6 +11,11 @@
   padding: 0 vars.$container-padding;
   display: grid;
   gap: 32px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding: 0;
+    gap: 16px;
+  }
 }
 
 .header {
@@ -48,6 +53,10 @@
   box-shadow: vars.$shadow-lg;
   display: grid;
   gap: 24px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding: 16px;
+  }
 }
 
 .formWrapper {
@@ -59,6 +68,10 @@
   display: flex;
   gap: 16px;
   width: 100%;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    flex-direction: column;
+  }
 }
 
 .destinationContainer {
@@ -86,6 +99,9 @@
   font-weight: 700;
   font-size: 24px;
   line-height: 87%;
+  @media (max-width: vars.$tablet-breakpoint) {
+    font-size: 16px;
+  }
 }
 
 .destLabel {
@@ -114,10 +130,15 @@
 
 .submitInput {
   height: 100px;
- border-radius: 32px;
+  border-radius: 16px;
   font-weight: 600;
   font-size: 33px;
   line-height: 87%;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    height: 60px;
+    font-size: 16px;
+  }
 }
 
 .checkboxField {
@@ -247,6 +268,12 @@
       font-size: 13px;
     }
   }
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
 .itemInput {
@@ -258,6 +285,12 @@
   border-radius: vars.$radius-md;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
 .itemRow {
@@ -331,6 +364,12 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  @media (max-width: vars.$tablet-breakpoint) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 }
 
 .assemblyRow {
@@ -402,7 +441,7 @@
   margin-top: -12px;
 }
 
-.successCard {
+.contactsCard {
   background: vars.$primary-color;
   border-radius: vars.$radius-xl;
   padding: 48px;
@@ -411,6 +450,27 @@
   gap: 72px;
   box-shadow: vars.$shadow-lg;
   justify-content: center;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding: 24px;
+    gap: 16px;
+  }
+}
+
+.successCard {
+  background: vars.$primary-color;
+  border-radius: vars.$radius-xl;
+  padding: 48px;
+  color: vars.$color-white;
+  display: flex;
+  gap: 72px;
+  box-shadow: vars.$shadow-lg;
+  justify-content: center;
+  align-items: center;
+  height: 1000px;
+  @media (max-width: vars.$tablet-breakpoint) {
+    height: 500px;
+  }
 }
 
 .successHeader {
@@ -432,6 +492,9 @@
   font-size: 24px;
   line-height: 87%;
   text-align: center;
+  @media (max-width: vars.$tablet-breakpoint) {
+    font-size: 16px;
+  }
 }
 
 .submissionMessage {
@@ -445,21 +508,33 @@
   display: grid;
   gap: 100px;
   max-width: 670px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    gap: 16px;
+  }
 }
 
 .contactFields {
   display: grid;
   gap: 36px;
+  @media (max-width: vars.$tablet-breakpoint) {
+    gap: 16px;
+  }
 }
 
 .textarea {
   height: auto;
   min-height: 168px;
   resize: vertical;
-  border-radius: 32px;
+  border-radius: 12px;
   font-weight: 600;
   font-size: 33px;
   line-height: 87%;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    min-height: 68px;
+    font-size: 16px;
+  }
 }
 
 .contactActions {
@@ -467,6 +542,9 @@
   gap: 32px;
   justify-items: center;
   text-align: center;
+  @media (max-width: vars.$tablet-breakpoint) {
+    gap: 16px;
+  }
 }
 
 .consentRow {
@@ -484,6 +562,7 @@
   }
 
   .customCheckbox {
+    min-width: 22px;
     width: 22px;
     height: 22px;
     border-radius: 6px;
@@ -512,5 +591,9 @@
     &::after {
       opacity: 1;
     }
+  }
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    font-size: 16px;
   }
 }

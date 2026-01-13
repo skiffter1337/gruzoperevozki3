@@ -174,7 +174,7 @@ export default function CalculatorPageClient({
             )}
 
             {showContactForm && !isSubmitted && (
-                <section className={styles.successCard} aria-live="polite">
+                <section className={styles.contactsCard} aria-live="polite">
                     <div className={styles.successHeader}>
                         <h2 className={styles.successTitle}>{dictionary.successTitle}</h2>
                         <p className={styles.successMessage}>{dictionary.successMessage}</p>
@@ -184,7 +184,7 @@ export default function CalculatorPageClient({
                     <form className={styles.contactForm} onSubmit={handleContactSubmit} noValidate>
                         <div className={styles.contactFields}>
                             <div className={styles.field}>
-                                <label htmlFor="fullName" className={styles.label}>
+                                <label htmlFor="fullName" className={styles.submitLabel}>
                                     {dictionary.contactNameLabel}
                                 </label>
                                 <input
