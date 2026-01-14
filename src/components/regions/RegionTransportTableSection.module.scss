@@ -1,0 +1,89 @@
+@use '@/styles/variables' as vars;
+
+.section {
+  background: vars.$color-white;
+  padding: 0 0 72px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding-bottom: 56px;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 vars.$container-padding;
+  display: grid;
+  gap: 32px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding: 0 16px;
+    gap: 24px;
+  }
+}
+
+.header {
+  display: grid;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 700;
+  color: vars.$primary-blue;
+  text-transform: uppercase;
+}
+
+.description {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: vars.$text-color;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.row {
+  display: contents;
+}
+
+.cell {
+  background: vars.$color-white;
+  border: 1.5px solid vars.$primary-color;
+  border-radius: 16px;
+  padding: 16px 12px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: vars.$primary-blue;
+  line-height: 1.4;
+}
+
+.headerCell {
+  font-weight: 700;
+  color: vars.$primary-blue;
+  white-space: pre-line;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

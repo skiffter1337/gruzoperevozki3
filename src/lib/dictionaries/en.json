@@ -503,7 +503,243 @@
     "orderTitle": "Want to order transportation in {region}?",
     "advantagesTitle": "Advantages",
     "carriersTitle": "Carriers in this region",
-    "noCarriers": "There are no carriers in this region yet."
+    "noCarriers": "There are no carriers in this region yet.",
+    "transportTable": {
+      "title": "Estimated moving options and prices in {region}",
+      "description": "Compare transport options, distances, and extra services for moves in {region}. The data helps estimate apartment moving costs.",
+      "ariaLabel": "Estimated moving options and pricing table",
+      "headers": [
+        "Transport type",
+        "Apartment size",
+        "Distance",
+        "Extra\nservices",
+        "Estimated\nprice (₪)"
+      ],
+      "rowsByRegion": {
+        "lowland": [
+          {
+            "transport": "Van",
+            "size": "1-bedroom",
+            "distance": "up to 10 km",
+            "services": "packing",
+            "price": "850–1150"
+          },
+          {
+            "transport": "Box truck",
+            "size": "2-bedroom",
+            "distance": "10–25 km",
+            "services": "furniture disassembly",
+            "price": "1200–1600"
+          },
+          {
+            "transport": "5t truck",
+            "size": "3-bedroom",
+            "distance": "25–40 km",
+            "services": "rigging",
+            "price": "1800–2300"
+          },
+          {
+            "transport": "10t truck",
+            "size": "4-bedroom",
+            "distance": "40–60 km",
+            "services": "packing + carry",
+            "price": "2600–3200"
+          },
+          {
+            "transport": "Container",
+            "size": "House",
+            "distance": "60–80 km",
+            "services": "storage",
+            "price": "3300–4100"
+          }
+        ],
+        "sharon": [
+          {
+            "transport": "Van",
+            "size": "1-bedroom",
+            "distance": "up to 12 km",
+            "services": "packing",
+            "price": "900–1200"
+          },
+          {
+            "transport": "Box truck",
+            "size": "2-bedroom",
+            "distance": "12–25 km",
+            "services": "furniture disassembly",
+            "price": "1300–1700"
+          },
+          {
+            "transport": "5t truck",
+            "size": "3-bedroom",
+            "distance": "25–45 km",
+            "services": "rigging",
+            "price": "1900–2450"
+          },
+          {
+            "transport": "10t truck",
+            "size": "4-bedroom",
+            "distance": "45–65 km",
+            "services": "packing + carry",
+            "price": "2700–3400"
+          },
+          {
+            "transport": "Container",
+            "size": "House",
+            "distance": "65–85 km",
+            "services": "storage",
+            "price": "3500–4300"
+          }
+        ],
+        "center": [
+          {
+            "transport": "Van",
+            "size": "1-bedroom",
+            "distance": "up to 10 km",
+            "services": "packing",
+            "price": "950–1250"
+          },
+          {
+            "transport": "Box truck",
+            "size": "2-bedroom",
+            "distance": "10–25 km",
+            "services": "furniture disassembly",
+            "price": "1400–1850"
+          },
+          {
+            "transport": "5t truck",
+            "size": "3-bedroom",
+            "distance": "25–45 km",
+            "services": "rigging",
+            "price": "2000–2600"
+          },
+          {
+            "transport": "10t truck",
+            "size": "4-bedroom",
+            "distance": "45–70 km",
+            "services": "packing + carry",
+            "price": "2900–3600"
+          },
+          {
+            "transport": "Container",
+            "size": "House",
+            "distance": "70–90 km",
+            "services": "storage",
+            "price": "3600–4500"
+          }
+        ],
+        "south": [
+          {
+            "transport": "Van",
+            "size": "1-bedroom",
+            "distance": "up to 15 km",
+            "services": "packing",
+            "price": "800–1050"
+          },
+          {
+            "transport": "Box truck",
+            "size": "2-bedroom",
+            "distance": "15–30 km",
+            "services": "furniture disassembly",
+            "price": "1150–1500"
+          },
+          {
+            "transport": "5t truck",
+            "size": "3-bedroom",
+            "distance": "30–50 km",
+            "services": "rigging",
+            "price": "1700–2200"
+          },
+          {
+            "transport": "10t truck",
+            "size": "4-bedroom",
+            "distance": "50–80 km",
+            "services": "packing + carry",
+            "price": "2500–3100"
+          },
+          {
+            "transport": "Container",
+            "size": "House",
+            "distance": "80–110 km",
+            "services": "storage",
+            "price": "3200–4000"
+          }
+        ],
+        "north": [
+          {
+            "transport": "Van",
+            "size": "1-bedroom",
+            "distance": "up to 12 km",
+            "services": "packing",
+            "price": "870–1150"
+          },
+          {
+            "transport": "Box truck",
+            "size": "2-bedroom",
+            "distance": "12–28 km",
+            "services": "furniture disassembly",
+            "price": "1250–1650"
+          },
+          {
+            "transport": "5t truck",
+            "size": "3-bedroom",
+            "distance": "28–45 km",
+            "services": "rigging",
+            "price": "1850–2350"
+          },
+          {
+            "transport": "10t truck",
+            "size": "4-bedroom",
+            "distance": "45–70 km",
+            "services": "packing + carry",
+            "price": "2650–3300"
+          },
+          {
+            "transport": "Container",
+            "size": "House",
+            "distance": "70–95 km",
+            "services": "storage",
+            "price": "3400–4200"
+          }
+        ],
+        "jerusalem-area": [
+          {
+            "transport": "Van",
+            "size": "1-bedroom",
+            "distance": "up to 12 km",
+            "services": "packing",
+            "price": "920–1220"
+          },
+          {
+            "transport": "Box truck",
+            "size": "2-bedroom",
+            "distance": "12–26 km",
+            "services": "furniture disassembly",
+            "price": "1350–1750"
+          },
+          {
+            "transport": "5t truck",
+            "size": "3-bedroom",
+            "distance": "26–42 km",
+            "services": "rigging",
+            "price": "1950–2500"
+          },
+          {
+            "transport": "10t truck",
+            "size": "4-bedroom",
+            "distance": "42–65 km",
+            "services": "packing + carry",
+            "price": "2800–3500"
+          },
+          {
+            "transport": "Container",
+            "size": "House",
+            "distance": "65–90 km",
+            "services": "storage",
+            "price": "3500–4400"
+          }
+        ]
+      }
+    }
   },
   "calculatePage": {
     "title": "Calculate cost",
