@@ -7,7 +7,7 @@ import {
 } from '@/lib/localized-paths';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes: RouteKey[] = ['home', 'calculate'];
+  const routes: RouteKey[] = ['home', 'calculate', 'leaveReview'];
   const lastModified = new Date();
 
   const entries: MetadataRoute.Sitemap = [];

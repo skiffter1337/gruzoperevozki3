@@ -61,11 +61,12 @@
       "home": "Home",
       "transportation": "Transportation",
       "services": "Additional services",
-      "calculate": "Calculate cost",
-      "articles": "Articles",
-      "about": "About",
-      "contact": "Contact"
-    },
+    "calculate": "Calculate cost",
+    "articles": "Articles",
+    "about": "About",
+    "contact": "Contact",
+    "leaveReview": "Leave a review"
+  },
     "languageSwitcher": {
       "he": "Hebrew",
       "ru": "Russian",
@@ -805,6 +806,33 @@
       "requiredConsent": "Please confirm the rules and terms"
     }
   },
+  "leaveReviewPage": {
+    "metaTitle": "Leave a review | Customer feedback about moves",
+    "metaDescription": "Share your moving experience with a rating, comment, and photo. Your review helps others choose a carrier.",
+    "breadcrumbTestimonials": "Reviews",
+    "breadcrumbCurrent": "Leave a review",
+    "heroTitle": "LEAVE A REVIEW",
+    "ratingLabel": "Rate the move",
+    "ratingHint": "Select the number of stars",
+    "uploadLabel": "Upload a photo",
+    "uploadHint": "Add a photo to your review",
+    "nameLabel": "Your name",
+    "namePlaceholder": "Name",
+    "emailLabel": "Your email",
+    "emailPlaceholder": "Email",
+    "carrierLabel": "Carrier name or company:",
+    "carrierPlaceholder": "Enter a message...",
+    "commentLabel": "Comment",
+    "commentPlaceholder": "Enter a message...",
+    "submitLabel": "Send",
+    "consentLabel": "I confirm the terms and conditions",
+    "validation": {
+      "requiredName": "Enter your name",
+      "requiredEmail": "Enter your email",
+      "requiredRating": "Please select a rating",
+      "requiredConsent": "Confirm the terms and conditions"
+    }
+  },
   "company": {
     "name": "Your moving company",
     "address": "123 Example Street, Tel Aviv, Israel",
@@ -820,6 +848,7 @@
     "calculate": "calculate-cost",
     "articles": "articles",
     "about": "about",
-    "contact": "contact"
+    "contact": "contact",
+    "leaveReview": "leave-review"
   }
 }

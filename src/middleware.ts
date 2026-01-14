@@ -14,6 +14,7 @@ const REWRITE_MAP: Record<string, Record<string, string>> = {
     'перевозки': 'transportation',
     'статьи': 'articles',
     'контакты': 'contact',
+    'оставить-отзыв': 'leave-review',
   },
   he: {
     'חישוב-עלות': 'calculate-cost',
@@ -22,6 +23,7 @@ const REWRITE_MAP: Record<string, Record<string, string>> = {
     'הובלות': 'transportation',
     'מאמרים': 'articles',
     'צור-קשר': 'contact',
+    'השארת-חוות-דעת': 'leave-review',
   },
 };
 

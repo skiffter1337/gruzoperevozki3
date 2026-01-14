@@ -132,6 +132,7 @@ export type DictionaryType = {
             articles: string;
             about: string;
             contact: string;
+            leaveReview: string;
         };
         languageSwitcher: {
             he: string;
@@ -303,6 +304,33 @@ export type DictionaryType = {
             requiredDate: string;
             requiredName: string;
             requiredPhone: string;
+            requiredConsent: string;
+        };
+    };
+    leaveReviewPage: {
+        metaTitle: string;
+        metaDescription: string;
+        breadcrumbTestimonials: string;
+        breadcrumbCurrent: string;
+        heroTitle: string;
+        ratingLabel: string;
+        ratingHint: string;
+        uploadLabel: string;
+        uploadHint: string;
+        nameLabel: string;
+        namePlaceholder: string;
+        emailLabel: string;
+        emailPlaceholder: string;
+        carrierLabel: string;
+        carrierPlaceholder: string;
+        commentLabel: string;
+        commentPlaceholder: string;
+        submitLabel: string;
+        consentLabel: string;
+        validation: {
+            requiredName: string;
+            requiredEmail: string;
+            requiredRating: string;
             requiredConsent: string;
         };
     };
@@ -887,6 +915,33 @@ const defaultDictionary: DictionaryType = {
             requiredConsent: 'Подтвердите правила и условия',
         },
     },
+    leaveReviewPage: {
+        metaTitle: "Оставить отзыв | Отзывы клиентов о перевозках",
+        metaDescription: "Поделитесь впечатлением о перевозке: оценка, комментарий и фото. Ваш отзыв помогает выбрать перевозчика.",
+        breadcrumbTestimonials: "Отзывы",
+        breadcrumbCurrent: "Оставить отзыв",
+        heroTitle: "ОСТАВИТЬ ОТЗЫВ",
+        ratingLabel: "Оцените перевозку",
+        ratingHint: "Выберите количество звезд",
+        uploadLabel: "Загрузить фото",
+        uploadHint: "Добавьте фото к отзыву",
+        nameLabel: "Ваше имя",
+        namePlaceholder: "Имя",
+        emailLabel: "Ваша почта",
+        emailPlaceholder: "Email",
+        carrierLabel: "Имя перевозчика или название фирмы:",
+        carrierPlaceholder: "Введите сообщение...",
+        commentLabel: "Комментарий",
+        commentPlaceholder: "Введите сообщение...",
+        submitLabel: "Отправить",
+        consentLabel: "Я подтверждаю правила и условия",
+        validation: {
+            requiredName: "Укажите ваше имя",
+            requiredEmail: "Укажите вашу почту",
+            requiredRating: "Поставьте оценку",
+            requiredConsent: "Подтвердите правила и условия",
+        },
+    },
     company: {
         name: "Ваша транспортная компания",
         address: "ул. Примерная 123, Тель-Авив, Израиль",
@@ -922,7 +977,8 @@ const defaultDictionary: DictionaryType = {
             "calculate": "Calculate cost",
             "articles": "Articles",
             "about": "About",
-            "contact": "Contact"
+            "contact": "Contact",
+            "leaveReview": "Leave a review"
         },
         languageSwitcher: {
             he: 'Hebrew',
@@ -1096,6 +1152,14 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             calculatePage: {
                 ...defaultDictionary.calculatePage,
                 ...loadedDict.calculatePage,
+            },
+            leaveReviewPage: {
+                ...defaultDictionary.leaveReviewPage,
+                ...loadedDict.leaveReviewPage,
+                validation: {
+                    ...defaultDictionary.leaveReviewPage.validation,
+                    ...loadedDict.leaveReviewPage?.validation,
+                },
             },
         };
     } catch (error) {
