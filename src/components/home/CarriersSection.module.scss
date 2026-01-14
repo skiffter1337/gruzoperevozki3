@@ -210,6 +210,15 @@
   }
 }
 
+.blockTitle {
+  text-transform: uppercase;
+  color: #002c66;
+  text-align: center;
+  margin: 0;
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 700;
+}
+
 .cardsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

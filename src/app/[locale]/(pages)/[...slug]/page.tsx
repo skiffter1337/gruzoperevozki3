@@ -146,19 +146,14 @@ export default async function RegionPage({ params }: Props) {
     },
   ];
 
-  const orderTitle = formatRegionTemplate(dictionary.regionPage.orderTitle, regionItem.title);
 
   return (
     <>
       <section className={styles.page} aria-labelledby="region-page-title">
-        <div className={styles.headerBar} aria-hidden />
         <div className={styles.container}>
           <div className={styles.breadcrumbsWrapper}>
             <Breadcrumbs items={breadcrumbs} />
           </div>
-          <h1 id="region-page-title" className={styles.title}>
-            {orderTitle}
-          </h1>
         </div>
       </section>
 

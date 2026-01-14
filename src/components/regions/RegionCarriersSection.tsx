@@ -25,7 +25,7 @@ export default function RegionCarriersSection({title, emptyLabel, dictionary, re
         <section className={styles.section} aria-labelledby="region-carriers-title">
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <h2 id="region-carriers-title" className={styles.title}>
+                    <h2 id="region-carriers-title" className={styles.blockTitle}>
                         {title}
                     </h2>
                 </div>
