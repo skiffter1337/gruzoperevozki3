@@ -614,6 +614,7 @@
     "metaDescription": "שתפו את חוויית ההובלה שלכם עם דירוג, תגובה ותמונה. החוות דעת שלכם עוזרת לבחור מוביל.",
     "breadcrumbTestimonials": "חוות דעת",
     "breadcrumbCurrent": "השארת חוות דעת",
+    "breadcrumbSuccess": "חוות הדעת שלך נשלחה",
     "heroTitle": "השארת חוות דעת",
     "ratingLabel": "דרגו את ההובלה",
     "ratingHint": "בחרו מספר כוכבים",
@@ -628,6 +629,8 @@
     "commentLabel": "תגובה",
     "commentPlaceholder": "הזן הודעה...",
     "submitLabel": "שליחה",
+    "submitError": "לא הצלחנו לשלוח את חוות הדעת. נסו שוב.",
+    "submissionSuccessMessage": "חוות הדעת שלך נשלחה",
     "consentLabel": "אני מאשר/ת את הכללים והתנאים",
     "validation": {
       "requiredName": "יש להזין שם",

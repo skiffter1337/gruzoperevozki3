@@ -78,7 +78,6 @@
   &:hover,
   &:focus-visible {
     transform: scale(1.1);
-    color: #facc15;
   }
 }
 
@@ -108,6 +107,13 @@
 
 .uploadInput {
   display: none;
+}
+
+.uploadPreview {
+  width: 100%;
+  height: 100%;
+  border-radius: vars.$radius-full;
+  object-fit: cover;
 }
 
 .uploadIcon {
@@ -246,4 +252,12 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.successMessage {
+  font-size: 64px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 80px 16px;
 }
