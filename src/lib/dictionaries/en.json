@@ -122,6 +122,7 @@
   },
   "homeHero": {
     "title": "WANT TO BOOK A MOVE?",
+    "titleWithRegion": "WANT TO BOOK A MOVE TO {region}?",
     "fromLabel": "From",
     "fromPlaceholder": "City",
     "toLabel": "To",

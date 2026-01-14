@@ -122,6 +122,7 @@
   },
   "homeHero": {
     "title": "ХОТИТЕ ЗАКАЗАТЬ ПЕРЕВОЗКУ?",
+    "titleWithRegion": "ХОТИТЕ ЗАКАЗАТЬ ПЕРЕВОЗКУ В {region}?",
     "fromLabel": "Откуда",
     "fromPlaceholder": "Город",
     "toLabel": "Куда",
