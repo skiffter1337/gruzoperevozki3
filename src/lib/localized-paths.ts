@@ -1,7 +1,15 @@
 import { Locale } from "../../i18n-config";
 import { DEFAULT_LOCALE, SITE_URL, SUPPORTED_LOCALES } from "./site-config";
 
-export type RouteKey = "home" | "transportation" | "services" | "calculate" | "articles" | "about" | "contact";
+export type RouteKey =
+  | "home"
+  | "transportation"
+  | "services"
+  | "calculate"
+  | "articles"
+  | "about"
+  | "contact"
+  | "leaveReview";
 
 type LocalizedSegments = Record<Locale, Record<RouteKey, string>>;
 
@@ -14,6 +22,7 @@ const localizedSegments: LocalizedSegments = {
     articles: "מאמרים",
     about: "אודות",
     contact: "צור-קשר",
+    leaveReview: "השארת-חוות-דעת",
   },
   ru: {
     home: "",
@@ -23,6 +32,7 @@ const localizedSegments: LocalizedSegments = {
     articles: "статьи",
     about: "о-нас",
     contact: "контакты",
+    leaveReview: "оставить-отзыв",
   },
   en: {
     home: "",
@@ -32,6 +42,7 @@ const localizedSegments: LocalizedSegments = {
     articles: "articles",
     about: "about",
     contact: "contact",
+    leaveReview: "leave-review",
   },
 };
 

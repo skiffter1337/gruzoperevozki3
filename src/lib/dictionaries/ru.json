@@ -61,11 +61,12 @@
       "home": "Главная",
       "transportation": "Перевозки",
       "services": "Дополнительные услуги",
-      "calculate": "Рассчитать стоимость",
-      "articles": "Статьи",
-      "about": "О нас",
-      "contact": "Контакты"
-    },
+    "calculate": "Рассчитать стоимость",
+    "articles": "Статьи",
+    "about": "О нас",
+    "contact": "Контакты",
+    "leaveReview": "Оставить отзыв"
+  },
     "languageSwitcher": {
       "he": "Иврит",
       "ru": "Русский",
@@ -805,6 +806,33 @@
       "requiredConsent": "Подтвердите правила и условия"
     }
   },
+  "leaveReviewPage": {
+    "metaTitle": "Оставить отзыв | Отзывы клиентов о перевозках",
+    "metaDescription": "Поделитесь впечатлением о перевозке: оценка, комментарий и фото. Ваш отзыв помогает выбрать перевозчика.",
+    "breadcrumbTestimonials": "Отзывы",
+    "breadcrumbCurrent": "Оставить отзыв",
+    "heroTitle": "ОСТАВИТЬ ОТЗЫВ",
+    "ratingLabel": "Оцените перевозку",
+    "ratingHint": "Выберите количество звезд",
+    "uploadLabel": "Загрузить фото",
+    "uploadHint": "Добавьте фото к отзыву",
+    "nameLabel": "Ваше имя",
+    "namePlaceholder": "Имя",
+    "emailLabel": "Ваша почта",
+    "emailPlaceholder": "Email",
+    "carrierLabel": "Имя перевозчика или название фирмы:",
+    "carrierPlaceholder": "Введите сообщение...",
+    "commentLabel": "Комментарий",
+    "commentPlaceholder": "Введите сообщение...",
+    "submitLabel": "Отправить",
+    "consentLabel": "Я подтверждаю правила и условия",
+    "validation": {
+      "requiredName": "Укажите ваше имя",
+      "requiredEmail": "Укажите вашу почту",
+      "requiredRating": "Поставьте оценку",
+      "requiredConsent": "Подтвердите правила и условия"
+    }
+  },
   "company": {
     "name": "Ваша транспортная компания",
     "address": "ул. Примерная 123, Тель-Авив, Израиль",
@@ -820,6 +848,7 @@
     "calculate": "calculate-cost",
     "articles": "статьи",
     "about": "о-нас",
-    "contact": "контакты"
+    "contact": "контакты",
+    "leaveReview": "оставить-отзыв"
   }
 }

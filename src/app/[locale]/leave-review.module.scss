@@ -1,0 +1,250 @@
+@use '@/styles/variables' as vars;
+
+.page {
+  padding: 120px 16px 80px;
+  background: vars.$color-white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 vars.$container-padding;
+  display: grid;
+  gap: 32px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding: 0;
+    gap: 16px;
+  }
+}
+
+.breadcrumbsWrapper {
+  justify-self: start;
+  margin-top: 24px;
+}
+
+.reviewCard {
+  background: vars.$primary-color;
+  border-radius: vars.$radius-xl;
+  padding: 48px;
+  color: vars.$color-white;
+  box-shadow: vars.$shadow-lg;
+  display: grid;
+  gap: 40px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding: 24px;
+    gap: 24px;
+  }
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 64px);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.ratingBlock {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.starButton {
+  background: transparent;
+  border: none;
+  font-size: 36px;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: transform vars.$transition-fast, color vars.$transition-fast;
+
+  &:hover,
+  &:focus-visible {
+    transform: scale(1.1);
+    color: #facc15;
+  }
+}
+
+.starActive {
+  color: #facc15;
+}
+
+.uploadBlock {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  text-align: center;
+}
+
+.uploadButton {
+  width: 72px;
+  height: 72px;
+  border-radius: vars.$radius-full;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background vars.$transition-fast, border-color vars.$transition-fast;
+
+  &:hover,
+  &:focus-visible {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: vars.$color-white;
+  }
+}
+
+.uploadInput {
+  display: none;
+}
+
+.uploadIcon {
+  width: 32px;
+  height: 32px;
+  fill: vars.$color-white;
+}
+
+.form {
+  display: grid;
+  gap: 32px;
+  justify-items: center;
+}
+
+.fields {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  max-width: 760px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 12px;
+}
+
+.label {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.input,
+.textarea {
+  border-radius: 12px;
+  border: none;
+  padding: 14px 18px;
+  font-size: 16px;
+  font-weight: 600;
+  color: vars.$primary-blue;
+  background: vars.$color-white;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(0, 44, 102, 0.5);
+}
+
+.inputError {
+  border: 2px solid #f87171;
+}
+
+.errorText {
+  color: #fee2e2;
+  font-size: 13px;
+}
+
+.actions {
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+  text-align: center;
+}
+
+.submitRow {
+  display: flex;
+  justify-content: center;
+}
+
+.consentRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 16px;
+
+  input[type='checkbox'] {
+    display: none;
+  }
+
+  .customCheckbox {
+    min-width: 22px;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: vars.$color-white;
+    border: 2px solid vars.$color-white;
+    position: relative;
+    cursor: pointer;
+    transition: all vars.$transition-base;
+
+    &::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: vars.$primary-blue;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity vars.$transition-base;
+    }
+  }
+
+  input[type='checkbox']:checked + .customCheckbox {
+    background: vars.$color-white;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

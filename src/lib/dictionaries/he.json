@@ -31,7 +31,8 @@
       "calculate": "חשב עלות",
       "articles": "מאמרים",
       "about": "אודות",
-      "contact": "צור קשר"
+      "contact": "צור קשר",
+      "leaveReview": "השארת חוות דעת"
     },
     "languageSwitcher": {
       "he": "עברית",
@@ -608,6 +609,33 @@
       "requiredConsent": "יש לאשר את הכללים והתנאים"
     }
   },
+  "leaveReviewPage": {
+    "metaTitle": "השארת חוות דעת | חוות דעת לקוחות על הובלות",
+    "metaDescription": "שתפו את חוויית ההובלה שלכם עם דירוג, תגובה ותמונה. החוות דעת שלכם עוזרת לבחור מוביל.",
+    "breadcrumbTestimonials": "חוות דעת",
+    "breadcrumbCurrent": "השארת חוות דעת",
+    "heroTitle": "השארת חוות דעת",
+    "ratingLabel": "דרגו את ההובלה",
+    "ratingHint": "בחרו מספר כוכבים",
+    "uploadLabel": "העלאת תמונה",
+    "uploadHint": "הוסיפו תמונה לחוות הדעת",
+    "nameLabel": "השם שלך",
+    "namePlaceholder": "שם",
+    "emailLabel": "האימייל שלך",
+    "emailPlaceholder": "Email",
+    "carrierLabel": "שם המוביל או החברה:",
+    "carrierPlaceholder": "הזן הודעה...",
+    "commentLabel": "תגובה",
+    "commentPlaceholder": "הזן הודעה...",
+    "submitLabel": "שליחה",
+    "consentLabel": "אני מאשר/ת את הכללים והתנאים",
+    "validation": {
+      "requiredName": "יש להזין שם",
+      "requiredEmail": "יש להזין אימייל",
+      "requiredRating": "יש לבחור דירוג",
+      "requiredConsent": "יש לאשר את הכללים והתנאים"
+    }
+  },
   "company": {
     "name": "חברת ההובלות שלך",
     "address": "רחוב הדוגמה 123, תל אביב, ישראל",
@@ -623,6 +651,7 @@
     "calculate": "חישוב-עלות",
     "articles": "מאמרים",
     "about": "אודות",
-    "contact": "צור-קשר"
+    "contact": "צור-קשר",
+    "leaveReview": "השארת-חוות-דעת"
   }
 }

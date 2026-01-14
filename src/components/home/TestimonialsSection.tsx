@@ -28,7 +28,7 @@ export default function TestimonialsSection({locale, dictionary}: TestimonialsSe
 
     const totalPages = Math.max(totalSlides - slidesPerView + 1, 1);
 
-    const contactPath = useMemo(() => buildLocalizedPath(locale, 'contact'), [locale]);
+    const leaveReviewPath = useMemo(() => buildLocalizedPath(locale, 'leaveReview'), [locale]);
 
     useEffect(() => {
         const updateLayout = () => {
@@ -237,7 +237,7 @@ export default function TestimonialsSection({locale, dictionary}: TestimonialsSe
                         type="button"
                         size="small"
                         ariaLabel={dictionary.ctaLabel}
-                        onClick={() => window.location.assign(contactPath)}
+                        onClick={() => window.location.assign(leaveReviewPath)}
                     >
                         {dictionary.ctaLabel}
                     </GradientButton>
