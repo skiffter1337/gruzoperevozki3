@@ -13,6 +13,7 @@ import ArticlesSection from '@/components/home/ArticlesSection';
 import BookingBanner from '@/components/home/BookingBanner';
 import RegionAdvantagesSection from '@/components/regions/RegionAdvantagesSection';
 import RegionCarriersSection from '@/components/regions/RegionCarriersSection';
+import RegionTransportTableSection from '@/components/regions/RegionTransportTableSection';
 import styles from './region.module.scss';
 
 interface Props {
@@ -179,6 +180,13 @@ export default async function RegionPage({ params }: Props) {
       />
 
       <ArticlesSection locale={locale} dictionary={dictionary.homeArticles} />
+
+      <RegionTransportTableSection
+        locale={locale}
+        regionTitle={regionItem.title}
+        regionSlug={regionItem.slug}
+        dictionary={dictionary.regionPage.transportTable}
+      />
     </>
   );
 }
