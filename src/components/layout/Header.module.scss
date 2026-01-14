@@ -67,6 +67,10 @@
   padding: 20px 24px;
   transition: padding 0.3s ease;
 
+  @media (min-width: vars.$desktop-breakpoint) {
+    height: 116px;
+  }
+
   @media (max-width: vars.$mobile-breakpoint) {
     padding: 16px;
   }

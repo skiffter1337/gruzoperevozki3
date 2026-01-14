@@ -89,6 +89,7 @@
   },
   "homeHero": {
     "title": "רוצים להזמין הובלה?",
+    "titleWithRegion": "רוצים להזמין הובלה ל{region}?",
     "fromLabel": "מאיפה",
     "fromPlaceholder": "עיר",
     "toLabel": "לאן",

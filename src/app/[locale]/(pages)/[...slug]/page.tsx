@@ -157,7 +157,12 @@ export default async function RegionPage({ params }: Props) {
         </div>
       </section>
 
-      <BookingBanner locale={locale} dictionary={dictionary.homeHero} headingLevel="h2" />
+      <BookingBanner
+        locale={locale}
+        dictionary={dictionary.homeHero}
+        headingLevel="h2"
+        regionTitle={regionItem.title}
+      />
 
       <RegionAdvantagesSection
         locale={locale}

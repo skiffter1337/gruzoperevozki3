@@ -133,6 +133,7 @@ export type DictionaryType = {
     };
     homeHero: {
         title: string;
+        titleWithRegion: string;
         fromLabel: string;
         fromPlaceholder: string;
         toLabel: string;
@@ -308,6 +309,7 @@ const defaultDictionary: DictionaryType = {
     },
     homeHero: {
         title: "Хотите заказать перевозку?",
+        titleWithRegion: "Хотите заказать перевозку в {region}?",
         fromLabel: "Откуда",
         fromPlaceholder: "Город",
         toLabel: "Куда",

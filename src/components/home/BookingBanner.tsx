@@ -12,6 +12,7 @@ type BookingBannerProps = {
   locale: Locale;
   dictionary: DictionaryType['homeHero'];
   headingLevel?: 'h1' | 'h2' | 'h3';
+  regionTitle?: string;
 };
 
 type FormErrors = Partial<Record<'from' | 'to' | 'date', string>>;
@@ -28,13 +29,21 @@ const defaultValues: FormValues = {
   date: '',
 };
 
-export default function BookingBanner({ locale, dictionary, headingLevel = 'h1' }: BookingBannerProps) {
+export default function BookingBanner({
+  locale,
+  dictionary,
+  headingLevel = 'h1',
+  regionTitle,
+}: BookingBannerProps) {
   const router = useRouter();
   const [values, setValues] = useState<FormValues>(defaultValues);
   const [errors, setErrors] = useState<FormErrors>({});
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
   const HeadingTag = headingLevel;
+  const headingText = regionTitle
+    ? dictionary.titleWithRegion.replace('{region}', regionTitle)
+    : dictionary.title;
 
   const updateField = (key: keyof FormValues, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -85,7 +94,7 @@ export default function BookingBanner({ locale, dictionary, headingLevel = 'h1' 
     >
       <div className={styles.container}>
         <HeadingTag id="booking-title" className={styles.title}>
-          {dictionary.title}
+          {headingText}
         </HeadingTag>
 
         <div className={styles.formWrapper}>
