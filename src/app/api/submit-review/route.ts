@@ -16,7 +16,7 @@ export async function POST(request: Request) {
         return NextResponse.json({error: 'Missing RESEND_API_KEY'}, {status: 500});
     }
 
-    const toEmail = process.env.RESEND_REVIEW_TO_EMAIL ?? process.env.RESEND_TO_EMAIL;
+    const toEmail = process.env.EMAIL_TO ?? process.env.EMAIL_TO;
     if (!toEmail) {
         return NextResponse.json({error: 'Missing RESEND_REVIEW_TO_EMAIL'}, {status: 500});
     }
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
         },
         body: JSON.stringify({
             from: fromEmail,
-            to: [toEmail],
+            to: ['shulapov1999@gmail.com'],
             subject: 'Новый отзыв с сайта',
             text: emailText,
         }),

@@ -31,6 +31,7 @@
   box-shadow: vars.$shadow-lg;
   display: grid;
   gap: 16px;
+  height: 1000px;
 
   @media (max-width: vars.$tablet-breakpoint) {
     padding: 24px;
@@ -202,6 +203,7 @@
 .consentRow {
   display: inline-flex;
   align-items: center;
+  flex-direction: row-reverse;
   gap: 12px;
   font-weight: 700;
   font-size: 16px;
@@ -260,4 +262,7 @@
   text-align: center;
   text-transform: uppercase;
   padding: 80px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
