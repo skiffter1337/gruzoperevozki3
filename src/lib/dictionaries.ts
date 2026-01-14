@@ -312,6 +312,7 @@ export type DictionaryType = {
         metaDescription: string;
         breadcrumbTestimonials: string;
         breadcrumbCurrent: string;
+        breadcrumbSuccess: string;
         heroTitle: string;
         ratingLabel: string;
         ratingHint: string;
@@ -326,6 +327,8 @@ export type DictionaryType = {
         commentLabel: string;
         commentPlaceholder: string;
         submitLabel: string;
+        submitError: string;
+        submissionSuccessMessage: string;
         consentLabel: string;
         validation: {
             requiredName: string;
@@ -920,6 +923,7 @@ const defaultDictionary: DictionaryType = {
         metaDescription: "Поделитесь впечатлением о перевозке: оценка, комментарий и фото. Ваш отзыв помогает выбрать перевозчика.",
         breadcrumbTestimonials: "Отзывы",
         breadcrumbCurrent: "Оставить отзыв",
+        breadcrumbSuccess: "Ваш отзыв отправлен",
         heroTitle: "ОСТАВИТЬ ОТЗЫВ",
         ratingLabel: "Оцените перевозку",
         ratingHint: "Выберите количество звезд",
@@ -934,6 +938,8 @@ const defaultDictionary: DictionaryType = {
         commentLabel: "Комментарий",
         commentPlaceholder: "Введите сообщение...",
         submitLabel: "Отправить",
+        submitError: "Не удалось отправить отзыв. Попробуйте еще раз.",
+        submissionSuccessMessage: "ВАШ ОТЗЫВ ОТПРАВЛЕН",
         consentLabel: "Я подтверждаю правила и условия",
         validation: {
             requiredName: "Укажите ваше имя",

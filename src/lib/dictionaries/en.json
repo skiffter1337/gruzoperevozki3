@@ -811,6 +811,7 @@
     "metaDescription": "Share your moving experience with a rating, comment, and photo. Your review helps others choose a carrier.",
     "breadcrumbTestimonials": "Reviews",
     "breadcrumbCurrent": "Leave a review",
+    "breadcrumbSuccess": "Your review has been sent",
     "heroTitle": "LEAVE A REVIEW",
     "ratingLabel": "Rate the move",
     "ratingHint": "Select the number of stars",
@@ -825,6 +826,8 @@
     "commentLabel": "Comment",
     "commentPlaceholder": "Enter a message...",
     "submitLabel": "Send",
+    "submitError": "Unable to send your review. Please try again.",
+    "submissionSuccessMessage": "YOUR REVIEW HAS BEEN SENT",
     "consentLabel": "I confirm the terms and conditions",
     "validation": {
       "requiredName": "Enter your name",
