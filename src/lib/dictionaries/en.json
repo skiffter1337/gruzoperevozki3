@@ -505,7 +505,7 @@
     "carriersTitle": "Carriers in this region",
     "noCarriers": "There are no carriers in this region yet.",
     "transportTable": {
-      "title": "Estimated moving options and prices in {region}",
+      "title": "Transportation calculations",
       "description": "Compare transport options, distances, and extra services for moves in {region}. The data helps estimate apartment moving costs.",
       "ariaLabel": "Estimated moving options and pricing table",
       "headers": [

@@ -32,7 +32,6 @@ export default function RegionTransportTableSection({
 }: RegionTransportTableSectionProps) {
     const rows = resolveRows(dictionary.rowsByRegion, regionSlug);
     const title = formatTemplate(dictionary.title, regionTitle);
-    const description = formatTemplate(dictionary.description, regionTitle);
 
     return (
         <section className={styles.section} aria-labelledby="region-transport-title" dir={locale === 'he' ? 'rtl' : 'ltr'}>
@@ -41,7 +40,6 @@ export default function RegionTransportTableSection({
                     <h2 id="region-transport-title" className={styles.title}>
                         {title}
                     </h2>
-                    <p className={styles.description}>{description}</p>
                 </div>
 
                 <div className={styles.grid} role="table" aria-label={dictionary.ariaLabel}>
