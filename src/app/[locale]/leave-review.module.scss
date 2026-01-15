@@ -3,6 +3,10 @@
 .page {
   padding: 120px 16px 80px;
   background: vars.$color-white;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding-top: 60px;
+  }
 }
 
 .container {
@@ -15,6 +19,7 @@
   @media (max-width: vars.$tablet-breakpoint) {
     padding: 0;
     gap: 16px;
+    margin-top: 0px;
   }
 }
 
@@ -79,6 +84,12 @@
   &:hover,
   &:focus-visible {
     transform: scale(1.1);
+  }
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    width: 35px;
+    height: 35px;
+    font-size: 45px;
   }
 }
 

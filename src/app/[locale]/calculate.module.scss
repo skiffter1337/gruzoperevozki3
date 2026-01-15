@@ -23,6 +23,9 @@
   gap: 12px;
   text-align: center;
   margin-top: 60px;
+  @media (max-width: vars.$tablet-breakpoint) {
+    margin-top:  0;
+  }
 }
 
 .breadcrumbsWrapper {
@@ -35,7 +38,9 @@
   font-weight: 700;
   text-transform: uppercase;
   color: vars.$primary-blue;
-  margin: 32px 0;
+  @media (max-width: vars.$tablet-breakpoint) {
+    margin-top:  0;
+  }
 }
 
 .lead {
