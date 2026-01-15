@@ -475,25 +475,65 @@
         "title": "Еш",
         "excerpt": "A checklist for a stress-free move.",
         "slug": "how-to-prepare-for-a-move",
-        "image": "/images/articles/articlePlaceholder.png"
+        "image": "/images/articles/articlePlaceholder.png",
+        "body": [
+          "Start with a timeline: set dates, book transportation early, and outline what needs to be packed first.",
+          "Group items by room and label boxes clearly to speed up unloading and avoid losses.",
+          "If you need packing or disassembly services, confirm them in advance and include them in the estimate."
+        ],
+        "gallery": [
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png"
+        ]
       },
       {
         "title": "Moving furniture without damage",
         "excerpt": "Packing, fasteners, and other professional tips.",
         "slug": "moving-furniture-without-damage",
-        "image": "/images/articles/articlePlaceholder.png"
+        "image": "/images/articles/articlePlaceholder.png",
+        "body": [
+          "Protect corners and edges with pads, stretch film, and soft blankets.",
+          "Transport glass parts vertically and store hardware in labeled bags.",
+          "Consider professional disassembly to reduce the risk of damage."
+        ],
+        "gallery": [
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png"
+        ]
       },
       {
         "title": "How to choose a carrier",
         "excerpt": "Criteria for selecting a reliable moving company.",
         "slug": "how-to-choose-a-carrier",
-        "image": "/images/articles/articlePlaceholder.png"
+        "image": "/images/articles/articlePlaceholder.png",
+        "body": [
+          "Review experience, insurance coverage, and real customer feedback.",
+          "Compare pricing and the list of services to avoid hidden fees.",
+          "A trusted company always provides a clear contract and timeline."
+        ],
+        "gallery": [
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png"
+        ]
       },
       {
         "title": "How much does moving cost",
         "excerpt": "What affects moving costs and how to save.",
         "slug": "how-much-does-moving-cost",
-        "image": "/images/articles/articlePlaceholder.png"
+        "image": "/images/articles/articlePlaceholder.png",
+        "body": [
+          "Pricing depends on distance, volume, and the services you choose.",
+          "Prepare a detailed list of items to get a more accurate quote.",
+          "Clear requirements help avoid unexpected charges."
+        ],
+        "gallery": [
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png"
+        ]
       }
     ]
   },
@@ -505,6 +545,19 @@
     "sectionAriaLabel": "List of moving articles",
     "sliderAriaLabel": "Articles slider",
     "dotLabelPrefix": "Go to article"
+  },
+  "articlePage": {
+    "metaTitleTemplate": "{title} — {site}",
+    "metaDescriptionTemplate": "{excerpt}",
+    "photoTitle": "PHOTOS",
+    "photosAriaLabel": "Article photo gallery",
+    "photoAltPrefix": "Photo",
+    "otherArticlesCta": "More articles",
+    "otherArticlesAriaLabel": "Go back to articles",
+    "fallbackBody": [
+      "This article is in progress. A full guide about moving and logistics will be published soon.",
+      "In the meantime, explore other publications to find the best solution for your move."
+    ]
   },
   "regionPage": {
     "metaTitle": "Movers in {region} | Reliable transportation",

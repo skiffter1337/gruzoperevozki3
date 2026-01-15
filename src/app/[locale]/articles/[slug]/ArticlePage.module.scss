@@ -1,0 +1,145 @@
+@use '@/styles/variables' as vars;
+
+.page {
+  background: vars.$color-white;
+  padding: 120px 0 96px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding: 96px 0 72px;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 vars.$container-padding;
+  display: grid;
+  gap: 48px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding: 0 16px;
+    gap: 32px;
+  }
+}
+
+.breadcrumbsWrapper {
+  justify-self: start;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 520px) minmax(0, 1fr);
+  gap: 40px;
+  align-items: center;
+
+  @media (max-width: vars.$desktop-breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imageWrapper {
+  border-radius: vars.$radius-lg;
+  overflow: hidden;
+  box-shadow: vars.$shadow-md;
+}
+
+.heroImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.heroContent {
+  display: grid;
+  gap: 20px;
+}
+
+.title {
+  font-size: clamp(36px, 6vw, 64px);
+  font-weight: 700;
+  color: vars.$primary-blue;
+  margin: 0;
+}
+
+.excerpt {
+  font-size: clamp(18px, 2.2vw, 22px);
+  color: vars.$text-color;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.body {
+  display: grid;
+  gap: 20px;
+  font-size: 18px;
+  line-height: 1.7;
+  color: vars.$text-color;
+}
+
+.gallerySection {
+  display: grid;
+  gap: 32px;
+  text-align: center;
+}
+
+.galleryTitle {
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 700;
+  color: vars.$primary-blue;
+  margin: 0;
+}
+
+.galleryGrid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.galleryItem {
+  border-radius: vars.$radius-lg;
+  overflow: hidden;
+  box-shadow: vars.$shadow-md;
+}
+
+.galleryImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.ctaWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.ctaLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 52px;
+  border-radius: vars.$radius-full;
+  background: linear-gradient(#1660e9, #0d3683);
+  color: vars.$color-white;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform vars.$transition-fast, box-shadow vars.$transition-fast;
+}
+
+.ctaLink:hover {
+  transform: translateY(-2px);
+  box-shadow: vars.$shadow-md;
+}
+
+.ctaLink:focus-visible {
+  outline: 2px solid rgba(22, 96, 233, 0.6);
+  outline-offset: 3px;
+}
+
+@media (max-width: vars.$tablet-breakpoint) {
+  .ctaLink {
+    width: 100%;
+  }
+}
