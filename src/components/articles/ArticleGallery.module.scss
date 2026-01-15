@@ -1,0 +1,85 @@
+@use '@/styles/variables' as vars;
+
+.gallerySection {
+  display: grid;
+  gap: 32px;
+  text-align: center;
+}
+
+.galleryTitle {
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 700;
+  color: vars.$primary-blue;
+  margin: 0;
+}
+
+.galleryGrid {
+  position: relative;
+  overflow: visible;
+}
+
+.galleryGridSlider {
+  overflow: hidden;
+}
+
+.galleryTrack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  transition: transform vars.$transition-base;
+  will-change: transform;
+}
+
+.galleryTrackStatic {
+  transform: none !important;
+}
+
+.galleryItem {
+  border-radius: vars.$radius-lg;
+  overflow: hidden;
+  box-shadow: vars.$shadow-md;
+}
+
+.galleryItemSlide {
+  flex: 0 0 auto;
+}
+
+.galleryImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.dot {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 44, 102, 0.25);
+  cursor: pointer;
+  transition: background vars.$transition-fast, transform vars.$transition-fast;
+}
+
+.dotActive {
+  background: vars.$primary-blue;
+  transform: scale(1.05);
+}
+
+.dot:focus-visible {
+  outline: 2px solid rgba(0, 44, 102, 0.35);
+  outline-offset: 3px;
+}
+
+@media (max-width: vars.$desktop-breakpoint) {
+  .galleryTrack {
+    display: flex;
+    gap: 16px;
+  }
+}
