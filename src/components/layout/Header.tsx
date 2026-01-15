@@ -43,7 +43,7 @@ interface HeaderProps {
     };
 }
 
-const navOrder: RouteKey[] = ['home', 'transportation', 'services', 'calculate', 'about', 'contact'];
+const navOrder: RouteKey[] = ['home', 'transportation', 'services', 'calculate', 'articles', 'about', 'contact'];
 
 export default function Header({locale, dictionary}: HeaderProps) {
     const pathname = usePathname();

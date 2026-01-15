@@ -214,6 +214,15 @@ export type DictionaryType = {
         imageAltPrefix: string;
         articles: ArticleItem[];
     };
+    articlesPage: {
+        metaTitle: string;
+        metaDescription: string;
+        breadcrumbCurrent: string;
+        title: string;
+        sectionAriaLabel: string;
+        sliderAriaLabel: string;
+        dotLabelPrefix: string;
+    };
     regionPage: {
         metaTitle: string;
         metaDescription: string;
@@ -578,6 +587,15 @@ const defaultDictionary: DictionaryType = {
                 image: '/images/articles/articlePlaceholder.png',
             },
         ],
+    },
+    articlesPage: {
+        metaTitle: 'Статьи о перевозках и переездах',
+        metaDescription: 'Читайте полезные статьи о грузоперевозках, переездах и выборе перевозчика в Израиле.',
+        breadcrumbCurrent: 'Статьи',
+        title: 'СТАТЬИ',
+        sectionAriaLabel: 'Список статей о перевозках',
+        sliderAriaLabel: 'Слайдер со статьями',
+        dotLabelPrefix: 'Перейти к статье',
     },
     regionPage: {
         metaTitle: 'Перевозки в {region} | Надежные грузоперевозки',
@@ -1141,6 +1159,10 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
                 ...defaultDictionary.homeArticles,
                 ...loadedDict.homeArticles,
                 articles: loadedDict.homeArticles?.articles ?? defaultDictionary.homeArticles.articles,
+            },
+            articlesPage: {
+                ...defaultDictionary.articlesPage,
+                ...loadedDict.articlesPage,
             },
             regionPage: {
                 ...defaultDictionary.regionPage,
