@@ -15,7 +15,7 @@ type FooterProps = {
     company: DictionaryType['company'];
 };
 
-const anchorTargets: Record<NonNullable<FooterLink['anchor']>, string> = {
+const anchorTargets: Record<Exclude<NonNullable<FooterLink['anchor']>, 'calculate'>, string> = {
     about: 'about-section',
     articles: 'articles-section',
     services: 'services-section',
