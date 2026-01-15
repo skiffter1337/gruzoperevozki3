@@ -278,25 +278,65 @@
         "title": "איך להתכונן למעבר דירה",
         "excerpt": "צ'ק ליסט למעבר רגוע ללא לחץ.",
         "slug": "how-to-prepare-for-a-move",
-        "image": "/images/articles/articlePlaceholder.png"
+        "image": "/images/articles/articlePlaceholder.png",
+        "body": [
+          "התחילו בלוח זמנים: קבעו תאריכים, הזמינו הובלה מראש והחליטו מה לארוז קודם.",
+          "חלקו את הדברים לפי חדרים וסמנו קופסאות כדי להאיץ את הפריקה.",
+          "אם נדרשים שירותי אריזה או פירוק, תאמו מראש והוסיפו להצעת המחיר."
+        ],
+        "gallery": [
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png"
+        ]
       },
       {
         "title": "הובלת רהיטים בלי נזק",
         "excerpt": "טיפים לאריזה, קשירה והגנה מקצועית.",
         "slug": "moving-furniture-without-damage",
-        "image": "/images/articles/articlePlaceholder.png"
+        "image": "/images/articles/articlePlaceholder.png",
+        "body": [
+          "הגנו על פינות וקצוות עם ריפוד, ניילון נצמד ושמיכות.",
+          "הובילו זכוכית אנכית ושמרו אביזרים בשקיות מסומנות.",
+          "שקלו פירוק מקצועי כדי לצמצם סיכון לנזק."
+        ],
+        "gallery": [
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png"
+        ]
       },
       {
         "title": "איך לבחור מוביל",
         "excerpt": "קריטריונים לבחירת חברת הובלות אמינה.",
         "slug": "how-to-choose-a-carrier",
-        "image": "/images/articles/articlePlaceholder.png"
+        "image": "/images/articles/articlePlaceholder.png",
+        "body": [
+          "בדקו ניסיון, ביטוח וביקורות אמיתיות של לקוחות.",
+          "השוו מחירים ורשימת שירותים כדי להימנע מתוספות לא צפויות.",
+          "חברה אמינה מציגה חוזה ברור ולוחות זמנים מסודרים."
+        ],
+        "gallery": [
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png"
+        ]
       },
       {
         "title": "כמה עולה מעבר",
         "excerpt": "מה משפיע על המחיר ואיך אפשר לחסוך.",
         "slug": "how-much-does-moving-cost",
-        "image": "/images/articles/articlePlaceholder.png"
+        "image": "/images/articles/articlePlaceholder.png",
+        "body": [
+          "המחיר מושפע ממרחק, נפח ותוספות כמו אריזה ופירוק.",
+          "הכינו רשימת פריטים מפורטת כדי לקבל הצעת מחיר מדויקת יותר.",
+          "הגדרת דרישות ברורה מפחיתה הפתעות ועלויות מיותרות."
+        ],
+        "gallery": [
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png",
+          "/images/articles/articlePlaceholder.png"
+        ]
       }
     ]
   },
@@ -308,6 +348,19 @@
     "sectionAriaLabel": "רשימת מאמרים על הובלות",
     "sliderAriaLabel": "סליידר מאמרים",
     "dotLabelPrefix": "מעבר למאמר"
+  },
+  "articlePage": {
+    "metaTitleTemplate": "{title} — {site}",
+    "metaDescriptionTemplate": "{excerpt}",
+    "photoTitle": "תמונות",
+    "photosAriaLabel": "גלריית תמונות של המאמר",
+    "photoAltPrefix": "תמונה",
+    "otherArticlesCta": "למאמרים נוספים",
+    "otherArticlesAriaLabel": "חזרה לרשימת המאמרים",
+    "fallbackBody": [
+      "המאמר נמצא בהכנה. בקרוב יופיע כאן מדריך מלא על הובלות ולוגיסטיקה.",
+      "בינתיים אפשר לעיין במאמרים נוספים כדי לבחור פתרון מתאים."
+    ]
   },
   "regionPage": {
     "metaTitle": "הובלות ב{region} | שירות אמין",

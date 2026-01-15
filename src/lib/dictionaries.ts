@@ -47,6 +47,8 @@ export interface ArticleItem {
     excerpt: string;
     slug: string;
     image: string;
+    body?: string[];
+    gallery?: string[];
 }
 
 export interface TestimonialItem {
@@ -222,6 +224,16 @@ export type DictionaryType = {
         sectionAriaLabel: string;
         sliderAriaLabel: string;
         dotLabelPrefix: string;
+    };
+    articlePage: {
+        metaTitleTemplate: string;
+        metaDescriptionTemplate: string;
+        photoTitle: string;
+        photosAriaLabel: string;
+        photoAltPrefix: string;
+        otherArticlesCta: string;
+        otherArticlesAriaLabel: string;
+        fallbackBody: string[];
     };
     regionPage: {
         metaTitle: string;
@@ -567,24 +579,64 @@ const defaultDictionary: DictionaryType = {
                 excerpt: "Благодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.\nБлагодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.",
                 slug: 'kak-podgotovitsya-k-pereezdu',
                 image: '/images/articles/articlePlaceholder.png',
+                body: [
+                    'Подготовка к переезду начинается с планирования: составьте список вещей, определите сроки и заранее забронируйте транспорт.',
+                    'Разделите имущество по категориям и используйте маркировку коробок. Это ускоряет разгрузку и позволяет избежать потерь.',
+                    'Если требуется упаковка или разборка мебели, уточните эти услуги заранее и включите их в смету.',
+                ],
+                gallery: [
+                    '/images/articles/articlePlaceholder.png',
+                    '/images/articles/articlePlaceholder.png',
+                    '/images/articles/articlePlaceholder.png',
+                ],
             },
             {
                 title: 'Название',
                 excerpt: "Благодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.\nБлагодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.",
                 slug: 'perevozka-mebeli-bez-povrezhdenij',
                 image: '/images/articles/articlePlaceholder.png',
+                body: [
+                    'Чтобы сохранить мебель в идеальном состоянии, используйте защитные углы, пленку и мягкие прокладки.',
+                    'Стеклянные элементы следует перевозить вертикально, а фурнитуру — упаковывать отдельно и подписывать.',
+                    'При необходимости закажите разборку мебели, чтобы снизить риск повреждений в пути.',
+                ],
+                gallery: [
+                    '/images/articles/articlePlaceholder.png',
+                    '/images/articles/articlePlaceholder.png',
+                    '/images/articles/articlePlaceholder.png',
+                ],
             },
             {
                 title: 'Название',
                 excerpt: "Благодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.\nБлагодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.",
                 slug: 'kak-vybrat-perevozchika',
                 image: '/images/articles/articlePlaceholder.png',
+                body: [
+                    'Оцените опыт перевозчика, наличие страховки и реальные отзывы клиентов.',
+                    'Сравните предложения по цене и перечню услуг, чтобы избежать скрытых платежей.',
+                    'Надежная компания всегда предлагает прозрачный договор и заранее согласованный график.',
+                ],
+                gallery: [
+                    '/images/articles/articlePlaceholder.png',
+                    '/images/articles/articlePlaceholder.png',
+                    '/images/articles/articlePlaceholder.png',
+                ],
             },
             {
                 title: 'Название',
                 excerpt: "Благодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.\nБлагодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.",
                 slug: 'skolko-stoit-pereezd',
                 image: '/images/articles/articlePlaceholder.png',
+                body: [
+                    'Стоимость зависит от расстояния, объема вещей и дополнительных услуг.',
+                    'Сравните варианты транспорта и заранее подготовьте список предметов.',
+                    'Четкое техническое задание помогает получить точный расчет и избежать переплат.',
+                ],
+                gallery: [
+                    '/images/articles/articlePlaceholder.png',
+                    '/images/articles/articlePlaceholder.png',
+                    '/images/articles/articlePlaceholder.png',
+                ],
             },
         ],
     },
@@ -596,6 +648,19 @@ const defaultDictionary: DictionaryType = {
         sectionAriaLabel: 'Список статей о перевозках',
         sliderAriaLabel: 'Слайдер со статьями',
         dotLabelPrefix: 'Перейти к статье',
+    },
+    articlePage: {
+        metaTitleTemplate: '{title} — {site}',
+        metaDescriptionTemplate: '{excerpt}',
+        photoTitle: 'ФОТО',
+        photosAriaLabel: 'Фотографии статьи',
+        photoAltPrefix: 'Фотография',
+        otherArticlesCta: 'К другим статьям',
+        otherArticlesAriaLabel: 'Перейти к списку статей',
+        fallbackBody: [
+            'Статья находится в разработке. Скоро здесь появится подробный материал о перевозках и логистике.',
+            'Пока вы можете ознакомиться с другими публикациями и подобрать подходящее решение для своего переезда.',
+        ],
     },
     regionPage: {
         metaTitle: 'Перевозки в {region} | Надежные грузоперевозки',
@@ -1163,6 +1228,11 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             articlesPage: {
                 ...defaultDictionary.articlesPage,
                 ...loadedDict.articlesPage,
+            },
+            articlePage: {
+                ...defaultDictionary.articlePage,
+                ...loadedDict.articlePage,
+                fallbackBody: loadedDict.articlePage?.fallbackBody ?? defaultDictionary.articlePage.fallbackBody,
             },
             regionPage: {
                 ...defaultDictionary.regionPage,
