@@ -77,8 +77,8 @@
   }
 }
 
-// ИСПРАВЛЕННЫЙ СТИЛЬ ДЛЯ КОНТЕЙНЕРА ИЗОБРАЖЕНИЯ
 .cardImageWrapper {
+  height: 100%;
   width: 50%;
   border-radius: 20px;
   overflow: hidden;
@@ -87,7 +87,6 @@
   align-self: center;
 }
 
-// Убедитесь, что Image заполняет контейнер
 .cardImage {
   object-fit: cover;
   width: 100%;
