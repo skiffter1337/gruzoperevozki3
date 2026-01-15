@@ -4,6 +4,12 @@
   width: 100%;
 }
 
+@media (max-width: vars.$mobile-breakpoint) {
+  .breadcrumbs {
+    display: none;
+  }
+}
+
 .list {
   list-style: none;
   display: flex;
