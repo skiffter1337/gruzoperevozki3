@@ -24,13 +24,6 @@
 
 .breadcrumbsWrapper {
   justify-self: start;
-  margin-top: 60px;
-}
-
-@media (max-width: vars.$tablet-breakpoint) {
-  .breadcrumbsWrapper {
-    display: none;
-  }
 }
 
 .hero {
@@ -82,6 +75,38 @@
   font-size: 18px;
   line-height: 1.7;
   color: vars.$text-color;
+}
+
+.gallerySection {
+  display: grid;
+  gap: 32px;
+  text-align: center;
+}
+
+.galleryTitle {
+  font-size: clamp(32px, 6vw, 64px);
+  font-weight: 700;
+  color: vars.$primary-blue;
+  margin: 0;
+}
+
+.galleryGrid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.galleryItem {
+  border-radius: vars.$radius-lg;
+  overflow: hidden;
+  box-shadow: vars.$shadow-md;
+}
+
+.galleryImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
 }
 
 .ctaWrapper {

@@ -8,7 +8,6 @@ import { getAllDictionaries, getDictionary } from '@/lib/dictionaries';
 import { buildLanguageAlternates, buildLocalizedPath } from '@/lib/localized-paths';
 import { DEFAULT_LOCALE, SITE_URL, SUPPORTED_LOCALES } from '@/lib/site-config';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
-import ArticleGallery from '@/components/articles/ArticleGallery';
 
 import styles from './ArticlePage.module.scss';
 
@@ -206,13 +205,23 @@ export default async function ArticlePage({ params }: Props) {
         </div>
 
         {galleryItems.length > 0 && (
-          <ArticleGallery
-            images={galleryItems}
-            title={article.title}
-            photosAriaLabel={dictionary.articlePage.photosAriaLabel}
-            photoAltPrefix={dictionary.articlePage.photoAltPrefix}
-            photoTitle={dictionary.articlePage.photoTitle}
-          />
+          <section className={styles.gallerySection} aria-label={dictionary.articlePage.photosAriaLabel}>
+            <h2 className={styles.galleryTitle}>{dictionary.articlePage.photoTitle}</h2>
+            <div className={styles.galleryGrid} role="list">
+              {galleryItems.map((src, index) => (
+                <div key={`${src}-${index}`} className={styles.galleryItem} role="listitem">
+                  <Image
+                    src={src}
+                    alt={`${dictionary.articlePage.photoAltPrefix} ${index + 1} — ${article.title}`}
+                    width={340}
+                    height={240}
+                    className={styles.galleryImage}
+                    sizes="(max-width: 768px) 100vw, 320px"
+                  />
+                </div>
+              ))}
+            </div>
+          </section>
         )}
 
         <div className={styles.ctaWrapper}>
