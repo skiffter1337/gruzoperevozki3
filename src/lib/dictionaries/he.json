@@ -300,6 +300,15 @@
       }
     ]
   },
+  "articlesPage": {
+    "metaTitle": "מאמרים על הובלות ולוגיסטיקה",
+    "metaDescription": "קראו מאמרים שימושיים על הובלות, הובלת מטענים ובחירת מוביל בישראל.",
+    "breadcrumbCurrent": "מאמרים",
+    "title": "מאמרים",
+    "sectionAriaLabel": "רשימת מאמרים על הובלות",
+    "sliderAriaLabel": "סליידר מאמרים",
+    "dotLabelPrefix": "מעבר למאמר"
+  },
   "regionPage": {
     "metaTitle": "הובלות ב{region} | שירות אמין",
     "metaDescription": "הזמינו הובלה באזור {region}. מובילים אמינים, מחירים שקופים ומענה מהיר בכל האזור.",
