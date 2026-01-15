@@ -497,6 +497,15 @@
       }
     ]
   },
+  "articlesPage": {
+    "metaTitle": "Moving & logistics articles",
+    "metaDescription": "Read helpful articles about moving, cargo transportation, and choosing the right carrier in Israel.",
+    "breadcrumbCurrent": "Articles",
+    "title": "ARTICLES",
+    "sectionAriaLabel": "List of moving articles",
+    "sliderAriaLabel": "Articles slider",
+    "dotLabelPrefix": "Go to article"
+  },
   "regionPage": {
     "metaTitle": "Movers in {region} | Reliable transportation",
     "metaDescription": "Order transportation services in {region}. Trusted carriers, transparent pricing, and fast response across the area.",

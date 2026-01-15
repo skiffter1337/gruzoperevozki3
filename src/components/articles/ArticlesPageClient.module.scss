@@ -1,0 +1,293 @@
+@use '@/styles/variables' as vars;
+
+.page {
+  background: vars.$color-white;
+  padding: 120px 16px 96px;
+
+  @media (max-width: 1023px) {
+    padding: 64px 14px 72px;
+    background: vars.$primary-color;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 vars.$container-padding;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  box-sizing: border-box;
+
+  @media (max-width: 1023px) {
+    padding: 0;
+    gap: 32px;
+  }
+}
+
+.breadcrumbsWrapper {
+  justify-self: start;
+  margin: 60px 0 8px;
+
+  @media (max-width: 1023px) {
+    margin-top: 24px;
+  }
+}
+
+.title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #002c66;
+  text-align: center;
+
+  @media (max-width: 1023px) {
+    color: vars.$color-white;
+  }
+}
+
+.desktopLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+.heroCard {
+  background: vars.$primary-color;
+  border-radius: 28px;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 24px;
+  color: vars.$color-white;
+  text-decoration: none;
+  min-height: 320px;
+  box-shadow: vars.$shadow-lg;
+  transition: transform vars.$transition-base, box-shadow vars.$transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: vars.$shadow-xl;
+  }
+}
+
+.heroImageWrapper {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255, 0.12);
+  align-self: stretch;
+}
+
+.heroImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.heroTitle {
+  font-weight: 700;
+  font-size: clamp(32px, 3vw, 44px);
+  line-height: 1.1;
+}
+
+.heroExcerpt {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: vars.$primary-color;
+  border-radius: 24px;
+  padding: 14px;
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  color: vars.$color-white;
+  text-decoration: none;
+  min-height: 220px;
+  width: 100%;
+  transition: transform vars.$transition-base, box-shadow vars.$transition-base;
+  box-shadow: vars.$shadow-md;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: vars.$shadow-lg;
+  }
+}
+
+.cardImageWrapper {
+  width: 45%;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255, 0.12);
+  align-self: center;
+}
+
+.cardImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.cardTitle {
+  font-weight: 700;
+  line-height: 1.1;
+  font-size: clamp(20px, 2vw, 28px);
+}
+
+.cardExcerpt {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 1.4;
+  max-width: 100%;
+  flex: 1;
+}
+
+.cardButtonWrapper {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cardCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: linear-gradient(#1660e9, #0d3683);
+  border: 2px solid vars.$color-white;
+  font-weight: 500;
+  font-size: 15px;
+  width: 100%;
+  height: 34px;
+  max-width: 130px;
+  color: vars.$color-white;
+  text-decoration: none;
+}
+
+.sliderWrapper {
+  display: none;
+
+  @media (max-width: 1023px) {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.sliderViewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.sliderTrack {
+  display: flex;
+  align-items: stretch;
+  transition: transform vars.$transition-base;
+}
+
+.slide {
+  background: vars.$primary-color;
+  border-radius: 20px;
+  padding: 20px 18px 24px;
+  color: vars.$color-white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: vars.$shadow-md;
+}
+
+.slideTitle {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 87%;
+  text-align: center;
+}
+
+.slideImageWrapper {
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.slideImage {
+  object-fit: cover;
+}
+
+.slideExcerpt {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.slideReadMore {
+  margin-top: auto;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: underline;
+  color: vars.$color-white;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 1px solid vars.$color-white;
+  background: transparent;
+  opacity: 0.6;
+  transition: vars.$transition-fast;
+
+  &.dotActive {
+    opacity: 1;
+    background: vars.$color-white;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    border-color: vars.$color-white;
+  }
+}
