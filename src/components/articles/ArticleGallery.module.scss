@@ -62,18 +62,18 @@
   height: 23px;
   border-radius: 50%;
   border: none;
-  background: rgba(0, 44, 102, 0.25);
+  background: rgba(vars.$primary-color, 0.35);
   cursor: pointer;
   transition: background vars.$transition-fast, transform vars.$transition-fast;
 }
 
 .dotActive {
-  background: vars.$primary-blue;
+  background: vars.$primary-color;
   transform: scale(1.05);
 }
 
 .dot:focus-visible {
-  outline: 2px solid rgba(0, 44, 102, 0.35);
+  outline: 2px solid rgba(vars.$primary-color, 0.5);
   outline-offset: 3px;
 }
 
