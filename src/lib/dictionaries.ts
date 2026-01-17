@@ -68,6 +68,12 @@ export interface TransportTableRow {
     price: string;
 }
 
+export interface SmallMoveTableRow {
+    notes: string;
+    priceRange: string;
+    item: string;
+}
+
 export interface FooterLink {
     label: string;
     /**
@@ -326,6 +332,85 @@ export type DictionaryType = {
             requiredName: string;
             requiredPhone: string;
             requiredConsent: string;
+        };
+    };
+    smallMovePage: {
+        slug: string;
+        metaTitle: string;
+        metaDescription: string;
+        title: string;
+        tocTitle: string;
+        tocItems: Array<{id: string; label: string}>;
+        comparison: {
+            title: string;
+            bullets: string[];
+        };
+        cta: {
+            title: string;
+            phoneLabel: string;
+            formLabel: string;
+            buttonLabel: string;
+        };
+        pricing: {
+            id: string;
+            title: string;
+            intro: string;
+            note: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: SmallMoveTableRow[];
+            afterTable: string;
+        };
+        definition: {
+            id: string;
+            title: string;
+            text: string;
+        };
+        audience: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+        };
+        priceFactors: {
+            id: string;
+            title: string;
+            items: Array<{title: string; text: string}>;
+        };
+        popularServices: {
+            id: string;
+            title: string;
+            items: Array<{title: string; text: string}>;
+        };
+        crane: {
+            id: string;
+            title: string;
+            intro: string;
+            items: string[];
+            outro: string;
+        };
+        cheap: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+        };
+        faq: {
+            id: string;
+            title: string;
+            items: Array<{question: string; answer: string}>;
+        };
+        comparisonProcess: {
+            id: string;
+            title: string;
+            steps: Array<{title: string; text: string}>;
+        };
+        findCompany: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+            closing: string;
         };
     };
     leaveReviewPage: {
@@ -1001,6 +1086,85 @@ const defaultDictionary: DictionaryType = {
             requiredConsent: 'Подтвердите правила и условия',
         },
     },
+    smallMovePage: {
+        slug: 'small-move',
+        metaTitle: 'Small move',
+        metaDescription: 'Small move description.',
+        title: 'Small move',
+        tocTitle: 'Table of contents',
+        tocItems: [],
+        comparison: {
+            title: 'Why compare small moves with us?',
+            bullets: [],
+        },
+        cta: {
+            title: 'Save on your small move',
+            phoneLabel: 'Call us now',
+            formLabel: 'Or leave a request',
+            buttonLabel: 'Start here',
+        },
+        pricing: {
+            id: 'pricing',
+            title: 'Small move price list',
+            intro: '',
+            note: '',
+            tableLabel: 'Small move price table',
+            tableHeaders: [],
+            rows: [],
+            afterTable: '',
+        },
+        definition: {
+            id: 'definition',
+            title: 'What is a small move?',
+            text: '',
+        },
+        audience: {
+            id: 'audience',
+            title: 'Who is this service for?',
+            intro: '',
+            items: [],
+        },
+        priceFactors: {
+            id: 'price-factors',
+            title: 'What affects the price?',
+            items: [],
+        },
+        popularServices: {
+            id: 'popular-services',
+            title: 'Popular services',
+            items: [],
+        },
+        crane: {
+            id: 'crane',
+            title: 'When do you need a crane?',
+            intro: '',
+            items: [],
+            outro: '',
+        },
+        cheap: {
+            id: 'cheap',
+            title: 'How to get small moves cheap?',
+            intro: '',
+            items: [],
+        },
+        faq: {
+            id: 'faq',
+            title: 'FAQ',
+            items: [],
+        },
+        comparisonProcess: {
+            id: 'comparison-process',
+            title: 'How comparison works',
+            steps: [],
+        },
+        findCompany: {
+            id: 'find-company',
+            title: 'Find a company',
+            intro: '',
+            items: [],
+            closing: '',
+        },
+    },
     leaveReviewPage: {
         metaTitle: "Оставить отзыв | Отзывы клиентов о перевозках",
         metaDescription: "Поделитесь впечатлением о перевозке: оценка, комментарий и фото. Ваш отзыв помогает выбрать перевозчика.",
@@ -1045,7 +1209,7 @@ const defaultDictionary: DictionaryType = {
                 {label: "Apartments", path: "kvartiry"},
                 {label: "Offices", path: "ofisnye"},
                 {label: "Private house", path: "chastnyj-dom"},
-                {label: "Small move", path: "malyj"},
+                {label: "Small move", path: "small-move"},
             ],
             services: [
                 {label: "Packing", path: "upakovka"},
@@ -1250,6 +1414,10 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             calculatePage: {
                 ...defaultDictionary.calculatePage,
                 ...loadedDict.calculatePage,
+            },
+            smallMovePage: {
+                ...defaultDictionary.smallMovePage,
+                ...loadedDict.smallMovePage,
             },
             leaveReviewPage: {
                 ...defaultDictionary.leaveReviewPage,

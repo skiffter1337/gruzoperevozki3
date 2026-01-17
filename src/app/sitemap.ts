@@ -1,16 +1,25 @@
 import type { MetadataRoute } from 'next';
-import { SUPPORTED_LOCALES } from '@/lib/site-config';
+import { DEFAULT_LOCALE, SITE_URL, SUPPORTED_LOCALES } from '@/lib/site-config';
 import {
   buildAbsoluteUrl,
   buildLanguageAlternates,
+  buildLocalizedPath,
   RouteKey,
 } from '@/lib/localized-paths';
+import heDictionary from '@/lib/dictionaries/he.json';
+import ruDictionary from '@/lib/dictionaries/ru.json';
+import enDictionary from '@/lib/dictionaries/en.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: RouteKey[] = ['home', 'calculate', 'leaveReview'];
   const lastModified = new Date();
 
   const entries: MetadataRoute.Sitemap = [];
+  const smallMoveSlugsByLocale = {
+    he: heDictionary.smallMovePage?.slug ?? 'הובלות_קטנות',
+    ru: ruDictionary.smallMovePage?.slug ?? 'маленький-переезд',
+    en: enDictionary.smallMovePage?.slug ?? 'small-move',
+  };
 
   routes.forEach((route) => {
     SUPPORTED_LOCALES.forEach((locale) => {
@@ -21,6 +30,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
           languages: buildLanguageAlternates(route),
         },
       });
+    });
+  });
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    const slug = smallMoveSlugsByLocale[locale];
+    const url = `${SITE_URL}${buildLocalizedPath(locale, 'transportation')}/${slug}`;
+    const languages: Record<string, string> = {};
+
+    SUPPORTED_LOCALES.forEach((supportedLocale) => {
+      const supportedSlug = smallMoveSlugsByLocale[supportedLocale];
+      languages[supportedLocale] = `${SITE_URL}${buildLocalizedPath(supportedLocale, 'transportation')}/${supportedSlug}`;
+    });
+
+    const defaultSlug = smallMoveSlugsByLocale[DEFAULT_LOCALE];
+    languages['x-default'] = `${SITE_URL}${buildLocalizedPath(DEFAULT_LOCALE, 'transportation')}/${defaultSlug}`;
+
+    entries.push({
+      url,
+      lastModified,
+      alternates: {
+        languages,
+      },
     });
   });
 
