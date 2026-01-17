@@ -40,6 +40,10 @@ function buildSmallMovePath(locale: Locale, slug: string) {
   return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
 }
 
+function isSmallMoveSlug(slug: string[], smallMoveSlug: string) {
+  return slug[0] === smallMoveSlug || slug[1] === smallMoveSlug;
+}
+
 async function buildSmallMoveLanguageAlternates() {
   const dictionaries = await getAllDictionaries();
   const languages: Record<string, string> = {};
@@ -96,7 +100,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const regionSlug = decodedSlug[0];
   const route = getRouteFromSlug(locale, decodedSlug);
 
-  if (route === 'transportation' && decodedSlug[1] === dictionary.smallMovePage.slug) {
+  if (isSmallMoveSlug(decodedSlug, dictionary.smallMovePage.slug)) {
     const canonical = `${SITE_URL}${buildSmallMovePath(locale, dictionary.smallMovePage.slug)}`;
 
     return {
@@ -163,7 +167,7 @@ export default async function RegionPage({ params }: Props) {
   const decodedSlug = slug?.map((segment) => decodeSlugSegment(segment) ?? segment) ?? [];
   const regionSlug = decodedSlug[0];
   const route = getRouteFromSlug(locale, decodedSlug);
-  if (route === 'transportation' && decodedSlug[1] === dictionary.smallMovePage.slug) {
+  if (isSmallMoveSlug(decodedSlug, dictionary.smallMovePage.slug)) {
     return <SmallMovePage locale={locale} dictionary={dictionary.smallMovePage} />;
   }
   let regionItem = dictionary.homeRegions.sliderItems.find((item) => item.slug === regionSlug);

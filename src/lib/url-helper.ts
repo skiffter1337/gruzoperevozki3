@@ -45,9 +45,16 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
     ? resolveRouteKey(currentLocale, decodedFirstSegment)
     : undefined;
 
+  const currentSmallMoveSlug = smallMoveSlugsByLocale[currentLocale];
+  if (decodedFirstSegment === currentSmallMoveSlug) {
+    const targetSlug = encodeURIComponent(smallMoveSlugsByLocale[targetLocale]);
+    const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+    const remaining = rest.length ? `/${rest.join("/")}` : "";
+    return `${translatedBase}/${targetSlug}${remaining}`;
+  }
+
   if (matchedRoute === "transportation" && rest.length > 0) {
     const decodedRest = decodeURIComponent(rest[0]);
-    const currentSmallMoveSlug = smallMoveSlugsByLocale[currentLocale];
     if (decodedRest === currentSmallMoveSlug) {
       const targetSlug = encodeURIComponent(smallMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "transportation");
