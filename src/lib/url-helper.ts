@@ -10,6 +10,12 @@ const regionSlugsByLocale: Record<Locale, string[]> = {
   en: enDictionary.homeRegions?.sliderItems?.map((item) => item.slug) ?? [],
 };
 
+const smallMoveSlugsByLocale: Record<Locale, string> = {
+  he: heDictionary.smallMovePage?.slug ?? "הובלות_קטנות",
+  ru: ruDictionary.smallMovePage?.slug ?? "маленький-переезд",
+  en: enDictionary.smallMovePage?.slug ?? "small-move",
+};
+
 const translateRegionSlug = (sourceLocale: Locale, targetLocale: Locale, slug: string) => {
   const sourceSlugs = regionSlugsByLocale[sourceLocale];
   const targetSlugs = regionSlugsByLocale[targetLocale];
@@ -38,6 +44,24 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
   const matchedRoute = decodedFirstSegment
     ? resolveRouteKey(currentLocale, decodedFirstSegment)
     : undefined;
+
+  const currentSmallMoveSlug = smallMoveSlugsByLocale[currentLocale];
+  if (decodedFirstSegment === currentSmallMoveSlug) {
+    const targetSlug = encodeURIComponent(smallMoveSlugsByLocale[targetLocale]);
+    const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+    const remaining = rest.length ? `/${rest.join("/")}` : "";
+    return `${translatedBase}/${targetSlug}${remaining}`;
+  }
+
+  if (matchedRoute === "transportation" && rest.length > 0) {
+    const decodedRest = decodeURIComponent(rest[0]);
+    if (decodedRest === currentSmallMoveSlug) {
+      const targetSlug = encodeURIComponent(smallMoveSlugsByLocale[targetLocale]);
+      const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+      const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
+      return `${translatedBase}/${targetSlug}${remaining}`;
+    }
+  }
 
   if (!matchedRoute && decodedFirstSegment) {
     const translatedSlug = translateRegionSlug(currentLocale, targetLocale, decodedFirstSegment);
