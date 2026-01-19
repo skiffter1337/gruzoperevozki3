@@ -124,13 +124,15 @@
   "homeHero": {
     "title": "CALCULATION OF TRANSPORTATION COSTS?",
     "titleWithRegion": "CALCULATION OF TRANSPORTATION COSTS TO {region}?",
+    "subtitle": "Get the best price offers from carriers online!",
     "fromLabel": "From",
     "fromPlaceholder": "City",
     "toLabel": "To",
     "toPlaceholder": "City",
+    "dateLabel": "Move date",
     "datePlaceholder": "Choose a date",
-    "submit": "Submit",
-    "submitLabel": "to calculate the cost of transportation",
+    "submit": "Continue checkout",
+    "submitLabel": "to get price offers",
     "requiredMessage": "Please fill in all fields",
     "sliderHeading": "Services",
     "sliderCta": "Learn more",
@@ -866,6 +868,249 @@
       "requiredName": "Enter your full name",
       "requiredPhone": "Enter your phone number",
       "requiredConsent": "Please confirm the rules and terms"
+    }
+  },
+  "smallMovePage": {
+    "slug": "small-move",
+    "metaTitle": "Cheap small moves — small move from ₪249",
+    "metaDescription": "Low-cost small moves. Moves from ₪249. Service nationwide. Only vetted movers. Save up to 45%.",
+    "title": "Small moves",
+    "tocTitle": "Table of contents",
+    "tocItems": [
+      {"id": "pricing", "label": "How much does a small move cost? Price list"},
+      {"id": "definition", "label": "What is a “small move” exactly?"},
+      {"id": "audience", "label": "Who is the service for?"},
+      {"id": "price-factors", "label": "What affects the price of a small move?"},
+      {"id": "popular-services", "label": "Popular services: fridge, sofa, and more"},
+      {"id": "crane", "label": "When do you need a small move with a crane?"},
+      {"id": "cheap", "label": "How to get a small move for less?"},
+      {"id": "faq", "label": "Frequently asked questions"},
+      {"id": "comparison-process", "label": "How the comparison works and saves up to 45%"},
+      {"id": "find-company", "label": "Find a reliable small move company nationwide"}
+    ],
+    "comparison": {
+      "title": "Why compare small moves with us?",
+      "bullets": [
+        "Proven savings of up to 45% with real-time quote comparisons",
+        "We work only with professional movers and loaders that pass screening and quality checks",
+        "Get quotes for full service: disassembly, packing, assembly, and transport",
+        "Nationwide coverage: we find small moves from north to south",
+        "Attractive prices for a single item move starting from ₪249",
+        "Need it urgently? Get quotes for same-day service, Fridays, and Saturday night"
+      ]
+    },
+    "cta": {
+      "title": "Save hundreds of shekels on a small move",
+      "phoneLabel": "Call now: 05X-XXX-XXXX",
+      "formLabel": "Or leave your details and get up to 3 quotes from recommended movers near you!",
+      "buttonLabel": "Start here and get quotes"
+    },
+    "pricing": {
+      "id": "pricing",
+      "title": "How much does a small move cost? Price list",
+      "intro": "To help you understand the market range, we gathered average prices. Comparing through our portal helps you find even better deals.",
+      "note": "Note: the prices in the table are general averages for in-city moves, in buildings with an elevator or up to the 2nd floor without an elevator.",
+      "tableLabel": "Small move price list",
+      "tableHeaders": ["Additional notes", "Average small move price (range)", "Item type"],
+      "rows": [
+        {
+          "notes": "Depends on size (a two-door model costs more)",
+          "priceRange": "₪249–449",
+          "item": "Fridge moving"
+        },
+        {
+          "notes": "-",
+          "priceRange": "₪249–349",
+          "item": "Washing machine / dryer moving"
+        },
+        {
+          "notes": "Full living room (3+2) priced accordingly",
+          "priceRange": "₪249–399",
+          "item": "Sofa moving (2–3 seater)"
+        },
+        {
+          "notes": "Includes basic disassembly and assembly",
+          "priceRange": "₪299–499",
+          "item": "Double bed moving"
+        },
+        {
+          "notes": "Includes disassembly and assembly",
+          "priceRange": "₪349–549",
+          "item": "Wardrobe moving (2–3 doors)"
+        },
+        {
+          "notes": "Depends on the number of boxes and furniture",
+          "priceRange": "₪599–1,199",
+          "item": "Studio / one-room apartment move"
+        }
+      ],
+      "afterTable": "Want an exact final price? Leave your details and let movers compete for your job!"
+    },
+    "definition": {
+      "id": "definition",
+      "title": "What is a small move?",
+      "text": "A small move (or “single-item move”) is any move that doesn’t require a large truck and a full crew. It’s usually handled by a small mover with a closed commercial vehicle or pickup. That flexibility keeps the price significantly lower than a full apartment move."
+    },
+    "audience": {
+      "id": "audience",
+      "title": "Who is the small move service for?",
+      "intro": "It’s a perfect solution for many situations:",
+      "items": [
+        {
+          "title": "Student moves",
+          "text": "Moving out of a rental? Need to move a bed, desk, small fridge, and a few boxes? A small move is exactly what you need."
+        },
+        {
+          "title": "Single-item moves (second-hand / stores)",
+          "text": "Bought a sofa, fridge, or wardrobe on Facebook Marketplace or Yad2? Found an item in a store but shipping is too expensive? A small mover can deliver it home for less."
+        },
+        {
+          "title": "Young couples and renters",
+          "text": "Need to add a washing machine, move a baby crib from parents, or remove an old piece of furniture? No need to pay for a full truck."
+        },
+        {
+          "title": "Add-ons and removals",
+          "text": "Before a big move, or when you just need to clear an old sofa downstairs or move a wardrobe across the city."
+        }
+      ]
+    },
+    "priceFactors": {
+      "id": "price-factors",
+      "title": "What affects the price of a small move?",
+      "items": [
+        {
+          "title": "Distance:",
+          "text": "Is it within the city or between cities? Longer distances increase cost due to fuel and time."
+        },
+        {
+          "title": "Access, floor, and elevator:",
+          "text": "Is there an elevator and is it large enough? Moving to the 3rd floor or higher without an elevator costs more."
+        },
+        {
+          "title": "Disassembly and assembly:",
+          "text": "Beds, wardrobes, and large tables require dismantling. You can request a quote that includes this service."
+        },
+        {
+          "title": "Urgency:",
+          "text": "Need it today? Through our portal you can find movers that offer express service, sometimes with a small extra fee."
+        },
+        {
+          "title": "Special items:",
+          "text": "Moving a piano, safe, or large glass item requires special equipment and skilled crew, so pricing differs."
+        }
+      ]
+    },
+    "popularServices": {
+      "id": "popular-services",
+      "title": "Popular services in a small move",
+      "items": [
+        {
+          "title": "Fridge moving",
+          "text": "Moving a fridge requires care. Make sure movers are experienced and have proper equipment (like a stair dolly) and keep it upright whenever possible. Unplug it a few hours before the move."
+        },
+        {
+          "title": "Sofa or living room moving",
+          "text": "The main challenge is fitting through doors and stairwells. Measure the sofa and passage widths in advance. If it doesn’t fit, you may need a small move with a crane. Movers will wrap it in stretch film to prevent tears and dirt."
+        },
+        {
+          "title": "Washing machine moving",
+          "text": "A washing machine is heavy and bulky. Before moving, disconnect it from water and power and drain it. Make sure movers secure the drum with the original bolts (if you kept them) to prevent damage."
+        }
+      ]
+    },
+    "crane": {
+      "id": "crane",
+      "title": "When do you need a small move with a crane?",
+      "intro": "Sometimes the only way in or out is through a balcony or a large window. A small move with a crane is needed when:",
+      "items": [
+        "an item (like a large sofa, mattress, piano, or fridge) doesn’t fit in the stairwell or elevator;",
+        "in high-rise buildings where manual carry is too costly and risky;",
+        "to prevent damage to a valuable item that can’t be disassembled."
+      ],
+      "outro": "Through our portal you can request quotes from movers who provide professional crane services."
+    },
+    "cheap": {
+      "id": "cheap",
+      "title": "How to get a small move for less (our method)",
+      "intro": "Everyone wants to save. Here are 3 ways our platform helps reduce costs:",
+      "items": [
+        {
+          "title": "Smart price comparison:",
+          "text": "Instead of chasing movers, movers compete for your job. That pushes them to offer their best price and helps you save up to 45%."
+        },
+        {
+          "title": "Small move en route (the winning tip):",
+          "text": "If you’re moving one item and it’s not urgent, say so. We’ll find a mover already traveling the same route who can add your item for a nominal fee."
+        },
+        {
+          "title": "Flexibility and preparation:",
+          "text": "Being flexible with the date (mid-week is cheaper) and disassembling/packing yourself reduces time and lowers the quote."
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "Small move FAQ",
+      "items": [
+        {
+          "question": "Can I book a small move for today?",
+          "answer": "Absolutely. It’s one of the biggest advantages of small movers. Their flexibility often allows express service. Through our portal you can find movers available within a few hours."
+        },
+        {
+          "question": "What’s the difference between an “en route” move and a regular move?",
+          "answer": "A regular move is dedicated to you: the mover arrives and drives directly to the destination. An “en route” small move means your item is added to an existing route. It may take longer and requires flexibility, but the price drops significantly."
+        },
+        {
+          "question": "Do I need to pack items myself?",
+          "answer": "For a single item (like a fridge or sofa), the mover will usually wrap it with blankets and film. If you’re moving a studio with boxes, you’ll need to pack them in advance unless you order packing services for an extra fee."
+        },
+        {
+          "question": "I received a much cheaper quote. How do I know it’s reliable?",
+          "answer": "That’s exactly why you should use our portal. All movers are vetted for reliability and reviews. A price that’s too low can be a red flag—sometimes it means unprofessional movers who raise the price on moving day. With us, you only get offers from verified pros."
+        }
+      ]
+    },
+    "comparisonProcess": {
+      "id": "comparison-process",
+      "title": "How the comparison works and saves up to 45%",
+      "steps": [
+        {
+          "title": "Submit details once:",
+          "text": "Fill a short form (or speak with a representative) and describe what you’re moving, from where to where, and when."
+        },
+        {
+          "title": "Get up to 3 quotes:",
+          "text": "Your request is sent in real time to available movers in your area. Interested movers contact you directly with a quote."
+        },
+        {
+          "title": "Compare, choose, and save:",
+          "text": "You receive multiple offers, compare prices and reviews, and pick the best small mover. Competition saves you up to 45% of the cost."
+        }
+      ]
+    },
+    "findCompany": {
+      "id": "find-company",
+      "title": "Find a reliable small move company nationwide",
+      "intro": "Whether you need a small move in Tel Aviv, Haifa, Be’er Sheva, or Jerusalem, we’ve got you covered. We help you find the right mover and guarantee:",
+      "items": [
+        {
+          "title": "Strict screening:",
+          "text": "We work only with small move companies and movers with strong recommendations and high service standards."
+        },
+        {
+          "title": "High availability:",
+          "text": "Get quotes from available movers across the country, often even same-day."
+        },
+        {
+          "title": "Professional handling:",
+          "text": "Movers know how to wrap items in stretch film and blankets to protect them from scratches."
+        },
+        {
+          "title": "Best price:",
+          "text": "Real-time price comparison ensures you don’t overpay."
+        }
+      ],
+      "closing": "Looking for a small, reliable, and affordable mover? Don’t waste time on phone calls. Leave your details now and get winning quotes for free!"
     }
   },
   "leaveReviewPage": {

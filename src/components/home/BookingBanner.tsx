@@ -96,6 +96,7 @@ export default function BookingBanner({
         <HeadingTag id="booking-title" className={styles.title}>
           {headingText}
         </HeadingTag>
+        <p className={styles.subtitle}>{dictionary.subtitle}</p>
 
         <div className={styles.formWrapper}>
           <form className={styles.form} onSubmit={handleSubmit} noValidate>
@@ -138,6 +139,9 @@ export default function BookingBanner({
             </div>
 
             <div className={`${styles.field} ${styles.fieldDate}`}>
+              <label htmlFor="date" className={styles.label}>
+                {dictionary.dateLabel}
+              </label>
               <input
                 id="date"
                 name="date"
