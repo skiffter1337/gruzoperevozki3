@@ -480,10 +480,10 @@ const defaultDictionary: DictionaryType = {
         sliderNext: "Следующий слайд",
         sliderItemLabelPrefix: "Перейти к услуге",
         sliderItems: [
-            {title: "Перевозка краном", slug: "perevozka-kranom", image: 'crane'},
-            {title: "Транспортные услуги", slug: "transportnye-uslugi", image: 'transport'},
             {title: "Перевозка мебели", slug: "perevozka-mebeli", image: 'furniture'},
             {title: "Квартирный переезд", slug: "kvartirnyj-pereezd", image: 'flat'},
+            {title: "Офисный переезд", slug: "ofisnyj-pereezd", image: 'transport'},
+            {title: "Услуги упаковки", slug: "uslugi-upakovki", image: 'crane'},
         ],
     },
     homeRegions: {
