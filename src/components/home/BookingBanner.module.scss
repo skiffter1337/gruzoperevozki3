@@ -26,6 +26,14 @@
   margin-top: 72px;
 }
 
+.subtitle {
+  font-size: clamp(18px, 2.5vw, 32px);
+  font-weight: 600;
+  line-height: 120%;
+  max-width: 720px;
+  margin: 0;
+}
+
 .formWrapper {
   width: min(760px, 100%);
   border-radius: $radius-lg;

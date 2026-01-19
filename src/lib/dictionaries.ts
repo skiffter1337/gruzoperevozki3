@@ -151,10 +151,12 @@ export type DictionaryType = {
     homeHero: {
         title: string;
         titleWithRegion: string;
+        subtitle: string;
         fromLabel: string;
         fromPlaceholder: string;
         toLabel: string;
         toPlaceholder: string;
+        dateLabel: string;
         datePlaceholder: string;
         submit: string;
         submitLabel: string;
@@ -462,13 +464,15 @@ const defaultDictionary: DictionaryType = {
     homeHero: {
         title: "Хотите заказать перевозку?",
         titleWithRegion: "Хотите заказать перевозку в {region}?",
+        subtitle: "Получите лучшие предложения цены от перевозчиков онлайн!",
         fromLabel: "Откуда",
         fromPlaceholder: "Город",
         toLabel: "Куда",
         toPlaceholder: "Город",
+        dateLabel: "Дата переезда",
         datePlaceholder: "Выберите дату",
-        submit: "Нажмите",
-        submitLabel: "чтобы рассчитать стоимость перевозки",
+        submit: "Продолжить оформление заказа",
+        submitLabel: "получить предложения цены",
         requiredMessage: "Пожалуйста, заполните все поля",
         sliderHeading: "Услуги",
         sliderCta: "Подробнее",
