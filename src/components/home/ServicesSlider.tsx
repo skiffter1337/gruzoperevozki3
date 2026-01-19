@@ -3,9 +3,7 @@
 import Image, {StaticImageData} from 'next/image';
 import {TouchEvent, useEffect, useMemo, useRef, useState} from 'react';
 import Link from 'next/link';
-import {useRouter} from 'next/navigation';
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
-import GradientButton from '@/components/gradient-button/GradientButton';
 import {DictionaryType} from '@/lib/dictionaries';
 import {buildLocalizedPath} from '@/lib/localized-paths';
 import {Locale} from '../../../i18n-config';
@@ -21,11 +19,11 @@ type ServicesSliderProps = {
 };
 
 export default function ServicesSlider({locale, dictionary}: ServicesSliderProps) {
-    const router = useRouter();
     const [currentSlide, setCurrentSlide] = useState(0);
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [slidesPerView, setSlidesPerView] = useState(1);
     const [showArrows, setShowArrows] = useState(false);
+    const [slideWidth, setSlideWidth] = useState(370);
     const sliderTrackRef = useRef<HTMLDivElement>(null);
 
     const sliderBasePath = useMemo(() => buildLocalizedPath(locale, 'services'), [locale]);
@@ -50,10 +48,12 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
             const width = window.innerWidth;
             let newSlidesPerView = 1;
             let newShowArrows = false;
+            let newSlideWidth = 370;
 
             if (width >= 1200) {
-                newSlidesPerView = 3;
+                newSlidesPerView = 4;
                 newShowArrows = true;
+                newSlideWidth = 280;
             } else if (width >= 840) {
                 newSlidesPerView = 2;
                 newShowArrows = false;
@@ -70,6 +70,10 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
             if (newShowArrows !== showArrows) {
                 setShowArrows(newShowArrows);
             }
+
+            if (newSlideWidth !== slideWidth) {
+                setSlideWidth(newSlideWidth);
+            }
         };
 
         updateLayout();
@@ -81,10 +85,8 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
         window.addEventListener('resize', handleResize);
 
         return () => window.removeEventListener('resize', handleResize);
-    }, [slidesPerView, showArrows]);
+    }, [slidesPerView, showArrows, slideWidth]);
 
-    // Ширина слайда фиксированная - 370px
-    const slideWidth = 370;
     const slideStep = slideWidth + gap;
 
     // Циклическая навигация
@@ -239,16 +241,6 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
                     )}
                 </div>
 
-                <div className={styles.sliderCta}>
-                    <GradientButton
-                        type="button"
-                        size="small"
-                        ariaLabel={dictionary.sliderCta}
-                        onClick={() => router.push(sliderBasePath)}
-                    >
-                        {dictionary.sliderCta}
-                    </GradientButton>
-                </div>
             </div>
         </section>
     );

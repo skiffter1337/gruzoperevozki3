@@ -141,16 +141,6 @@
     "sliderItemLabelPrefix": "Open service page",
     "sliderItems": [
       {
-        "title": "Crane transport",
-        "slug": "crane-transport",
-        "image": "crane"
-      },
-      {
-        "title": "Transport services",
-        "slug": "transport-services",
-        "image": "transport"
-      },
-      {
         "title": "Furniture moving",
         "slug": "furniture-moving",
         "image": "furniture"
@@ -159,6 +149,16 @@
         "title": "Apartment move",
         "slug": "apartment-move",
         "image": "flat"
+      },
+      {
+        "title": "Office move",
+        "slug": "office-move",
+        "image": "transport"
+      },
+      {
+        "title": "Packing services",
+        "slug": "packing-services",
+        "image": "crane"
       }
     ]
   },
