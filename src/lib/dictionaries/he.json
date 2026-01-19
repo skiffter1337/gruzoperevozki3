@@ -89,8 +89,8 @@
     }
   },
   "homeHero": {
-    "title": "רוצים להזמין הובלה?",
-    "titleWithRegion": "רוצים להזמין הובלה ל{region}?",
+    "title": "חישוב עלויות תחבורה?",
+    "titleWithRegion": "חישוב עלויות תחבורה {region}?",
     "fromLabel": "מאיפה",
     "fromPlaceholder": "עיר",
     "toLabel": "לאן",

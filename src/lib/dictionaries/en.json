@@ -122,8 +122,8 @@
     }
   },
   "homeHero": {
-    "title": "WANT TO BOOK A MOVE?",
-    "titleWithRegion": "WANT TO BOOK A MOVE TO {region}?",
+    "title": "CALCULATION OF TRANSPORTATION COSTS?",
+    "titleWithRegion": "CALCULATION OF TRANSPORTATION COSTS TO {region}?",
     "fromLabel": "From",
     "fromPlaceholder": "City",
     "toLabel": "To",

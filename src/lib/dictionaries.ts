@@ -375,8 +375,8 @@ const defaultDictionary: DictionaryType = {
         keywords: 'default, keywords, sharon, center, south, north, jerusalem',
     },
     homeHero: {
-        title: "Хотите заказать перевозку?",
-        titleWithRegion: "Хотите заказать перевозку в {region}?",
+        title: "РАСЧЕТ СТОИМОСТИ ПЕРЕВОЗКИ?",
+        titleWithRegion: "РАСЧЕТ СТОИМОСТИ ПЕРЕВОЗКИ в {region}?",
         fromLabel: "Откуда",
         fromPlaceholder: "Город",
         toLabel: "Куда",

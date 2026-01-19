@@ -122,8 +122,8 @@
     }
   },
   "homeHero": {
-    "title": "ХОТИТЕ ЗАКАЗАТЬ ПЕРЕВОЗКУ?",
-    "titleWithRegion": "ХОТИТЕ ЗАКАЗАТЬ ПЕРЕВОЗКУ В {region}?",
+    "title": "РАСЧЕТ СТОИМОСТИ ПЕРЕВОЗКИ?",
+    "titleWithRegion": "РАСЧЕТ СТОИМОСТИ ПЕРЕВОЗКИ В {region}?",
     "fromLabel": "Откуда",
     "fromPlaceholder": "Город",
     "toLabel": "Куда",
