@@ -52,7 +52,7 @@
 }
 
 .calculatorCard {
-  background: vars.$primary-color;
+  background: vars.$primary-color url('/images/bg.PNG') center / cover no-repeat;
   border-radius: vars.$radius-xl;
   padding: 32px;
   color: vars.$color-white;
