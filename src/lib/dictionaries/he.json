@@ -119,12 +119,84 @@
     "sliderNext": "אזור הבא",
     "sliderItemLabelPrefix": "צפו באזור",
     "sliderItems": [
-      {"title": "שְׁפֵלָה", "slug": "השפלה", "image": "/images/lowland.png", "carrierRegion": "lowland"},
-      {"title": "שרון", "slug": "השרון", "image": "/images/sharon.png", "carrierRegion": "sharon"},
-      {"title": "מרכז", "slug": "המרכז", "image": "/images/center.png", "carrierRegion": null},
-      {"title": "דרום", "slug": "הדרום", "image": "/images/south.png", "carrierRegion": "south"},
-      {"title": "צפון", "slug": "הצפון", "image": "/images/north.png", "carrierRegion": "north"},
-      {"title": "ירושלים והסביבה", "slug": "ירושלים-והסביבה", "image": "/images/jerusalem.png", "carrierRegion": "jerusalem"}
+      {
+        "title": "מרכז",
+        "slug": "המרכז",
+        "image": "/images/center.png",
+        "carrierRegion": null,
+        "cityLinks": [
+          {"label": "הובלות בתל אביב", "slug": "הובלות-בתל-אביב"},
+          {"label": "הובלות ברמת גן", "slug": "הובלות-ברמת-גן"},
+          {"label": "הובלות בגבעתיים", "slug": "הובלות-בגבעתיים"},
+          {"label": "הובלות בחולון", "slug": "הובלות-בחולון"},
+          {"label": "הובלות בבת ים", "slug": "הובלות-בבת-ים"}
+        ]
+      },
+      {
+        "title": "השרון",
+        "slug": "השרון",
+        "image": "/images/sharon.png",
+        "carrierRegion": "sharon",
+        "cityLinks": [
+          {"label": "הובלות בנתניה", "slug": "הובלות-בנתניה"},
+          {"label": "הובלות בהרצליה", "slug": "הובלות-בהרצליה"},
+          {"label": "הובלות בכפר סבא", "slug": "הובלות-בכפר-סבא"},
+          {"label": "הובלות ברעננה", "slug": "הובלות-ברעננה"},
+          {"label": "הובלות בהוד השרון", "slug": "הובלות-בהוד-השרון"}
+        ]
+      },
+      {
+        "title": "השפלה",
+        "slug": "השפלה",
+        "image": "/images/lowland.png",
+        "carrierRegion": "lowland",
+        "cityLinks": [
+          {"label": "הובלות בראשון לציון", "slug": "הובלות-בראשון-לציון"},
+          {"label": "הובלות ברחובות", "slug": "הובלות-ברחובות"},
+          {"label": "הובלות ברמלה", "slug": "הובלות-ברמלה"},
+          {"label": "הובלות בלוד", "slug": "הובלות-בלוד"},
+          {"label": "הובלות באשדוד", "slug": "הובלות-באשדוד"}
+        ]
+      },
+      {
+        "title": "ירושלים והסביבה",
+        "slug": "ירושלים-והסביבה",
+        "image": "/images/jerusalem.png",
+        "carrierRegion": "jerusalem",
+        "cityLinks": [
+          {"label": "הובלות בירושלים", "slug": "הובלות-בירושלים"},
+          {"label": "הובלות בבית שמש", "slug": "הובלות-בבית-שמש"},
+          {"label": "הובלות במעלה אדומים", "slug": "הובלות-במעלה-אדומים"},
+          {"label": "הובלות במודיעין", "slug": "הובלות-במודיעין"},
+          {"label": "הובלות במבשרת ציון", "slug": "הובלות-במבשרת-ציון"}
+        ]
+      },
+      {
+        "title": "צפון",
+        "slug": "הצפון",
+        "image": "/images/north.png",
+        "carrierRegion": "north",
+        "cityLinks": [
+          {"label": "הובלות בחיפה", "slug": "הובלות-בחיפה"},
+          {"label": "הובלות בנצרת", "slug": "הובלות-בנצרת"},
+          {"label": "הובלות בטבריה", "slug": "הובלות-בטבריה"},
+          {"label": "הובלות בעכו", "slug": "הובלות-בעכו"},
+          {"label": "הובלות בכרמיאל", "slug": "הובלות-בכרמיאל"}
+        ]
+      },
+      {
+        "title": "דרום",
+        "slug": "הדרום",
+        "image": "/images/south.png",
+        "carrierRegion": "south",
+        "cityLinks": [
+          {"label": "הובלות בבאר שבע", "slug": "הובלות-בבאר-שבע"},
+          {"label": "הובלות באשקלון", "slug": "הובלות-באשקלון"},
+          {"label": "הובלות באילת", "slug": "הובלות-באילת"},
+          {"label": "הובלות בדימונה", "slug": "הובלות-בדימונה"},
+          {"label": "הובלות בנתיבות", "slug": "הובלות-בנתיבות"}
+        ]
+      }
     ]
   },
   "homeCarriers": {
