@@ -1,7 +1,7 @@
 @import '@/styles/_variables.scss';
 
 .banner {
-  background: $primary-color;
+  background: $primary-color url('/images/bg.png') center / cover no-repeat;
   color: $color-white;
   padding: 120px 16px 64px;
 }
@@ -21,8 +21,8 @@
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  max-width: 663px;
-  line-height: 87%;
+  max-width: 900px;
+  line-height: clamp(48px, 4vw, 64px);
   margin-top: 72px;
 }
 
@@ -43,7 +43,7 @@
 .form {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 30px;
 }
 
 .field {
@@ -58,7 +58,7 @@
   font-size: clamp(14px, 4vw, 47px);
   line-height: 87%;
   text-transform: uppercase;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
 
   @media (max-width: $tablet-breakpoint) {
     margin-bottom: 32px;

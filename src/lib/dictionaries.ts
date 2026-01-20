@@ -18,6 +18,10 @@ export interface RegionSliderItem {
     slug: string;
     image?: string;
     carrierRegion: CarrierTab['value'] | null;
+    cityLinks: {
+        label: string;
+        slug: string;
+    }[];
 }
 
 export interface CarrierTab {
@@ -462,8 +466,8 @@ const defaultDictionary: DictionaryType = {
         keywords: 'default, keywords, sharon, center, south, north, jerusalem',
     },
     homeHero: {
-        title: "Хотите заказать перевозку?",
-        titleWithRegion: "Хотите заказать перевозку в {region}?",
+        title: "РАСЧЕТ СТОИМОСТИ ПЕРЕВОЗКИ?",
+        titleWithRegion: "РАСЧЕТ СТОИМОСТИ ПЕРЕВОЗКИ в {region}?",
         subtitle: "Получите лучшие предложения цены от перевозчиков онлайн!",
         fromLabel: "Откуда",
         fromPlaceholder: "Город",
@@ -492,12 +496,84 @@ const defaultDictionary: DictionaryType = {
         sliderNext: 'Следующий район',
         sliderItemLabelPrefix: 'Показать район',
         sliderItems: [
-            {title: "Низменность", slug: "nizinnost", image: "/images/lowland.png", carrierRegion: "lowland"},
-            {title: "Шарон", slug: "sharon", image: "/images/sharon.png", carrierRegion: "sharon"},
-            {title: "Центр", slug: "centr", image: "/images/center.png", carrierRegion: null},
-            {title: "Юг", slug: "yug", image: "/images/south.png", carrierRegion: "south"},
-            {title: "Север", slug: "sever", image: "/images/north.png", carrierRegion: "north"},
-            {title: "Иерусалим и окрестности", slug: "ierusalim-i-okrestnosti", image: "/images/jerusalem.png", carrierRegion: "jerusalem"}
+            {
+                title: "Центр",
+                slug: "centr",
+                image: "/images/center.png",
+                carrierRegion: null,
+                cityLinks: [
+                    {label: "Перевозки в Тель-Авиве", slug: "perevozki-v-tel-avive"},
+                    {label: "Перевозки в Рамат-Гане", slug: "perevozki-v-ramat-gane"},
+                    {label: "Перевозки в Гиватаиме", slug: "perevozki-v-givataime"},
+                    {label: "Перевозки в Холоне", slug: "perevozki-v-holone"},
+                    {label: "Перевозки в Бат-Яме", slug: "perevozki-v-bat-yame"},
+                ],
+            },
+            {
+                title: "Равнина (Шарон)",
+                slug: "sharon",
+                image: "/images/sharon.png",
+                carrierRegion: "sharon",
+                cityLinks: [
+                    {label: "Перевозки в Нетании", slug: "perevozki-v-netanii"},
+                    {label: "Перевозки в Герцлии", slug: "perevozki-v-gertslii"},
+                    {label: "Перевозки в Кфар-Сабе", slug: "perevozki-v-kfar-sabe"},
+                    {label: "Перевозки в Раанане", slug: "perevozki-v-raanane"},
+                    {label: "Перевозки в Ход-ха-Шароне", slug: "perevozki-v-hod-ha-sharone"},
+                ],
+            },
+            {
+                title: "Низины (Шфела)",
+                slug: "nizinnost",
+                image: "/images/lowland.png",
+                carrierRegion: "lowland",
+                cityLinks: [
+                    {label: "Перевозки в Ришон-ле-Ционе", slug: "perevozki-v-rishon-le-tsione"},
+                    {label: "Перевозки в Реховоте", slug: "perevozki-v-rehovote"},
+                    {label: "Перевозки в Рамле", slug: "perevozki-v-ramle"},
+                    {label: "Перевозки в Лоде", slug: "perevozki-v-lode"},
+                    {label: "Перевозки в Ашдоде", slug: "perevozki-v-ashdode"},
+                ],
+            },
+            {
+                title: "Иерусалим и окрестности",
+                slug: "ierusalim-i-okrestnosti",
+                image: "/images/jerusalem.png",
+                carrierRegion: "jerusalem",
+                cityLinks: [
+                    {label: "Перевозки в Иерусалиме", slug: "perevozki-v-ierusalime"},
+                    {label: "Перевозки в Бейт-Шемеше", slug: "perevozki-v-beit-shemeshe"},
+                    {label: "Перевозки в Маале-Адумиме", slug: "perevozki-v-maale-adumime"},
+                    {label: "Перевозки в Модиине", slug: "perevozki-v-modiine"},
+                    {label: "Перевозки в Мевасерет-Ционе", slug: "perevozki-v-mevaseret-tsione"},
+                ],
+            },
+            {
+                title: "Север",
+                slug: "sever",
+                image: "/images/north.png",
+                carrierRegion: "north",
+                cityLinks: [
+                    {label: "Перевозки в Хайфе", slug: "perevozki-v-hayfe"},
+                    {label: "Перевозки в Назарете", slug: "perevozki-v-nazarete"},
+                    {label: "Перевозки в Тверии", slug: "perevozki-v-tverii"},
+                    {label: "Перевозки в Акко", slug: "perevozki-v-akko"},
+                    {label: "Перевозки в Кармиэле", slug: "perevozki-v-karmiele"},
+                ],
+            },
+            {
+                title: "Юг",
+                slug: "yug",
+                image: "/images/south.png",
+                carrierRegion: "south",
+                cityLinks: [
+                    {label: "Перевозки в Беэр-Шеве", slug: "perevozki-v-beer-sheve"},
+                    {label: "Перевозки в Ашкелоне", slug: "perevozki-v-ashkelone"},
+                    {label: "Перевозки в Эйлате", slug: "perevozki-v-eilate"},
+                    {label: "Перевозки в Димоне", slug: "perevozki-v-dimone"},
+                    {label: "Перевозки в Нетивоте", slug: "perevozki-v-netivote"},
+                ],
+            },
         ],
     },
     homeCarriers: {
@@ -664,7 +740,7 @@ const defaultDictionary: DictionaryType = {
         imageAltPrefix: 'Иллюстрация статьи',
         articles: [
             {
-                title: 'Название',
+                title: '',
                 excerpt: "Благодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.\nБлагодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.",
                 slug: 'kak-podgotovitsya-k-pereezdu',
                 image: '/images/articles/articlePlaceholder.png',
@@ -680,7 +756,7 @@ const defaultDictionary: DictionaryType = {
                 ],
             },
             {
-                title: 'Название',
+                title: '',
                 excerpt: "Благодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.\nБлагодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.",
                 slug: 'perevozka-mebeli-bez-povrezhdenij',
                 image: '/images/articles/articlePlaceholder.png',
@@ -696,7 +772,7 @@ const defaultDictionary: DictionaryType = {
                 ],
             },
             {
-                title: 'Название',
+                title: '',
                 excerpt: "Благодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.\nБлагодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.",
                 slug: 'kak-vybrat-perevozchika',
                 image: '/images/articles/articlePlaceholder.png',
@@ -712,7 +788,7 @@ const defaultDictionary: DictionaryType = {
                 ],
             },
             {
-                title: 'Название',
+                title: '',
                 excerpt: "Благодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.\nБлагодаря арктическому маршруту, срок доставки сокращен более чем на 20 дней. Успешная операция с габаритным грузом подтверждает эффективность СМП для тяжеловесных и срочных проектов.",
                 slug: 'skolko-stoit-pereezd',
                 image: '/images/articles/articlePlaceholder.png',
@@ -769,7 +845,7 @@ const defaultDictionary: DictionaryType = {
                 'Размер квартиры',
                 'Расстояние',
                 'Доп.\nуслуги',
-                'Примерная\nцена (шекели)',
+                'Примерная\nцена ₪',
             ],
             rowsByRegion: {
                 nizinnost: [

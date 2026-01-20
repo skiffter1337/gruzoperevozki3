@@ -12,7 +12,7 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 16px 96px;
+  padding: 0 16px 0px;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -25,6 +25,8 @@
 
   @media (max-width: $tablet-breakpoint) {
     padding: 56px 12px 64px;
+    background: $primary-color url('/images/bg.png') center / cover no-repeat;
+
     gap: 28px;
   }
 }

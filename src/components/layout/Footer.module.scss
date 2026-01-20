@@ -1,7 +1,7 @@
 @import '@/styles/_variables.scss';
 
 .footer {
-  background-color: $primary-color;
+  background: $primary-color url('/images/bg.png') center / cover no-repeat;
   color: $color-white;
   padding: 72px 16px 64px;
 }

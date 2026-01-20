@@ -20,8 +20,7 @@
 
 .innerLeft {
   min-height: 680px;
-  background: $primary-color;
-  width: 50%;
+  background: $primary-color;  width: 50%;
   clip-path: polygon(
                   81% 0%,
                   0% 0%,
@@ -40,7 +39,7 @@
 
 .innerRight {
   min-height: 476px;
-  background: $primary-color;
+  background: $primary-color url('/images/bg.PNG') center / cover no-repeat;
   width: 50%;
   box-shadow: -1px 0 0 0 $primary-color;
   display: flex;

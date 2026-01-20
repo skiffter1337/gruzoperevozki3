@@ -122,8 +122,8 @@
     }
   },
   "homeHero": {
-    "title": "WANT TO BOOK A MOVE?",
-    "titleWithRegion": "WANT TO BOOK A MOVE TO {region}?",
+    "title": "CALCULATION OF TRANSPORTATION COSTS?",
+    "titleWithRegion": "CALCULATION OF TRANSPORTATION COSTS TO {region}?",
     "subtitle": "Get the best price offers from carriers online!",
     "fromLabel": "From",
     "fromPlaceholder": "City",
@@ -169,40 +169,82 @@
     "sliderItemLabelPrefix": "View area",
     "sliderItems": [
       {
-        "title": "Lowland",
-        "slug": "lowland",
-        "image": "/images/lowland.png",
-        "carrierRegion": "lowland"
-      },
-      {
-        "title": "Sharon",
-        "slug": "sharon",
-        "image": "/images/sharon.png",
-        "carrierRegion": "sharon"
-      },
-      {
         "title": "Center",
         "slug": "center",
         "image": "/images/center.png",
-        "carrierRegion": null
+        "carrierRegion": null,
+        "cityLinks": [
+          {"label": "Transportation in Tel Aviv", "slug": "transportation-in-tel-aviv"},
+          {"label": "Transportation in Ramat Gan", "slug": "transportation-in-ramat-gan"},
+          {"label": "Transportation in Giv'atayim", "slug": "transportation-in-givatayim"},
+          {"label": "Transportation in Holon", "slug": "transportation-in-holon"},
+          {"label": "Transportation in Bat Yam", "slug": "transportation-in-bat-yam"}
+        ]
       },
       {
-        "title": "South",
-        "slug": "south",
-        "image": "/images/south.png",
-        "carrierRegion": "south"
+        "title": "Sharon Plain",
+        "slug": "sharon",
+        "image": "/images/sharon.png",
+        "carrierRegion": "sharon",
+        "cityLinks": [
+          {"label": "Transportation in Netanya", "slug": "transportation-in-netanya"},
+          {"label": "Transportation in Herzliya", "slug": "transportation-in-herzliya"},
+          {"label": "Transportation in Kfar Saba", "slug": "transportation-in-kfar-saba"},
+          {"label": "Transportation in Ra'anana", "slug": "transportation-in-raanana"},
+          {"label": "Transportation in Hod Hasharon", "slug": "transportation-in-hod-hasharon"}
+        ]
+      },
+      {
+        "title": "Lowlands (Shfela)",
+        "slug": "lowland",
+        "image": "/images/lowland.png",
+        "carrierRegion": "lowland",
+        "cityLinks": [
+          {"label": "Transportation in Rishon LeZion", "slug": "transportation-in-rishon-lezion"},
+          {"label": "Transportation in Rehovot", "slug": "transportation-in-rehovot"},
+          {"label": "Transportation in Ramla", "slug": "transportation-in-ramla"},
+          {"label": "Transportation in Lod", "slug": "transportation-in-lod"},
+          {"label": "Transportation in Ashdod", "slug": "transportation-in-ashdod"}
+        ]
+      },
+      {
+        "title": "Jerusalem and surroundings",
+        "slug": "jerusalem-area",
+        "image": "/images/jerusalem.png",
+        "carrierRegion": "jerusalem",
+        "cityLinks": [
+          {"label": "Transportation in Jerusalem", "slug": "transportation-in-jerusalem"},
+          {"label": "Transportation in Beit Shemesh", "slug": "transportation-in-beit-shemesh"},
+          {"label": "Transportation in Ma'ale Adumim", "slug": "transportation-in-maale-adumim"},
+          {"label": "Transportation in Modi'in", "slug": "transportation-in-modiin"},
+          {"label": "Transportation in Mevaseret Zion", "slug": "transportation-in-mevaseret-zion"}
+        ]
       },
       {
         "title": "North",
         "slug": "north",
         "image": "/images/north.png",
-        "carrierRegion": "north"
+        "carrierRegion": "north",
+        "cityLinks": [
+          {"label": "Transportation in Haifa", "slug": "transportation-in-haifa"},
+          {"label": "Transportation in Nazareth", "slug": "transportation-in-nazareth"},
+          {"label": "Transportation in Tiberias", "slug": "transportation-in-tiberias"},
+          {"label": "Transportation in Acre", "slug": "transportation-in-acre"},
+          {"label": "Transportation in Karmiel", "slug": "transportation-in-karmiel"}
+        ]
       },
       {
-        "title": "Jerusalem area",
-        "slug": "jerusalem-area",
-        "image": "/images/jerusalem.png",
-        "carrierRegion": "jerusalem"
+        "title": "South",
+        "slug": "south",
+        "image": "/images/south.png",
+        "carrierRegion": "south",
+        "cityLinks": [
+          {"label": "Transportation in Be'er Sheva", "slug": "transportation-in-beer-sheva"},
+          {"label": "Transportation in Ashkelon", "slug": "transportation-in-ashkelon"},
+          {"label": "Transportation in Eilat", "slug": "transportation-in-eilat"},
+          {"label": "Transportation in Dimona", "slug": "transportation-in-dimona"},
+          {"label": "Transportation in Netivot", "slug": "transportation-in-netivot"}
+        ]
       }
     ]
   },
@@ -474,7 +516,7 @@
     "imageAltPrefix": "Article illustration",
     "articles": [
       {
-        "title": "Еш",
+        "title": "",
         "excerpt": "A checklist for a stress-free move.",
         "slug": "how-to-prepare-for-a-move",
         "image": "/images/articles/articlePlaceholder.png",

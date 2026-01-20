@@ -90,11 +90,8 @@
 
   img {
     width: auto;
-    height: 50px;
+    height: 80px;
 
-    @media (max-width: vars.$mobile-breakpoint) {
-      height: 40px;
-    }
   }
 }
 
@@ -126,7 +123,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 20px;
+  font-size: 18px;
   color: vars.$primary-color;
   font-family: vars.$base-font;
   font-weight: 500;
@@ -576,7 +573,7 @@
 
 @media (max-width: vars.$tablet-breakpoint) {
   .logo img {
-    height: 40px;
+    height: 60px;
   }
 }
 
