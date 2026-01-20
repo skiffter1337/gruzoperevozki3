@@ -12,6 +12,10 @@
 
   &.primaryVariant {
     background-color: vars.$primary-color;
+    background-image: url('/images/bg.PNG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: vars.$color-white;
 
     .navLink{
@@ -29,7 +33,7 @@
     }
 
     &.scrolled {
-      background-color: vars.$primary-color;
+      background: vars.$primary-color url('/images/bg.PNG') center / cover no-repeat;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
     }
   }
@@ -49,11 +53,11 @@
 
   &.mobileMenuOpen {
     .burgerLine {
-      background-color: vars.$primary-color;
+      background-color: vars.$color-white;
     }
 
     .langButton {
-      color: vars.$primary-color;
+      color: vars.$color-white;
     }
   }
 }
