@@ -75,8 +75,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
 
     const getComparablePath = (route: RouteKey) => decodeURI(buildLocalizedPath(locale, route));
 
-    const isHomePage = pathname === `/${locale}` || pathname === `/${locale}/`;
-    const isPrimaryHeader = !isHomePage;
+    const isPrimaryHeader = true;
 
     const getNextLocale = () => {
         const currentIndex = locales.indexOf(locale);
