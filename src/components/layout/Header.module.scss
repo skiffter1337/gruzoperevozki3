@@ -78,11 +78,11 @@
 
 .logo {
   flex: 0 0 auto;
-
+  height: 60px;
   a {
     display: block;
     transition: opacity 0.2s ease;
-
+    height: 60px;
     &:hover {
       opacity: 0.8;
     }
