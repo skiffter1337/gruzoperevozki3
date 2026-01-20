@@ -19,6 +19,8 @@ export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) 
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [slidesPerView, setSlidesPerView] = useState(1);
     const [showArrows, setShowArrows] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(false);
+    const [activeRegionIndex, setActiveRegionIndex] = useState(0);
     const sliderTrackRef = useRef<HTMLDivElement>(null);
 
     const totalSlides = dictionary.sliderItems.length;
@@ -27,6 +29,8 @@ export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) 
     const slideStep = slideWidth + gap;
 
     const sliderBasePath = useMemo(() => buildLocalizedPath(locale, 'home'), [locale]);
+    const transportationBasePath = useMemo(() => buildLocalizedPath(locale, 'transportation'), [locale]);
+    const activeRegion = dictionary.sliderItems[activeRegionIndex] ?? dictionary.sliderItems[0];
 
     const totalPages = Math.max(totalSlides - slidesPerView + 1, 1);
 
@@ -37,17 +41,17 @@ export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) 
             const width = window.innerWidth;
             let newSlidesPerView = 1;
             let newShowArrows = false;
+            const nextIsDesktop = width >= 1200;
 
-            if (width >= 1200) {
-                newSlidesPerView = 3;
-                newShowArrows = true;
-            } else if (width >= 840) {
+            if (width >= 840) {
                 newSlidesPerView = 2;
                 newShowArrows = false;
             } else {
                 newSlidesPerView = 1;
                 newShowArrows = false;
             }
+
+            setIsDesktop(nextIsDesktop);
 
             if (newSlidesPerView !== slidesPerView) {
                 setSlidesPerView(newSlidesPerView);
@@ -137,80 +141,138 @@ export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) 
                 </div>
 
                 <div className={styles.wrapper}>
-                    <div className={styles.sliderWrapper}>
-                        {shouldShowArrows && (
-                            <button
-                                type="button"
-                                className={`${styles.navButton} ${styles.navButtonLeft}`}
-                                aria-label={dictionary.sliderPrevious}
-                                onClick={handlePrev}
-                            >
-                                <ChevronRightIcon focusable="false" />
-                            </button>
-                        )}
+                    {isDesktop ? (
+                        <div className={styles.desktopLayout}>
+                            <div className={styles.desktopTabs} role="tablist" aria-label={dictionary.heading}>
+                                {dictionary.sliderItems.map((item, index) => {
+                                    const isActive = index === activeRegionIndex;
+                                    return (
+                                        <button
+                                            key={`${item.title}-${index}`}
+                                            type="button"
+                                            className={`${styles.desktopTab} ${isActive ? styles.desktopTabActive : ''}`.trim()}
+                                            role="tab"
+                                            aria-selected={isActive}
+                                            onClick={() => setActiveRegionIndex(index)}
+                                        >
+                                            {item.title}
+                                        </button>
+                                    );
+                                })}
+                            </div>
 
-                        <div
-                            className={styles.sliderViewport}
-                            onTouchStart={handleTouchStart}
-                            onTouchEnd={handleTouchEnd}
-                        >
-                            <div
-                                className={styles.sliderTrack}
-                                ref={sliderTrackRef}
-                                style={{
-                                    transform: `translateX(-${currentSlide * slideStep}px)`,
-                                    gap: `${gap}px`,
-                                }}
-                            >
-                                {dictionary.sliderItems.map((item, index) => (
+                            {activeRegion && (
+                                <div className={styles.desktopPanel} role="tabpanel">
                                     <Link
-                                        key={`${item.title}-${index}`}
-                                        href={`${sliderBasePath}/${item.slug}`}
-                                        className={styles.slide}
-                                        aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
+                                        href={`${sliderBasePath}/${activeRegion.slug}`}
+                                        className={styles.desktopImage}
+                                        aria-label={`${dictionary.sliderItemLabelPrefix} ${activeRegion.title}`}
                                         prefetch={false}
                                     >
-                                        <div className={styles.slideImageWrapper}>
-                                            <div className={styles.slideTitle}>{item.title}</div>
-                                            <Image
-                                                src={item.image || '/images/region-placeholder.svg'}
-                                                alt={item.title}
-                                                fill
-                                                sizes="370px"
-                                                className={styles.slideImage}
-                                                priority={index < 2}
-                                            />
-                                        </div>
+                                        <Image
+                                            src={activeRegion.image || '/images/region-placeholder.svg'}
+                                            alt={activeRegion.title}
+                                            fill
+                                            sizes="(max-width: 1440px) 360px, 420px"
+                                            className={styles.desktopImageAsset}
+                                            priority
+                                        />
                                     </Link>
-                                ))}
+                                    <div className={styles.cityListWrapper}>
+                                        <div className={styles.cityList}>
+                                            {activeRegion.cityLinks.map((city) => (
+                                                <Link
+                                                    key={city.slug}
+                                                    href={`${transportationBasePath}/${city.slug}`}
+                                                    className={styles.cityLink}
+                                                    prefetch={false}
+                                                >
+                                                    {city.label}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <>
+                            <div className={styles.sliderWrapper}>
+                                {shouldShowArrows && (
+                                    <button
+                                        type="button"
+                                        className={`${styles.navButton} ${styles.navButtonLeft}`}
+                                        aria-label={dictionary.sliderPrevious}
+                                        onClick={handlePrev}
+                                    >
+                                        <ChevronRightIcon focusable="false" />
+                                    </button>
+                                )}
+
+                                <div
+                                    className={styles.sliderViewport}
+                                    onTouchStart={handleTouchStart}
+                                    onTouchEnd={handleTouchEnd}
+                                >
+                                    <div
+                                        className={styles.sliderTrack}
+                                        ref={sliderTrackRef}
+                                        style={{
+                                            transform: `translateX(-${currentSlide * slideStep}px)`,
+                                            gap: `${gap}px`,
+                                        }}
+                                    >
+                                        {dictionary.sliderItems.map((item, index) => (
+                                            <Link
+                                                key={`${item.title}-${index}`}
+                                                href={`${sliderBasePath}/${item.slug}`}
+                                                className={styles.slide}
+                                                aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
+                                                prefetch={false}
+                                            >
+                                                <div className={styles.slideImageWrapper}>
+                                                    <div className={styles.slideTitle}>{item.title}</div>
+                                                    <Image
+                                                        src={item.image || '/images/region-placeholder.svg'}
+                                                        alt={item.title}
+                                                        fill
+                                                        sizes="370px"
+                                                        className={styles.slideImage}
+                                                        priority={index < 2}
+                                                    />
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {shouldShowArrows && (
+                                    <button
+                                        type="button"
+                                        className={`${styles.navButton} ${styles.navButtonRight}`}
+                                        aria-label={dictionary.sliderNext}
+                                        onClick={handleNext}
+                                    >
+                                        <ChevronRightIcon focusable="false" />
+                                    </button>
+                                )}
                             </div>
-                        </div>
 
-                        {shouldShowArrows && (
-                            <button
-                                type="button"
-                                className={`${styles.navButton} ${styles.navButtonRight}`}
-                                aria-label={dictionary.sliderNext}
-                                onClick={handleNext}
-                            >
-                                <ChevronRightIcon focusable="false" />
-                            </button>
-                        )}
-                    </div>
-
-                    {totalPages > 1 && (
-                        <div className={styles.dots} role="tablist" aria-label={dictionary.heading}>
-                            {Array.from({length: totalPages}).map((_, index) => (
-                                <button
-                                    key={`dot-${index}`}
-                                    type="button"
-                                    className={`${styles.dot} ${currentSlide === index ? styles.dotActive : ''}`.trim()}
-                                    aria-label={`${dictionary.sliderItemLabelPrefix} ${index + 1}`}
-                                    aria-pressed={currentSlide === index}
-                                    onClick={() => setCurrentSlide(index)}
-                                />
-                            ))}
-                        </div>
+                            {totalPages > 1 && (
+                                <div className={styles.dots} role="tablist" aria-label={dictionary.heading}>
+                                    {Array.from({length: totalPages}).map((_, index) => (
+                                        <button
+                                            key={`dot-${index}`}
+                                            type="button"
+                                            className={`${styles.dot} ${currentSlide === index ? styles.dotActive : ''}`.trim()}
+                                            aria-label={`${dictionary.sliderItemLabelPrefix} ${index + 1}`}
+                                            aria-pressed={currentSlide === index}
+                                            onClick={() => setCurrentSlide(index)}
+                                        />
+                                    ))}
+                                </div>
+                            )}
+                        </>
                     )}
                 </div>
             </div>
