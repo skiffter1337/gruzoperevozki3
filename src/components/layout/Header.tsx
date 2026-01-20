@@ -2,6 +2,7 @@
 
 import {ReactNode, useEffect, useState} from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {usePathname, useRouter} from 'next/navigation';
 import {Locale} from '../../../i18n-config';
 import {
@@ -166,6 +167,11 @@ export default function Header({locale, dictionary}: HeaderProps) {
             } ${isMenuOpen ? styles.mobileMenuOpen : ''}`}
         >
             <div className={styles.container}>
+                <div className={styles.logo}>
+                    <Link href={buildLocalizedPath(locale, 'home')} aria-label="Home">
+                        <Image src="/images/logo.PNG" alt="Company logo" width={160} height={60} priority />
+                    </Link>
+                </div>
                 <nav className={styles.nav}>
                     <ul className={styles.navList}>
                         {navOrder.map((route, index) => (
