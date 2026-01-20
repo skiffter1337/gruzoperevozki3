@@ -769,7 +769,7 @@ const defaultDictionary: DictionaryType = {
                 'Размер квартиры',
                 'Расстояние',
                 'Доп.\nуслуги',
-                'Примерная\nцена (шекели)',
+                'Примерная\nцена ₪',
             ],
             rowsByRegion: {
                 nizinnost: [
