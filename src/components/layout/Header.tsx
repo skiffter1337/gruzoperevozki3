@@ -168,7 +168,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
             <div className={styles.container}>
                 <div className={styles.logo}>
                     <Link href={buildLocalizedPath(locale, 'home')} aria-label="Home">
-                        <Image src="/images/logo.PNG" alt="Company logo" width={160} height={60} priority />
+                        <Image src="/images/logo.png" alt="Company logo" width={160} height={60} priority />
                     </Link>
                 </div>
                 <nav className={styles.nav}>

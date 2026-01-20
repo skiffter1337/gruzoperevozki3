@@ -12,10 +12,6 @@
 
   &.primaryVariant {
     background-color: vars.$primary-color;
-    background-image: url('/images/bg.PNG');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     color: vars.$color-white;
 
     .navLink{
@@ -33,7 +29,7 @@
     }
 
     &.scrolled {
-      background: vars.$primary-color url('/images/bg.PNG') center / cover no-repeat;
+      background-color: vars.$primary-color;
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
     }
   }
@@ -53,11 +49,11 @@
 
   &.mobileMenuOpen {
     .burgerLine {
-      background-color: vars.$color-white;
+      background-color: vars.$primary-color;
     }
 
     .langButton {
-      color: vars.$color-white;
+      color: vars.$primary-color;
     }
   }
 }
@@ -94,11 +90,8 @@
 
   img {
     width: auto;
-    height: 50px;
+    height: 80px;
 
-    @media (max-width: vars.$mobile-breakpoint) {
-      height: 40px;
-    }
   }
 }
 
@@ -130,7 +123,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 20px;
+  font-size: 18px;
   color: vars.$primary-color;
   font-family: vars.$base-font;
   font-weight: 500;
@@ -580,7 +573,7 @@
 
 @media (max-width: vars.$tablet-breakpoint) {
   .logo img {
-    height: 40px;
+    height: 60px;
   }
 }
 

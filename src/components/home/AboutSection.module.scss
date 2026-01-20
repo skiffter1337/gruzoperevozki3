@@ -20,8 +20,7 @@
 
 .innerLeft {
   min-height: 680px;
-  background: $primary-color url('/images/bg.PNG') center / cover no-repeat;
-  width: 50%;
+  background: $primary-color;  width: 50%;
   clip-path: polygon(
                   81% 0%,
                   0% 0%,
