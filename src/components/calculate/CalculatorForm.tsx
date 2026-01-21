@@ -32,6 +32,7 @@ type CalculatorFormProps = {
 type InventoryItem = {
   name: string;
   count: number;
+  room: keyof DictionaryType['calculatePage']['roomTabs'] | 'custom';
 };
 
 export default function CalculatorForm({
@@ -56,7 +57,13 @@ export default function CalculatorForm({
   const [searchTerm, setSearchTerm] = useState('');
   const [customItemName, setCustomItemName] = useState('');
   const [items, setItems] = useState<InventoryItem[]>(
-    dictionary.presetItems.map((name) => ({ name, count: 1 }))
+    Object.entries(dictionary.roomItems).flatMap(([room, roomItems]) =>
+      roomItems.map((name) => ({
+        name,
+        count: 0,
+        room: room as keyof DictionaryType['calculatePage']['roomTabs'],
+      }))
+    )
   );
   const [errors, setErrors] = useState<{ from?: string; to?: string; date?: string }>({});
 
@@ -88,7 +95,7 @@ export default function CalculatorForm({
         );
       }
 
-      return [...prev, { name: trimmed, count: 1 }];
+      return [...prev, { name: trimmed, count: 1, room: 'custom' }];
     });
     setCustomItemName('');
   };
@@ -129,9 +136,12 @@ export default function CalculatorForm({
   };
 
   const filteredItems = items.filter((item) => {
+    if (item.room !== activeRoom) return false;
     if (!searchTerm.trim()) return true;
     return item.name.toLowerCase().includes(searchTerm.trim().toLowerCase());
   });
+
+  const selectedItems = items.filter((item) => item.count > 0);
 
   return (
     <div className={styles.formWrapper}>
@@ -316,37 +326,18 @@ export default function CalculatorForm({
 
         <div className={styles.inventoryPanel}>
           <div className={styles.itemFilters}>
-          <div className={styles.itemInput}>
-            <label htmlFor="itemSearch" className={styles.label}>
+            <div className={styles.itemInput}>
+              <label htmlFor="itemSearch" className={styles.label}>
                 {dictionary.itemNameLabel}
-            </label>
-            <input
-              id="itemSearch"
-              name="itemSearch"
+              </label>
+              <input
+                id="itemSearch"
+                name="itemSearch"
                 className={styles.input}
                 placeholder={dictionary.itemNamePlaceholder}
                 value={searchTerm}
                 onChange={(event) => setSearchTerm(event.target.value)}
               />
-            </div>
-
-          <div className={styles.itemInput}>
-            <label htmlFor="customItem" className={styles.label}>
-                {dictionary.customItemLabel}
-            </label>
-              <div className={styles.customRow}>
-                <input
-                  id="customItem"
-                  name="customItem"
-                  className={styles.input}
-                  placeholder={dictionary.customItemPlaceholder}
-                  value={customItemName}
-                  onChange={(event) => setCustomItemName(event.target.value)}
-                />
-                <button type="button" className={styles.addItemBtn} onClick={addCustomItem}>
-                  {dictionary.addButton}
-                </button>
-              </div>
             </div>
           </div>
 
@@ -374,6 +365,39 @@ export default function CalculatorForm({
 
               </div>
             ))}
+          </div>
+          <div className={styles.selectedItems}>
+            <h3 className={styles.selectedItemsTitle}>{dictionary.selectedItemsLabel}</h3>
+            {selectedItems.length === 0 ? (
+              <p className={styles.selectedItemsEmpty}>{dictionary.selectedItemsEmpty}</p>
+            ) : (
+              <div className={styles.selectedItemsList}>
+                {selectedItems.map((item) => (
+                  <div key={item.name} className={styles.selectedItemRow}>
+                    <span className={styles.selectedItemCount}>{item.count}</span>
+                    <span className={styles.selectedItemName}>{item.name}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+            <div className={styles.itemInput}>
+              <label htmlFor="customItem" className={styles.label}>
+                {dictionary.customItemLabel}
+              </label>
+              <div className={styles.customRow}>
+                <input
+                  id="customItem"
+                  name="customItem"
+                  className={styles.input}
+                  placeholder={dictionary.customItemPlaceholder}
+                  value={customItemName}
+                  onChange={(event) => setCustomItemName(event.target.value)}
+                />
+                <button type="button" className={styles.addItemBtn} onClick={addCustomItem}>
+                  {dictionary.addButton}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 

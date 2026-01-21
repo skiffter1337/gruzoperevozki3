@@ -304,17 +304,22 @@ export type DictionaryType = {
         roomTabsLabel: string;
         roomTabs: {
             livingRoom: string;
-            kitchen: string;
             bedroom: string;
-            hallway: string;
             kids: string;
-            other: string;
+            kitchen: string;
+            bathroom: string;
+            balcony: string;
         };
-        presetItems: string[];
+        roomItems: Record<
+            keyof DictionaryType['calculatePage']['roomTabs'],
+            string[]
+        >;
         itemNameLabel: string;
         itemNamePlaceholder: string;
         customItemLabel: string;
         customItemPlaceholder: string;
+        selectedItemsLabel: string;
+        selectedItemsEmpty: string;
         addButton: string;
         decreaseLabel: string;
         increaseLabel: string;
@@ -1130,17 +1135,84 @@ const defaultDictionary: DictionaryType = {
         roomTabsLabel: 'Комнаты',
         roomTabs: {
             livingRoom: 'Гостиная',
-            kitchen: 'Кухня',
             bedroom: 'Спальня',
-            hallway: 'Прихожая',
             kids: 'Детская',
-            other: 'Другое',
+            kitchen: 'Кухня',
+            bathroom: 'Ванная и туалет',
+            balcony: 'Балкон / махсан',
         },
-        presetItems: ['Диван', 'Торшер', 'Шкаф', 'Книжная полка', 'Телевизор', 'Журнальный столик'],
+        roomItems: {
+            livingRoom: [
+                'Диван',
+                'Угловой диван',
+                'Кресла',
+                'Журнальный столик',
+                'ТВ-тумба',
+                'Телевизор',
+                'Саундбар / колонки',
+                'Стеллаж',
+                'Полки',
+                'Ковёр',
+                'Торшер',
+                'Вентилятор',
+                'Картины',
+            ],
+            bedroom: [
+                'Кровать',
+                'Шкаф 2 двери',
+                'Шкаф 3 двери',
+                'Шкаф 4 двери',
+                'Шкаф 5 дверей',
+                'Шкаф 6 дверей',
+                'Комод',
+                'Комод с зеркалом',
+                'Тумбочки прикроватные',
+                'Пуф прикроватный',
+            ],
+            kids: [
+                'Детская кровать',
+                'Двухъярусная кровать',
+                'Письменный стол',
+                'Стул',
+                'Шкаф',
+                'Полки',
+                'Манеж',
+                'Кукольный дом',
+                'Стеллаж',
+            ],
+            kitchen: [
+                'Обеденный стол 4 стула',
+                'Обеденный стол и 6 стульев',
+                'Обеденный стол и 8 стульев',
+                'Обеденный стол и 12 стульев',
+                'Холодильник',
+                'Морозильник',
+                'Газовая плита',
+                'Духовка',
+                'Микроволновка',
+                'Посудомоечная машина',
+                'Тами-4 / Бар-водный фильтр',
+            ],
+            bathroom: [
+                'Стиральная машина',
+                'Сушилка',
+                'Пенал',
+            ],
+            balcony: [
+                'Пластиковые стулья',
+                'Стол',
+                'Уличная мебель (стол + кресла)',
+                'Горшки с растениями',
+                'Мангал',
+                'Велосипед',
+            ],
+        },
         itemNameLabel: 'Название предмета',
         itemNamePlaceholder: 'Введите название предмета',
         customItemLabel: 'Добавить свой предмет',
         customItemPlaceholder: 'Введите название',
+        selectedItemsLabel: 'Выбранные предметы',
+        selectedItemsEmpty: 'Пока ничего не выбрано.',
         addButton: 'Добавить',
         decreaseLabel: 'Уменьшить количество',
         increaseLabel: 'Увеличить количество',
