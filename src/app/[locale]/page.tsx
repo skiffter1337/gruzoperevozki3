@@ -11,6 +11,7 @@ import AboutSection from '@/components/home/AboutSection';
 import WhyUsSection from '@/components/home/WhyUsSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import ArticlesSection from '@/components/home/ArticlesSection';
+import styles from './HomePage.module.scss';
 
 type Props = {
   params: Promise<{
@@ -44,7 +45,7 @@ export default async function HomePage({ params }: Props) {
   const dictionary = await getDictionary(locale);
 
   return (
-    <>
+    <div className={styles.homePage}>
       <BookingBanner locale={locale} dictionary={dictionary.homeHero} />
       <ServicesSlider locale={locale} dictionary={dictionary.homeHero} />
       <RegionsSlider locale={locale} dictionary={dictionary.homeRegions} />
@@ -53,6 +54,6 @@ export default async function HomePage({ params }: Props) {
       <WhyUsSection locale={locale} dictionary={dictionary.homeWhyUs} />
       <ArticlesSection locale={locale} dictionary={dictionary.homeArticles} />
       <TestimonialsSection locale={locale} dictionary={dictionary.homeTestimonials} />
-    </>
+    </div>
   );
 }
