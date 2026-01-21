@@ -378,6 +378,62 @@
   }
 }
 
+.selectedItems {
+  border-radius: vars.$radius-md;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.12);
+  display: grid;
+  gap: 12px;
+}
+
+.selectedItemsTitle {
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.selectedItemsEmpty {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.selectedItemsList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 16px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.selectedItemRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.selectedItemCount {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: vars.$color-white;
+  color: vars.$primary-color;
+  font-weight: 700;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectedItemName {
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
 .assemblyRow {
   display: flex;
   align-items: center;

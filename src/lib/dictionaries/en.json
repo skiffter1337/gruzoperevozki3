@@ -876,17 +876,84 @@
     "roomTabsLabel": "Rooms",
     "roomTabs": {
       "livingRoom": "Living room",
-      "kitchen": "Kitchen",
       "bedroom": "Bedroom",
-      "hallway": "Hallway",
       "kids": "Kids room",
-      "other": "Other"
+      "kitchen": "Kitchen",
+      "bathroom": "Bathroom & toilet",
+      "balcony": "Balcony / storage"
     },
-    "presetItems": ["Sofa", "Floor lamp", "Wardrobe", "Bookshelf", "TV", "Coffee table"],
+    "roomItems": {
+      "livingRoom": [
+        "Sofa",
+        "Corner sofa",
+        "Armchairs",
+        "Coffee table",
+        "TV stand",
+        "TV",
+        "Soundbar / speakers",
+        "Shelving unit",
+        "Shelves",
+        "Carpet",
+        "Floor lamp",
+        "Fan",
+        "Paintings"
+      ],
+      "bedroom": [
+        "Bed",
+        "Wardrobe 2 doors",
+        "Wardrobe 3 doors",
+        "Wardrobe 4 doors",
+        "Wardrobe 5 doors",
+        "Wardrobe 6 doors",
+        "Chest of drawers",
+        "Chest with mirror",
+        "Bedside tables",
+        "Bedside pouf"
+      ],
+      "kids": [
+        "Kids bed",
+        "Bunk bed",
+        "Writing desk",
+        "Chair",
+        "Wardrobe",
+        "Shelves",
+        "Playpen",
+        "Doll house",
+        "Shelving unit"
+      ],
+      "kitchen": [
+        "Dining table + 4 chairs",
+        "Dining table + 6 chairs",
+        "Dining table + 8 chairs",
+        "Dining table + 12 chairs",
+        "Fridge",
+        "Freezer",
+        "Gas stove",
+        "Oven",
+        "Microwave",
+        "Dishwasher",
+        "Tami-4 / Bar water filter"
+      ],
+      "bathroom": [
+        "Washing machine",
+        "Dryer",
+        "Cabinet"
+      ],
+      "balcony": [
+        "Plastic chairs",
+        "Table",
+        "Outdoor furniture (table + chairs)",
+        "Plant pots",
+        "BBQ grill",
+        "Bicycle"
+      ]
+    },
     "itemNameLabel": "Item name",
     "itemNamePlaceholder": "Enter item name",
     "customItemLabel": "Add your item",
     "customItemPlaceholder": "Enter name",
+    "selectedItemsLabel": "Selected items",
+    "selectedItemsEmpty": "No items selected yet.",
     "addButton": "Add",
     "decreaseLabel": "Decrease quantity",
     "increaseLabel": "Increase quantity",
