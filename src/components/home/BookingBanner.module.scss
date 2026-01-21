@@ -4,6 +4,10 @@
   background: $primary-color url('/bg.png') center / cover no-repeat;
   color: $color-white;
   padding: 120px 16px 64px;
+  @media (max-width: $tablet-breakpoint) {
+    padding-top: 100px;
+    padding-bottom: 32px;
+  }
 }
 
 .container {
@@ -24,6 +28,10 @@
   max-width: 900px;
   line-height: clamp(48px, 4vw, 64px);
   margin-top: 72px;
+
+  @media (max-width: $tablet-breakpoint) {
+    margin-top: 0;
+  }
 }
 
 .subtitle {
@@ -92,7 +100,7 @@
   width: 100%;
   flex-direction: column;
   gap: 32px;
-  @media (min-width: $tablet-breakpoint) {
+  @media (max-width: $tablet-breakpoint) {
     gap: 16px;
   }
 }

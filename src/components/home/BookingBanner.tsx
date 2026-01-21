@@ -161,7 +161,7 @@ export default function BookingBanner({
               <GradientButton type="submit" ariaLabel={dictionary.submit}>
                 {dictionary.submit}
               </GradientButton>
-              <div className={styles.submitLabel}>{dictionary.submitLabel}</div>
+              <div className={styles.submitLabel}>({dictionary.submitLabel})</div>
             </div>
           </form>
         </div>

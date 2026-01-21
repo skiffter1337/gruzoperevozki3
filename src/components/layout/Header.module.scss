@@ -127,7 +127,9 @@
   color: vars.$primary-color;
   font-family: vars.$base-font;
   font-weight: 500;
-
+  @media (max-width: vars.$wide-breakpoint) {
+    font-size: 15px;
+  }
 
 }
 
