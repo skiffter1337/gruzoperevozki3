@@ -1,7 +1,7 @@
 @use '@/styles/variables' as vars;
 
 .section {
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
   padding: 0 0 72px;
 
   @media (max-width: vars.$tablet-breakpoint) {
@@ -54,7 +54,7 @@
 }
 
 .cell {
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
   border: 2px solid vars.$primary-color;
   border-radius: 10px;
   padding: 18px;

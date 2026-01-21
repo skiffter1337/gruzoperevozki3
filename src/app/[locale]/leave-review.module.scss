@@ -2,7 +2,7 @@
 
 .page {
   padding: 120px 16px 80px;
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
 
   @media (max-width: vars.$tablet-breakpoint) {
     padding-top: 60px;
@@ -109,7 +109,7 @@
   height: 136px;
   border-radius: vars.$radius-full;
   border: 2px solid rgba(255, 255, 255, 0.6);
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -176,7 +176,7 @@
   font-size: 16px;
   font-weight: 600;
   color: vars.$primary-blue;
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
   width: 100%;
 }
 
@@ -228,7 +228,7 @@
     width: 22px;
     height: 22px;
     border-radius: 6px;
-    background: vars.$color-white;
+    background: vars.$bg-white-image center / cover no-repeat;
     border: 2px solid vars.$color-white;
     position: relative;
     cursor: pointer;
@@ -248,7 +248,7 @@
   }
 
   input[type='checkbox']:checked + .customCheckbox {
-    background: vars.$color-white;
+    background: vars.$bg-white-image center / cover no-repeat;
 
     &::after {
       opacity: 1;

@@ -1,7 +1,7 @@
 @use '@/styles/variables' as vars;
 
 .page {
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
   padding: 120px 0 96px;
 
   @media (max-width: vars.$tablet-breakpoint) {

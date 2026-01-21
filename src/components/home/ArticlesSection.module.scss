@@ -1,7 +1,7 @@
 @import '@/styles/_variables.scss';
 
 .section {
-  background: $color-white;
+  background: $bg-white-image center / cover no-repeat;
   transition: background-color $transition-base;
 
   @media (max-width: 1023px) {
@@ -250,7 +250,7 @@
 
   &.dotActive {
     opacity: 1;
-    background: $color-white;
+    background: $bg-white-image center / cover no-repeat;
   }
 
   &:hover {

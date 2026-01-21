@@ -2,7 +2,7 @@
 
 .page {
   padding: 120px 16px 80px;
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
 }
 
 .container {
@@ -128,7 +128,7 @@
   padding: 12px 14px;
   border-radius: vars.$radius-xl;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
   color: vars.$text-color;
   font-size: 16px;
   height: 50px;
@@ -153,7 +153,7 @@
   align-items: center;
   justify-content: end;
   gap: 16px;
-  background: #fff;
+  background: vars.$bg-white-image center / cover no-repeat;
   border: 1px solid #fff6;
   border-radius: 16px;
   width: 100%;
@@ -176,7 +176,7 @@
     width: 28px;
     height: 28px;
     border-radius: 6px;
-    background: vars.$color-white;
+    background: vars.$bg-white-image center / cover no-repeat;
     border: 2px solid vars.$primary-color;
     cursor: pointer;
     position: relative;
@@ -216,7 +216,7 @@
 }
 
 .innerCard {
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
   border-radius: vars.$radius-lg;
   padding: 20px;
   color: vars.$text-color;
@@ -314,7 +314,7 @@
   height: 20px;
   text-align: center;
   font-weight: 700;
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
   border-radius: 5px;
   color: vars.$primary-color;
   font-size: 10px;
@@ -356,7 +356,7 @@
   height: 20px;
   text-align: center;
   font-weight: 700;
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
   border-radius: 5px;
   color: vars.$primary-color;
   font-size: 10px;
@@ -419,7 +419,7 @@
   width: 24px;
   height: 24px;
   border-radius: 6px;
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
   color: vars.$primary-color;
   font-weight: 700;
   font-size: 12px;
@@ -455,7 +455,7 @@
     width: 28px;
     height: 28px;
     border-radius: 6px;
-    background: vars.$color-white;
+    background: vars.$bg-white-image center / cover no-repeat;
     border: 2px solid vars.$primary-color;
     cursor: pointer;
     position: relative;
@@ -628,7 +628,7 @@
     width: 22px;
     height: 22px;
     border-radius: 6px;
-    background: vars.$color-white;
+    background: vars.$bg-white-image center / cover no-repeat;
     border: 2px solid vars.$color-white;
     position: relative;
     cursor: pointer;
@@ -648,7 +648,7 @@
   }
 
   input[type='checkbox']:checked + .customCheckbox {
-    background: vars.$color-white;
+    background: vars.$bg-white-image center / cover no-repeat;
 
     &::after {
       opacity: 1;
