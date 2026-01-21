@@ -73,10 +73,10 @@ export default function CalculatorForm({
     setValues((prev) => ({ ...prev, [key]: value }));
   };
 
-  const updateItemCount = (name: string, delta: number) => {
+  const updateItemCount = (name: string, room: InventoryItem['room'], delta: number) => {
     setItems((prev) =>
       prev.map((item) =>
-        item.name === name
+        item.name === name && item.room === room
           ? { ...item, count: Math.max(0, item.count + delta) }
           : item
       )
@@ -343,11 +343,11 @@ export default function CalculatorForm({
 
           <div className={styles.itemList}>
             {filteredItems.map((item) => (
-              <div key={item.name} className={styles.itemRow}>
+              <div key={`${item.room}-${item.name}`} className={styles.itemRow}>
                 <button
                   type="button"
                   className={styles.counterButton}
-                  onClick={() => updateItemCount(item.name, 1)}
+                  onClick={() => updateItemCount(item.name, item.room, 1)}
                   aria-label={dictionary.increaseLabel}
                 >
                   +
@@ -356,7 +356,7 @@ export default function CalculatorForm({
                 <button
                     type="button"
                     className={styles.counterButton}
-                    onClick={() => updateItemCount(item.name, -1)}
+                    onClick={() => updateItemCount(item.name, item.room, -1)}
                     aria-label={dictionary.decreaseLabel}
                 >
                   −
@@ -373,7 +373,7 @@ export default function CalculatorForm({
             ) : (
               <div className={styles.selectedItemsList}>
                 {selectedItems.map((item) => (
-                  <div key={item.name} className={styles.selectedItemRow}>
+                  <div key={`${item.room}-${item.name}`} className={styles.selectedItemRow}>
                     <span className={styles.selectedItemCount}>{item.count}</span>
                     <span className={styles.selectedItemName}>{item.name}</span>
                   </div>

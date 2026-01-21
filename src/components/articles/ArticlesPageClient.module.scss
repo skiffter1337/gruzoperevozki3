@@ -1,7 +1,7 @@
 @use '@/styles/variables' as vars;
 
 .page {
-  background: vars.$color-white;
+  background: vars.$bg-white-image center / cover no-repeat;
   padding: 120px 16px 96px;
 
   @media (max-width: 1023px) {
@@ -284,7 +284,7 @@
 
   &.dotActive {
     opacity: 1;
-    background: vars.$color-white;
+    background: vars.$bg-white-image center / cover no-repeat;
   }
 
   &:hover {

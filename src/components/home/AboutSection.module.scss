@@ -2,7 +2,7 @@
 
 .section {
   margin-top: 30px;
-  background: $color-white;
+  background: $bg-white-image center / cover no-repeat;
   height: 780px;
   display: flex;
   align-items: center;
@@ -169,7 +169,7 @@
 
     @media (max-width: 768px) {
       &::after {
-        background: $color-white;
+        background: $bg-white-image center / cover no-repeat;
       }
     }
     @media (max-width: 480px) {

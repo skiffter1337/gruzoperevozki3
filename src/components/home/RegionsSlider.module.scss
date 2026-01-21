@@ -71,7 +71,7 @@
 }
 
 .desktopTabActive {
-  background: $color-white;
+  background: $bg-white-image center / cover no-repeat;
   color: $color-black;
   border-color: $color-white;
 }
@@ -80,7 +80,7 @@
   display: grid;
   grid-template-columns: minmax(260px, 360px) 1fr;
   gap: 24px;
-  background: $color-white;
+  background: $bg-white-image center / cover no-repeat;
   border-radius: $radius-lg;
   padding: 24px;
   color: $color-black;
@@ -265,7 +265,7 @@
 }
 
 .dotActive {
-  background: $color-white;
+  background: $bg-white-image center / cover no-repeat;
   border-color: $color-white;
   transform: scale(1.15);
 }
