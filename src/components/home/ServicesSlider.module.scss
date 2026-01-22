@@ -12,9 +12,9 @@
 }
 
 .sliderSection {
-  background: $bg-white-image center / cover no-repeat;
+  background: $color-white;
   padding: 64px 0 96px;
-  color: $text-color;
+  color: $primary-color;
 
   @media (max-width: $desktop-breakpoint) {
     padding-bottom: 64px;
