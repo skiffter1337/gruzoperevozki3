@@ -12,9 +12,9 @@
 }
 
 .sliderSection {
-  background: $primary-color url('/bg.png') center / cover no-repeat;
+  background: $color-white;
   padding: 64px 0 96px;
-  color: $color-white;
+  color: $primary-color;
 }
 
 .sliderHeader {
@@ -25,7 +25,7 @@
 .sliderTitle {
   font-size: clamp(46px, 4vw, 56px);
   text-transform: uppercase;
-  color: $color-white;
+  color: $primary-color;
   font-weight: 700;
   line-height: 62px;
   text-align: center;
@@ -54,11 +54,11 @@
 
 .desktopTab {
   font-family: "Montserrat", sans-serif;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba($primary-color, 0.4);
   border-radius: $radius-lg;
   padding: 14px 16px;
   background: transparent;
-  color: $color-white;
+  color: $primary-color;
   font-size: 16px;
   font-weight: 600;
   text-align: center;
@@ -66,24 +66,24 @@
   transition: background-color $transition-base, color $transition-base, border-color $transition-base;
 
   &:hover {
-    border-color: $color-white;
+    border-color: $primary-color;
   }
 }
 
 .desktopTabActive {
-  background: $bg-white-image center / cover no-repeat;
-  color: $color-black;
-  border-color: $color-white;
+  background: $color-white;
+  color: $primary-color;
+  border-color: $primary-color;
 }
 
 .desktopPanel {
   display: grid;
   grid-template-columns: minmax(260px, 360px) 1fr;
   gap: 24px;
-  background: $bg-white-image center / cover no-repeat;
+  background: $color-white;
   border-radius: $radius-lg;
   padding: 24px;
-  color: $color-black;
+  color: $primary-color;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
   align-items: start;
   text-align: left;
@@ -116,13 +116,13 @@
 }
 
 .cityLink {
-  color: $color-black;
+  color: $primary-color;
   font-weight: 600;
   text-decoration: none;
   transition: color $transition-fast, transform $transition-fast;
 
   &:hover {
-    color: $primary-color;
+    color: $primary-blue;
     transform: none;
   }
 }
@@ -214,7 +214,7 @@
 
 .navButton {
   all: unset;
-  color: $color-white;
+  color: $primary-color;
   width: 48px;
   height: 48px;
   display: grid;
@@ -254,19 +254,19 @@
   height: 23px;
   border-radius: $radius-full;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba($primary-color, 0.6);
   transition: transform $transition-fast, background-color $transition-base, border-color $transition-base;
   cursor: pointer;
 
   &:hover {
     transform: scale(1.1);
-    border-color: $color-white;
+    border-color: $primary-color;
   }
 }
 
 .dotActive {
-  background: $bg-white-image center / cover no-repeat;
-  border-color: $color-white;
+  background: $primary-color;
+  border-color: $primary-color;
   transform: scale(1.15);
 }
 

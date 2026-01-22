@@ -1,12 +1,8 @@
 @import '@/styles/_variables.scss';
 
 .section {
-  background: $bg-white-image center / cover no-repeat;
+  background: $color-white;
   transition: background-color $transition-base;
-
-  @media (max-width: 1023px) {
-    background: $primary-color;
-  }
 }
 
 .container {
@@ -25,8 +21,6 @@
 
   @media (max-width: $tablet-breakpoint) {
     padding: 56px 12px 64px;
-    background: $primary-color url('/bg.png') center / cover no-repeat;
-
     gap: 28px;
   }
 }
@@ -43,11 +37,7 @@
   letter-spacing: 0.02em;
   text-transform: uppercase;
   text-align: center;
-  color: $primary-blue;
-
-  @media (max-width: 1023px) {
-    color: $color-white;
-  }
+  color: $primary-color;
 }
 
 .grid {
@@ -243,18 +233,18 @@
   height: 23px;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px solid $color-white;
+  border: 1px solid $primary-color;
   background: transparent;
   opacity: 0.6;
   transition: $transition-fast;
 
   &.dotActive {
     opacity: 1;
-    background: $bg-white-image center / cover no-repeat;
+    background: $primary-color;
   }
 
   &:hover {
     transform: scale(1.1);
-    border-color: $color-white;
+    border-color: $primary-color;
   }
 }
