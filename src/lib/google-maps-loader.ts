@@ -1,12 +1,6 @@
-type GoogleMapsLoaderOptions = {
-  apiKey?: string;
-  language?: string;
-  region?: string;
-};
+let loaderPromise: Promise<void> | null = null;
 
-const loaderPromises = new Map<string, Promise<void>>();
-
-export const loadGoogleMaps = ({ apiKey, language, region }: GoogleMapsLoaderOptions) => {
+export const loadGoogleMaps = (apiKey?: string) => {
   if (typeof window === 'undefined') {
     return Promise.resolve();
   }
@@ -19,12 +13,8 @@ export const loadGoogleMaps = ({ apiKey, language, region }: GoogleMapsLoaderOpt
     return Promise.reject(new Error('Google Maps API key is missing.'));
   }
 
-  const languageParam = language ? `&language=${encodeURIComponent(language)}` : '';
-  const regionParam = region ? `&region=${encodeURIComponent(region)}` : '';
-  const cacheKey = `${apiKey}:${languageParam}:${regionParam}`;
-
-  if (!loaderPromises.has(cacheKey)) {
-    const loaderPromise = new Promise<void>((resolve, reject) => {
+  if (!loaderPromise) {
+    loaderPromise = new Promise((resolve, reject) => {
       const existingScript = document.querySelector<HTMLScriptElement>(
         'script[data-google-maps="places"]'
       );
@@ -38,7 +28,7 @@ export const loadGoogleMaps = ({ apiKey, language, region }: GoogleMapsLoaderOpt
       }
 
       const script = document.createElement('script');
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places${languageParam}${regionParam}`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`;
       script.async = true;
       script.defer = true;
       script.dataset.googleMaps = 'places';
@@ -46,8 +36,7 @@ export const loadGoogleMaps = ({ apiKey, language, region }: GoogleMapsLoaderOpt
       script.onerror = () => reject(new Error('Failed to load Google Maps script.'));
       document.head.appendChild(script);
     });
-    loaderPromises.set(cacheKey, loaderPromise);
   }
 
-  return loaderPromises.get(cacheKey) ?? Promise.resolve();
+  return loaderPromise;
 };

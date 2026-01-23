@@ -3,7 +3,7 @@
 import { FormEvent, useMemo, useRef, useState, useEffect } from 'react';
 import GradientButton from '@/components/gradient-button/GradientButton';
 import { DictionaryType } from '@/lib/dictionaries';
-import { loadGoogleMaps } from '@/lib/google-maps-loader';
+import { israelLocationSuggestions } from '@/lib/israel-locations';
 import styles from '@/app/[locale]/calculate.module.scss';
 
 export type CalculatorFormPayload = {
@@ -71,70 +71,7 @@ export default function CalculatorForm({
   const toInputRef = useRef<HTMLInputElement>(null);
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
-  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-
-  useEffect(() => {
-    if (!googleMapsApiKey) {
-      return;
-    }
-
-    let isActive = true;
-
-    const language =
-      typeof document !== 'undefined' ? document.documentElement.lang || 'en' : 'en';
-
-    loadGoogleMaps({
-      apiKey: googleMapsApiKey,
-      language,
-      region: 'IL',
-    })
-      .then(() => {
-        if (!isActive || !window.google?.maps?.places) {
-          return;
-        }
-
-        const options = {
-          componentRestrictions: { country: 'il' },
-          fields: ['formatted_address', 'name'],
-          types: ['geocode'],
-        };
-
-        if (fromInputRef.current) {
-          const autocomplete = new window.google.maps.places.Autocomplete(
-            fromInputRef.current,
-            options
-          );
-          autocomplete.addListener('place_changed', () => {
-            const place = autocomplete.getPlace();
-            const nextValue = place.formatted_address || place.name || fromInputRef.current?.value;
-            if (nextValue) {
-              updateValue('from', nextValue);
-            }
-          });
-        }
-
-        if (toInputRef.current) {
-          const autocomplete = new window.google.maps.places.Autocomplete(
-            toInputRef.current,
-            options
-          );
-          autocomplete.addListener('place_changed', () => {
-            const place = autocomplete.getPlace();
-            const nextValue = place.formatted_address || place.name || toInputRef.current?.value;
-            if (nextValue) {
-              updateValue('to', nextValue);
-            }
-          });
-        }
-      })
-      .catch((error) => {
-        console.warn('Failed to load Google Maps autocomplete', error);
-      });
-
-    return () => {
-      isActive = false;
-    };
-  }, [googleMapsApiKey]);
+  const suggestionsId = 'israel-location-suggestions';
 
   const updateValue = <Key extends keyof typeof values>(key: Key, value: (typeof values)[Key]) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -235,7 +172,7 @@ export default function CalculatorForm({
                 required
                 aria-invalid={Boolean(errors.from)}
                 aria-describedby={errors.from ? 'from-error' : undefined}
-                ref={fromInputRef}
+                list={suggestionsId}
               />
               {errors.from && (
                 <span id="from-error" className={styles.errorText} role="alert">
@@ -271,7 +208,7 @@ export default function CalculatorForm({
                       {option}
                     </option>
                 ))}
-              </select>
+              </select>https://github.com/skiffter1337/gruzoperevozki3/pull/98/conflict?name=src%252Fcomponents%252Fhome%252FBookingBanner.tsx&ancestor_oid=461bc7270abddc8954b3471448e0f8fd7e81d521&base_oid=a597805425f7cf610c4940c1803ebda6b5ded961&head_oid=9900a344119baf22841ff752613b1132f8f89c4f
             </div>
           </div>
         </div>
@@ -291,7 +228,7 @@ export default function CalculatorForm({
                 required
                 aria-invalid={Boolean(errors.to)}
                 aria-describedby={errors.to ? 'to-error' : undefined}
-                ref={toInputRef}
+                list={suggestionsId}
             />
             {errors.to && (
               <span id="to-error" className={styles.errorText} role="alert">
@@ -333,6 +270,11 @@ export default function CalculatorForm({
         </div>
 
       </div>
+      <datalist id={suggestionsId}>
+        {israelLocationSuggestions.map((location) => (
+          <option key={location} value={location} />
+        ))}
+      </datalist>
       <div className={styles.field}>
         <label htmlFor="date" className={styles.label}>
           {dictionary.dateLabel}
