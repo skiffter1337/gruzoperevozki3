@@ -2,19 +2,26 @@ import Link from 'next/link';
 import { Locale } from '../../../i18n-config';
 import { DictionaryType } from '@/lib/dictionaries';
 import { buildLocalizedPath } from '@/lib/localized-paths';
+import BookingBanner from '@/components/home/BookingBanner';
 import styles from './SmallMovePage.module.scss';
 
 type ApartmentMovePageProps = {
   locale: Locale;
   dictionary: DictionaryType['apartmentMovePage'];
+  calculatorDictionary: DictionaryType['homeHero'];
 };
 
-export default function ApartmentMovePage({ locale, dictionary }: ApartmentMovePageProps) {
+export default function ApartmentMovePage({
+  locale,
+  dictionary,
+  calculatorDictionary,
+}: ApartmentMovePageProps) {
   const isRtl = locale === 'he';
   const calculateLink = buildLocalizedPath(locale, 'calculate');
 
   return (
     <div className={styles.page} dir={isRtl ? 'rtl' : 'ltr'}>
+      <BookingBanner locale={locale} dictionary={calculatorDictionary} headingLevel="h2" />
       <section className={styles.hero} aria-labelledby="apartment-move-title">
         <div className={styles.container}>
           <h1 id="apartment-move-title" className={styles.title}>
