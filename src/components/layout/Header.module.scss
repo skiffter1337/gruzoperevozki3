@@ -43,6 +43,7 @@
 
       @media (max-width: vars.$mobile-breakpoint) {
         padding: 0 16px;
+        flex-direction: row-reverse;
       }
     }
   }
@@ -73,6 +74,7 @@
 
   @media (max-width: vars.$mobile-breakpoint) {
     padding: 0px 16px;
+    flex-direction: row-reverse;
   }
 }
 
