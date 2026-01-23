@@ -68,6 +68,7 @@ export default function Footer({locale, dictionary, company}: FooterProps) {
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
+                <div className={styles.stripe} aria-hidden />
                 <nav className={styles.columns} aria-label={dictionary.ariaLabel}>
                     <div className={styles.column}>
                         <div className={styles.columnHeader}>

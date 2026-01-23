@@ -11,6 +11,13 @@
   margin: 0 auto;
 }
 
+.stripe {
+  height: 4px;
+  background: $primary-color;
+  border-radius: 999px;
+  margin-bottom: 32px;
+}
+
 .columns {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
