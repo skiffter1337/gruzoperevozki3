@@ -1,10 +1,11 @@
 'use client';
 
-import { FormEvent, useMemo, useState } from 'react';
+import { FormEvent, useMemo, useRef, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import GradientButton from '@/components/gradient-button/GradientButton';
 import { DictionaryType } from '@/lib/dictionaries';
 import { buildLocalizedPath } from '@/lib/localized-paths';
+import { loadGoogleMaps } from '@/lib/google-maps-loader';
 import { Locale } from '../../../i18n-config';
 import styles from './BookingBanner.module.scss';
 
@@ -38,12 +39,78 @@ export default function BookingBanner({
   const router = useRouter();
   const [values, setValues] = useState<FormValues>(defaultValues);
   const [errors, setErrors] = useState<FormErrors>({});
+  const fromInputRef = useRef<HTMLInputElement>(null);
+  const toInputRef = useRef<HTMLInputElement>(null);
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
   const HeadingTag = headingLevel;
   const headingText = regionTitle
     ? dictionary.titleWithRegion.replace('{region}', regionTitle)
     : dictionary.title;
+  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
+  useEffect(() => {
+    if (!googleMapsApiKey) {
+      return;
+    }
+
+    let isActive = true;
+
+    const language =
+      typeof document !== 'undefined' ? document.documentElement.lang || 'en' : 'en';
+
+    loadGoogleMaps({
+      apiKey: googleMapsApiKey,
+      language,
+      region: 'IL',
+    })
+      .then(() => {
+        if (!isActive || !window.google?.maps?.places) {
+          return;
+        }
+
+        const options = {
+          componentRestrictions: { country: 'il' },
+          fields: ['formatted_address', 'name'],
+          types: ['geocode'],
+        };
+
+        if (fromInputRef.current) {
+          const autocomplete = new window.google.maps.places.Autocomplete(
+            fromInputRef.current,
+            options
+          );
+          autocomplete.addListener('place_changed', () => {
+            const place = autocomplete.getPlace();
+            const nextValue = place.formatted_address || place.name || fromInputRef.current?.value;
+            if (nextValue) {
+              updateField('from', nextValue);
+            }
+          });
+        }
+
+        if (toInputRef.current) {
+          const autocomplete = new window.google.maps.places.Autocomplete(
+            toInputRef.current,
+            options
+          );
+          autocomplete.addListener('place_changed', () => {
+            const place = autocomplete.getPlace();
+            const nextValue = place.formatted_address || place.name || toInputRef.current?.value;
+            if (nextValue) {
+              updateField('to', nextValue);
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        console.warn('Failed to load Google Maps autocomplete', error);
+      });
+
+    return () => {
+      isActive = false;
+    };
+  }, [googleMapsApiKey]);
 
   const updateField = (key: keyof FormValues, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -115,6 +182,7 @@ export default function BookingBanner({
                 required
                 aria-invalid={Boolean(errors.from)}
                 autoComplete="address-level2"
+                ref={fromInputRef}
               />
               {errors.from && <span className={styles.error}>{errors.from}</span>}
             </div>
@@ -134,6 +202,7 @@ export default function BookingBanner({
                 required
                 aria-invalid={Boolean(errors.to)}
                 autoComplete="address-level2"
+                ref={toInputRef}
               />
               {errors.to && <span className={styles.error}>{errors.to}</span>}
             </div>
