@@ -345,6 +345,65 @@ export type DictionaryType = {
             requiredConsent: string;
         };
     };
+    apartmentMovePage: {
+        slug: string;
+        metaTitle: string;
+        metaDescription: string;
+        title: string;
+        tocTitle: string;
+        tocItems: Array<{id: string; label: string}>;
+        comparison: {
+            id: string;
+            title: string;
+            paragraphs: string[];
+            bullets: string[];
+            phoneLabel: string;
+        };
+        process: {
+            id: string;
+            title: string;
+            intro: string;
+            steps: Array<{title: string; text: string}>;
+        };
+        pricing: {
+            id: string;
+            title: string;
+            intro: string;
+            note: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: SmallMoveTableRow[];
+            afterTable: string;
+        };
+        priceFactors: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+        };
+        solutions: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+        };
+        tips: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+        };
+        faq: {
+            id: string;
+            title: string;
+            items: Array<{question: string; answer: string}>;
+        };
+        closing: {
+            title: string;
+            text: string;
+            buttonLabel: string;
+        };
+    };
     smallMovePage: {
         slug: string;
         metaTitle: string;
@@ -1238,6 +1297,65 @@ const defaultDictionary: DictionaryType = {
             requiredConsent: 'Подтвердите правила и условия',
         },
     },
+    apartmentMovePage: {
+        slug: 'apartments',
+        metaTitle: 'Apartment move',
+        metaDescription: 'Apartment move description.',
+        title: 'Apartment move',
+        tocTitle: 'Table of contents',
+        tocItems: [],
+        comparison: {
+            id: 'why-compare',
+            title: 'Why compare apartment moves?',
+            paragraphs: [],
+            bullets: [],
+            phoneLabel: 'Call now',
+        },
+        process: {
+            id: 'process',
+            title: 'How to find an apartment move?',
+            intro: '',
+            steps: [],
+        },
+        pricing: {
+            id: 'pricing',
+            title: 'Apartment move price list',
+            intro: '',
+            note: '',
+            tableLabel: 'Apartment move price list',
+            tableHeaders: [],
+            rows: [],
+            afterTable: '',
+        },
+        priceFactors: {
+            id: 'price-factors',
+            title: 'What affects the price?',
+            intro: '',
+            items: [],
+        },
+        solutions: {
+            id: 'solutions',
+            title: 'Moving solutions',
+            intro: '',
+            items: [],
+        },
+        tips: {
+            id: 'tips',
+            title: 'Moving tips',
+            intro: '',
+            items: [],
+        },
+        faq: {
+            id: 'faq',
+            title: 'FAQ',
+            items: [],
+        },
+        closing: {
+            title: 'Ready to move?',
+            text: '',
+            buttonLabel: 'Get quotes',
+        },
+    },
     smallMovePage: {
         slug: 'small-move',
         metaTitle: 'Small move',
@@ -1566,6 +1684,10 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             calculatePage: {
                 ...defaultDictionary.calculatePage,
                 ...loadedDict.calculatePage,
+            },
+            apartmentMovePage: {
+                ...defaultDictionary.apartmentMovePage,
+                ...loadedDict.apartmentMovePage,
             },
             smallMovePage: {
                 ...defaultDictionary.smallMovePage,
