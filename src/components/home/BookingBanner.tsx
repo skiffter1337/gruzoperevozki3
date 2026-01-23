@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import GradientButton from '@/components/gradient-button/GradientButton';
 import { DictionaryType } from '@/lib/dictionaries';
 import { buildLocalizedPath } from '@/lib/localized-paths';
+import { israelLocationSuggestions } from '@/lib/israel-locations';
 import { Locale } from '../../../i18n-config';
 import styles from './BookingBanner.module.scss';
 
@@ -44,6 +45,7 @@ export default function BookingBanner({
   const headingText = regionTitle
     ? dictionary.titleWithRegion.replace('{region}', regionTitle)
     : dictionary.title;
+  const suggestionsId = 'israel-location-suggestions';
 
   const updateField = (key: keyof FormValues, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -115,6 +117,7 @@ export default function BookingBanner({
                 required
                 aria-invalid={Boolean(errors.from)}
                 autoComplete="address-level2"
+                list={suggestionsId}
               />
               {errors.from && <span className={styles.error}>{errors.from}</span>}
             </div>
@@ -134,6 +137,7 @@ export default function BookingBanner({
                 required
                 aria-invalid={Boolean(errors.to)}
                 autoComplete="address-level2"
+                list={suggestionsId}
               />
               {errors.to && <span className={styles.error}>{errors.to}</span>}
             </div>
@@ -164,6 +168,11 @@ export default function BookingBanner({
               <div className={styles.submitLabel}>({dictionary.submitLabel})</div>
             </div>
           </form>
+          <datalist id={suggestionsId}>
+            {israelLocationSuggestions.map((location) => (
+              <option key={location} value={location} />
+            ))}
+          </datalist>
         </div>
       </div>
     </section>

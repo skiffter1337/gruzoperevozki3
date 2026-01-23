@@ -3,6 +3,7 @@
 import { FormEvent, useMemo, useState } from 'react';
 import GradientButton from '@/components/gradient-button/GradientButton';
 import { DictionaryType } from '@/lib/dictionaries';
+import { israelLocationSuggestions } from '@/lib/israel-locations';
 import styles from '@/app/[locale]/calculate.module.scss';
 
 export type CalculatorFormPayload = {
@@ -68,6 +69,7 @@ export default function CalculatorForm({
   const [errors, setErrors] = useState<{ from?: string; to?: string; date?: string }>({});
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
+  const suggestionsId = 'israel-location-suggestions';
 
   const updateValue = <Key extends keyof typeof values>(key: Key, value: (typeof values)[Key]) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -168,6 +170,7 @@ export default function CalculatorForm({
                 required
                 aria-invalid={Boolean(errors.from)}
                 aria-describedby={errors.from ? 'from-error' : undefined}
+                list={suggestionsId}
               />
               {errors.from && (
                 <span id="from-error" className={styles.errorText} role="alert">
@@ -223,6 +226,7 @@ export default function CalculatorForm({
                 required
                 aria-invalid={Boolean(errors.to)}
                 aria-describedby={errors.to ? 'to-error' : undefined}
+                list={suggestionsId}
             />
             {errors.to && (
               <span id="to-error" className={styles.errorText} role="alert">
@@ -264,6 +268,11 @@ export default function CalculatorForm({
         </div>
 
       </div>
+      <datalist id={suggestionsId}>
+        {israelLocationSuggestions.map((location) => (
+          <option key={location} value={location} />
+        ))}
+      </datalist>
       <div className={styles.field}>
         <label htmlFor="date" className={styles.label}>
           {dictionary.dateLabel}
