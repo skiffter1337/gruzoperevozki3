@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useMemo, useState } from 'react';
+import { FormEvent, useMemo, useRef, useState, useEffect } from 'react';
 import GradientButton from '@/components/gradient-button/GradientButton';
 import { DictionaryType } from '@/lib/dictionaries';
 import { israelLocationSuggestions } from '@/lib/israel-locations';
@@ -67,6 +67,8 @@ export default function CalculatorForm({
     )
   );
   const [errors, setErrors] = useState<{ from?: string; to?: string; date?: string }>({});
+  const fromInputRef = useRef<HTMLInputElement>(null);
+  const toInputRef = useRef<HTMLInputElement>(null);
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
   const suggestionsId = 'israel-location-suggestions';
@@ -206,7 +208,7 @@ export default function CalculatorForm({
                       {option}
                     </option>
                 ))}
-              </select>
+              </select>https://github.com/skiffter1337/gruzoperevozki3/pull/98/conflict?name=src%252Fcomponents%252Fhome%252FBookingBanner.tsx&ancestor_oid=461bc7270abddc8954b3471448e0f8fd7e81d521&base_oid=a597805425f7cf610c4940c1803ebda6b5ded961&head_oid=9900a344119baf22841ff752613b1132f8f89c4f
             </div>
           </div>
         </div>
