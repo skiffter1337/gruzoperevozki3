@@ -214,10 +214,22 @@ export default async function RegionPage({ params }: Props) {
   const regionSlug = decodedSlug[0];
   const route = getRouteFromSlug(locale, decodedSlug);
   if (isApartmentMoveSlug(decodedSlug, dictionary.apartmentMovePage.slug)) {
-    return <ApartmentMovePage locale={locale} dictionary={dictionary.apartmentMovePage} />;
+    return (
+      <ApartmentMovePage
+        locale={locale}
+        dictionary={dictionary.apartmentMovePage}
+        calculatorDictionary={dictionary.homeHero}
+      />
+    );
   }
   if (isSmallMoveSlug(decodedSlug, dictionary.smallMovePage.slug)) {
-    return <SmallMovePage locale={locale} dictionary={dictionary.smallMovePage} />;
+    return (
+      <SmallMovePage
+        locale={locale}
+        dictionary={dictionary.smallMovePage}
+        calculatorDictionary={dictionary.homeHero}
+      />
+    );
   }
   let regionItem = dictionary.homeRegions.sliderItems.find((item) => item.slug === regionSlug);
 
