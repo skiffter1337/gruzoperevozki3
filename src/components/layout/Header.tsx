@@ -27,7 +27,6 @@ interface HeaderProps {
             services: string;
             calculate: string;
             articles: string;
-            about: string;
             contact: string;
             leaveReview: string;
         };
@@ -44,7 +43,7 @@ interface HeaderProps {
     };
 }
 
-const navOrder: RouteKey[] = ['home', 'transportation', 'services', 'calculate', 'articles', 'about', 'contact'];
+const navOrder: RouteKey[] = ['home', 'transportation', 'services', 'calculate', 'articles', 'contact'];
 
 export default function Header({locale, dictionary}: HeaderProps) {
     const pathname = usePathname();
@@ -104,7 +103,6 @@ export default function Header({locale, dictionary}: HeaderProps) {
         services: dictionary.nav.services,
         calculate: dictionary.nav.calculate,
         articles: dictionary.nav.articles,
-        about: dictionary.nav.about,
         contact: dictionary.nav.contact,
         leaveReview: dictionary.nav.leaveReview,
     };
@@ -181,7 +179,9 @@ export default function Header({locale, dictionary}: HeaderProps) {
                                 onMouseEnter={() => hasPopup(route) && setActivePopup(route)}
                                 onMouseLeave={() => setActivePopup((current) => (current === route ? null : current))}
                             >
-                                <span>↓</span>
+                                {index !== 0 && (
+                                    <span>↓</span>
+                                )}
                                 <Link
                                     href={buildLocalizedPath(locale, route)}
                                     className={`${styles.navLink} ${hasPopup(route) ? styles.navLinkWithPopup : ''}`}
@@ -194,9 +194,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                                 >
                                     {navLabels[route]}
                                 </Link>
-                                {index === navOrder.length - 1 && (
-                                    <span>↓</span>
-                                )}
+
 
                                 {hasPopup(route) && activePopup === route && (
                                     <div className={styles.popupMenu}>

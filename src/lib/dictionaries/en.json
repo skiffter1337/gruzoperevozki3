@@ -63,7 +63,6 @@
       "services": "Additional services",
     "calculate": "Calculate cost",
     "articles": "Articles",
-    "about": "About",
     "contact": "Contact",
     "leaveReview": "Leave a review"
   },
@@ -79,7 +78,6 @@
       "home": {
         "title": "Home",
         "links": [
-          {"label": "About us", "anchor": "about"},
           {"label": "Articles", "anchor": "articles"},
           {"label": "Services", "anchor": "services"},
           {"label": "Reviews", "anchor": "testimonials"},
@@ -1479,7 +1477,6 @@
     "services": "services",
     "calculate": "calculate-cost",
     "articles": "articles",
-    "about": "about",
     "contact": "contact",
     "leaveReview": "leave-review"
   }

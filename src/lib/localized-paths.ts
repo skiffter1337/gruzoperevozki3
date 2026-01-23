@@ -7,7 +7,6 @@ export type RouteKey =
   | "services"
   | "calculate"
   | "articles"
-  | "about"
   | "contact"
   | "leaveReview";
 
@@ -20,7 +19,6 @@ const localizedSegments: LocalizedSegments = {
     services: "שירותים",
     calculate: "חישוב-עלות",
     articles: "מאמרים",
-    about: "אודות",
     contact: "צור-קשר",
     leaveReview: "השארת-חוות-דעת",
   },
@@ -30,7 +28,6 @@ const localizedSegments: LocalizedSegments = {
     services: "дополнительные-услуги",
     calculate: "рассчитать-стоимость",
     articles: "статьи",
-    about: "о-нас",
     contact: "контакты",
     leaveReview: "оставить-отзыв",
   },
@@ -40,7 +37,6 @@ const localizedSegments: LocalizedSegments = {
     services: "services",
     calculate: "calculate-cost",
     articles: "articles",
-    about: "about",
     contact: "contact",
     leaveReview: "leave-review",
   },

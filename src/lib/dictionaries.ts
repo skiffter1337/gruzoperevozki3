@@ -1499,7 +1499,6 @@ const defaultDictionary: DictionaryType = {
             "services": "Additional services",
             "calculate": "Calculate cost",
             "articles": "Articles",
-            "about": "About",
             "contact": "Contact",
             "leaveReview": "Leave a review"
         },
@@ -1515,7 +1514,6 @@ const defaultDictionary: DictionaryType = {
             home: {
                 title: 'Главная',
                 links: [
-                    {label: 'О нас', anchor: 'about'},
                     {label: 'Статьи', anchor: 'articles'},
                     {label: 'Услуги', anchor: 'services'},
                     {label: 'Отзывы', anchor: 'testimonials'},

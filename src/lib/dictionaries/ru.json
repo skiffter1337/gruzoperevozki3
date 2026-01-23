@@ -63,7 +63,6 @@
       "services": "Дополнительные услуги",
     "calculate": "Рассчитать стоимость",
     "articles": "Статьи",
-    "about": "О нас",
     "contact": "Контакты",
     "leaveReview": "Оставить отзыв"
   },
@@ -79,7 +78,6 @@
       "home": {
         "title": "Главная",
         "links": [
-          {"label": "О нас", "anchor": "about"},
           {"label": "Статьи", "anchor": "articles"},
           {"label": "Услуги", "anchor": "services"},
           {"label": "Отзывы", "anchor": "testimonials"},
@@ -1479,7 +1477,6 @@
     "services": "дополнительные-услуги",
     "calculate": "calculate-cost",
     "articles": "статьи",
-    "about": "о-нас",
     "contact": "контакты",
     "leaveReview": "оставить-отзыв"
   }

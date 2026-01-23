@@ -30,7 +30,6 @@
       "services": "שירותים נוספים",
       "calculate": "חשב עלות",
       "articles": "מאמרים",
-      "about": "אודות",
       "contact": "צור קשר",
       "leaveReview": "השארת חוות דעת"
     },
@@ -46,7 +45,6 @@
       "home": {
         "title": "דף הבית",
         "links": [
-          {"label": "אודות", "anchor": "about"},
           {"label": "מאמרים", "anchor": "articles"},
           {"label": "שירותים", "anchor": "services"},
           {"label": "חוות דעת", "anchor": "testimonials"},
@@ -1312,7 +1310,6 @@
     "services": "שירותים",
     "calculate": "חישוב-עלות",
     "articles": "מאמרים",
-    "about": "אודות",
     "contact": "צור-קשר",
     "leaveReview": "השארת-חוות-דעת"
   }
