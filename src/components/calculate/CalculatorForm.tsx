@@ -1,8 +1,9 @@
 'use client';
 
-import { FormEvent, useMemo, useState } from 'react';
+import { FormEvent, useMemo, useRef, useState, useEffect } from 'react';
 import GradientButton from '@/components/gradient-button/GradientButton';
 import { DictionaryType } from '@/lib/dictionaries';
+import { loadGoogleMaps } from '@/lib/google-maps-loader';
 import styles from '@/app/[locale]/calculate.module.scss';
 
 export type CalculatorFormPayload = {
@@ -66,8 +67,67 @@ export default function CalculatorForm({
     )
   );
   const [errors, setErrors] = useState<{ from?: string; to?: string; date?: string }>({});
+  const fromInputRef = useRef<HTMLInputElement>(null);
+  const toInputRef = useRef<HTMLInputElement>(null);
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
+  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
+  useEffect(() => {
+    if (!googleMapsApiKey) {
+      return;
+    }
+
+    let isActive = true;
+
+    loadGoogleMaps(googleMapsApiKey)
+      .then(() => {
+        if (!isActive || !window.google?.maps?.places) {
+          return;
+        }
+
+        const options = {
+          componentRestrictions: { country: 'il' },
+          fields: ['formatted_address', 'name'],
+          types: ['geocode'],
+        };
+
+        if (fromInputRef.current) {
+          const autocomplete = new window.google.maps.places.Autocomplete(
+            fromInputRef.current,
+            options
+          );
+          autocomplete.addListener('place_changed', () => {
+            const place = autocomplete.getPlace();
+            const nextValue = place.formatted_address || place.name || fromInputRef.current?.value;
+            if (nextValue) {
+              updateValue('from', nextValue);
+            }
+          });
+        }
+
+        if (toInputRef.current) {
+          const autocomplete = new window.google.maps.places.Autocomplete(
+            toInputRef.current,
+            options
+          );
+          autocomplete.addListener('place_changed', () => {
+            const place = autocomplete.getPlace();
+            const nextValue = place.formatted_address || place.name || toInputRef.current?.value;
+            if (nextValue) {
+              updateValue('to', nextValue);
+            }
+          });
+        }
+      })
+      .catch((error) => {
+        console.warn('Failed to load Google Maps autocomplete', error);
+      });
+
+    return () => {
+      isActive = false;
+    };
+  }, [googleMapsApiKey]);
 
   const updateValue = <Key extends keyof typeof values>(key: Key, value: (typeof values)[Key]) => {
     setValues((prev) => ({ ...prev, [key]: value }));
@@ -168,6 +228,7 @@ export default function CalculatorForm({
                 required
                 aria-invalid={Boolean(errors.from)}
                 aria-describedby={errors.from ? 'from-error' : undefined}
+                ref={fromInputRef}
               />
               {errors.from && (
                 <span id="from-error" className={styles.errorText} role="alert">
@@ -223,6 +284,7 @@ export default function CalculatorForm({
                 required
                 aria-invalid={Boolean(errors.to)}
                 aria-describedby={errors.to ? 'to-error' : undefined}
+                ref={toInputRef}
             />
             {errors.to && (
               <span id="to-error" className={styles.errorText} role="alert">
