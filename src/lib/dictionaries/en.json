@@ -147,7 +147,7 @@
       },
       {
         "title": "Apartment move",
-        "slug": "apartment-move",
+        "slug": "apartments",
         "image": "flat"
       },
       {
@@ -977,6 +977,219 @@
       "requiredName": "Enter your full name",
       "requiredPhone": "Enter your phone number",
       "requiredConsent": "Please confirm the rules and terms"
+    }
+  },
+  "apartmentMovePage": {
+    "slug": "apartments",
+    "metaTitle": "Apartment move – apartment movers from 490 ₪",
+    "metaDescription": "Apartment moves at low prices. Moves from 249 ₪. Service nationwide. Verified movers only. Save up to 45%.",
+    "title": "Apartment moves",
+    "tocTitle": "Table of contents",
+    "tocItems": [
+      {"id": "why-compare", "label": "Why compare apartment move prices through our portal?"},
+      {"id": "process", "label": "How to find an apartment move in 3 simple steps?"},
+      {"id": "pricing", "label": "Apartment move price list (average market rates)"},
+      {"id": "price-factors", "label": "What determines the cost of an apartment move?"},
+      {"id": "solutions", "label": "Moving solutions for every need (not only apartment moves)"},
+      {"id": "tips", "label": "Preparation and essential tips before the move"},
+      {"id": "faq", "label": "Frequently asked questions about apartment moves"}
+    ],
+    "comparison": {
+      "id": "why-compare",
+      "title": "Why compare apartment move prices through our portal?",
+      "paragraphs": [
+        "Planning an apartment move soon? You probably know that moving costs are one of the biggest expenses in the transition. Trying to find a reliable mover through random phone calls wastes time, leads to overpaying, and too often causes frustration.",
+        "That’s where we come in.",
+        "Our portal is not a moving company, but a smart aggregator for comparing apartment move prices in Israel. We believe in full transparency and consumer power. Instead of chasing movers, we make the best movers compete for your job. This model ensures you get the most attractive price for your apartment move without compromising professionalism or reliability."
+      ],
+      "bullets": [
+        "Proven savings: get competitive quotes and save up to 45% on moving costs.",
+        "Best prices online: small moves starting from just 249 ₪.",
+        "Verified movers: we work only with movers and loaders we have vetted and rated.",
+        "Full service: quotes for packing, disassembly, and assembly in one place.",
+        "Nationwide coverage: available movers in every city and region across Israel.",
+        "Immediate availability: need an urgent move? Find movers for same-day and even Saturday moves."
+      ],
+      "phoneLabel": "Call now: 05X-XXX-XXXX"
+    },
+    "process": {
+      "id": "process",
+      "title": "How to find an apartment move in 3 simple steps?",
+      "intro": "The process on our portal is simple, fast, and efficient. Here’s how it works:",
+      "steps": [
+        {
+          "title": "Fill in details (under a minute):",
+          "text": "Leave a single request in a secure form — where you’re moving from and to, the apartment size, and your preferred date."
+        },
+        {
+          "title": "Get price quotes:",
+          "text": "Your request is instantly sent to several vetted movers who are available on your date and operate in your area."
+        },
+        {
+          "title": "Compare and choose:",
+          "text": "Movers compete for your job, and you receive multiple competitive offers. All that’s left is to choose the best option — with no obligation."
+        }
+      ]
+    },
+    "pricing": {
+      "id": "pricing",
+      "title": "Apartment move price list (average market rates)",
+      "intro": "To give you a sense of the costs, we’ve compiled a table that reflects average market prices.",
+      "note": "Keep in mind: these are average rates only. Prices through our portal are usually lower thanks to direct competition among movers.",
+      "tableLabel": "Apartment move price list",
+      "tableHeaders": [
+        "What is usually included",
+        "Apartment move price range (market average)",
+        "Service type"
+      ],
+      "rows": [
+        {
+          "notes": "A few boxes, moving a sofa, refrigerator, washing machine, or a single item.",
+          "priceRange": "250 - 490 ₪",
+          "item": "Small moves / single item"
+        },
+        {
+          "notes": "For students and young couples. Apartment with a small amount of belongings, suitable for a quick move.",
+          "priceRange": "1,000 - 1,800 ₪",
+          "item": "Studio / 2-room apartment move"
+        },
+        {
+          "notes": "For families. The most common standard move.",
+          "priceRange": "1,500 - 2,800 ₪",
+          "item": "3-room apartment move"
+        },
+        {
+          "notes": "Boxes and furniture. A move that includes a large amount of belongings.",
+          "priceRange": "2,200 - 3,900 ₪",
+          "item": "4-room apartment move"
+        },
+        {
+          "notes": "Large move with an expanded crew. Typically requires a larger truck.",
+          "priceRange": "3,000 - 5,500 ₪",
+          "item": "5-room apartment / penthouse move"
+        }
+      ],
+      "afterTable": "Prices in the table are for estimation only and do not include special services."
+    },
+    "priceFactors": {
+      "id": "price-factors",
+      "title": "What determines the cost of an apartment move?",
+      "intro": "The final quote is based on several factors. Understanding them helps you get an accurate price and avoid surprises on moving day:",
+      "items": [
+        {
+          "title": "Volume and type of belongings:",
+          "text": "This is the main factor. The more items you have, the larger the truck and crew required."
+        },
+        {
+          "title": "Moving distance:",
+          "text": "Is it within the city (e.g., within Tel Aviv) or a long-distance move (e.g., from Haifa to Be’er Sheva)? The longer the distance, the more fuel and time affect the cost."
+        },
+        {
+          "title": "Access and floors:",
+          "text": "Is there an elevator? Is it large enough? Moving from the 4th floor without an elevator requires more labor and costs more."
+        },
+        {
+          "title": "Special items:",
+          "text": "Moving a piano, safe, or antique furniture requires special equipment and extra care and is priced separately."
+        },
+        {
+          "title": "Additional services:",
+          "text": "Do you need packing, disassembly/assembly, or a crane? Each additional service affects the price."
+        },
+        {
+          "title": "Move date:",
+          "text": "Apartment move prices peak in summer (July–August). If you can be flexible and move in winter, you can save quite a bit."
+        }
+      ]
+    },
+    "solutions": {
+      "id": "solutions",
+      "title": "Moving solutions for every need (not only apartment moves)",
+      "intro": "Our portal’s advantage is the ability to provide a solution for any type of move, in any situation:",
+      "items": [
+        {
+          "title": "Small moves (from 249 ₪):",
+          "text": "Don’t pay full price for a truck if you only need to move a sofa, refrigerator, or a single box. We’ll find you a mover for a small move at a modest price."
+        },
+        {
+          "title": "Apartment moves of any size:",
+          "text": "From 2-room apartments to villas and private houses."
+        },
+        {
+          "title": "Full moving services:",
+          "text": "Movers in our database offer a complete package including professional packing, furniture disassembly/assembly, and box supply."
+        },
+        {
+          "title": "Nationwide coverage:",
+          "text": "We work with movers across the country, from north to south."
+        },
+        {
+          "title": "Urgent moves (same day):",
+          "text": "Left without a mover? Need an urgent move? Our system will find an available mover quickly."
+        },
+        {
+          "title": "Special availability:",
+          "text": "Need a Friday or Saturday move? We have movers available on weekends as well (subject to traffic and rest regulations)."
+        }
+      ]
+    },
+    "tips": {
+      "id": "tips",
+      "title": "Preparation and essential tips before the move",
+      "intro": "To make moving day smooth, here are a few key tips from thousands of customers’ experience:",
+      "items": [
+        {
+          "title": "Declutter and sort:",
+          "text": "Moving is the perfect time to get rid of what you don’t need. Donate, sell, or throw away unused items. Fewer belongings = a cheaper and faster move."
+        },
+        {
+          "title": "Pack smart:",
+          "text": "Label every box clearly with its contents and destination room. Pack a separate “survival kit” for the first night: toiletries, a change of clothes, phone chargers, and some food and water."
+        },
+        {
+          "title": "Photograph connections:",
+          "text": "Before disconnecting the TV, computer, or audio system, take photos of the cables. It will save hours of frustration in the new apartment."
+        },
+        {
+          "title": "Keep valuables with you:",
+          "text": "Jewelry, important documents (passports, contracts), and laptops should go in your personal car. Don’t load them onto the moving truck."
+        },
+        {
+          "title": "Check the new apartment:",
+          "text": "Make sure the new place is clean and ready to receive your furniture. The last thing you want is to place a clean sofa on a dirty floor. A proper move starts with clear expectations."
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "Frequently asked questions about apartment moves",
+      "items": [
+        {
+          "question": "Is your service paid?",
+          "answer": "No. Our service (receiving offers and comparing prices) is completely free and without obligation. You pay directly to the mover you choose, only for the move itself."
+        },
+        {
+          "question": "Do you provide moving insurance?",
+          "answer": "Important clarification: our portal is a platform that connects customers with movers. We are not an insurance company. However, we work only with registered professionals and strongly recommend getting written confirmation from your chosen mover that they have valid contents insurance on the moving day."
+        },
+        {
+          "question": "How do I know the mover is reliable?",
+          "answer": "That’s exactly our expertise. We don’t work with just anyone. All movers in our database go through verification and are rated based on customer reviews. You can relax knowing a vetted professional is coming."
+        },
+        {
+          "question": "What’s the difference between a phone quote and offers through you?",
+          "answer": "A quote through us is an official offer from a mover who wants the job and is willing to compete. These offers are usually more accurate and, most importantly, lower than a random phone quote."
+        },
+        {
+          "question": "I need an urgent same-day move. Is it possible?",
+          "answer": "Absolutely. Thanks to our large database, we can quickly locate available movers for urgent moves across the country, even at the last minute."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Ready for a quiet, safe, and affordable apartment move?",
+      "text": "Don’t book a move before you compare. Fill out the short form now, get free quotes from top movers, and choose the offer that saves you hundreds — even thousands — of shekels on your apartment move.",
+      "buttonLabel": "Get free quotes"
     }
   },
   "smallMovePage": {

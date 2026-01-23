@@ -16,6 +16,12 @@ const smallMoveSlugsByLocale: Record<Locale, string> = {
   en: enDictionary.smallMovePage?.slug ?? "small-move",
 };
 
+const apartmentMoveSlugsByLocale: Record<Locale, string> = {
+  he: heDictionary.apartmentMovePage?.slug ?? "הובלות_דירה",
+  ru: ruDictionary.apartmentMovePage?.slug ?? "квартирные",
+  en: enDictionary.apartmentMovePage?.slug ?? "apartments",
+};
+
 const translateRegionSlug = (sourceLocale: Locale, targetLocale: Locale, slug: string) => {
   const sourceSlugs = regionSlugsByLocale[sourceLocale];
   const targetSlugs = regionSlugsByLocale[targetLocale];
@@ -46,6 +52,14 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
     : undefined;
 
   const currentSmallMoveSlug = smallMoveSlugsByLocale[currentLocale];
+  const currentApartmentMoveSlug = apartmentMoveSlugsByLocale[currentLocale];
+  if (decodedFirstSegment === currentApartmentMoveSlug) {
+    const targetSlug = encodeURIComponent(apartmentMoveSlugsByLocale[targetLocale]);
+    const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+    const remaining = rest.length ? `/${rest.join("/")}` : "";
+    return `${translatedBase}/${targetSlug}${remaining}`;
+  }
+
   if (decodedFirstSegment === currentSmallMoveSlug) {
     const targetSlug = encodeURIComponent(smallMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
@@ -55,6 +69,12 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
 
   if (matchedRoute === "transportation" && rest.length > 0) {
     const decodedRest = decodeURIComponent(rest[0]);
+    if (decodedRest === currentApartmentMoveSlug) {
+      const targetSlug = encodeURIComponent(apartmentMoveSlugsByLocale[targetLocale]);
+      const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+      const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
+      return `${translatedBase}/${targetSlug}${remaining}`;
+    }
     if (decodedRest === currentSmallMoveSlug) {
       const targetSlug = encodeURIComponent(smallMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "transportation");
