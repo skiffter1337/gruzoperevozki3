@@ -150,7 +150,7 @@
       },
       {
         "title": "Office move",
-        "slug": "office-move",
+        "slug": "offices",
         "image": "transport"
       },
       {
@@ -1188,6 +1188,184 @@
       "title": "Ready for a quiet, safe, and affordable apartment move?",
       "text": "Don’t book a move before you compare. Fill out the short form now, get free quotes from top movers, and choose the offer that saves you hundreds — even thousands — of shekels on your apartment move.",
       "buttonLabel": "Get free quotes"
+    }
+  },
+  "officeMovePage": {
+    "slug": "offices",
+    "metaTitle": "Office moves with packing: business service from ₪299 — movers in Israel",
+    "metaDescription": "Looking for an office moving company? Get quotes from vetted business movers, including night moves and crane services. Fast nationwide service with unbeatable prices. Compare now!",
+    "title": "Office moves: relocate with peace of mind and save up to 45%",
+    "tocTitle": "Table of contents: the complete guide to an efficient, cost-saving office move",
+    "tocItems": [
+      {"id": "why-us", "label": "Why book an office move through our portal?"},
+      {"id": "pricing", "label": "Office move price list — how much does it really cost?"},
+      {"id": "planning", "label": "How to plan a move without losing workdays"},
+      {"id": "day-night", "label": "Day or night? Comparing move types"},
+      {"id": "packing", "label": "Packing, labeling, and sorting: the key to a smooth move"},
+      {"id": "tips", "label": "Tips to cut moving costs"},
+      {"id": "faq", "label": "Frequently asked questions"}
+    ],
+    "advantages": {
+      "id": "why-us",
+      "title": "Our advantages: why move your office with us?",
+      "paragraphs": [
+        "An office move is a complex task that requires precision, tight timelines, and minimal disruption to business operations.",
+        "Our portal is a smart aggregator designed to save you time and money by connecting you with movers who specialize in business relocations."
+      ],
+      "bulletsTitle": "Business advantages:",
+      "bullets": [
+        "Lowest prices on the market: competitive rates with single-item office moves from ₪299.",
+        "Major savings: our price comparison method (mover bidding) saves up to 45%.",
+        "Only vetted movers: we work with professional companies that know how to handle sensitive office equipment.",
+        "Full-service coverage: dismantling and assembling workstations, archive packing, crane services, and storage solutions.",
+        "Flexible availability: urgent moves, evening hours, and even Saturdays and holidays.",
+        "Nationwide coverage: office moving services across Israel, from Metula to Eilat."
+      ],
+      "noteLabel": "Important:",
+      "note": "we operate as a portal (aggregator) that connects you with the best movers. We do not provide insurance ourselves. Insurance for equipment (computers, furniture, documents) is handled by the mover you choose. We strongly recommend confirming a valid “cargo insurance in transit” policy that covers business equipment before work begins."
+    },
+    "pricing": {
+      "id": "pricing",
+      "title": "Office move price list — how much does it really cost?",
+      "intro": "Office move pricing varies by office size, number of workstations, floor level, and additional services. Here is a typical price table to help you plan your budget.",
+      "tableLabel": "Office move price list",
+      "tableHeaders": ["Notes and details", "Estimated price range (₪)", "Move type / office size"],
+      "rows": [
+        {
+          "notes": "Depends on number of boxes, floor, and travel distance.",
+          "priceRange": "299 - 650 ₪",
+          "item": "Single office room move"
+        },
+        {
+          "notes": "Includes basic disassembly and reassembly of desks and shelves.",
+          "priceRange": "900 - 1,800 ₪",
+          "item": "Small office (2 rooms / up to 40 m²)"
+        },
+        {
+          "notes": "Price varies depending on crane and packing needs.",
+          "priceRange": "1,800 - 3,200 ₪",
+          "item": "Medium office (3–4 rooms)"
+        },
+        {
+          "notes": "A crane may be required to remove the table through a window.",
+          "priceRange": "400 - 900 ₪",
+          "item": "Conference room move (heavy table)"
+        },
+        {
+          "notes": "Requires organized packing and strict labeling.",
+          "priceRange": "30 - 60 ₪ per meter",
+          "item": "Archive / folders transport (per meter)"
+        },
+        {
+          "notes": "Recommended for high floors or equipment that doesn’t fit in the elevator.",
+          "priceRange": "300 - 450 ₪",
+          "item": "Crane hour add-on"
+        }
+      ],
+      "afterTable": "Prices in the table are estimates only. For an exact and cheaper quote, fill out the form on the site."
+    },
+    "planning": {
+      "id": "planning",
+      "title": "How to plan an office move without losing workdays",
+      "paragraphs": [
+        "The biggest concern for any business owner is downtime. Every day the office is shut means lost revenue. The key to a successful move is early, precise planning.",
+        "To avoid losing business days, our system helps you find movers who align with your schedule.",
+        "Our recommendation: start the process about a month ahead. Inform employees, appoint a move coordinator, and back up all servers and computers before moving day."
+      ]
+    },
+    "comparison": {
+      "id": "day-night",
+      "title": "Day or night? Comparing office move options",
+      "intro": "One of the most popular services on our portal is a night office move. To help you decide what’s best for your business, here’s a comparison table:",
+      "tableLabel": "Night vs. day office move comparison",
+      "tableHeaders": ["Night office move (recommended!)", "Daytime office move", "Criterion"],
+      "rows": [
+        {
+          "night": "0 downtime days — business runs as usual the next day.",
+          "day": "Partial or full downtime (lost workday).",
+          "criteria": "Business interruption"
+        },
+        {
+          "night": "Clear roads = faster arrival and lower truck costs.",
+          "day": "Traffic congestion.",
+          "criteria": "Time lost in traffic = longer move and higher price."
+        },
+        {
+          "night": "Elevators are fully available for movers.",
+          "day": "Elevators are occupied by staff and clients, causing delays.",
+          "criteria": "Elevator availability"
+        },
+        {
+          "night": "Quiet, discreet work without disturbing the surroundings.",
+          "day": "Noise and commotion that disrupt nearby offices.",
+          "criteria": "Impact on neighbors"
+        }
+      ]
+    },
+    "packing": {
+      "id": "packing",
+      "title": "Packing, labeling, and sorting: the key to a smooth office move",
+      "intro": "An office move differs from a home move. It requires careful handling of important documents, expensive IT equipment, and complex furniture.",
+      "items": [
+        {
+          "title": "Office packing services:",
+          "text": "through us you can order a packing team that arrives a day before the move to pack files, catalogues, and employees’ personal items."
+        },
+        {
+          "title": "Smart labeling:",
+          "text": "the recommended method is to mark each box with the room/workstation number and employee name. Movers place every box in the right spot at the new office, making unpacking faster."
+        },
+        {
+          "title": "What about old equipment?",
+          "text": "an office move is a great chance to declutter. Identify unused furniture and computers and donate or recycle them instead of paying to move them."
+        }
+      ]
+    },
+    "tips": {
+      "id": "tips",
+      "title": "Tips to cut moving costs",
+      "intro": "Want to lower the move cost? Here are some expert tips:",
+      "items": [
+        {
+          "title": "Compare quotes:",
+          "text": "don’t accept the first offer. Use our portal to get 3–4 quotes, compare them, and choose the best deal. This method saves serious money."
+        },
+        {
+          "title": "Self-packing:",
+          "text": "if you have a limited budget, ask employees to pack their personal items. This reduces packing costs."
+        },
+        {
+          "title": "Reduce volume:",
+          "text": "get rid of unnecessary equipment before the move. Fewer boxes = a lower price."
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "question": "How long does an office move take?",
+          "answer": "A small-to-medium office can usually be moved in one day (or one night). Large offices with dozens of employees may require two to three days. Proper planning keeps it minimal."
+        },
+        {
+          "question": "Do you provide boxes for the move?",
+          "answer": "Most movers we work with supply boxes and packing materials as part of the deal or for a small extra fee. You can also buy quality boxes through us at a discounted price."
+        },
+        {
+          "question": "Can you move sensitive IT equipment (servers)?",
+          "answer": "Yes. Some movers specialize in transporting servers and communication racks. Mention this in the request form so we can match you with the right provider."
+        },
+        {
+          "question": "Is your service paid?",
+          "answer": "No. Using the portal to compare prices and receive quotes is completely free and without obligation. You pay only the mover you choose."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Need to move your office?",
+      "text": "Don’t waste valuable time. Fill out the form, get offers from recommended office movers, and save up to 45% on your relocation costs!",
+      "buttonLabel": "Get quotes"
     }
   },
   "smallMovePage": {
