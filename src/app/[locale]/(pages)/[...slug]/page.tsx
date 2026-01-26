@@ -15,6 +15,7 @@ import RegionAdvantagesSection from '@/components/regions/RegionAdvantagesSectio
 import RegionCarriersSection from '@/components/regions/RegionCarriersSection';
 import RegionTransportTableSection from '@/components/regions/RegionTransportTableSection';
 import ApartmentMovePage from '@/components/transportation/ApartmentMovePage';
+import OfficeMovePage from '@/components/transportation/OfficeMovePage';
 import SmallMovePage from '@/components/transportation/SmallMovePage';
 import styles from './region.module.scss';
 
@@ -53,6 +54,14 @@ function isApartmentMoveSlug(slug: string[], apartmentMoveSlug: string) {
   return slug[0] === apartmentMoveSlug || slug[1] === apartmentMoveSlug;
 }
 
+function buildOfficeMovePath(locale: Locale, slug: string) {
+  return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
+}
+
+function isOfficeMoveSlug(slug: string[], officeMoveSlug: string) {
+  return slug[0] === officeMoveSlug || slug[1] === officeMoveSlug;
+}
+
 async function buildSmallMoveLanguageAlternates() {
   const dictionaries = await getAllDictionaries();
   const languages: Record<string, string> = {};
@@ -64,6 +73,21 @@ async function buildSmallMoveLanguageAlternates() {
 
   const defaultSlug = dictionaries[DEFAULT_LOCALE].smallMovePage.slug;
   languages['x-default'] = `${SITE_URL}${buildSmallMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+
+  return languages;
+}
+
+async function buildOfficeMoveLanguageAlternates() {
+  const dictionaries = await getAllDictionaries();
+  const languages: Record<string, string> = {};
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    const slug = dictionaries[locale].officeMovePage.slug;
+    languages[locale] = `${SITE_URL}${buildOfficeMovePath(locale, slug)}`;
+  });
+
+  const defaultSlug = dictionaries[DEFAULT_LOCALE].officeMovePage.slug;
+  languages['x-default'] = `${SITE_URL}${buildOfficeMovePath(DEFAULT_LOCALE, defaultSlug)}`;
 
   return languages;
 }
@@ -165,6 +189,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  if (isOfficeMoveSlug(decodedSlug, dictionary.officeMovePage.slug)) {
+    const canonical = `${SITE_URL}${buildOfficeMovePath(locale, dictionary.officeMovePage.slug)}`;
+
+    return {
+      title: dictionary.officeMovePage.metaTitle,
+      description: dictionary.officeMovePage.metaDescription,
+      alternates: {
+        canonical,
+        languages: await buildOfficeMoveLanguageAlternates(),
+      },
+      openGraph: {
+        title: dictionary.officeMovePage.metaTitle,
+        description: dictionary.officeMovePage.metaDescription,
+        url: canonical,
+        locale,
+      },
+    };
+  }
+
   let regionIndex = dictionary.homeRegions.sliderItems.findIndex((item) => item.slug === regionSlug);
 
   if (regionIndex < 0 && regionSlug) {
@@ -227,6 +270,15 @@ export default async function RegionPage({ params }: Props) {
       <SmallMovePage
         locale={locale}
         dictionary={dictionary.smallMovePage}
+        calculatorDictionary={dictionary.homeHero}
+      />
+    );
+  }
+  if (isOfficeMoveSlug(decodedSlug, dictionary.officeMovePage.slug)) {
+    return (
+      <OfficeMovePage
+        locale={locale}
+        dictionary={dictionary.officeMovePage}
         calculatorDictionary={dictionary.homeHero}
       />
     );

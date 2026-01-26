@@ -22,6 +22,12 @@ const apartmentMoveSlugsByLocale: Record<Locale, string> = {
   en: enDictionary.apartmentMovePage?.slug ?? "apartments",
 };
 
+const officeMoveSlugsByLocale: Record<Locale, string> = {
+  he: heDictionary.officeMovePage?.slug ?? "הובלות_משרדים",
+  ru: ruDictionary.officeMovePage?.slug ?? "офисные",
+  en: enDictionary.officeMovePage?.slug ?? "offices",
+};
+
 const translateRegionSlug = (sourceLocale: Locale, targetLocale: Locale, slug: string) => {
   const sourceSlugs = regionSlugsByLocale[sourceLocale];
   const targetSlugs = regionSlugsByLocale[targetLocale];
@@ -53,8 +59,16 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
 
   const currentSmallMoveSlug = smallMoveSlugsByLocale[currentLocale];
   const currentApartmentMoveSlug = apartmentMoveSlugsByLocale[currentLocale];
+  const currentOfficeMoveSlug = officeMoveSlugsByLocale[currentLocale];
   if (decodedFirstSegment === currentApartmentMoveSlug) {
     const targetSlug = encodeURIComponent(apartmentMoveSlugsByLocale[targetLocale]);
+    const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+    const remaining = rest.length ? `/${rest.join("/")}` : "";
+    return `${translatedBase}/${targetSlug}${remaining}`;
+  }
+
+  if (decodedFirstSegment === currentOfficeMoveSlug) {
+    const targetSlug = encodeURIComponent(officeMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
     return `${translatedBase}/${targetSlug}${remaining}`;
@@ -71,6 +85,12 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
     const decodedRest = decodeURIComponent(rest[0]);
     if (decodedRest === currentApartmentMoveSlug) {
       const targetSlug = encodeURIComponent(apartmentMoveSlugsByLocale[targetLocale]);
+      const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+      const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
+      return `${translatedBase}/${targetSlug}${remaining}`;
+    }
+    if (decodedRest === currentOfficeMoveSlug) {
+      const targetSlug = encodeURIComponent(officeMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "transportation");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
       return `${translatedBase}/${targetSlug}${remaining}`;

@@ -78,6 +78,12 @@ export interface SmallMoveTableRow {
     item: string;
 }
 
+export interface OfficeMoveComparisonRow {
+    night: string;
+    day: string;
+    criteria: string;
+}
+
 export interface FooterLink {
     label: string;
     /**
@@ -481,6 +487,67 @@ export type DictionaryType = {
             intro: string;
             items: Array<{title: string; text: string}>;
             closing: string;
+        };
+    };
+    officeMovePage: {
+        slug: string;
+        metaTitle: string;
+        metaDescription: string;
+        title: string;
+        tocTitle: string;
+        tocItems: Array<{id: string; label: string}>;
+        advantages: {
+            id: string;
+            title: string;
+            paragraphs: string[];
+            bulletsTitle: string;
+            bullets: string[];
+            noteLabel: string;
+            note: string;
+        };
+        pricing: {
+            id: string;
+            title: string;
+            intro: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: SmallMoveTableRow[];
+            afterTable: string;
+        };
+        planning: {
+            id: string;
+            title: string;
+            paragraphs: string[];
+        };
+        comparison: {
+            id: string;
+            title: string;
+            intro: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: OfficeMoveComparisonRow[];
+        };
+        packing: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+        };
+        tips: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+        };
+        faq: {
+            id: string;
+            title: string;
+            items: Array<{question: string; answer: string}>;
+        };
+        closing: {
+            title: string;
+            text: string;
+            buttonLabel: string;
         };
     };
     leaveReviewPage: {
@@ -1435,6 +1502,67 @@ const defaultDictionary: DictionaryType = {
             closing: '',
         },
     },
+    officeMovePage: {
+        slug: 'offices',
+        metaTitle: 'Office move',
+        metaDescription: 'Office move description.',
+        title: 'Office move',
+        tocTitle: 'Table of contents',
+        tocItems: [],
+        advantages: {
+            id: 'why-us',
+            title: 'Why choose us for office moves?',
+            paragraphs: [],
+            bulletsTitle: 'Our advantages',
+            bullets: [],
+            noteLabel: 'Important:',
+            note: '',
+        },
+        pricing: {
+            id: 'pricing',
+            title: 'Office move price list',
+            intro: '',
+            tableLabel: 'Office move price list',
+            tableHeaders: [],
+            rows: [],
+            afterTable: '',
+        },
+        planning: {
+            id: 'planning',
+            title: 'Planning an office move',
+            paragraphs: [],
+        },
+        comparison: {
+            id: 'day-night',
+            title: 'Day or night office move',
+            intro: '',
+            tableLabel: 'Office move comparison',
+            tableHeaders: [],
+            rows: [],
+        },
+        packing: {
+            id: 'packing',
+            title: 'Packing and labeling',
+            intro: '',
+            items: [],
+        },
+        tips: {
+            id: 'tips',
+            title: 'Tips for saving',
+            intro: '',
+            items: [],
+        },
+        faq: {
+            id: 'faq',
+            title: 'FAQ',
+            items: [],
+        },
+        closing: {
+            title: 'Ready to move?',
+            text: '',
+            buttonLabel: 'Get quotes',
+        },
+    },
     leaveReviewPage: {
         metaTitle: "Оставить отзыв | Отзывы клиентов о перевозках",
         metaDescription: "Поделитесь впечатлением о перевозке: оценка, комментарий и фото. Ваш отзыв помогает выбрать перевозчика.",
@@ -1690,6 +1818,10 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             smallMovePage: {
                 ...defaultDictionary.smallMovePage,
                 ...loadedDict.smallMovePage,
+            },
+            officeMovePage: {
+                ...defaultDictionary.officeMovePage,
+                ...loadedDict.officeMovePage,
             },
             leaveReviewPage: {
                 ...defaultDictionary.leaveReviewPage,
