@@ -30,6 +30,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ru: ruDictionary.officeMovePage?.slug ?? 'офисные',
     en: enDictionary.officeMovePage?.slug ?? 'offices',
   };
+  const packingSlugsByLocale = {
+    he: heDictionary.packingPage?.slug ?? 'שירותי-אריזה',
+    ru: ruDictionary.packingPage?.slug ?? 'услуги-упаковки',
+    en: enDictionary.packingPage?.slug ?? 'packing-services',
+  };
 
   routes.forEach((route) => {
     SUPPORTED_LOCALES.forEach((locale) => {
@@ -99,6 +104,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const defaultSlug = officeMoveSlugsByLocale[DEFAULT_LOCALE];
     languages['x-default'] = `${SITE_URL}${buildLocalizedPath(DEFAULT_LOCALE, 'transportation')}/${defaultSlug}`;
+
+    entries.push({
+      url,
+      lastModified,
+      alternates: {
+        languages,
+      },
+    });
+  });
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    const slug = packingSlugsByLocale[locale];
+    const url = `${SITE_URL}${buildLocalizedPath(locale, 'services')}/${slug}`;
+    const languages: Record<string, string> = {};
+
+    SUPPORTED_LOCALES.forEach((supportedLocale) => {
+      const supportedSlug = packingSlugsByLocale[supportedLocale];
+      languages[supportedLocale] = `${SITE_URL}${buildLocalizedPath(supportedLocale, 'services')}/${supportedSlug}`;
+    });
+
+    const defaultSlug = packingSlugsByLocale[DEFAULT_LOCALE];
+    languages['x-default'] = `${SITE_URL}${buildLocalizedPath(DEFAULT_LOCALE, 'services')}/${defaultSlug}`;
 
     entries.push({
       url,

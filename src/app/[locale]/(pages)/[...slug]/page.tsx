@@ -17,6 +17,7 @@ import RegionTransportTableSection from '@/components/regions/RegionTransportTab
 import ApartmentMovePage from '@/components/transportation/ApartmentMovePage';
 import OfficeMovePage from '@/components/transportation/OfficeMovePage';
 import SmallMovePage from '@/components/transportation/SmallMovePage';
+import PackingPage from '@/components/services/PackingPage';
 import styles from './region.module.scss';
 
 interface Props {
@@ -60,6 +61,14 @@ function buildOfficeMovePath(locale: Locale, slug: string) {
 
 function isOfficeMoveSlug(slug: string[], officeMoveSlug: string) {
   return slug[0] === officeMoveSlug || slug[1] === officeMoveSlug;
+}
+
+function buildPackingPath(locale: Locale, slug: string) {
+  return `${buildLocalizedPath(locale, 'services')}/${slug}`;
+}
+
+function isPackingSlug(slug: string[], packingSlug: string) {
+  return slug[0] === packingSlug || slug[1] === packingSlug;
 }
 
 async function buildSmallMoveLanguageAlternates() {
@@ -141,6 +150,21 @@ async function buildRegionLanguageAlternates(regionIndex: number) {
   return languages;
 }
 
+async function buildPackingLanguageAlternates() {
+  const dictionaries = await getAllDictionaries();
+  const languages: Record<string, string> = {};
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    const slug = dictionaries[locale].packingPage.slug;
+    languages[locale] = `${SITE_URL}${buildPackingPath(locale, slug)}`;
+  });
+
+  const defaultSlug = dictionaries[DEFAULT_LOCALE].packingPage.slug;
+  languages['x-default'] = `${SITE_URL}${buildPackingPath(DEFAULT_LOCALE, defaultSlug)}`;
+
+  return languages;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const dictionary = await getDictionary(locale);
@@ -202,6 +226,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title: dictionary.officeMovePage.metaTitle,
         description: dictionary.officeMovePage.metaDescription,
+        url: canonical,
+        locale,
+      },
+    };
+  }
+
+  if (isPackingSlug(decodedSlug, dictionary.packingPage.slug)) {
+    const canonical = `${SITE_URL}${buildPackingPath(locale, dictionary.packingPage.slug)}`;
+
+    return {
+      title: dictionary.packingPage.metaTitle,
+      description: dictionary.packingPage.metaDescription,
+      alternates: {
+        canonical,
+        languages: await buildPackingLanguageAlternates(),
+      },
+      openGraph: {
+        title: dictionary.packingPage.metaTitle,
+        description: dictionary.packingPage.metaDescription,
         url: canonical,
         locale,
       },
@@ -279,6 +322,15 @@ export default async function RegionPage({ params }: Props) {
       <OfficeMovePage
         locale={locale}
         dictionary={dictionary.officeMovePage}
+        calculatorDictionary={dictionary.homeHero}
+      />
+    );
+  }
+  if (isPackingSlug(decodedSlug, dictionary.packingPage.slug)) {
+    return (
+      <PackingPage
+        locale={locale}
+        dictionary={dictionary.packingPage}
         calculatorDictionary={dictionary.homeHero}
       />
     );
