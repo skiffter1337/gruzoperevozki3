@@ -27,7 +27,7 @@
       "services": [
         {
           "label": "Packing",
-          "path": "packing"
+          "path": "packing-services"
         },
         {
           "label": "Storage",
@@ -99,7 +99,7 @@
       "services": {
         "title": "Extra services",
         "links": [
-          {"label": "Packing", "path": "packing"},
+          {"label": "Packing", "path": "packing-services"},
           {"label": "Storage", "path": "storage"},
           {"label": "Late moves", "path": "late-moves"}
         ]
@@ -499,6 +499,163 @@
     "ctaTitle": "Ready to start?",
     "ctaDescription": "Contact us today for a free quote with no obligation. We are happy to help with any move!",
     "ctaButton": "Get a quote"
+  },
+  "packingPage": {
+    "slug": "packing-services",
+    "metaTitle": "Packing services for moving in Israel✔️ Save up to 45%",
+    "metaDescription": "Looking for packing services for your move? On our portal you receive quotes from vetted movers, including boxes and insurance. Compare prices and save up to 45% on moving costs. Nationwide service.",
+    "title": "Packing services for moving",
+    "tocTitle": "Table of contents: the complete packing and moving guide (click for quick jump)",
+    "tocItems": [
+      {"id": "why-us", "label": "Why book packing services through our portal?"},
+      {"id": "pricing", "label": "How much does it cost? Updated packing price list"},
+      {"id": "process", "label": "Packing and moving: how it works in practice"},
+      {"id": "tips", "label": "Smart packing tips before the movers arrive"},
+      {"id": "timing", "label": "When should you start packing?"},
+      {"id": "faq", "label": "Packing services FAQ"}
+    ],
+    "whyChooseUs": {
+      "id": "why-us",
+      "title": "Why book packing services through our portal?",
+      "paragraphs": [
+        "Moving is exciting, but the packing phase can turn into a long nightmare. Instead of living among boxes for a month, we offer a smarter solution.",
+        "We are not a single moving company. We are an aggregator portal that brings together the most reliable movers in Israel."
+      ],
+      "bulletsTitle": "Our advantages:",
+      "bullets": [
+        "Lowest prices on the market: compare offers and save up to 45%.",
+        "Everything in one place: packing, moving, disassembly, and assembly under one roof.",
+        "Vetted movers: we work only with approved providers.",
+        "Immediate availability: need packing and moving today? We have solutions for urgent cases and weekends.",
+        "Nationwide coverage: service across the country, from north to south.",
+        "Affordable starting price: moving services from ₪249."
+      ]
+    },
+    "pricing": {
+      "id": "pricing",
+      "title": "How much does it cost? Updated packing price list",
+      "intro": "One of the most common questions is “How much does it cost to pack a home?” The price depends on apartment size, the amount of belongings, and packing complexity (for example, how many fragile items). The table below shows average ranges to set expectations.",
+      "note": "Please note: these are average prices.",
+      "tableLabel": "Packing and moving price list",
+      "tableHeaders": ["What is included?", "Average price range", "Service type"],
+      "rows": [
+        {
+          "notes": "Professional packing of belongings into boxes",
+          "priceRange": "₪20–₪50 per box",
+          "item": "Per-box packing price"
+        },
+        {
+          "notes": "Includes packing clothes, linens, and kitchenware",
+          "priceRange": "₪1,000–₪1,800",
+          "item": "2-room apartment packing"
+        },
+        {
+          "notes": "Includes boxes and packing supplies",
+          "priceRange": "₪1,500–₪2,500",
+          "item": "3-room apartment packing"
+        },
+        {
+          "notes": "Full packing with padding and wrapping",
+          "priceRange": "₪1,800–₪3,500",
+          "item": "4-room apartment packing"
+        },
+        {
+          "notes": "Price varies by volume and crane needs",
+          "priceRange": "₪2,000–₪4,500",
+          "item": "5-room apartment packing"
+        },
+        {
+          "notes": "Use of bubble wrap and special packing paper",
+          "priceRange": "₪25–₪55 per box",
+          "item": "Fragile items packing add-on"
+        }
+      ],
+      "afterTable": "Through our system, thanks to competition between providers, you can receive especially attractive offers."
+    },
+    "process": {
+      "id": "process",
+      "title": "Packing and moving: how it works in practice",
+      "intro": "The “packing and moving” service is the perfect solution if you want peace of mind. Instead of packing on your own for weeks, a professional team handles everything fast.",
+      "steps": [
+        {
+          "title": "Preparation stage:",
+          "text": "Movers arrive with everything needed — sturdy boxes (single and double wall), tape, stretch wrap, packing paper, and bubble wrap."
+        },
+        {
+          "title": "Packing stage:",
+          "text": "The team packs the home systematically. Fragile items are wrapped separately, books go into smaller boxes, and clothes are packed neatly."
+        },
+        {
+          "title": "Labeling:",
+          "text": "Each box is clearly marked with its room and contents (for example, “Kitchen – fragile” or “Kids room – toys”)."
+        },
+        {
+          "title": "Moving and unloading:",
+          "text": "After packing, everything is loaded onto the truck and delivered to the new home. Boxes are placed in the right rooms according to labels."
+        }
+      ],
+      "note": "Important to know: in most cases, packing and moving happen on the same day, from morning until late afternoon. In very large apartments, packing may take place the day before the move."
+    },
+    "tips": {
+      "id": "tips",
+      "title": "Smart packing tips before the movers arrive",
+      "intro": "Even if you booked packing services — and especially if you pack yourself — a few steps will make the move smoother:",
+      "items": [
+        "Sort and declutter: if you didn’t use something in your current home, you won’t use it in the new one. Donate or discard it. Less volume means a cheaper move.",
+        "First-night bag: prepare a separate bag with essentials — a change of clothes, toothbrushes, chargers, medication, and towels — so you don’t search through dozens of boxes when you arrive tired.",
+        "Valuables: jewelry, important documents, cash, and laptops should go with you in your car. Don’t send them with the moving truck.",
+        "Packing drawers: in some dressers you can leave items in the drawers and wrap the entire dresser with stretch film to save box space.",
+        "Keep the hardware: if you disassembled furniture, put all screws and small parts in one bag and attach it to the furniture or keep them in a dedicated box."
+      ]
+    },
+    "timing": {
+      "id": "timing",
+      "title": "When should you start packing?",
+      "intro": "If you pack on your own, the biggest mistake is waiting until the last minute. Self-packing should begin about six weeks before the move.",
+      "items": [
+        {
+          "title": "Weeks before:",
+          "text": "Pack items kept in storage or those you don’t use daily."
+        },
+        {
+          "title": "Two weeks before:",
+          "text": "Start packing books, décor, and rooms that are rarely used."
+        },
+        {
+          "title": "One week before:",
+          "text": "Pack most clothes, toys, and kitchen items you won’t need soon."
+        },
+        {
+          "title": "Two days before:",
+          "text": "Finish packing the kitchen and leave only basic dishes for the final days."
+        }
+      ],
+      "outro": "Want to skip all of this? Order packing through us and everything will be done in one or two focused days!"
+    },
+    "faq": {
+      "id": "faq",
+      "title": "Packing services FAQ",
+      "items": [
+        {
+          "question": "Do you provide insurance for belongings?",
+          "answer": "Important to clarify: our portal connects customers with movers (an aggregator). We are not the insurance company. However, we work only with registered professional movers and recommend getting written confirmation from the mover you choose that they have a valid cargo insurance policy covering damages."
+        },
+        {
+          "question": "Who provides the boxes and packing materials?",
+          "answer": "When you order a full packing service, the moving company provides everything — boxes, tape, packing paper, and bubble wrap. If you pack yourself, you can order boxes separately through us."
+        },
+        {
+          "question": "How long does it take to pack an apartment?",
+          "answer": "A professional packing crew can pack a 3–4 room apartment in one workday (about 6–8 hours). Larger apartments may require an additional packing day before the move."
+        },
+        {
+          "question": "Can I order packing without moving?",
+          "answer": "Yes, you can order packing only, but it’s usually more cost-effective to book a combined packing + moving package."
+        }
+      ],
+      "closingText": "Ready for an easy, calm move? Don’t break your back or waste valuable days. Fill in the form, get attractive quotes for packing and moving, and let the professionals do the work for you!",
+      "buttonLabel": "Get packing quotes"
+    }
   },
   "homeArticles": {
     "title": "ARTICLES",

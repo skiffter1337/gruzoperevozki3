@@ -290,6 +290,58 @@ export type DictionaryType = {
         ctaDescription: string;
         ctaButton: string;
     };
+    packingPage: {
+        slug: string;
+        metaTitle: string;
+        metaDescription: string;
+        title: string;
+        tocTitle: string;
+        tocItems: Array<{id: string; label: string}>;
+        whyChooseUs: {
+            id: string;
+            title: string;
+            paragraphs: string[];
+            bulletsTitle: string;
+            bullets: string[];
+        };
+        pricing: {
+            id: string;
+            title: string;
+            intro: string;
+            note: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: SmallMoveTableRow[];
+            afterTable: string;
+        };
+        process: {
+            id: string;
+            title: string;
+            intro: string;
+            steps: Array<{title: string; text: string}>;
+            note: string;
+        };
+        tips: {
+            id: string;
+            title: string;
+            intro: string;
+            items: string[];
+        };
+        timing: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+            outro: string;
+        };
+        faq: {
+            id: string;
+            title: string;
+            items: Array<{question: string; answer: string}>;
+            closingText: string;
+            buttonLabel: string;
+        };
+    };
     calculatePage: {
         title: string;
         metaTitle: string;
@@ -1233,6 +1285,163 @@ const defaultDictionary: DictionaryType = {
         ctaDescription: "Свяжитесь с нами сегодня для получения бесплатной консультации без обязательств. Будем рады помочь вам с любыми нуждами в переезде!",
         ctaButton: "Получить предложение"
     },
+    packingPage: {
+        slug: "packing-services",
+        metaTitle: "Packing services for your move | Israel",
+        metaDescription: "Compare trusted packing crews in Israel, including boxes and insurance, and save up to 45% on moving costs.",
+        title: "Packing services for moving",
+        tocTitle: "Table of contents",
+        tocItems: [
+            {id: "why-us", label: "Why book packing services through our portal?"},
+            {id: "pricing", label: "How much does it cost? Updated packing price list"},
+            {id: "process", label: "Packing and moving: how it works"},
+            {id: "tips", label: "Smart packing tips before the movers arrive"},
+            {id: "timing", label: "When should you start packing?"},
+            {id: "faq", label: "Packing services FAQ"},
+        ],
+        whyChooseUs: {
+            id: "why-us",
+            title: "Why book packing services through our portal?",
+            paragraphs: [
+                "Moving is exciting, but the packing stage can turn into weeks of chaos. Instead of living among boxes for a month, choose a smarter solution.",
+                "We are not a single moving company. We are an aggregator portal that brings together the most reliable moving teams in Israel.",
+            ],
+            bulletsTitle: "Our advantages:",
+            bullets: [
+                "Lowest prices on the market: compare offers and save up to 45%.",
+                "Everything in one place: packing, moving, disassembly, and assembly under one roof.",
+                "Verified movers: we work only with screened and approved providers.",
+                "Immediate availability: need packing today or this weekend? We have urgent solutions.",
+                "Nationwide coverage: service from north to south.",
+                "Affordable entry price: moving services starting at ₪249.",
+            ],
+        },
+        pricing: {
+            id: "pricing",
+            title: "How much does it cost? Updated packing price list",
+            intro: "One of the most common questions is “How much does it cost to pack a home?” The price depends on apartment size, volume, and packing complexity (for example, how many fragile items you have). The table below shows average ranges to set expectations.",
+            note: "Please note: these are average prices. Through our system, thanks to competition between providers, you can receive especially attractive offers.",
+            tableLabel: "Packing and moving price table",
+            tableHeaders: ["What is included?", "Average price range", "Service type"],
+            rows: [
+                {
+                    notes: "Professional packing of belongings into boxes",
+                    priceRange: "₪20 – ₪50 per box",
+                    item: "Per-box packing price",
+                },
+                {
+                    notes: "Includes packing clothes, linens, and kitchenware",
+                    priceRange: "₪1,000 – ₪1,800",
+                    item: "2-room apartment packing",
+                },
+                {
+                    notes: "Includes boxes and packing supplies",
+                    priceRange: "₪1,500 – ₪2,500",
+                    item: "3-room apartment packing",
+                },
+                {
+                    notes: "Full packing with padding and wrapping",
+                    priceRange: "₪1,800 – ₪3,500",
+                    item: "4-room apartment packing",
+                },
+                {
+                    notes: "Price varies by volume and crane needs",
+                    priceRange: "₪2,000 – ₪4,500",
+                    item: "5-room apartment packing",
+                },
+                {
+                    notes: "Use of bubble wrap and special packing paper",
+                    priceRange: "₪25 – ₪55 per box",
+                    item: "Fragile items packing add-on",
+                },
+            ],
+            afterTable: "Want a precise quote? Submit your details and compare offers from vetted movers.",
+        },
+        process: {
+            id: "process",
+            title: "Packing and moving: how it works",
+            intro: "“Packing and moving” is the perfect solution if you want peace of mind. Instead of packing on your own for weeks, a professional crew handles everything quickly and safely.",
+            steps: [
+                {
+                    title: "Preparation stage:",
+                    text: "Movers arrive with everything needed — sturdy boxes (single and double wall), tape, stretch wrap, packing paper, and bubble wrap.",
+                },
+                {
+                    title: "Packing stage:",
+                    text: "The team packs the home systematically. Fragile items are wrapped separately, books go into small boxes, and clothing is organized neatly.",
+                },
+                {
+                    title: "Labeling:",
+                    text: "Every box is clearly marked with its room and contents (for example, “Kitchen – fragile” or “Kids room – toys”).",
+                },
+                {
+                    title: "Moving and unloading:",
+                    text: "After packing, everything is loaded onto the truck and delivered to the new home. Boxes are placed in the correct rooms according to labels.",
+                },
+            ],
+            note: "Important to know: in most cases, packing and moving happen on the same day, from morning until late afternoon. For very large homes, packing may take place the day before the move.",
+        },
+        tips: {
+            id: "tips",
+            title: "Smart packing tips before the movers arrive",
+            intro: "Even if you’ve booked packing services — and especially if you pack yourself — a few steps will make the move smoother:",
+            items: [
+                "Sort and declutter: if you didn’t use something in your current home, you won’t use it in the new one. Donate or discard it. Less volume means a cheaper move.",
+                "First-night bag: prepare a separate bag with essentials — a change of clothes, toothbrushes, chargers, medication, and towels — so you don’t dig through dozens of boxes when you arrive tired.",
+                "Valuables: jewelry, important documents, cash, and laptops should go with you in the car, not in the moving truck.",
+                "Drawer packing: some dressers can stay packed in their drawers. Wrap the entire unit with stretch film to save box space.",
+                "Keep the hardware: disassemble furniture? Put screws and small parts in one bag and attach it to the furniture or keep them in a dedicated box.",
+            ],
+        },
+        timing: {
+            id: "timing",
+            title: "When should you start packing?",
+            intro: "If you pack on your own, the biggest mistake is waiting until the last minute. Self-packing should begin about six weeks before the move.",
+            items: [
+                {
+                    title: "Weeks before:",
+                    text: "Pack items kept in storage or not used daily.",
+                },
+                {
+                    title: "Two weeks before:",
+                    text: "Start packing books, decor, and rooms you rarely use.",
+                },
+                {
+                    title: "One week before:",
+                    text: "Pack most clothes, toys, and kitchen equipment you won’t need soon.",
+                },
+                {
+                    title: "Two days before:",
+                    text: "Finish packing the kitchen and leave only basic items for the final days.",
+                },
+            ],
+            outro: "Want to skip all this? Order packing through us and get everything done in one or two concentrated days!",
+        },
+        faq: {
+            id: "faq",
+            title: "Packing services FAQ",
+            items: [
+                {
+                    question: "Do you provide insurance for belongings?",
+                    answer: "Important to clarify: our portal connects customers with movers (an aggregator). We are not the insurer. However, we work only with registered professional movers and strongly recommend getting written confirmation from the mover you choose that they have valid cargo insurance covering damages.",
+                },
+                {
+                    question: "Who provides the boxes and packing materials?",
+                    answer: "When you order a full packing service, the moving company supplies everything — boxes, tape, packing paper, and bubble wrap. If you pack yourself, you can order moving boxes separately through us.",
+                },
+                {
+                    question: "How long does it take to pack an apartment?",
+                    answer: "A professional packing crew can pack a 3–4 room apartment in one workday (about 6–8 hours). Larger homes may require an extra day before moving.",
+                },
+                {
+                    question: "Can I order packing without moving?",
+                    answer: "Yes, you can order packing only, but it’s usually more cost-effective to book a combined packing + moving package.",
+                },
+            ],
+            closingText: "Ready for an easy, stress-free move? Don’t break your back or waste valuable days. Fill out the form, compare attractive quotes for packing and moving, and let the professionals do the work for you!",
+            buttonLabel: "Get packing quotes",
+        },
+    },
     calculatePage: {
         title: "Рассчитать стоимость",
         metaTitle: "Рассчитать стоимость переезда | Быстрый расчет",
@@ -1805,6 +2014,48 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
                     ...defaultDictionary.servicesPage.whyChooseUs,
                     ...loadedDict.servicesPage?.whyChooseUs,
                     features: loadedDict.servicesPage?.whyChooseUs?.features ?? defaultDictionary.servicesPage.whyChooseUs.features,
+                },
+            },
+            packingPage: {
+                ...defaultDictionary.packingPage,
+                ...loadedDict.packingPage,
+                whyChooseUs: {
+                    ...defaultDictionary.packingPage.whyChooseUs,
+                    ...loadedDict.packingPage?.whyChooseUs,
+                    paragraphs: loadedDict.packingPage?.whyChooseUs?.paragraphs
+                        ?? defaultDictionary.packingPage.whyChooseUs.paragraphs,
+                    bullets: loadedDict.packingPage?.whyChooseUs?.bullets
+                        ?? defaultDictionary.packingPage.whyChooseUs.bullets,
+                },
+                pricing: {
+                    ...defaultDictionary.packingPage.pricing,
+                    ...loadedDict.packingPage?.pricing,
+                    rows: loadedDict.packingPage?.pricing?.rows
+                        ?? defaultDictionary.packingPage.pricing.rows,
+                },
+                process: {
+                    ...defaultDictionary.packingPage.process,
+                    ...loadedDict.packingPage?.process,
+                    steps: loadedDict.packingPage?.process?.steps
+                        ?? defaultDictionary.packingPage.process.steps,
+                },
+                tips: {
+                    ...defaultDictionary.packingPage.tips,
+                    ...loadedDict.packingPage?.tips,
+                    items: loadedDict.packingPage?.tips?.items
+                        ?? defaultDictionary.packingPage.tips.items,
+                },
+                timing: {
+                    ...defaultDictionary.packingPage.timing,
+                    ...loadedDict.packingPage?.timing,
+                    items: loadedDict.packingPage?.timing?.items
+                        ?? defaultDictionary.packingPage.timing.items,
+                },
+                faq: {
+                    ...defaultDictionary.packingPage.faq,
+                    ...loadedDict.packingPage?.faq,
+                    items: loadedDict.packingPage?.faq?.items
+                        ?? defaultDictionary.packingPage.faq.items,
                 },
             },
             calculatePage: {
