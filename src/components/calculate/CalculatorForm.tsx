@@ -208,7 +208,7 @@ export default function CalculatorForm({
                       {option}
                     </option>
                 ))}
-              </select>https://github.com/skiffter1337/gruzoperevozki3/pull/98/conflict?name=src%252Fcomponents%252Fhome%252FBookingBanner.tsx&ancestor_oid=461bc7270abddc8954b3471448e0f8fd7e81d521&base_oid=a597805425f7cf610c4940c1803ebda6b5ded961&head_oid=9900a344119baf22841ff752613b1132f8f89c4f
+              </select>
             </div>
           </div>
         </div>
