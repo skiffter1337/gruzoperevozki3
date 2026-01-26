@@ -18,6 +18,7 @@ import ApartmentMovePage from '@/components/transportation/ApartmentMovePage';
 import OfficeMovePage from '@/components/transportation/OfficeMovePage';
 import SmallMovePage from '@/components/transportation/SmallMovePage';
 import PackingPage from '@/components/services/PackingPage';
+import StoragePage from '@/components/services/StoragePage';
 import styles from './region.module.scss';
 
 interface Props {
@@ -69,6 +70,14 @@ function buildPackingPath(locale: Locale, slug: string) {
 
 function isPackingSlug(slug: string[], packingSlug: string) {
   return slug[0] === packingSlug || slug[1] === packingSlug;
+}
+
+function buildStoragePath(locale: Locale, slug: string) {
+  return `${buildLocalizedPath(locale, 'services')}/${slug}`;
+}
+
+function isStorageSlug(slug: string[], storageSlug: string) {
+  return slug[0] === storageSlug || slug[1] === storageSlug;
 }
 
 async function buildSmallMoveLanguageAlternates() {
@@ -165,6 +174,21 @@ async function buildPackingLanguageAlternates() {
   return languages;
 }
 
+async function buildStorageLanguageAlternates() {
+  const dictionaries = await getAllDictionaries();
+  const languages: Record<string, string> = {};
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    const slug = dictionaries[locale].storagePage.slug;
+    languages[locale] = `${SITE_URL}${buildStoragePath(locale, slug)}`;
+  });
+
+  const defaultSlug = dictionaries[DEFAULT_LOCALE].storagePage.slug;
+  languages['x-default'] = `${SITE_URL}${buildStoragePath(DEFAULT_LOCALE, defaultSlug)}`;
+
+  return languages;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const dictionary = await getDictionary(locale);
@@ -251,6 +275,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  if (isStorageSlug(decodedSlug, dictionary.storagePage.slug)) {
+    const canonical = `${SITE_URL}${buildStoragePath(locale, dictionary.storagePage.slug)}`;
+
+    return {
+      title: dictionary.storagePage.metaTitle,
+      description: dictionary.storagePage.metaDescription,
+      alternates: {
+        canonical,
+        languages: await buildStorageLanguageAlternates(),
+      },
+      openGraph: {
+        title: dictionary.storagePage.metaTitle,
+        description: dictionary.storagePage.metaDescription,
+        url: canonical,
+        locale,
+      },
+    };
+  }
+
   let regionIndex = dictionary.homeRegions.sliderItems.findIndex((item) => item.slug === regionSlug);
 
   if (regionIndex < 0 && regionSlug) {
@@ -331,6 +374,15 @@ export default async function RegionPage({ params }: Props) {
       <PackingPage
         locale={locale}
         dictionary={dictionary.packingPage}
+        calculatorDictionary={dictionary.homeHero}
+      />
+    );
+  }
+  if (isStorageSlug(decodedSlug, dictionary.storagePage.slug)) {
+    return (
+      <StoragePage
+        locale={locale}
+        dictionary={dictionary.storagePage}
         calculatorDictionary={dictionary.homeHero}
       />
     );
