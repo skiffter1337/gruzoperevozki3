@@ -31,7 +31,7 @@
         },
         {
           "label": "Storage",
-          "path": "storage"
+          "path": "apartment-storage"
         },
         {
           "label": "Late moves",
@@ -100,7 +100,7 @@
         "title": "Extra services",
         "links": [
           {"label": "Packing", "path": "packing-services"},
-          {"label": "Storage", "path": "storage"},
+          {"label": "Storage", "path": "apartment-storage"},
           {"label": "Late moves", "path": "late-moves"}
         ]
       },
@@ -655,6 +655,166 @@
       ],
       "closingText": "Ready for an easy, calm move? Don’t break your back or waste valuable days. Fill in the form, get attractive quotes for packing and moving, and let the professionals do the work for you!",
       "buttonLabel": "Get packing quotes"
+    }
+  },
+  "storagePage": {
+    "slug": "apartment-storage",
+    "metaTitle": "Apartment storage in Israel — from ₪189",
+    "metaDescription": "Looking for storage services? Get quotes for secure, clean storage facilities nationwide. Apartment storage from ₪189 per month. Compare prices now!",
+    "title": "Storage services and apartment contents storage",
+    "tocTitle": "Table of contents: the complete guide to storing furniture and belongings",
+    "tocItems": [
+      {"id": "why-us", "label": "Why book storage through our portal?"},
+      {"id": "when-use", "label": "When do you need apartment storage services?"},
+      {"id": "pricing", "label": "How much does apartment storage cost? (pricing)"},
+      {"id": "choose-storage", "label": "How to choose a storage facility for apartment contents"},
+      {"id": "duration", "label": "Short-term storage vs. long-term storage"},
+      {"id": "tips", "label": "Packing tips before storage"},
+      {"id": "faq", "label": "Frequently asked questions"}
+    ],
+    "whyChooseUs": {
+      "id": "why-us",
+      "title": "Why book storage through our portal?",
+      "paragraphs": [
+        "Need temporary storage for furniture? Flying abroad and need a safe place for your belongings? Our portal is the smartest way to find storage and moving solutions.",
+        "We aggregate the best storage facilities and movers so you get the best price with minimal effort."
+      ],
+      "bulletsTitle": "Benefits that save money and stress:",
+      "bullets": [
+        "Lowest prices on the market: we commit to fair, attractive rates.",
+        "Proven savings: smart price comparison can save up to 45% on storage and moving.",
+        "Only vetted providers: we work exclusively with storage companies and movers that pass strict screening.",
+        "Full-service coverage: disassembly, professional packing, transportation, and storage in one place.",
+        "Nationwide availability: storage and transport across Israel.",
+        "Affordable starting price: services from ₪249.",
+        "Immediate availability: solutions for urgent cases and Saturdays (by prior arrangement)."
+      ],
+      "notice": "Please note: we act as an aggregator portal connecting you with recommended storage and moving companies. We do not provide insurance ourselves. Insurance for your belongings during transportation and storage is the responsibility of the provider you choose. We strongly recommend confirming that the storage company has a valid contents insurance policy covering damage, theft, and fire before handing over your items."
+    },
+    "whenUse": {
+      "id": "when-use",
+      "title": "When do you need apartment storage services?",
+      "intro": "Life is dynamic, and sometimes there’s a gap between leaving your old home and moving into the new one. Apartment storage is a great solution in many scenarios:",
+      "items": [
+        {
+          "title": "Major renovation:",
+          "text": "during renovations, furniture can be damaged by dust, paint, or impacts. Storing items offsite protects them and gives contractors space to work."
+        },
+        {
+          "title": "Relocation or long trip:",
+          "text": "leaving for an extended period? There’s no need to pay rent just for furniture. A container or storage unit is safer and more cost-effective."
+        },
+        {
+          "title": "Gap between leases:",
+          "text": "the most common case — you moved out of one apartment and get the new key a month later."
+        },
+        {
+          "title": "Limited space at home:",
+          "text": "received an inheritance or need extra space? Rent a small personal storage unit for seasonal items or sentimental belongings."
+        }
+      ]
+    },
+    "pricing": {
+      "id": "pricing",
+      "title": "How much does apartment storage cost? (pricing)",
+      "intro": "Storage pricing is typically based on volume (cubic meters) or number of rooms. Costs vary by location, security level, and access. The table below shows average monthly estimates:",
+      "tableLabel": "Apartment storage pricing",
+      "tableHeaders": ["Storage size / type", "Monthly price range (₪)", "Notes"],
+      "rows": [
+        {
+          "item": "Single item storage (pallet)",
+          "priceRange": "₪150–₪250",
+          "notes": "Suitable for a few boxes or individual appliances."
+        },
+        {
+          "item": "Studio / 1-room apartment storage",
+          "priceRange": "₪300–₪600",
+          "notes": "Depends on total volume."
+        },
+        {
+          "item": "2–3 room apartment storage",
+          "priceRange": "₪600–₪1,100",
+          "notes": "Pricing varies by private container vs. shared space."
+        },
+        {
+          "item": "4–5 room apartment storage",
+          "priceRange": "₪1,000–₪1,800",
+          "notes": "Requires larger storage space; a volume assessment is recommended."
+        },
+        {
+          "item": "Villa storage (6+ rooms)",
+          "priceRange": "From ₪1,500",
+          "notes": "Customized solutions based on your volume."
+        }
+      ],
+      "afterTable": "Prices are estimates only and do not include transportation to the storage facility."
+    },
+    "chooseStorage": {
+      "id": "choose-storage",
+      "title": "How to choose a storage facility for apartment contents",
+      "items": [
+        "Security and protection: make sure the facility has 24/7 cameras, is connected to a security center, and includes smoke detection and fire suppression.",
+        "Cleanliness and pest control: the storage must be clean, ventilated, and regularly treated to prevent pests and rodents.",
+        "Insurance: confirm the storage company provides comprehensive insurance for stored items and review coverage limits and deductibles.",
+        "Access and availability: if you need access during the storage period, check access policies, required scheduling, and any extra fees for item retrieval."
+      ]
+    },
+    "duration": {
+      "id": "duration",
+      "title": "Short-term storage vs. long-term storage",
+      "items": [
+        {
+          "title": "Short-term storage:",
+          "text": "ideal for moves and renovations. The focus is on flexibility and availability. Monthly pricing is often slightly higher, but commitments are shorter."
+        },
+        {
+          "title": "Long-term storage:",
+          "text": "best for relocation or items not used daily. Use sealed, airtight packing (“shrink wrap”) to prevent dust and humidity. Longer commitments often come with discounted rates."
+        }
+      ]
+    },
+    "tips": {
+      "id": "tips",
+      "title": "Packing tips before storage",
+      "intro": "Packing for storage differs from packing for a regular move. Items sit longer and are more sensitive to pressure and humidity. Here are our expert tips:",
+      "items": [
+        {
+          "title": "Appliances:",
+          "text": "defrost and dry refrigerators/freezers at least 24 hours before pickup and leave doors slightly open during storage to prevent odors."
+        },
+        {
+          "title": "Sturdy boxes:",
+          "text": "use strong double-wall cartons and avoid overloading them to prevent crushing items below."
+        },
+        {
+          "title": "Fragile items:",
+          "text": "wrap glass and porcelain generously with packing paper and bubble wrap."
+        },
+        {
+          "title": "Do not store:",
+          "text": "flammables, leaking liquids, or food (which attracts pests)."
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "question": "Can I order moving and storage together?",
+          "answer": "Absolutely. This is the most recommended and cost-effective option. Through the site you can get a combined quote that includes transport to storage, storage itself, and delivery to your new home later."
+        },
+        {
+          "question": "Do I need my own lock?",
+          "answer": "It depends on the storage type. If you rent a private self-storage unit, you usually bring your own lock. For shared pallet storage, the facility handles locking."
+        },
+        {
+          "question": "How do I choose the right storage size?",
+          "answer": "No guessing needed. Fill out your inventory list in our form and our experts will calculate the required volume so you don’t pay for empty space."
+        }
+      ],
+      "closingText": "Not sure where to store your belongings? Don’t overthink it. Leave your details, compare quotes from trusted facilities, and save up to 45% on storage and moving!",
+      "buttonLabel": "Get storage quotes"
     }
   },
   "homeArticles": {

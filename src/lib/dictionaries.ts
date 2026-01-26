@@ -342,6 +342,60 @@ export type DictionaryType = {
             buttonLabel: string;
         };
     };
+    storagePage: {
+        slug: string;
+        metaTitle: string;
+        metaDescription: string;
+        title: string;
+        tocTitle: string;
+        tocItems: Array<{id: string; label: string}>;
+        whyChooseUs: {
+            id: string;
+            title: string;
+            paragraphs: string[];
+            bulletsTitle: string;
+            bullets: string[];
+            notice: string;
+        };
+        whenUse: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+        };
+        pricing: {
+            id: string;
+            title: string;
+            intro: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: SmallMoveTableRow[];
+            afterTable: string;
+        };
+        chooseStorage: {
+            id: string;
+            title: string;
+            items: string[];
+        };
+        duration: {
+            id: string;
+            title: string;
+            items: Array<{title: string; text: string}>;
+        };
+        tips: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+        };
+        faq: {
+            id: string;
+            title: string;
+            items: Array<{question: string; answer: string}>;
+            closingText: string;
+            buttonLabel: string;
+        };
+    };
     calculatePage: {
         title: string;
         metaTitle: string;
@@ -1892,6 +1946,79 @@ const defaultDictionary: DictionaryType = {
             },
         },
     },
+    storagePage: {
+        slug: 'storage',
+        metaTitle: 'Storage services',
+        metaDescription: 'Storage services description.',
+        title: 'Storage services',
+        tocTitle: 'Contents',
+        tocItems: [
+            {id: 'why-us', label: 'Why choose us'},
+        ],
+        whyChooseUs: {
+            id: 'why-us',
+            title: 'Why choose us',
+            paragraphs: ['Storage services details.'],
+            bulletsTitle: 'Benefits',
+            bullets: ['Affordable prices.'],
+            notice: 'Storage notice.',
+        },
+        whenUse: {
+            id: 'when-use',
+            title: 'When to use storage',
+            intro: 'Storage service use cases.',
+            items: [
+                {title: 'Renovation:', text: 'Protect your items.'},
+            ],
+        },
+        pricing: {
+            id: 'pricing',
+            title: 'Pricing',
+            intro: 'Storage pricing overview.',
+            tableLabel: 'Storage pricing table',
+            tableHeaders: ['Storage size', 'Price range', 'Notes'],
+            rows: [
+                {
+                    notes: 'Small storage items.',
+                    priceRange: '150–250 ₪',
+                    item: 'Single items storage',
+                },
+            ],
+            afterTable: 'Prices are estimates.',
+        },
+        chooseStorage: {
+            id: 'choose-storage',
+            title: 'How to choose storage',
+            items: ['Check security and insurance.'],
+        },
+        duration: {
+            id: 'duration',
+            title: 'Short vs long term',
+            items: [
+                {title: 'Short-term:', text: 'Flexible for moves and renovations.'},
+            ],
+        },
+        tips: {
+            id: 'tips',
+            title: 'Packing tips',
+            intro: 'Prepare items for storage.',
+            items: [
+                {title: 'Appliances:', text: 'Defrost and dry.'},
+            ],
+        },
+        faq: {
+            id: 'faq',
+            title: 'FAQ',
+            items: [
+                {
+                    question: 'Can I order storage and moving together?',
+                    answer: 'Yes, combine services easily.',
+                },
+            ],
+            closingText: 'Compare storage offers now.',
+            buttonLabel: 'Get a quote',
+        },
+    },
 };
 
 const loadDictionary = (locale: Locale) =>
@@ -2056,6 +2183,54 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
                     ...loadedDict.packingPage?.faq,
                     items: loadedDict.packingPage?.faq?.items
                         ?? defaultDictionary.packingPage.faq.items,
+                },
+            },
+            storagePage: {
+                ...defaultDictionary.storagePage,
+                ...loadedDict.storagePage,
+                whyChooseUs: {
+                    ...defaultDictionary.storagePage.whyChooseUs,
+                    ...loadedDict.storagePage?.whyChooseUs,
+                    paragraphs: loadedDict.storagePage?.whyChooseUs?.paragraphs
+                        ?? defaultDictionary.storagePage.whyChooseUs.paragraphs,
+                    bullets: loadedDict.storagePage?.whyChooseUs?.bullets
+                        ?? defaultDictionary.storagePage.whyChooseUs.bullets,
+                },
+                whenUse: {
+                    ...defaultDictionary.storagePage.whenUse,
+                    ...loadedDict.storagePage?.whenUse,
+                    items: loadedDict.storagePage?.whenUse?.items
+                        ?? defaultDictionary.storagePage.whenUse.items,
+                },
+                pricing: {
+                    ...defaultDictionary.storagePage.pricing,
+                    ...loadedDict.storagePage?.pricing,
+                    rows: loadedDict.storagePage?.pricing?.rows
+                        ?? defaultDictionary.storagePage.pricing.rows,
+                },
+                chooseStorage: {
+                    ...defaultDictionary.storagePage.chooseStorage,
+                    ...loadedDict.storagePage?.chooseStorage,
+                    items: loadedDict.storagePage?.chooseStorage?.items
+                        ?? defaultDictionary.storagePage.chooseStorage.items,
+                },
+                duration: {
+                    ...defaultDictionary.storagePage.duration,
+                    ...loadedDict.storagePage?.duration,
+                    items: loadedDict.storagePage?.duration?.items
+                        ?? defaultDictionary.storagePage.duration.items,
+                },
+                tips: {
+                    ...defaultDictionary.storagePage.tips,
+                    ...loadedDict.storagePage?.tips,
+                    items: loadedDict.storagePage?.tips?.items
+                        ?? defaultDictionary.storagePage.tips.items,
+                },
+                faq: {
+                    ...defaultDictionary.storagePage.faq,
+                    ...loadedDict.storagePage?.faq,
+                    items: loadedDict.storagePage?.faq?.items
+                        ?? defaultDictionary.storagePage.faq.items,
                 },
             },
             calculatePage: {
