@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import GradientButton from '@/components/gradient-button/GradientButton';
 import { DictionaryType } from '@/lib/dictionaries';
 import { buildLocalizedPath } from '@/lib/localized-paths';
-import { israelLocationSuggestions } from '@/lib/israel-locations';
 import { Locale } from '../../../i18n-config';
 import styles from './BookingBanner.module.scss';
 
@@ -170,11 +169,6 @@ export default function BookingBanner({
               <div className={styles.submitLabel}>({dictionary.submitLabel})</div>
             </div>
           </form>
-          <datalist id={suggestionsId}>
-            {israelLocationSuggestions.map((location) => (
-              <option key={location} value={location} />
-            ))}
-          </datalist>
         </div>
       </div>
     </section>

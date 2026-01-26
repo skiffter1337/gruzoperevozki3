@@ -1,9 +1,8 @@
 'use client';
 
-import { FormEvent, useMemo, useRef, useState, useEffect } from 'react';
+import {FormEvent, useMemo, useRef, useState} from 'react';
 import GradientButton from '@/components/gradient-button/GradientButton';
-import { DictionaryType } from '@/lib/dictionaries';
-import { israelLocationSuggestions } from '@/lib/israel-locations';
+import {DictionaryType} from '@/lib/dictionaries';
 import styles from '@/app/[locale]/calculate.module.scss';
 
 export type CalculatorFormPayload = {
@@ -270,11 +269,6 @@ export default function CalculatorForm({
         </div>
 
       </div>
-      <datalist id={suggestionsId}>
-        {israelLocationSuggestions.map((location) => (
-          <option key={location} value={location} />
-        ))}
-      </datalist>
       <div className={styles.field}>
         <label htmlFor="date" className={styles.label}>
           {dictionary.dateLabel}
