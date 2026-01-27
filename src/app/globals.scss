@@ -18,7 +18,7 @@ body {
 
 body {
   color: var(--foreground);
-  background: url('/bgWhite.png') center / cover no-repeat;
+  background: white;
   font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -32,7 +32,7 @@ body {
 
 .page-main {
   flex: 1;
-  background: url('/bgWhite.png') center / cover no-repeat;
+  background: white;
 }
 
 [dir='rtl'] {

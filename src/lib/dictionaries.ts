@@ -148,7 +148,6 @@ export type DictionaryType = {
             services: string;
             calculate: string;
             articles: string;
-            about: string;
             contact: string;
             leaveReview: string;
         };

@@ -81,6 +81,7 @@
 .logo {
   flex: 0 0 auto;
   height: 60px;
+  align-self: baseline;
   a {
     display: block;
     transition: opacity 0.2s ease;
