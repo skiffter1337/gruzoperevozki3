@@ -594,6 +594,66 @@ export type DictionaryType = {
             closing: string;
         };
     };
+    pianoMovePage: {
+        slug: string;
+        metaTitle: string;
+        metaDescription: string;
+        title: string;
+        tocTitle: string;
+        tocItems: Array<{id: string; label: string}>;
+        why: {
+            id: string;
+            title: string;
+            intro: string;
+            bulletsTitle: string;
+            bullets: string[];
+            noteLabel: string;
+            note: string;
+        };
+        pricing: {
+            id: string;
+            title: string;
+            intro: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: SmallMoveTableRow[];
+            afterTable: string;
+        };
+        comparison: {
+            id: string;
+            title: string;
+            items: Array<{title: string; text: string}>;
+        };
+        crane: {
+            id: string;
+            title: string;
+            intro: string;
+            items: string[];
+        };
+        preparation: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+        };
+        stairs: {
+            id: string;
+            title: string;
+            intro: string;
+            items: string[];
+            outro: string;
+        };
+        faq: {
+            id: string;
+            title: string;
+            items: Array<{question: string; answer: string}>;
+        };
+        closing: {
+            title: string;
+            text: string;
+            buttonLabel: string;
+        };
+    };
     officeMovePage: {
         slug: string;
         metaTitle: string;
@@ -1764,6 +1824,66 @@ const defaultDictionary: DictionaryType = {
             closing: '',
         },
     },
+    pianoMovePage: {
+        slug: 'piano-moving',
+        metaTitle: 'Piano moving',
+        metaDescription: 'Piano moving description.',
+        title: 'Piano moving',
+        tocTitle: 'Table of contents',
+        tocItems: [],
+        why: {
+            id: 'why-us',
+            title: 'Why order piano moving with us?',
+            intro: '',
+            bulletsTitle: 'Benefits',
+            bullets: [],
+            noteLabel: 'Important:',
+            note: '',
+        },
+        pricing: {
+            id: 'pricing',
+            title: 'Piano moving price list',
+            intro: '',
+            tableLabel: 'Piano moving price list',
+            tableHeaders: [],
+            rows: [],
+            afterTable: '',
+        },
+        comparison: {
+            id: 'upright-vs-grand',
+            title: 'Upright piano vs grand piano',
+            items: [],
+        },
+        crane: {
+            id: 'crane',
+            title: 'When do you need a crane?',
+            intro: '',
+            items: [],
+        },
+        preparation: {
+            id: 'preparation',
+            title: 'Preparing the piano for moving',
+            intro: '',
+            items: [],
+        },
+        stairs: {
+            id: 'stairs',
+            title: 'Moving via stairs',
+            intro: '',
+            items: [],
+            outro: '',
+        },
+        faq: {
+            id: 'faq',
+            title: 'FAQ',
+            items: [],
+        },
+        closing: {
+            title: 'Ready to move your piano?',
+            text: '',
+            buttonLabel: 'Get quotes',
+        },
+    },
     officeMovePage: {
         slug: 'offices',
         metaTitle: 'Office move',
@@ -2243,6 +2363,10 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             smallMovePage: {
                 ...defaultDictionary.smallMovePage,
                 ...loadedDict.smallMovePage,
+            },
+            pianoMovePage: {
+                ...defaultDictionary.pianoMovePage,
+                ...loadedDict.pianoMovePage,
             },
             officeMovePage: {
                 ...defaultDictionary.officeMovePage,

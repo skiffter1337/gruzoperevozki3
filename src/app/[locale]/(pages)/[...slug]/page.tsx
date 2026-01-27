@@ -17,6 +17,7 @@ import RegionTransportTableSection from '@/components/regions/RegionTransportTab
 import ApartmentMovePage from '@/components/transportation/ApartmentMovePage';
 import OfficeMovePage from '@/components/transportation/OfficeMovePage';
 import SmallMovePage from '@/components/transportation/SmallMovePage';
+import PianoMovePage from '@/components/transportation/PianoMovePage';
 import PackingPage from '@/components/services/PackingPage';
 import StoragePage from '@/components/services/StoragePage';
 import styles from './region.module.scss';
@@ -46,6 +47,14 @@ function buildSmallMovePath(locale: Locale, slug: string) {
 
 function isSmallMoveSlug(slug: string[], smallMoveSlug: string) {
   return slug[0] === smallMoveSlug || slug[1] === smallMoveSlug;
+}
+
+function buildPianoMovePath(locale: Locale, slug: string) {
+  return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
+}
+
+function isPianoMoveSlug(slug: string[], pianoMoveSlug: string) {
+  return slug[0] === pianoMoveSlug || slug[1] === pianoMoveSlug;
 }
 
 function buildApartmentMovePath(locale: Locale, slug: string) {
@@ -106,6 +115,21 @@ async function buildOfficeMoveLanguageAlternates() {
 
   const defaultSlug = dictionaries[DEFAULT_LOCALE].officeMovePage.slug;
   languages['x-default'] = `${SITE_URL}${buildOfficeMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+
+  return languages;
+}
+
+async function buildPianoMoveLanguageAlternates() {
+  const dictionaries = await getAllDictionaries();
+  const languages: Record<string, string> = {};
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    const slug = dictionaries[locale].pianoMovePage.slug;
+    languages[locale] = `${SITE_URL}${buildPianoMovePath(locale, slug)}`;
+  });
+
+  const defaultSlug = dictionaries[DEFAULT_LOCALE].pianoMovePage.slug;
+  languages['x-default'] = `${SITE_URL}${buildPianoMovePath(DEFAULT_LOCALE, defaultSlug)}`;
 
   return languages;
 }
@@ -237,6 +261,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  if (isPianoMoveSlug(decodedSlug, dictionary.pianoMovePage.slug)) {
+    const canonical = `${SITE_URL}${buildPianoMovePath(locale, dictionary.pianoMovePage.slug)}`;
+
+    return {
+      title: dictionary.pianoMovePage.metaTitle,
+      description: dictionary.pianoMovePage.metaDescription,
+      alternates: {
+        canonical,
+        languages: await buildPianoMoveLanguageAlternates(),
+      },
+      openGraph: {
+        title: dictionary.pianoMovePage.metaTitle,
+        description: dictionary.pianoMovePage.metaDescription,
+        url: canonical,
+        locale,
+      },
+    };
+  }
+
   if (isOfficeMoveSlug(decodedSlug, dictionary.officeMovePage.slug)) {
     const canonical = `${SITE_URL}${buildOfficeMovePath(locale, dictionary.officeMovePage.slug)}`;
 
@@ -356,6 +399,15 @@ export default async function RegionPage({ params }: Props) {
       <SmallMovePage
         locale={locale}
         dictionary={dictionary.smallMovePage}
+        calculatorDictionary={dictionary.homeHero}
+      />
+    );
+  }
+  if (isPianoMoveSlug(decodedSlug, dictionary.pianoMovePage.slug)) {
+    return (
+      <PianoMovePage
+        locale={locale}
+        dictionary={dictionary.pianoMovePage}
         calculatorDictionary={dictionary.homeHero}
       />
     );

@@ -22,6 +22,10 @@
         {
           "label": "Small move",
           "path": "small-move"
+        },
+        {
+          "label": "Piano moving",
+          "path": "piano-moving"
         }
       ],
       "services": [
@@ -93,7 +97,8 @@
           {"label": "Apartments", "path": "apartments"},
           {"label": "Office move", "path": "offices"},
           {"label": "Private house", "path": "private-house"},
-          {"label": "Small move", "path": "small-move"}
+          {"label": "Small move", "path": "small-move"},
+          {"label": "Piano moving", "path": "piano-moving"}
         ]
       },
       "services": {
@@ -1926,6 +1931,154 @@
         }
       ],
       "closing": "Looking for a small, reliable, and affordable mover? Don’t waste time on phone calls. Leave your details now and get winning quotes for free!"
+    }
+  },
+  "pianoMovePage": {
+    "slug": "piano-moving",
+    "metaTitle": "Piano moving from 249 ₪ — piano movers in Israel",
+    "metaDescription": "Professional piano moving in Israel from 249 ₪. Compare prices and save up to 45%. Upright and grand piano moving with a crane, fast availability, even on Saturdays, nationwide.",
+    "title": "Piano moving",
+    "tocTitle": "Contents: the complete guide to safe piano moving",
+    "tocItems": [
+      {"id": "why-us", "label": "Why order piano moving through our portal?"},
+      {"id": "pricing", "label": "Piano moving price list — what does it really cost?"},
+      {"id": "upright-vs-grand", "label": "Upright piano vs. grand piano moving"},
+      {"id": "crane", "label": "When do you need a crane for piano moving?"},
+      {"id": "preparation", "label": "Preparing the piano and retuning"},
+      {"id": "stairs", "label": "Staircase moving — when is it possible?"},
+      {"id": "faq", "label": "Frequently asked questions"}
+    ],
+    "why": {
+      "id": "why-us",
+      "title": "Why order piano moving through our portal?",
+      "intro": "A piano is not just furniture — it is a valuable, heavy, and very delicate instrument. Piano moving requires special skills, proper equipment, and extensive experience. Not every household mover knows how to transport a piano without damaging its mechanism or finish. Our portal is an advanced aggregator that connects you with the best piano-moving specialists.",
+      "bulletsTitle": "Benefits that save you money and worry:",
+      "bullets": [
+        "Lowest market prices: we keep fair and competitive rates with piano moving from 249 ₪ (for smaller instruments or simple moves).",
+        "Big savings: our price-comparison method saves you up to 45% on moving costs.",
+        "Only specialized movers: we work with movers who handle pianos specifically and know how to wrap, secure, and transport them safely.",
+        "Full coverage: solutions for every scenario — crane moving, grand piano transport, and tight stairwells.",
+        "Immediate availability: need a piano moved urgently? We help you find same-day options, even on Saturdays (by arrangement).",
+        "Nationwide service: movers across Israel from north to south."
+      ],
+      "noteLabel": "Important:",
+      "note": "we are a portal (aggregator) that connects you with professional movers. We do not provide insurance ourselves. Insurance responsibility rests with the moving company you choose. We strongly recommend confirming that the mover has an active “goods in transit” policy before the job begins."
+    },
+    "pricing": {
+      "id": "pricing",
+      "title": "Piano moving price list — what does it really cost?",
+      "intro": "The price depends on the type of piano (upright/grand), floor, elevator availability, and travel distance. We have compiled an average price table to help you estimate:",
+      "tableLabel": "Piano moving price list",
+      "tableHeaders": ["Notes and details", "Estimated price range (₪)", "Piano type / service"],
+      "rows": [
+        {
+          "notes": "Depends on floor and access.",
+          "priceRange": "450 - 900 ₪",
+          "item": "Upright piano moving (standard)"
+        },
+        {
+          "notes": "Requires removing legs and a more skilled team.",
+          "priceRange": "1,000 - 1,500 ₪",
+          "item": "Grand piano moving"
+        },
+        {
+          "notes": "Per-floor fee (beyond ground/first floor).",
+          "priceRange": "100 - 150 ₪",
+          "item": "Per-floor surcharge (no elevator)"
+        },
+        {
+          "notes": "Recommended for high floors or narrow passages.",
+          "priceRange": "300 - 600 ₪",
+          "item": "Crane surcharge (per hour)"
+        },
+        {
+          "notes": "Depends on the instrument's size and weight.",
+          "priceRange": "250 - 450 ₪",
+          "item": "Large organ moving"
+        }
+      ],
+      "afterTable": "Prices are estimates for moves within the same city. For a precise and lower quote, fill out the form on the site."
+    },
+    "comparison": {
+      "id": "upright-vs-grand",
+      "title": "Upright piano vs. grand piano moving",
+      "items": [
+        {
+          "title": "Upright piano:",
+          "text": "typically weighs 150–250 kg. It is moved by 2–3 carriers using special lifting straps. The piano is wrapped in blankets and stretch film and moved on a dolly to the truck."
+        },
+        {
+          "title": "Grand piano:",
+          "text": "much heavier with a unique shape. Moving requires removing the legs and pedals. The piano is wrapped, laid on its side on a special skid, and transported carefully. Usually 4 movers or a crane are required."
+        }
+      ]
+    },
+    "crane": {
+      "id": "crane",
+      "title": "When do you need a crane for piano moving?",
+      "intro": "Sometimes the stairwell is too narrow, the elevator is too small, or the piano is simply too heavy to move safely by stairs. In these cases, a crane is the most efficient and safest solution. Crane advantages:",
+      "items": [
+        "Maximum protection: the piano doesn't bump walls or shake on stairs.",
+        "Speed: the move can be completed in minutes.",
+        "Cost: even with an extra fee, it is cheaper than repairing damage to a piano or building walls."
+      ]
+    },
+    "preparation": {
+      "id": "preparation",
+      "title": "Preparing the piano and retuning",
+      "intro": "To keep the move safe, follow these tips:",
+      "items": [
+        {
+          "title": "Lock the lid:",
+          "text": "make sure the keyboard lid is closed and locked (if there is a key) to prevent key damage."
+        },
+        {
+          "title": "Take photos:",
+          "text": "photograph the piano from all angles before the move to document its condition."
+        },
+        {
+          "title": "Retuning:",
+          "text": "pianos can go out of tune during transport due to temperature, humidity changes, and minor vibrations. Wait about 2–3 weeks after the move so the piano acclimates, then call a tuner."
+        }
+      ]
+    },
+    "stairs": {
+      "id": "stairs",
+      "title": "Staircase moving — when is it possible?",
+      "intro": "Moving a piano in a stairwell is physically demanding. It is possible when:",
+      "items": [
+        "the stairwell is wide enough to turn the piano on landings;",
+        "there are at least 2 strong, experienced movers (more for a grand piano);",
+        "the piano is securely fastened to the movers' straps."
+      ],
+      "outro": "If there is any doubt about the passage width, it is always safer to choose a crane."
+    },
+    "faq": {
+      "id": "faq",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "question": "How many movers are needed to move a piano?",
+          "answer": "For a standard upright piano, 2–3 movers are usually enough. For a grand piano or very heavy upright piano, 4 movers or more are required."
+        },
+        {
+          "question": "Do you wrap the piano?",
+          "answer": "Yes. Movers wrap the piano in stretch film, thick blankets, and cardboard to protect it from scratches, bumps, and moisture during transit."
+        },
+        {
+          "question": "What tip is customary for piano movers?",
+          "answer": "Tips are typically higher than for regular moves due to the physical effort and responsibility. The common range is 50–100 ₪ per mover depending on complexity (floors, stairs, etc.)."
+        },
+        {
+          "question": "Is insurance included in the price?",
+          "answer": "Most professional movers provide insurance, but it's important to confirm this in advance and ask to see the policy, especially for valuable instruments."
+        }
+      ]
+    },
+    "closing": {
+      "title": "Need to move a piano?",
+      "text": "Don't risk your valuable instrument! Fill out the form now, get quotes from piano-moving specialists, and save up to 45% on the move.",
+      "buttonLabel": "Get quotes"
     }
   },
   "leaveReviewPage": {
