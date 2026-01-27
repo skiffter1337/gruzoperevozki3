@@ -22,6 +22,12 @@ const apartmentMoveSlugsByLocale: Record<Locale, string> = {
   en: enDictionary.apartmentMovePage?.slug ?? "apartments",
 };
 
+const pianoMoveSlugsByLocale: Record<Locale, string> = {
+  he: heDictionary.pianoMovePage?.slug ?? "הובלת-פסנתר",
+  ru: ruDictionary.pianoMovePage?.slug ?? "perevozka-pianino",
+  en: enDictionary.pianoMovePage?.slug ?? "piano-moving",
+};
+
 const officeMoveSlugsByLocale: Record<Locale, string> = {
   he: heDictionary.officeMovePage?.slug ?? "הובלות_משרדים",
   ru: ruDictionary.officeMovePage?.slug ?? "офисные",
@@ -65,9 +71,17 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
 
   const currentSmallMoveSlug = smallMoveSlugsByLocale[currentLocale];
   const currentApartmentMoveSlug = apartmentMoveSlugsByLocale[currentLocale];
+  const currentPianoMoveSlug = pianoMoveSlugsByLocale[currentLocale];
   const currentOfficeMoveSlug = officeMoveSlugsByLocale[currentLocale];
   if (decodedFirstSegment === currentApartmentMoveSlug) {
     const targetSlug = encodeURIComponent(apartmentMoveSlugsByLocale[targetLocale]);
+    const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+    const remaining = rest.length ? `/${rest.join("/")}` : "";
+    return `${translatedBase}/${targetSlug}${remaining}`;
+  }
+
+  if (decodedFirstSegment === currentPianoMoveSlug) {
+    const targetSlug = encodeURIComponent(pianoMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
     return `${translatedBase}/${targetSlug}${remaining}`;
@@ -99,6 +113,12 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
     const decodedRest = decodeURIComponent(rest[0]);
     if (decodedRest === currentApartmentMoveSlug) {
       const targetSlug = encodeURIComponent(apartmentMoveSlugsByLocale[targetLocale]);
+      const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+      const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
+      return `${translatedBase}/${targetSlug}${remaining}`;
+    }
+    if (decodedRest === currentPianoMoveSlug) {
+      const targetSlug = encodeURIComponent(pianoMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "transportation");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
       return `${translatedBase}/${targetSlug}${remaining}`;
