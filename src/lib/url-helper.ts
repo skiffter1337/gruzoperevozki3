@@ -40,6 +40,12 @@ const packingSlugsByLocale: Record<Locale, string> = {
   en: enDictionary.packingPage?.slug ?? "packing-services",
 };
 
+const telAvivMoveSlugsByLocale: Record<Locale, string> = {
+  he: heDictionary.telAvivMovePage?.slug ?? "הובלות-בתל-אביב",
+  ru: ruDictionary.telAvivMovePage?.slug ?? "перевозки-в-тель-авиве",
+  en: enDictionary.telAvivMovePage?.slug ?? "transportation-in-tel-aviv",
+};
+
 const translateRegionSlug = (sourceLocale: Locale, targetLocale: Locale, slug: string) => {
   const sourceSlugs = regionSlugsByLocale[sourceLocale];
   const targetSlugs = regionSlugsByLocale[targetLocale];
@@ -73,6 +79,7 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
   const currentApartmentMoveSlug = apartmentMoveSlugsByLocale[currentLocale];
   const currentPianoMoveSlug = pianoMoveSlugsByLocale[currentLocale];
   const currentOfficeMoveSlug = officeMoveSlugsByLocale[currentLocale];
+  const currentTelAvivMoveSlug = telAvivMoveSlugsByLocale[currentLocale];
   if (decodedFirstSegment === currentApartmentMoveSlug) {
     const targetSlug = encodeURIComponent(apartmentMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
@@ -97,6 +104,13 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
   if (decodedFirstSegment === currentSmallMoveSlug) {
     const targetSlug = encodeURIComponent(smallMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+    const remaining = rest.length ? `/${rest.join("/")}` : "";
+    return `${translatedBase}/${targetSlug}${remaining}`;
+  }
+
+  if (decodedFirstSegment === currentTelAvivMoveSlug) {
+    const targetSlug = encodeURIComponent(telAvivMoveSlugsByLocale[targetLocale]);
+    const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
     return `${translatedBase}/${targetSlug}${remaining}`;
   }
@@ -132,6 +146,12 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
     if (decodedRest === currentSmallMoveSlug) {
       const targetSlug = encodeURIComponent(smallMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+      const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
+      return `${translatedBase}/${targetSlug}${remaining}`;
+    }
+    if (decodedRest === currentTelAvivMoveSlug) {
+      const targetSlug = encodeURIComponent(telAvivMoveSlugsByLocale[targetLocale]);
+      const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
       return `${translatedBase}/${targetSlug}${remaining}`;
     }
