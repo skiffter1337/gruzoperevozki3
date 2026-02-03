@@ -163,6 +163,12 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
       return `${translatedBase}/${targetSlug}${remaining}`;
     }
+    if (decodedRest === currentHouseMoveSlug) {
+      const targetSlug = encodeURIComponent(houseMoveSlugsByLocale[targetLocale]);
+      const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+      const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
+      return `${translatedBase}/${targetSlug}${remaining}`;
+    }
     if (decodedRest === currentTelAvivMoveSlug) {
       const targetSlug = encodeURIComponent(telAvivMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
