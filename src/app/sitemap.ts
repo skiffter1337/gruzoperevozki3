@@ -45,6 +45,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ru: ruDictionary.storagePage?.slug ?? 'хранение-имущества-квартиры',
     en: enDictionary.storagePage?.slug ?? 'apartment-storage',
   };
+  const telAvivMoveSlugsByLocale = {
+    he: heDictionary.telAvivMovePage?.slug ?? 'הובלות-תל-אביב',
+    ru: ruDictionary.telAvivMovePage?.slug ?? 'הובלות-תל-אביב',
+    en: enDictionary.telAvivMovePage?.slug ?? 'tel-aviv-moving',
+  };
 
   routes.forEach((route) => {
     SUPPORTED_LOCALES.forEach((locale) => {
@@ -180,6 +185,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const defaultSlug = storageSlugsByLocale[DEFAULT_LOCALE];
     languages['x-default'] = `${SITE_URL}${buildLocalizedPath(DEFAULT_LOCALE, 'services')}/${defaultSlug}`;
+
+    entries.push({
+      url,
+      lastModified,
+      alternates: {
+        languages,
+      },
+    });
+  });
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    const slug = telAvivMoveSlugsByLocale[locale];
+    const url = `${SITE_URL}${buildLocalizedPath(locale, 'home')}/${slug}`;
+    const languages: Record<string, string> = {};
+
+    SUPPORTED_LOCALES.forEach((supportedLocale) => {
+      const supportedSlug = telAvivMoveSlugsByLocale[supportedLocale];
+      languages[supportedLocale] = `${SITE_URL}${buildLocalizedPath(supportedLocale, 'home')}/${supportedSlug}`;
+    });
+
+    const defaultSlug = telAvivMoveSlugsByLocale[DEFAULT_LOCALE];
+    languages['x-default'] = `${SITE_URL}${buildLocalizedPath(DEFAULT_LOCALE, 'home')}/${defaultSlug}`;
 
     entries.push({
       url,

@@ -78,6 +78,12 @@ export interface SmallMoveTableRow {
     item: string;
 }
 
+export interface TelAvivMoveTableRow {
+    type: string;
+    priceRange: string;
+    notes: string;
+}
+
 export interface OfficeMoveComparisonRow {
     night: string;
     day: string;
@@ -592,6 +598,63 @@ export type DictionaryType = {
             intro: string;
             items: Array<{title: string; text: string}>;
             closing: string;
+        };
+    };
+    telAvivMovePage: {
+        slug: string;
+        metaTitle: string;
+        metaDescription: string;
+        title: string;
+        tocTitle: string;
+        tocItems: Array<{id: string; label: string}>;
+        why: {
+            id: string;
+            title: string;
+            paragraphs: string[];
+            bulletsTitle: string;
+            bullets: string[];
+            note: string;
+        };
+        pricing: {
+            id: string;
+            title: string;
+            intro: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: TelAvivMoveTableRow[];
+            afterTable: string;
+        };
+        challenges: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+        };
+        smallMoves: {
+            id: string;
+            title: string;
+            intro: string;
+            bullets: string[];
+        };
+        officeMoves: {
+            id: string;
+            title: string;
+            intro: string;
+            bullets: string[];
+        };
+        extraServices: {
+            id: string;
+            title: string;
+            intro: string;
+            items: Array<{title: string; text: string}>;
+        };
+        faq: {
+            id: string;
+            title: string;
+            items: Array<{question: string; answer: string}>;
+        };
+        closing: {
+            text: string;
         };
     };
     pianoMovePage: {
@@ -1824,6 +1887,63 @@ const defaultDictionary: DictionaryType = {
             closing: '',
         },
     },
+    telAvivMovePage: {
+        slug: 'tel-aviv-moving',
+        metaTitle: 'Moving in Tel Aviv',
+        metaDescription: 'Tel Aviv moving services and price comparison.',
+        title: 'Moving in Tel Aviv',
+        tocTitle: 'Table of contents',
+        tocItems: [],
+        why: {
+            id: 'why-us',
+            title: 'Why use our portal?',
+            paragraphs: [],
+            bulletsTitle: 'Benefits',
+            bullets: [],
+            note: '',
+        },
+        pricing: {
+            id: 'pricing',
+            title: 'Tel Aviv moving price list',
+            intro: '',
+            tableLabel: 'Tel Aviv moving price table',
+            tableHeaders: [],
+            rows: [],
+            afterTable: '',
+        },
+        challenges: {
+            id: 'challenges',
+            title: 'Challenges',
+            intro: '',
+            items: [],
+        },
+        smallMoves: {
+            id: 'small-moves',
+            title: 'Small moves',
+            intro: '',
+            bullets: [],
+        },
+        officeMoves: {
+            id: 'office-moves',
+            title: 'Office moves',
+            intro: '',
+            bullets: [],
+        },
+        extraServices: {
+            id: 'extra-services',
+            title: 'Additional services',
+            intro: '',
+            items: [],
+        },
+        faq: {
+            id: 'faq',
+            title: 'FAQ',
+            items: [],
+        },
+        closing: {
+            text: '',
+        },
+    },
     pianoMovePage: {
         slug: 'piano-moving',
         metaTitle: 'Piano moving',
@@ -2363,6 +2483,10 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             smallMovePage: {
                 ...defaultDictionary.smallMovePage,
                 ...loadedDict.smallMovePage,
+            },
+            telAvivMovePage: {
+                ...defaultDictionary.telAvivMovePage,
+                ...loadedDict.telAvivMovePage,
             },
             pianoMovePage: {
                 ...defaultDictionary.pianoMovePage,

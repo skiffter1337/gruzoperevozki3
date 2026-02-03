@@ -18,6 +18,7 @@ import ApartmentMovePage from '@/components/transportation/ApartmentMovePage';
 import OfficeMovePage from '@/components/transportation/OfficeMovePage';
 import SmallMovePage from '@/components/transportation/SmallMovePage';
 import PianoMovePage from '@/components/transportation/PianoMovePage';
+import TelAvivMovePage from '@/components/transportation/TelAvivMovePage';
 import PackingPage from '@/components/services/PackingPage';
 import StoragePage from '@/components/services/StoragePage';
 import styles from './region.module.scss';
@@ -55,6 +56,14 @@ function buildPianoMovePath(locale: Locale, slug: string) {
 
 function isPianoMoveSlug(slug: string[], pianoMoveSlug: string) {
   return slug[0] === pianoMoveSlug || slug[1] === pianoMoveSlug;
+}
+
+function buildTelAvivMovePath(locale: Locale, slug: string) {
+  return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+}
+
+function isTelAvivMoveSlug(slug: string[], telAvivMoveSlug: string) {
+  return slug[0] === telAvivMoveSlug || slug[1] === telAvivMoveSlug;
 }
 
 function buildApartmentMovePath(locale: Locale, slug: string) {
@@ -130,6 +139,21 @@ async function buildPianoMoveLanguageAlternates() {
 
   const defaultSlug = dictionaries[DEFAULT_LOCALE].pianoMovePage.slug;
   languages['x-default'] = `${SITE_URL}${buildPianoMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+
+  return languages;
+}
+
+async function buildTelAvivMoveLanguageAlternates() {
+  const dictionaries = await getAllDictionaries();
+  const languages: Record<string, string> = {};
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    const slug = dictionaries[locale].telAvivMovePage.slug;
+    languages[locale] = `${SITE_URL}${buildTelAvivMovePath(locale, slug)}`;
+  });
+
+  const defaultSlug = dictionaries[DEFAULT_LOCALE].telAvivMovePage.slug;
+  languages['x-default'] = `${SITE_URL}${buildTelAvivMovePath(DEFAULT_LOCALE, defaultSlug)}`;
 
   return languages;
 }
@@ -255,6 +279,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title: dictionary.smallMovePage.metaTitle,
         description: dictionary.smallMovePage.metaDescription,
+        url: canonical,
+        locale,
+      },
+    };
+  }
+
+  if (isTelAvivMoveSlug(decodedSlug, dictionary.telAvivMovePage.slug)) {
+    const canonical = `${SITE_URL}${buildTelAvivMovePath(locale, dictionary.telAvivMovePage.slug)}`;
+
+    return {
+      title: dictionary.telAvivMovePage.metaTitle,
+      description: dictionary.telAvivMovePage.metaDescription,
+      alternates: {
+        canonical,
+        languages: await buildTelAvivMoveLanguageAlternates(),
+      },
+      openGraph: {
+        title: dictionary.telAvivMovePage.metaTitle,
+        description: dictionary.telAvivMovePage.metaDescription,
         url: canonical,
         locale,
       },
@@ -399,6 +442,15 @@ export default async function RegionPage({ params }: Props) {
       <SmallMovePage
         locale={locale}
         dictionary={dictionary.smallMovePage}
+        calculatorDictionary={dictionary.homeHero}
+      />
+    );
+  }
+  if (isTelAvivMoveSlug(decodedSlug, dictionary.telAvivMovePage.slug)) {
+    return (
+      <TelAvivMovePage
+        locale={locale}
+        dictionary={dictionary.telAvivMovePage}
         calculatorDictionary={dictionary.homeHero}
       />
     );
