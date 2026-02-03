@@ -16,7 +16,7 @@
           "path": "offices"
         },
         {
-          "label": "Private house",
+          "label": "Private house move",
           "path": "private-house"
         },
         {
@@ -124,7 +124,7 @@
             "path": "offices"
           },
           {
-            "label": "Private house",
+            "label": "Private house move",
             "path": "private-house"
           },
           {
