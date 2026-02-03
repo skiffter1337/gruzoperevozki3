@@ -16,7 +16,7 @@
           "path": "offices"
         },
         {
-          "label": "Private house",
+          "label": "Private house move",
           "path": "private-house"
         },
         {
@@ -124,7 +124,7 @@
             "path": "offices"
           },
           {
-            "label": "Private house",
+            "label": "Private house move",
             "path": "private-house"
           },
           {
@@ -1976,6 +1976,123 @@
     "closing": {
       "title": "Need to move your office?",
       "text": "Don’t waste valuable time. Fill out the form, get offers from recommended office movers, and save up to 45% on your relocation costs!",
+      "buttonLabel": "Get quotes"
+    }
+  },
+  "houseMovePage": {
+    "slug": "private-house",
+    "metaTitle": "Private house move — house moving from ₪890",
+    "metaDescription": "Private house moves at great prices. Moves from ₪890. Nationwide coverage with vetted movers. Save up to 45%.",
+    "title": "Private house move",
+    "tocTitle": "Table of contents",
+    "tocItems": [
+      {"id": "why-compare", "label": "Why compare private house moving prices on our portal?"},
+      {"id": "process", "label": "How to book a private house move in 3 simple steps?"},
+      {"id": "pricing", "label": "Private house moving prices (market averages)"},
+      {"id": "price-factors", "label": "What affects the price of a private house move?"},
+      {"id": "solutions", "label": "Solutions for any moving task (not just houses)"},
+      {"id": "tips", "label": "Preparation and important tips before moving"},
+      {"id": "faq", "label": "Frequently asked questions"},
+      {"id": "closing", "label": "Ready for a calm and affordable move?"}
+    ],
+    "comparison": {
+      "id": "why-compare",
+      "title": "Why compare private house moving prices on our portal?",
+      "paragraphs": [
+        "Moving a private house is a complex logistics project: large volumes, yard items, storage areas, garden furniture, equipment, generators, and sometimes workshops.",
+        "Searching for movers via classifieds often leads to inflated prices, low accountability, missed deadlines, and damaged belongings.",
+        "We are not a transport company — we create competition between the best movers so you get a better price, verified specialists, and clear terms."
+      ],
+      "bullets": [
+        "Verified savings up to 45% — movers compete for your order.",
+        "Best prices online — moves from ₪890.",
+        "Vetted movers — only selected, rated professionals.",
+        "Full service — packing, disassembly, assembly, crane lift.",
+        "Nationwide coverage — any city or region.",
+        "Urgent moves — even same-day and weekends."
+      ]
+    },
+    "process": {
+      "id": "process",
+      "title": "How to book a private house move in 3 simple steps?",
+      "intro": "Fast and easy — no obligations.",
+      "steps": [
+        {"title": "Fill out the form (under 1 minute):", "text": "Share the volume, route, and preferred date."},
+        {"title": "Get multiple offers:", "text": "Available movers send their quotes."},
+        {"title": "Compare and choose the best:", "text": "Pick by price, timeline, and reviews."}
+      ]
+    },
+    "pricing": {
+      "id": "pricing",
+      "title": "Private house moving prices (market averages)",
+      "intro": "Prices are indicative.",
+      "note": "Through our portal they are usually lower thanks to competition.",
+      "tableLabel": "Private house moving prices",
+      "tableHeaders": ["What is included", "Price (₪)", "Service type"],
+      "rows": [
+        {"notes": "Partial load, basic furniture.", "priceRange": "890 – 1,800", "item": "Small house / townhouse"},
+        {"notes": "Full furniture, appliances, boxes.", "priceRange": "1,800 – 3,500", "item": "3–4 room house"},
+        {"notes": "Large truck, 3–4 movers.", "priceRange": "3,000 – 5,500", "item": "5–6 room house"},
+        {"notes": "Multiple trucks, full team.", "priceRange": "4,500 – 8,500", "item": "Villa / large house"},
+        {"notes": "Generator, safe, piano, etc.", "priceRange": "from 490", "item": "Single items"}
+      ],
+      "afterTable": "Special services (crane, packing, heavy items) are charged separately."
+    },
+    "priceFactors": {
+      "id": "price-factors",
+      "title": "What affects the price of a private house move?",
+      "items": [
+        {"title": "Volume of belongings", "text": "Furniture, appliances, storage, garage, yard."},
+        {"title": "Distance", "text": "Within a city or between cities."},
+        {"title": "Floors and access", "text": "Stairs, slopes, narrow driveways."},
+        {"title": "Special items", "text": "Pianos, safes, servers, generators."},
+        {"title": "Extra services", "text": "Packing, disassembly, crane."},
+        {"title": "Season", "text": "Summer is pricier, winter is cheaper."}
+      ]
+    },
+    "solutions": {
+      "id": "solutions",
+      "title": "Solutions for any moving task (not just houses)",
+      "intro": "We help with:",
+      "items": [
+        {"title": "Moves of any house size", "text": "From townhouses to villas."},
+        {"title": "Yard furniture and storage", "text": "Garden equipment and sheds included."},
+        {"title": "Workshops and studios", "text": "Careful handling of equipment."},
+        {"title": "Urgent moves", "text": "Often possible even same-day."},
+        {"title": "Friday/Saturday moves", "text": "We work around your schedule."},
+        {"title": "Small moves", "text": "Single-item transport available."},
+        {"title": "Crane lifts", "text": "Arranged for difficult access."},
+        {"title": "Turnkey packing", "text": "Materials, packing, assembly."}
+      ]
+    },
+    "tips": {
+      "id": "tips",
+      "title": "Preparation and important tips before moving",
+      "intro": "Get ready in advance:",
+      "items": [
+        {"title": "Sort out unwanted items", "text": "Reduce volume and costs."},
+        {"title": "Label boxes by rooms", "text": "Easier unpacking."},
+        {"title": "Photo appliance connections", "text": "Simpler re-setup."},
+        {"title": "Carry valuables yourself", "text": "Documents and jewelry stay with you."},
+        {"title": "Prepare access for the truck", "text": "Clear driveway and yard."},
+        {"title": "Ensure the new house is ready", "text": "Free up paths for furniture."}
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "Frequently asked questions",
+      "items": [
+        {"question": "How much does your service cost?", "answer": "Free. You only pay the mover."},
+        {"question": "Is there insurance?", "answer": "Movers must have insurance. Confirm it in writing."},
+        {"question": "How do I verify a mover?", "answer": "All movers are vetted and rated."},
+        {"question": "Why is it cheaper through you?", "answer": "Because movers compete for your job."},
+        {"question": "Can I book same-day?", "answer": "Often yes, even the same day."}
+      ]
+    },
+    "closing": {
+      "id": "closing",
+      "title": "Ready for a calm, safe, and affordable move?",
+      "text": "Don’t book without comparing prices. Fill out the short form and get free offers from top Israeli movers — and save hundreds, sometimes thousands of shekels.",
       "buttonLabel": "Get quotes"
     }
   },
