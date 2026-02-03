@@ -46,9 +46,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     en: enDictionary.storagePage?.slug ?? 'apartment-storage',
   };
   const telAvivMoveSlugsByLocale = {
-    he: heDictionary.telAvivMovePage?.slug ?? 'הובלות-תל-אביב',
-    ru: ruDictionary.telAvivMovePage?.slug ?? 'הובלות-תל-אביב',
-    en: enDictionary.telAvivMovePage?.slug ?? 'tel-aviv-moving',
+    he: heDictionary.telAvivMovePage?.slug ?? 'הובלות-בתל-אביב',
+    ru: ruDictionary.telAvivMovePage?.slug ?? 'перевозки-в-тель-авиве',
+    en: enDictionary.telAvivMovePage?.slug ?? 'transportation-in-tel-aviv',
   };
 
   routes.forEach((route) => {
