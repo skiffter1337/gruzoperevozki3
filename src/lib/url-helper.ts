@@ -36,7 +36,7 @@ const officeMoveSlugsByLocale: Record<Locale, string> = {
 
 const houseMoveSlugsByLocale: Record<Locale, string> = {
   he: heDictionary.houseMovePage?.slug ?? "בית-פרטי",
-  ru: ruDictionary.houseMovePage?.slug ?? "переезд_частного_дома",
+  ru: ruDictionary.houseMovePage?.slug ?? "переезд-частного-дома",
   en: enDictionary.houseMovePage?.slug ?? "private-house",
 };
 
