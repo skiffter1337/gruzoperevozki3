@@ -15,6 +15,7 @@ import RegionAdvantagesSection from '@/components/regions/RegionAdvantagesSectio
 import RegionCarriersSection from '@/components/regions/RegionCarriersSection';
 import RegionTransportTableSection from '@/components/regions/RegionTransportTableSection';
 import ApartmentMovePage from '@/components/transportation/ApartmentMovePage';
+import HouseMovePage from '@/components/transportation/HouseMovePage';
 import OfficeMovePage from '@/components/transportation/OfficeMovePage';
 import SmallMovePage from '@/components/transportation/SmallMovePage';
 import PianoMovePage from '@/components/transportation/PianoMovePage';
@@ -80,6 +81,14 @@ function buildOfficeMovePath(locale: Locale, slug: string) {
 
 function isOfficeMoveSlug(slug: string[], officeMoveSlug: string) {
   return slug[0] === officeMoveSlug || slug[1] === officeMoveSlug;
+}
+
+function buildHouseMovePath(locale: Locale, slug: string) {
+  return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
+}
+
+function isHouseMoveSlug(slug: string[], houseMoveSlug: string) {
+  return slug[0] === houseMoveSlug || slug[1] === houseMoveSlug;
 }
 
 function buildPackingPath(locale: Locale, slug: string) {
@@ -237,6 +246,21 @@ async function buildStorageLanguageAlternates() {
   return languages;
 }
 
+async function buildHouseMoveLanguageAlternates() {
+  const dictionaries = await getAllDictionaries();
+  const languages: Record<string, string> = {};
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    const slug = dictionaries[locale].houseMovePage.slug;
+    languages[locale] = `${SITE_URL}${buildHouseMovePath(locale, slug)}`;
+  });
+
+  const defaultSlug = dictionaries[DEFAULT_LOCALE].houseMovePage.slug;
+  languages['x-default'] = `${SITE_URL}${buildHouseMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+
+  return languages;
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const dictionary = await getDictionary(locale);
@@ -279,6 +303,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       openGraph: {
         title: dictionary.smallMovePage.metaTitle,
         description: dictionary.smallMovePage.metaDescription,
+        url: canonical,
+        locale,
+      },
+    };
+  }
+
+  if (isHouseMoveSlug(decodedSlug, dictionary.houseMovePage.slug)) {
+    const canonical = `${SITE_URL}${buildHouseMovePath(locale, dictionary.houseMovePage.slug)}`;
+
+    return {
+      title: dictionary.houseMovePage.metaTitle,
+      description: dictionary.houseMovePage.metaDescription,
+      alternates: {
+        canonical,
+        languages: await buildHouseMoveLanguageAlternates(),
+      },
+      openGraph: {
+        title: dictionary.houseMovePage.metaTitle,
+        description: dictionary.houseMovePage.metaDescription,
         url: canonical,
         locale,
       },
@@ -442,6 +485,15 @@ export default async function RegionPage({ params }: Props) {
       <SmallMovePage
         locale={locale}
         dictionary={dictionary.smallMovePage}
+        calculatorDictionary={dictionary.homeHero}
+      />
+    );
+  }
+  if (isHouseMoveSlug(decodedSlug, dictionary.houseMovePage.slug)) {
+    return (
+      <HouseMovePage
+        locale={locale}
+        dictionary={dictionary.houseMovePage}
         calculatorDictionary={dictionary.homeHero}
       />
     );
