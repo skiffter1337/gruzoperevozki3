@@ -35,6 +35,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ru: ruDictionary.officeMovePage?.slug ?? 'офисные',
     en: enDictionary.officeMovePage?.slug ?? 'offices',
   };
+  const houseMoveSlugsByLocale = {
+    he: heDictionary.houseMovePage?.slug ?? 'בית-פרטי',
+    ru: ruDictionary.houseMovePage?.slug ?? 'переезд_частного_дома',
+    en: enDictionary.houseMovePage?.slug ?? 'private-house',
+  };
   const packingSlugsByLocale = {
     he: heDictionary.packingPage?.slug ?? 'שירותי-אריזה',
     ru: ruDictionary.packingPage?.slug ?? 'услуги-упаковки',
@@ -96,6 +101,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
 
     const defaultSlug = apartmentMoveSlugsByLocale[DEFAULT_LOCALE];
+    languages['x-default'] = `${SITE_URL}${buildLocalizedPath(DEFAULT_LOCALE, 'transportation')}/${defaultSlug}`;
+
+    entries.push({
+      url,
+      lastModified,
+      alternates: {
+        languages,
+      },
+    });
+  });
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    const slug = houseMoveSlugsByLocale[locale];
+    const url = `${SITE_URL}${buildLocalizedPath(locale, 'transportation')}/${slug}`;
+    const languages: Record<string, string> = {};
+
+    SUPPORTED_LOCALES.forEach((supportedLocale) => {
+      const supportedSlug = houseMoveSlugsByLocale[supportedLocale];
+      languages[supportedLocale] = `${SITE_URL}${buildLocalizedPath(supportedLocale, 'transportation')}/${supportedSlug}`;
+    });
+
+    const defaultSlug = houseMoveSlugsByLocale[DEFAULT_LOCALE];
     languages['x-default'] = `${SITE_URL}${buildLocalizedPath(DEFAULT_LOCALE, 'transportation')}/${defaultSlug}`;
 
     entries.push({
