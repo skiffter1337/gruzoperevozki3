@@ -177,7 +177,7 @@
         "image": "/images/center.png",
         "carrierRegion": null,
         "cityLinks": [
-          {"label": "Перевозки в Тель-Авиве", "slug": "הובלות-תל-אביב"},
+          {"label": "Перевозки в Тель-Авиве", "slug": "перевозки-в-тель-авиве"},
           {"label": "Перевозки в Рамат-Гане", "slug": "perevozki-v-ramat-gane"},
           {"label": "Перевозки в Гиватаиме", "slug": "perevozki-v-givataime"},
           {"label": "Перевозки в Холоне", "slug": "perevozki-v-holone"},

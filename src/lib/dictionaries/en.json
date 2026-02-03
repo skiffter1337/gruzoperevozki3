@@ -65,11 +65,11 @@
       "home": "Home",
       "transportation": "Transportation",
       "services": "Additional services",
-    "calculate": "Calculate cost",
-    "articles": "Articles",
-    "contact": "Contact",
-    "leaveReview": "Leave a review"
-  },
+      "calculate": "Calculate cost",
+      "articles": "Articles",
+      "contact": "Contact",
+      "leaveReview": "Leave a review"
+    },
     "languageSwitcher": {
       "he": "Hebrew",
       "ru": "Russian",
@@ -82,31 +82,76 @@
       "home": {
         "title": "Home",
         "links": [
-          {"label": "Articles", "anchor": "articles"},
-          {"label": "Services", "anchor": "services"},
-          {"label": "Reviews", "anchor": "testimonials"},
-          {"label": "Why us", "anchor": "whyUs"},
-          {"label": "Area selection", "anchor": "regions"},
-          {"label": "Top carriers", "anchor": "carriers"},
-          {"label": "Calculate cost", "anchor": "calculate"}
+          {
+            "label": "Articles",
+            "anchor": "articles"
+          },
+          {
+            "label": "Services",
+            "anchor": "services"
+          },
+          {
+            "label": "Reviews",
+            "anchor": "testimonials"
+          },
+          {
+            "label": "Why us",
+            "anchor": "whyUs"
+          },
+          {
+            "label": "Area selection",
+            "anchor": "regions"
+          },
+          {
+            "label": "Top carriers",
+            "anchor": "carriers"
+          },
+          {
+            "label": "Calculate cost",
+            "anchor": "calculate"
+          }
         ]
       },
       "transportation": {
         "title": "Transportation",
         "links": [
-          {"label": "Apartments", "path": "apartments"},
-          {"label": "Office move", "path": "offices"},
-          {"label": "Private house", "path": "private-house"},
-          {"label": "Small move", "path": "small-move"},
-          {"label": "Piano moving", "path": "piano-moving"}
+          {
+            "label": "Apartments",
+            "path": "apartments"
+          },
+          {
+            "label": "Office move",
+            "path": "offices"
+          },
+          {
+            "label": "Private house",
+            "path": "private-house"
+          },
+          {
+            "label": "Small move",
+            "path": "small-move"
+          },
+          {
+            "label": "Piano moving",
+            "path": "piano-moving"
+          }
         ]
       },
       "services": {
         "title": "Extra services",
         "links": [
-          {"label": "Packing", "path": "packing-services"},
-          {"label": "Storage", "path": "apartment-storage"},
-          {"label": "Late moves", "path": "late-moves"}
+          {
+            "label": "Packing",
+            "path": "packing-services"
+          },
+          {
+            "label": "Storage",
+            "path": "apartment-storage"
+          },
+          {
+            "label": "Late moves",
+            "path": "late-moves"
+          }
         ]
       },
       "contacts": {
@@ -116,10 +161,26 @@
         "phoneLabel": "Phone",
         "socialLabel": "Find us online",
         "socialLinks": [
-          {"label": "Facebook", "href": "https://facebook.com", "network": "facebook"},
-          {"label": "WhatsApp", "href": "https://wa.me/{phoneDigits}", "network": "whatsapp"},
-          {"label": "Telegram", "href": "https://t.me/example", "network": "telegram"},
-          {"label": "Twitter", "href": "https://twitter.com", "network": "twitter"}
+          {
+            "label": "Facebook",
+            "href": "https://facebook.com",
+            "network": "facebook"
+          },
+          {
+            "label": "WhatsApp",
+            "href": "https://wa.me/{phoneDigits}",
+            "network": "whatsapp"
+          },
+          {
+            "label": "Telegram",
+            "href": "https://t.me/example",
+            "network": "telegram"
+          },
+          {
+            "label": "Twitter",
+            "href": "https://twitter.com",
+            "network": "twitter"
+          }
         ]
       }
     }
@@ -177,11 +238,26 @@
         "image": "/images/center.png",
         "carrierRegion": null,
         "cityLinks": [
-          {"label": "Transportation in Tel Aviv", "slug": "transportation-in-tel-aviv"},
-          {"label": "Transportation in Ramat Gan", "slug": "transportation-in-ramat-gan"},
-          {"label": "Transportation in Giv'atayim", "slug": "transportation-in-givatayim"},
-          {"label": "Transportation in Holon", "slug": "transportation-in-holon"},
-          {"label": "Transportation in Bat Yam", "slug": "transportation-in-bat-yam"}
+          {
+            "label": "Transportation in Tel Aviv",
+            "slug": "transportation-in-tel-aviv"
+          },
+          {
+            "label": "Transportation in Ramat Gan",
+            "slug": "transportation-in-ramat-gan"
+          },
+          {
+            "label": "Transportation in Giv'atayim",
+            "slug": "transportation-in-givatayim"
+          },
+          {
+            "label": "Transportation in Holon",
+            "slug": "transportation-in-holon"
+          },
+          {
+            "label": "Transportation in Bat Yam",
+            "slug": "transportation-in-bat-yam"
+          }
         ]
       },
       {
@@ -190,11 +266,26 @@
         "image": "/images/sharon.png",
         "carrierRegion": "sharon",
         "cityLinks": [
-          {"label": "Transportation in Netanya", "slug": "transportation-in-netanya"},
-          {"label": "Transportation in Herzliya", "slug": "transportation-in-herzliya"},
-          {"label": "Transportation in Kfar Saba", "slug": "transportation-in-kfar-saba"},
-          {"label": "Transportation in Ra'anana", "slug": "transportation-in-raanana"},
-          {"label": "Transportation in Hod Hasharon", "slug": "transportation-in-hod-hasharon"}
+          {
+            "label": "Transportation in Netanya",
+            "slug": "transportation-in-netanya"
+          },
+          {
+            "label": "Transportation in Herzliya",
+            "slug": "transportation-in-herzliya"
+          },
+          {
+            "label": "Transportation in Kfar Saba",
+            "slug": "transportation-in-kfar-saba"
+          },
+          {
+            "label": "Transportation in Ra'anana",
+            "slug": "transportation-in-raanana"
+          },
+          {
+            "label": "Transportation in Hod Hasharon",
+            "slug": "transportation-in-hod-hasharon"
+          }
         ]
       },
       {
@@ -203,11 +294,26 @@
         "image": "/images/lowland.png",
         "carrierRegion": "lowland",
         "cityLinks": [
-          {"label": "Transportation in Rishon LeZion", "slug": "transportation-in-rishon-lezion"},
-          {"label": "Transportation in Rehovot", "slug": "transportation-in-rehovot"},
-          {"label": "Transportation in Ramla", "slug": "transportation-in-ramla"},
-          {"label": "Transportation in Lod", "slug": "transportation-in-lod"},
-          {"label": "Transportation in Ashdod", "slug": "transportation-in-ashdod"}
+          {
+            "label": "Transportation in Rishon LeZion",
+            "slug": "transportation-in-rishon-lezion"
+          },
+          {
+            "label": "Transportation in Rehovot",
+            "slug": "transportation-in-rehovot"
+          },
+          {
+            "label": "Transportation in Ramla",
+            "slug": "transportation-in-ramla"
+          },
+          {
+            "label": "Transportation in Lod",
+            "slug": "transportation-in-lod"
+          },
+          {
+            "label": "Transportation in Ashdod",
+            "slug": "transportation-in-ashdod"
+          }
         ]
       },
       {
@@ -216,11 +322,26 @@
         "image": "/images/jerusalem.png",
         "carrierRegion": "jerusalem",
         "cityLinks": [
-          {"label": "Transportation in Jerusalem", "slug": "transportation-in-jerusalem"},
-          {"label": "Transportation in Beit Shemesh", "slug": "transportation-in-beit-shemesh"},
-          {"label": "Transportation in Ma'ale Adumim", "slug": "transportation-in-maale-adumim"},
-          {"label": "Transportation in Modi'in", "slug": "transportation-in-modiin"},
-          {"label": "Transportation in Mevaseret Zion", "slug": "transportation-in-mevaseret-zion"}
+          {
+            "label": "Transportation in Jerusalem",
+            "slug": "transportation-in-jerusalem"
+          },
+          {
+            "label": "Transportation in Beit Shemesh",
+            "slug": "transportation-in-beit-shemesh"
+          },
+          {
+            "label": "Transportation in Ma'ale Adumim",
+            "slug": "transportation-in-maale-adumim"
+          },
+          {
+            "label": "Transportation in Modi'in",
+            "slug": "transportation-in-modiin"
+          },
+          {
+            "label": "Transportation in Mevaseret Zion",
+            "slug": "transportation-in-mevaseret-zion"
+          }
         ]
       },
       {
@@ -229,11 +350,26 @@
         "image": "/images/north.png",
         "carrierRegion": "north",
         "cityLinks": [
-          {"label": "Transportation in Haifa", "slug": "transportation-in-haifa"},
-          {"label": "Transportation in Nazareth", "slug": "transportation-in-nazareth"},
-          {"label": "Transportation in Tiberias", "slug": "transportation-in-tiberias"},
-          {"label": "Transportation in Acre", "slug": "transportation-in-acre"},
-          {"label": "Transportation in Karmiel", "slug": "transportation-in-karmiel"}
+          {
+            "label": "Transportation in Haifa",
+            "slug": "transportation-in-haifa"
+          },
+          {
+            "label": "Transportation in Nazareth",
+            "slug": "transportation-in-nazareth"
+          },
+          {
+            "label": "Transportation in Tiberias",
+            "slug": "transportation-in-tiberias"
+          },
+          {
+            "label": "Transportation in Acre",
+            "slug": "transportation-in-acre"
+          },
+          {
+            "label": "Transportation in Karmiel",
+            "slug": "transportation-in-karmiel"
+          }
         ]
       },
       {
@@ -242,11 +378,26 @@
         "image": "/images/south.png",
         "carrierRegion": "south",
         "cityLinks": [
-          {"label": "Transportation in Be'er Sheva", "slug": "transportation-in-beer-sheva"},
-          {"label": "Transportation in Ashkelon", "slug": "transportation-in-ashkelon"},
-          {"label": "Transportation in Eilat", "slug": "transportation-in-eilat"},
-          {"label": "Transportation in Dimona", "slug": "transportation-in-dimona"},
-          {"label": "Transportation in Netivot", "slug": "transportation-in-netivot"}
+          {
+            "label": "Transportation in Be'er Sheva",
+            "slug": "transportation-in-beer-sheva"
+          },
+          {
+            "label": "Transportation in Ashkelon",
+            "slug": "transportation-in-ashkelon"
+          },
+          {
+            "label": "Transportation in Eilat",
+            "slug": "transportation-in-eilat"
+          },
+          {
+            "label": "Transportation in Dimona",
+            "slug": "transportation-in-dimona"
+          },
+          {
+            "label": "Transportation in Netivot",
+            "slug": "transportation-in-netivot"
+          }
         ]
       }
     ]
@@ -512,12 +663,30 @@
     "title": "Packing services for moving",
     "tocTitle": "Table of contents: the complete packing and moving guide (click for quick jump)",
     "tocItems": [
-      {"id": "why-us", "label": "Why book packing services through our portal?"},
-      {"id": "pricing", "label": "How much does it cost? Updated packing price list"},
-      {"id": "process", "label": "Packing and moving: how it works in practice"},
-      {"id": "tips", "label": "Smart packing tips before the movers arrive"},
-      {"id": "timing", "label": "When should you start packing?"},
-      {"id": "faq", "label": "Packing services FAQ"}
+      {
+        "id": "why-us",
+        "label": "Why book packing services through our portal?"
+      },
+      {
+        "id": "pricing",
+        "label": "How much does it cost? Updated packing price list"
+      },
+      {
+        "id": "process",
+        "label": "Packing and moving: how it works in practice"
+      },
+      {
+        "id": "tips",
+        "label": "Smart packing tips before the movers arrive"
+      },
+      {
+        "id": "timing",
+        "label": "When should you start packing?"
+      },
+      {
+        "id": "faq",
+        "label": "Packing services FAQ"
+      }
     ],
     "whyChooseUs": {
       "id": "why-us",
@@ -542,7 +711,11 @@
       "intro": "One of the most common questions is “How much does it cost to pack a home?” The price depends on apartment size, the amount of belongings, and packing complexity (for example, how many fragile items). The table below shows average ranges to set expectations.",
       "note": "Please note: these are average prices.",
       "tableLabel": "Packing and moving price list",
-      "tableHeaders": ["What is included?", "Average price range", "Service type"],
+      "tableHeaders": [
+        "What is included?",
+        "Average price range",
+        "Service type"
+      ],
       "rows": [
         {
           "notes": "Professional packing of belongings into boxes",
@@ -669,13 +842,34 @@
     "title": "Storage services and apartment contents storage",
     "tocTitle": "Table of contents: the complete guide to storing furniture and belongings",
     "tocItems": [
-      {"id": "why-us", "label": "Why book storage through our portal?"},
-      {"id": "when-use", "label": "When do you need apartment storage services?"},
-      {"id": "pricing", "label": "How much does apartment storage cost? (pricing)"},
-      {"id": "choose-storage", "label": "How to choose a storage facility for apartment contents"},
-      {"id": "duration", "label": "Short-term storage vs. long-term storage"},
-      {"id": "tips", "label": "Packing tips before storage"},
-      {"id": "faq", "label": "Frequently asked questions"}
+      {
+        "id": "why-us",
+        "label": "Why book storage through our portal?"
+      },
+      {
+        "id": "when-use",
+        "label": "When do you need apartment storage services?"
+      },
+      {
+        "id": "pricing",
+        "label": "How much does apartment storage cost? (pricing)"
+      },
+      {
+        "id": "choose-storage",
+        "label": "How to choose a storage facility for apartment contents"
+      },
+      {
+        "id": "duration",
+        "label": "Short-term storage vs. long-term storage"
+      },
+      {
+        "id": "tips",
+        "label": "Packing tips before storage"
+      },
+      {
+        "id": "faq",
+        "label": "Frequently asked questions"
+      }
     ],
     "whyChooseUs": {
       "id": "why-us",
@@ -724,7 +918,11 @@
       "title": "How much does apartment storage cost? (pricing)",
       "intro": "Storage pricing is typically based on volume (cubic meters) or number of rooms. Costs vary by location, security level, and access. The table below shows average monthly estimates:",
       "tableLabel": "Apartment storage pricing",
-      "tableHeaders": ["Storage size / type", "Monthly price range (₪)", "Notes"],
+      "tableHeaders": [
+        "Storage size / type",
+        "Monthly price range (₪)",
+        "Notes"
+      ],
       "rows": [
         {
           "item": "Single item storage (pallet)",
@@ -1212,7 +1410,18 @@
     "dateLabel": "Date",
     "elevatorLabel": "Is there an elevator?",
     "floorLabel": "Which floor?",
-    "floorOptions": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10+"],
+    "floorOptions": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10+"
+    ],
     "serviceTypeLabel": "Service type",
     "serviceOptions": [
       "1-room apartment move",
@@ -1336,13 +1545,34 @@
     "title": "Apartment moves",
     "tocTitle": "Table of contents",
     "tocItems": [
-      {"id": "why-compare", "label": "Why compare apartment move prices through our portal?"},
-      {"id": "process", "label": "How to find an apartment move in 3 simple steps?"},
-      {"id": "pricing", "label": "Apartment move price list (average market rates)"},
-      {"id": "price-factors", "label": "What determines the cost of an apartment move?"},
-      {"id": "solutions", "label": "Moving solutions for every need (not only apartment moves)"},
-      {"id": "tips", "label": "Preparation and essential tips before the move"},
-      {"id": "faq", "label": "Frequently asked questions about apartment moves"}
+      {
+        "id": "why-compare",
+        "label": "Why compare apartment move prices through our portal?"
+      },
+      {
+        "id": "process",
+        "label": "How to find an apartment move in 3 simple steps?"
+      },
+      {
+        "id": "pricing",
+        "label": "Apartment move price list (average market rates)"
+      },
+      {
+        "id": "price-factors",
+        "label": "What determines the cost of an apartment move?"
+      },
+      {
+        "id": "solutions",
+        "label": "Moving solutions for every need (not only apartment moves)"
+      },
+      {
+        "id": "tips",
+        "label": "Preparation and essential tips before the move"
+      },
+      {
+        "id": "faq",
+        "label": "Frequently asked questions about apartment moves"
+      }
     ],
     "comparison": {
       "id": "why-compare",
@@ -1549,13 +1779,34 @@
     "title": "Office moves: relocate with peace of mind and save up to 45%",
     "tocTitle": "Table of contents: the complete guide to an efficient, cost-saving office move",
     "tocItems": [
-      {"id": "why-us", "label": "Why book an office move through our portal?"},
-      {"id": "pricing", "label": "Office move price list — how much does it really cost?"},
-      {"id": "planning", "label": "How to plan a move without losing workdays"},
-      {"id": "day-night", "label": "Day or night? Comparing move types"},
-      {"id": "packing", "label": "Packing, labeling, and sorting: the key to a smooth move"},
-      {"id": "tips", "label": "Tips to cut moving costs"},
-      {"id": "faq", "label": "Frequently asked questions"}
+      {
+        "id": "why-us",
+        "label": "Why book an office move through our portal?"
+      },
+      {
+        "id": "pricing",
+        "label": "Office move price list — how much does it really cost?"
+      },
+      {
+        "id": "planning",
+        "label": "How to plan a move without losing workdays"
+      },
+      {
+        "id": "day-night",
+        "label": "Day or night? Comparing move types"
+      },
+      {
+        "id": "packing",
+        "label": "Packing, labeling, and sorting: the key to a smooth move"
+      },
+      {
+        "id": "tips",
+        "label": "Tips to cut moving costs"
+      },
+      {
+        "id": "faq",
+        "label": "Frequently asked questions"
+      }
     ],
     "advantages": {
       "id": "why-us",
@@ -1581,7 +1832,11 @@
       "title": "Office move price list — how much does it really cost?",
       "intro": "Office move pricing varies by office size, number of workstations, floor level, and additional services. Here is a typical price table to help you plan your budget.",
       "tableLabel": "Office move price list",
-      "tableHeaders": ["Notes and details", "Estimated price range (₪)", "Move type / office size"],
+      "tableHeaders": [
+        "Notes and details",
+        "Estimated price range (₪)",
+        "Move type / office size"
+      ],
       "rows": [
         {
           "notes": "Depends on number of boxes, floor, and travel distance.",
@@ -1630,7 +1885,11 @@
       "title": "Day or night? Comparing office move options",
       "intro": "One of the most popular services on our portal is a night office move. To help you decide what’s best for your business, here’s a comparison table:",
       "tableLabel": "Night vs. day office move comparison",
-      "tableHeaders": ["Night office move (recommended!)", "Daytime office move", "Criterion"],
+      "tableHeaders": [
+        "Night office move (recommended!)",
+        "Daytime office move",
+        "Criterion"
+      ],
       "rows": [
         {
           "night": "0 downtime days — business runs as usual the next day.",
@@ -1727,16 +1986,46 @@
     "title": "Small moves",
     "tocTitle": "Table of contents",
     "tocItems": [
-      {"id": "pricing", "label": "How much does a small move cost? Price list"},
-      {"id": "definition", "label": "What is a “small move” exactly?"},
-      {"id": "audience", "label": "Who is the service for?"},
-      {"id": "price-factors", "label": "What affects the price of a small move?"},
-      {"id": "popular-services", "label": "Popular services: fridge, sofa, and more"},
-      {"id": "crane", "label": "When do you need a small move with a crane?"},
-      {"id": "cheap", "label": "How to get a small move for less?"},
-      {"id": "faq", "label": "Frequently asked questions"},
-      {"id": "comparison-process", "label": "How the comparison works and saves up to 45%"},
-      {"id": "find-company", "label": "Find a reliable small move company nationwide"}
+      {
+        "id": "pricing",
+        "label": "How much does a small move cost? Price list"
+      },
+      {
+        "id": "definition",
+        "label": "What is a “small move” exactly?"
+      },
+      {
+        "id": "audience",
+        "label": "Who is the service for?"
+      },
+      {
+        "id": "price-factors",
+        "label": "What affects the price of a small move?"
+      },
+      {
+        "id": "popular-services",
+        "label": "Popular services: fridge, sofa, and more"
+      },
+      {
+        "id": "crane",
+        "label": "When do you need a small move with a crane?"
+      },
+      {
+        "id": "cheap",
+        "label": "How to get a small move for less?"
+      },
+      {
+        "id": "faq",
+        "label": "Frequently asked questions"
+      },
+      {
+        "id": "comparison-process",
+        "label": "How the comparison works and saves up to 45%"
+      },
+      {
+        "id": "find-company",
+        "label": "Find a reliable small move company nationwide"
+      }
     ],
     "comparison": {
       "title": "Why compare small moves with us?",
@@ -1761,7 +2050,11 @@
       "intro": "To help you understand the market range, we gathered average prices. Comparing through our portal helps you find even better deals.",
       "note": "Note: the prices in the table are general averages for in-city moves, in buildings with an elevator or up to the 2nd floor without an elevator.",
       "tableLabel": "Small move price list",
-      "tableHeaders": ["Additional notes", "Average small move price (range)", "Item type"],
+      "tableHeaders": [
+        "Additional notes",
+        "Average small move price (range)",
+        "Item type"
+      ],
       "rows": [
         {
           "notes": "Depends on size (a two-door model costs more)",
@@ -1963,6 +2256,192 @@
       "closing": "Looking for a small, reliable, and affordable mover? Don’t waste time on phone calls. Leave your details now and get winning quotes for free!"
     }
   },
+  "telAvivMovePage": {
+    "slug": "tel-aviv-moving",
+    "metaTitle": "Moving in Tel Aviv & Central Israel for less — from ₪249",
+    "metaDescription": "Looking for movers in Tel Aviv? Get price quotes from recommended movers, compare offers, and save up to 45% on your move. Small moves, apartment and office relocations — from ₪249. Packing services, lifting crane (manipulator), and urgent same-day moves available.",
+    "title": "Moving in Tel Aviv: smart price comparison and savings up to 45%",
+    "tocTitle": "Contents: a complete guide to moving in Tel Aviv",
+    "tocItems": [
+      {
+        "id": "why-us",
+        "label": "Why order a move in Tel Aviv through our portal?"
+      },
+      {
+        "id": "pricing",
+        "label": "Tel Aviv moving price list — what does it really cost?"
+      },
+      {
+        "id": "challenges",
+        "label": "Tel Aviv moving challenges: parking, traffic, and lifting cranes"
+      },
+      {
+        "id": "small-moves",
+        "label": "Small moves in Tel Aviv — perfect for students and single-item transport"
+      },
+      {
+        "id": "office-moves",
+        "label": "Office and business moves in Tel Aviv"
+      },
+      {
+        "id": "extra-services",
+        "label": "Extra services: packing, disassembly and reassembly"
+      },
+      {
+        "id": "faq",
+        "label": "Frequently asked questions"
+      }
+    ],
+    "why": {
+      "id": "why-us",
+      "title": "Why order a move in Tel Aviv through our portal?",
+      "paragraphs": [
+        "Tel Aviv is a city that never sleeps — but moving within it can make you want to “pause everything.” Traffic jams, scarce parking, narrow stairwells in older Bauhaus buildings — all of this turns a move into a real challenge.",
+        "Our portal is an advanced aggregator built to make moving easier and more affordable. We’re not just another moving company — we’re a platform where the best movers compete for your request."
+      ],
+      "bulletsTitle": "Benefits that save you money and time:",
+      "bullets": [
+        "Lowest prices on the market: we ensure competitive and fair pricing — moves from ₪249.",
+        "Real savings: our price-comparison method helps you save up to 45% compared to average market rates.",
+        "Verified movers only: we work only with companies and movers who passed screening and come recommended.",
+        "Full service in one place: packing, disassembly and reassembly, lifting crane, and storage.",
+        "Fast availability: need an urgent move? We can help you find same-day options, and by arrangement — Saturdays and holidays.",
+        "Nationwide coverage: moves within Tel Aviv, from Tel Aviv to anywhere in the country, and from anywhere to Tel Aviv."
+      ],
+      "note": "Please note: we operate as a portal (aggregator) that connects you with recommended moving companies. We do not provide insurance ourselves. Responsibility for cargo insurance lies with the chosen mover. We strongly recommend confirming that the company has a valid “cargo insurance during transport” policy before work begins."
+    },
+    "pricing": {
+      "id": "pricing",
+      "title": "Tel Aviv moving price list — what does it really cost?",
+      "intro": "How much does it cost to move an apartment in Tel Aviv? The price depends on the apartment size, floor, elevator availability, and seasonality (summer vs winter). To help you plan your budget, we compiled a table of average prices based on offers from recommended movers in the city.",
+      "tableLabel": "Tel Aviv moving price list",
+      "tableHeaders": [
+        "Type of move",
+        "Estimated price range in Tel Aviv",
+        "Notes"
+      ],
+      "rows": [
+        {
+          "type": "Single-item transport",
+          "priceRange": "₪249–450",
+          "notes": "Fridge, sofa, washing machine, wardrobe. Price depends on the floor."
+        },
+        {
+          "type": "Studio / 1-room apartment (student move)",
+          "priceRange": "₪600–1,200",
+          "notes": "Very popular in central Tel Aviv and Florentin."
+        },
+        {
+          "type": "2-room apartment move",
+          "priceRange": "₪1,200–2,000",
+          "notes": "Price may increase if there’s no elevator."
+        },
+        {
+          "type": "3-room apartment move",
+          "priceRange": "₪2,000–3,200",
+          "notes": "Usually includes basic furniture disassembly and reassembly."
+        },
+        {
+          "type": "4-room apartment move",
+          "priceRange": "₪2,800–4,500",
+          "notes": "A pre-move inspection is recommended for an accurate quote."
+        },
+        {
+          "type": "5-room apartment / penthouse move",
+          "priceRange": "₪4,000–6,500",
+          "notes": "Often requires a lifting crane (additional cost)."
+        },
+        {
+          "type": "Lifting crane surcharge",
+          "priceRange": "₪300–500",
+          "notes": "Cost per hour of crane operation."
+        }
+      ],
+      "afterTable": "The prices in the table are for reference only. To get an exact (and often cheaper) quote, fill out the form on the website."
+    },
+    "challenges": {
+      "id": "challenges",
+      "title": "Tel Aviv moving challenges: parking, traffic, and lifting cranes",
+      "intro": "Tel Aviv is a dense city, and any move here requires planning. Here are the main challenges — and how professional movers handle them:",
+      "items": [
+        {
+          "title": "Parking shortage:",
+          "text": "most central streets don’t have space for a large truck. Experienced movers arrive with a suitable vehicle size or coordinate an early arrival time. Our tip: “reserve” a spot the night before by parking your personal car there."
+        },
+        {
+          "title": "Buildings without elevators:",
+          "text": "Tel Aviv has many older or protected buildings without elevators. In such cases, using a lifting crane is often almost mandatory. A crane can lift furniture and large appliances through a balcony or window, saves time, and reduces the risk of damage in stairwells."
+        },
+        {
+          "title": "Traffic and road load:",
+          "text": "the best time to move in Tel Aviv is early morning (before 07:00) to avoid congestion on Ayalon and in the city center."
+        }
+      ]
+    },
+    "smallMoves": {
+      "id": "small-moves",
+      "title": "Small moves in Tel Aviv — perfect for students and single-item transport",
+      "intro": "Tel Aviv is a city of renters and students, so demand for small moves is huge. You don’t always need a big truck to transport a used fridge found on Facebook or move belongings from a shared apartment.",
+      "bullets": [
+        "With us, you’ll find a network of movers with vans and small trucks who specialize in small moves in Tel Aviv. The advantage? Lower prices and flexible timing.",
+        "What can be moved? Fridges, washing machines, sofas, beds, wardrobes, and individual boxes. Price: from ₪249 for one item within the city."
+      ]
+    },
+    "officeMoves": {
+      "id": "office-moves",
+      "title": "Office and business moves in Tel Aviv",
+      "intro": "Tel Aviv is Israel’s business hub. An office move requires precision and speed to avoid disrupting operations. We offer professional office relocation services, including:",
+      "bullets": [
+        "Office packing: safe and careful packing of folders, computers, and peripherals.",
+        "Flexible timing: move in the evening or on Fridays so your business can return to full operations by Sunday morning.",
+        "Disassembly and reassembly: handling workstations, meeting tables, and office cabinets."
+      ]
+    },
+    "extraServices": {
+      "id": "extra-services",
+      "title": "Extra services: packing, disassembly and reassembly",
+      "intro": "To make your move smooth and stress-free, the transport companies we work with offer a full package of services:",
+      "items": [
+        {
+          "title": "Packing services:",
+          "text": "no time to pack? A professional team can arrive on moving day (or the day before), pack everything into quality boxes, and label each box by its destination room."
+        },
+        {
+          "title": "Furniture disassembly and reassembly:",
+          "text": "our movers have strong technical skills. They carefully disassemble wardrobes, beds, and shelving units — and professionally reassemble them in your new home."
+        },
+        {
+          "title": "Box delivery:",
+          "text": "you can order boxes and packing materials (tape, bubble wrap) directly from the mover at discounted prices."
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "question": "How far in advance should I book movers in Tel Aviv?",
+          "answer": "In busy periods (summer, end of the month), it’s best to book 2–3 weeks ahead. In winter, you can often find availability within a few days. If you’re stuck last-minute, our system can still find available movers even for same-day moves."
+        },
+        {
+          "question": "Are tips for movers included in the price?",
+          "answer": "No. The moving price does not include tips. Typically people give about ₪50–100 per mover, depending on complexity and satisfaction."
+        },
+        {
+          "question": "How do I know the mover is reliable?",
+          "answer": "That’s exactly why using our portal helps. We work only with movers who were verified and recommended by previous customers. Plus, our price-comparison system helps you get a fair offer."
+        },
+        {
+          "question": "Do you offer moves with a lifting crane?",
+          "answer": "Yes. If needed (high floor, small elevator, furniture doesn’t fit through the door), the mover can arrange a crane service. The crane is paid separately, usually by the hour."
+        }
+      ]
+    },
+    "closing": {
+      "text": "Planning a move in Tel Aviv? Don’t pay more than you need to! Fill out the form, get offers from the city’s best movers, and choose the best deal."
+    }
+  },
   "pianoMovePage": {
     "slug": "piano-moving",
     "metaTitle": "Piano moving from 249 ₪ — piano movers in Israel",
@@ -1970,13 +2449,34 @@
     "title": "Piano moving",
     "tocTitle": "Contents: the complete guide to safe piano moving",
     "tocItems": [
-      {"id": "why-us", "label": "Why order piano moving through our portal?"},
-      {"id": "pricing", "label": "Piano moving price list — what does it really cost?"},
-      {"id": "upright-vs-grand", "label": "Upright piano vs. grand piano moving"},
-      {"id": "crane", "label": "When do you need a crane for piano moving?"},
-      {"id": "preparation", "label": "Preparing the piano and retuning"},
-      {"id": "stairs", "label": "Staircase moving — when is it possible?"},
-      {"id": "faq", "label": "Frequently asked questions"}
+      {
+        "id": "why-us",
+        "label": "Why order piano moving through our portal?"
+      },
+      {
+        "id": "pricing",
+        "label": "Piano moving price list — what does it really cost?"
+      },
+      {
+        "id": "upright-vs-grand",
+        "label": "Upright piano vs. grand piano moving"
+      },
+      {
+        "id": "crane",
+        "label": "When do you need a crane for piano moving?"
+      },
+      {
+        "id": "preparation",
+        "label": "Preparing the piano and retuning"
+      },
+      {
+        "id": "stairs",
+        "label": "Staircase moving — when is it possible?"
+      },
+      {
+        "id": "faq",
+        "label": "Frequently asked questions"
+      }
     ],
     "why": {
       "id": "why-us",
@@ -1999,7 +2499,11 @@
       "title": "Piano moving price list — what does it really cost?",
       "intro": "The price depends on the type of piano (upright/grand), floor, elevator availability, and travel distance. We have compiled an average price table to help you estimate:",
       "tableLabel": "Piano moving price list",
-      "tableHeaders": ["Notes and details", "Estimated price range (₪)", "Piano type / service"],
+      "tableHeaders": [
+        "Notes and details",
+        "Estimated price range (₪)",
+        "Piano type / service"
+      ],
       "rows": [
         {
           "notes": "Depends on floor and access.",
