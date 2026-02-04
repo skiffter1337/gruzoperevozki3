@@ -2392,7 +2392,7 @@ const defaultDictionary: DictionaryType = {
         address: "ул. Примерная 123, Тель-Авив, Израиль",
         phone: "+972501234567",
         phoneFormatted: "050-123-4567",
-        email: "info@example.co.il",
+        email: "maavar.israel@gmail.com",
         openingHours: "Пн-Пт 08:00-18:00 | Сб 08:00-13:00"
     },
     header: {

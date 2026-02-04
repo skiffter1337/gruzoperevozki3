@@ -66,7 +66,7 @@ export async function POST(request: Request) {
         },
         body: JSON.stringify({
             from: fromEmail,
-            to: ['shulapov1999@gmail.com'],
+            to: ['maavar.israel@gmail.com'],
             subject: 'Новая заявка с сайта',
             text: emailText,
         }),
