@@ -76,6 +76,21 @@ function isTelAvivMoveSlug(slug: string[], telAvivMoveSlug: string) {
   return slug[0] === telAvivMoveSlug || slug[1] === telAvivMoveSlug;
 }
 
+const lateMoveSlugsByLocale: Record<Locale, string> = {
+  he: 'הובלות-מאוחרות',
+  ru: 'поздние-перевозки',
+  en: 'late-moves',
+};
+
+function buildLateMovePath(locale: Locale) {
+  return `${buildLocalizedPath(locale, 'transportation')}/${lateMoveSlugsByLocale[locale]}`;
+}
+
+function isLateMoveSlug(slug: string[], locale: Locale) {
+  const lateSlug = lateMoveSlugsByLocale[locale];
+  return slug[0] === lateSlug || slug[1] === lateSlug;
+}
+
 function buildApartmentMovePath(locale: Locale, slug: string) {
   return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
 }
@@ -127,6 +142,18 @@ async function buildSmallMoveLanguageAlternates() {
 
   const defaultSlug = dictionaries[DEFAULT_LOCALE].smallMovePage.slug;
   languages['x-default'] = `${SITE_URL}${buildSmallMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+
+  return languages;
+}
+
+async function buildLateMoveLanguageAlternates() {
+  const languages: Record<string, string> = {};
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    languages[locale] = `${SITE_URL}${buildLateMovePath(locale)}`;
+  });
+
+  languages['x-default'] = `${SITE_URL}${buildLateMovePath(DEFAULT_LOCALE)}`;
 
   return languages;
 }
@@ -337,6 +364,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  if (isLateMoveSlug(decodedSlug, locale)) {
+    const canonical = `${SITE_URL}${buildLateMovePath(locale)}`;
+
+    return {
+      title: dictionary.smallMovePage.metaTitle,
+      description: dictionary.smallMovePage.metaDescription,
+      alternates: {
+        canonical,
+        languages: await buildLateMoveLanguageAlternates(),
+      },
+      openGraph: {
+        title: dictionary.smallMovePage.metaTitle,
+        description: dictionary.smallMovePage.metaDescription,
+        url: canonical,
+        locale,
+      },
+    };
+  }
+
   if (isPriceListSlug(decodedSlug, dictionary.priceListPage.slug)) {
     const canonical = `${SITE_URL}${buildPriceListPath(locale, dictionary.priceListPage.slug)}`;
 
@@ -528,6 +574,15 @@ export default async function RegionPage({ params }: Props) {
     );
   }
   if (isSmallMoveSlug(decodedSlug, dictionary.smallMovePage.slug)) {
+    return (
+      <SmallMovePage
+        locale={locale}
+        dictionary={dictionary.smallMovePage}
+        calculatorDictionary={dictionary.homeHero}
+      />
+    );
+  }
+  if (isLateMoveSlug(decodedSlug, locale)) {
     return (
       <SmallMovePage
         locale={locale}
