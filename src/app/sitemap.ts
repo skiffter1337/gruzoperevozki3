@@ -60,6 +60,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ru: ruDictionary.telAvivMovePage?.slug ?? 'перевозки-в-тель-авиве',
     en: enDictionary.telAvivMovePage?.slug ?? 'transportation-in-tel-aviv',
   };
+  const haifaMoveSlugsByLocale = {
+    he: heDictionary.haifaMovePage?.slug ?? 'הובלות-חיפה',
+    ru: ruDictionary.haifaMovePage?.slug ?? 'haifa-moving',
+    en: enDictionary.haifaMovePage?.slug ?? 'haifa-moving',
+  };
 
   routes.forEach((route) => {
     SUPPORTED_LOCALES.forEach((locale) => {
@@ -266,6 +271,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const defaultSlug = telAvivMoveSlugsByLocale[DEFAULT_LOCALE];
     languages['x-default'] = `${SITE_URL}${buildLocalizedPath(DEFAULT_LOCALE, 'home')}/${defaultSlug}`;
+
+    entries.push({
+      url,
+      lastModified,
+      alternates: {
+        languages,
+      },
+    });
+  });
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    const slug = haifaMoveSlugsByLocale[locale];
+    if (!slug) return;
+    const url = `${SITE_URL}${buildLocalizedPath(locale, 'home')}/${slug}`;
+    const languages: Record<string, string> = {};
+
+    SUPPORTED_LOCALES.forEach((supportedLocale) => {
+      const supportedSlug = haifaMoveSlugsByLocale[supportedLocale];
+      if (supportedSlug) {
+        languages[supportedLocale] = `${SITE_URL}${buildLocalizedPath(supportedLocale, 'home')}/${supportedSlug}`;
+      }
+    });
+
+    const defaultSlug = haifaMoveSlugsByLocale[DEFAULT_LOCALE];
+    if (defaultSlug) {
+      languages['x-default'] = `${SITE_URL}${buildLocalizedPath(DEFAULT_LOCALE, 'home')}/${defaultSlug}`;
+    }
 
     entries.push({
       url,
