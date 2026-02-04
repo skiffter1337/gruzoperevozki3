@@ -219,6 +219,12 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
       return `${translatedBase}/${targetSlug}${remaining}`;
     }
+    if (decodedRest === currentPianoMoveSlug) {
+      const targetSlug = encodeURIComponent(pianoMoveSlugsByLocale[targetLocale]);
+      const translatedBase = buildLocalizedPath(targetLocale, "services");
+      const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
+      return `${translatedBase}/${targetSlug}${remaining}`;
+    }
   }
 
   if (!matchedRoute && decodedFirstSegment) {
