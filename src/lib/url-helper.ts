@@ -30,7 +30,7 @@ const apartmentMoveSlugsByLocale: Record<Locale, string> = {
 
 const pianoMoveSlugsByLocale: Record<Locale, string> = {
   he: heDictionary.pianoMovePage?.slug ?? "הובלת-פסנתר",
-  ru: ruDictionary.pianoMovePage?.slug ?? "perevozka-pianino",
+  ru: ruDictionary.pianoMovePage?.slug ?? "перевозка-пианино",
   en: enDictionary.pianoMovePage?.slug ?? "piano-moving",
 };
 

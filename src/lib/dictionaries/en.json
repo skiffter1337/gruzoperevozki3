@@ -28,8 +28,8 @@
           "path": "moving-price-list"
         },
         {
-          "label": "Piano moving",
-          "path": "piano-moving"
+          "label": "Late moves",
+          "path": "late-moves"
         }
       ],
       "services": [
@@ -42,8 +42,8 @@
           "path": "apartment-storage"
         },
         {
-          "label": "Late moves",
-          "path": "late-moves"
+          "label": "Piano moving",
+          "path": "piano-moving"
         }
       ],
       "contact": [
@@ -138,10 +138,6 @@
           {
             "label": "Moving price list",
             "path": "moving-price-list"
-          },
-          {
-            "label": "Piano moving",
-            "path": "piano-moving"
           }
         ]
       },
@@ -155,6 +151,10 @@
           {
             "label": "Storage",
             "path": "apartment-storage"
+          },
+          {
+            "label": "Piano moving",
+            "path": "piano-moving"
           },
           {
             "label": "Late moves",

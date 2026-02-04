@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   };
   const pianoMoveSlugsByLocale = {
     he: heDictionary.pianoMovePage?.slug ?? 'הובלת-פסנתר',
-    ru: ruDictionary.pianoMovePage?.slug ?? 'perevozka-pianino',
+    ru: ruDictionary.pianoMovePage?.slug ?? 'перевозка-пианино',
     en: enDictionary.pianoMovePage?.slug ?? 'piano-moving',
   };
   const officeMoveSlugsByLocale = {

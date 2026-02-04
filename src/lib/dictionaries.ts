@@ -1062,7 +1062,7 @@ const defaultDictionary: DictionaryType = {
                 image: "/images/north.png",
                 carrierRegion: "north",
                 cityLinks: [
-                    {label: "Перевозки в Хайфе", slug: "perevozki-v-hayfe"},
+                    {label: "Перевозки в Хайфе", slug: "перевозки-в-хайфе"},
                     {label: "Перевозки в Назарете", slug: "perevozki-v-nazarete"},
                     {label: "Перевозки в Тверии", slug: "perevozki-v-tverii"},
                     {label: "Перевозки в Акко", slug: "perevozki-v-akko"},
