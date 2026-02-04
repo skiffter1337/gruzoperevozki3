@@ -18,6 +18,7 @@ import ApartmentMovePage from '@/components/transportation/ApartmentMovePage';
 import HouseMovePage from '@/components/transportation/HouseMovePage';
 import OfficeMovePage from '@/components/transportation/OfficeMovePage';
 import SmallMovePage from '@/components/transportation/SmallMovePage';
+import PriceListPage from '@/components/transportation/PriceListPage';
 import PianoMovePage from '@/components/transportation/PianoMovePage';
 import TelAvivMovePage from '@/components/transportation/TelAvivMovePage';
 import PackingPage from '@/components/services/PackingPage';
@@ -49,6 +50,14 @@ function buildSmallMovePath(locale: Locale, slug: string) {
 
 function isSmallMoveSlug(slug: string[], smallMoveSlug: string) {
   return slug[0] === smallMoveSlug || slug[1] === smallMoveSlug;
+}
+
+function buildPriceListPath(locale: Locale, slug: string) {
+  return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
+}
+
+function isPriceListSlug(slug: string[], priceListSlug: string) {
+  return slug[0] === priceListSlug || slug[1] === priceListSlug;
 }
 
 function buildPianoMovePath(locale: Locale, slug: string) {
@@ -118,6 +127,25 @@ async function buildSmallMoveLanguageAlternates() {
 
   const defaultSlug = dictionaries[DEFAULT_LOCALE].smallMovePage.slug;
   languages['x-default'] = `${SITE_URL}${buildSmallMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+
+  return languages;
+}
+
+async function buildPriceListLanguageAlternates() {
+  const dictionaries = await getAllDictionaries();
+  const languages: Record<string, string> = {};
+
+  SUPPORTED_LOCALES.forEach((locale) => {
+    const slug = dictionaries[locale].priceListPage.slug;
+    if (slug) {
+      languages[locale] = `${SITE_URL}${buildPriceListPath(locale, slug)}`;
+    }
+  });
+
+  const defaultSlug = dictionaries[DEFAULT_LOCALE].priceListPage.slug;
+  if (defaultSlug) {
+    languages['x-default'] = `${SITE_URL}${buildPriceListPath(DEFAULT_LOCALE, defaultSlug)}`;
+  }
 
   return languages;
 }
@@ -309,6 +337,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
+  if (isPriceListSlug(decodedSlug, dictionary.priceListPage.slug)) {
+    const canonical = `${SITE_URL}${buildPriceListPath(locale, dictionary.priceListPage.slug)}`;
+
+    return {
+      title: dictionary.priceListPage.metaTitle,
+      description: dictionary.priceListPage.metaDescription,
+      alternates: {
+        canonical,
+        languages: await buildPriceListLanguageAlternates(),
+      },
+      openGraph: {
+        title: dictionary.priceListPage.metaTitle,
+        description: dictionary.priceListPage.metaDescription,
+        url: canonical,
+        locale,
+      },
+    };
+  }
+
   if (isHouseMoveSlug(decodedSlug, dictionary.houseMovePage.slug)) {
     const canonical = `${SITE_URL}${buildHouseMovePath(locale, dictionary.houseMovePage.slug)}`;
 
@@ -488,6 +535,9 @@ export default async function RegionPage({ params }: Props) {
         calculatorDictionary={dictionary.homeHero}
       />
     );
+  }
+  if (isPriceListSlug(decodedSlug, dictionary.priceListPage.slug)) {
+    return <PriceListPage locale={locale} dictionary={dictionary.priceListPage} />;
   }
   if (isHouseMoveSlug(decodedSlug, dictionary.houseMovePage.slug)) {
     return (

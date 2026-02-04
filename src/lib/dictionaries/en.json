@@ -24,6 +24,10 @@
           "path": "small-move"
         },
         {
+          "label": "Moving price list",
+          "path": "moving-price-list"
+        },
+        {
           "label": "Piano moving",
           "path": "piano-moving"
         }
@@ -130,6 +134,10 @@
           {
             "label": "Small move",
             "path": "small-move"
+          },
+          {
+            "label": "Moving price list",
+            "path": "moving-price-list"
           },
           {
             "label": "Piano moving",
@@ -2371,6 +2379,319 @@
         }
       ],
       "closing": "Looking for a small, reliable, and affordable mover? Don’t waste time on phone calls. Leave your details now and get winning quotes for free!"
+    }
+  },
+  "priceListPage": {
+    "slug": "moving-price-list",
+    "metaTitle": "Moving price list — relocation prices from ₪249 across Israel",
+    "metaDescription": "Affordable small moves. Relocations from ₪249. Nationwide service. Only vetted movers. Save up to 45%.",
+    "title": "Moving price list",
+    "tocTitle": "Table of contents",
+    "tocItems": [
+      {"id": "advantages", "label": "Our advantages: why our prices are the lowest?"},
+      {"id": "calculator", "label": "Use our moving calculator to get a price and offers"},
+      {"id": "apartment-pricing", "label": "How much does a move cost? Apartment move price list"},
+      {"id": "small-move-pricing", "label": "Small move price list (from ₪249)"},
+      {"id": "single-items-pricing", "label": "Single-item move price list"},
+      {"id": "office-pricing", "label": "Office move price list"},
+      {"id": "furniture-pricing", "label": "How much does it cost to move furniture? (detailed price list)"},
+      {"id": "student-pricing", "label": "How much does student moving cost? (special prices)"},
+      {"id": "special-pricing", "label": "Special moves price list (piano, safe, etc.)"},
+      {"id": "calculator-best-price", "label": "How does our calculator secure the best price for you?"}
+    ],
+    "advantages": {
+      "id": "advantages",
+      "title": "Our advantages: why our prices are the lowest?",
+      "intro": "Our advantages that lower your cost:",
+      "bullets": [
+        "Proven savings: smart price comparison through our service helps you save up to 45% off the final cost.",
+        "Lowest prices on the market: small moves from just ₪249.",
+        "Reliability first: we work only with vetted, verified movers and loaders.",
+        "Full-service options: get offers for packing, disassembly, assembly, and transportation in one place.",
+        "Nationwide coverage: we’ll find affordable movers in any city and region in Israel.",
+        "Maximum availability: need an urgent move? We can find same-day movers, including Saturdays."
+      ]
+    },
+    "calculator": {
+      "id": "calculator",
+      "title": "Use our moving calculator to get a price and offers",
+      "paragraphs": [
+        "Planning a move? The first question is usually: “How much will it cost?” You’re likely looking for the latest 2025 moving price list.",
+        "To be fully transparent, we’ve collected all price ranges on this page. But why stop at an estimate?",
+        "The best way to know your exact moving cost is to use our advanced moving calculator. It’s not just an estimate tool — it’s the first step to real savings.",
+        "How does it work?",
+        "You enter move details (what you’re moving, from where, to where, and when). You get an initial estimate while we send your request to vetted movers. Within minutes, you start receiving real competitive offers.",
+        "You get both an instant estimate and multiple offers to choose from — saving up to 45%!"
+      ]
+    },
+    "apartmentPricing": {
+      "id": "apartment-pricing",
+      "title": "How much does a move cost? Apartment move price list",
+      "paragraphs": [
+        "Apartment moves are the most common service, and “How much does it cost to move an apartment?” is the top question. The price depends on apartment size, item volume, and extra services (packing, disassembly, lift/crane). The table below shows average market prices for reference.",
+        "Important: prices in the table are market averages. Through our portal and competition, you’ll likely get a lower offer."
+      ],
+      "tableLabel": "Apartment moving price list",
+      "tableHeaders": ["Service type", "Average price (range)", "Notes"],
+      "rows": [
+        {
+          "service": "1-room / studio move",
+          "priceRange": "₪499–1,199",
+          "notes": "base price without add-ons."
+        },
+        {
+          "service": "2-room apartment move",
+          "priceRange": "₪999–1,799",
+          "notes": "fits young couples, usually without packing."
+        },
+        {
+          "service": "3-room apartment move",
+          "priceRange": "₪1,499–2,499",
+          "notes": "most common option; depends on furniture volume."
+        },
+        {
+          "service": "4-room apartment move",
+          "priceRange": "₪1,799–3,499",
+          "notes": "strongly depends on floor and crane needs."
+        },
+        {
+          "service": "5-room apartment move",
+          "priceRange": "₪1,999–4,499",
+          "notes": "often needs a larger truck and bigger crew."
+        },
+        {
+          "service": "6-room / penthouse move",
+          "priceRange": "₪2,499–5,499",
+          "notes": "a mover visit is recommended for accurate pricing."
+        },
+        {
+          "service": "Private house move",
+          "priceRange": "₪2,999–5,999",
+          "notes": "depends on floors and yard/entry access."
+        },
+        {
+          "service": "Extra packing (per box)",
+          "priceRange": "₪22–49",
+          "notes": "added to the move price, includes fragile packing."
+        }
+      ]
+    },
+    "smallMovePricing": {
+      "id": "small-move-pricing",
+      "title": "Small move price list (from ₪249)",
+      "intro": "Small moves are the most popular format in Israel, especially in big cities. They often don’t require a large truck and can be done quickly, even same-day. Prices in this category start from ₪249, making the service accessible and cost-effective.",
+      "tableLabel": "Small move price list",
+      "tableHeaders": ["Service type", "Average prices", "Notes"],
+      "rows": [
+        {
+          "service": "Pickup/van move (up to 5 items)",
+          "priceRange": "₪249–499",
+          "notes": "the cheapest and fastest option for urgent moves."
+        },
+        {
+          "service": "Box transport (up to 20)",
+          "priceRange": "₪249–399",
+          "notes": "includes movers, suitable even for buildings without elevators."
+        },
+        {
+          "service": "TV transport (any size)",
+          "priceRange": "₪249–399",
+          "notes": "includes special screen packing and carry."
+        },
+        {
+          "service": "Washer / dryer transport",
+          "priceRange": "₪249–399",
+          "notes": "typical price for one large appliance."
+        },
+        {
+          "service": "Treadmill / trainer transport",
+          "priceRange": "₪249–549",
+          "notes": "may require disassembly/reassembly for an extra fee."
+        }
+      ]
+    },
+    "singleItemsPricing": {
+      "id": "single-items-pricing",
+      "title": "Single-item move price list",
+      "intro": "Need to move just one item? There’s no sense paying for a full move. Single-item prices are dynamic: sometimes a nearby mover “on the way” can offer a particularly good price. Our calculator detects these requests and sends them to the right movers.",
+      "tableLabel": "Single-item moving price list",
+      "tableHeaders": ["Item", "Average price", "Notes"],
+      "rows": [
+        {
+          "service": "Fridge transport",
+          "priceRange": "₪249–499",
+          "notes": "depends on size (single-door vs. SBS) and access."
+        },
+        {
+          "service": "Sofa transport (standard or corner)",
+          "priceRange": "₪249–699",
+          "notes": "depends on disassembly or crane needs."
+        },
+        {
+          "service": "Bed transport (with disassembly/reassembly)",
+          "priceRange": "₪249–449",
+          "notes": "usually includes basic disassembly and reassembly."
+        },
+        {
+          "service": "Aquarium transport (empty)",
+          "priceRange": "₪249–549",
+          "notes": "requires careful handling and packing."
+        },
+        {
+          "service": "Home safe transport",
+          "priceRange": "₪249–499",
+          "notes": "heavy safes need special equipment and cost more."
+        }
+      ]
+    },
+    "officePricing": {
+      "id": "office-pricing",
+      "title": "Office move price list",
+      "intro": "Office moves differ from apartment moves: time is critical. Every day of downtime costs money. Office move prices typically include a team that quickly packs equipment, disassembles workstations, and reassembles everything at the new site.",
+      "tableLabel": "Office move price list",
+      "tableHeaders": ["Office size", "Average cost", "Notes"],
+      "rows": [
+        {
+          "service": "1-room office (up to 2 workstations)",
+          "priceRange": "₪299–699",
+          "notes": "fast move with a van or small truck."
+        },
+        {
+          "service": "2-room office (up to 5 workstations)",
+          "priceRange": "₪899–1,799",
+          "notes": "usually includes computers and basic furniture."
+        },
+        {
+          "service": "3–4 room office",
+          "priceRange": "₪1,299–3,799",
+          "notes": "includes packing and disassembly of workstations."
+        },
+        {
+          "service": "Office building relocation",
+          "priceRange": "from ₪7,999",
+          "notes": "requires complex logistics and a pre-visit."
+        }
+      ]
+    },
+    "furniturePricing": {
+      "id": "furniture-pricing",
+      "title": "How much does it cost to move furniture? (detailed price list)",
+      "intro": "Often you only need to move a bedroom set or a new dining area. Furniture transport is usually one of the most affordable options, but the price depends heavily on disassembly and reassembly needs.",
+      "tableLabel": "Furniture moving price list",
+      "tableHeaders": ["Furniture", "Average cost", "Notes"],
+      "rows": [
+        {
+          "service": "Wardrobe (2–4 doors)",
+          "priceRange": "₪249–499",
+          "notes": "almost always includes disassembly and reassembly."
+        },
+        {
+          "service": "Sliding-door wardrobe",
+          "priceRange": "₪349–599",
+          "notes": "more complex to disassemble/reassemble than a standard wardrobe."
+        },
+        {
+          "service": "Full bedroom set",
+          "priceRange": "₪549–999",
+          "notes": "bed, wardrobe, nightstands (with disassembly/reassembly)."
+        },
+        {
+          "service": "Dining set (table + chairs)",
+          "priceRange": "₪249–599",
+          "notes": "depends on glass table vs. heavy wood."
+        },
+        {
+          "service": "Living room (3+2 or corner)",
+          "priceRange": "₪299–699",
+          "notes": "if it doesn’t come apart, a crane may be needed."
+        },
+        {
+          "service": "Sideboard / display cabinet",
+          "priceRange": "₪249–399",
+          "notes": "careful packing is needed, especially with glass."
+        }
+      ]
+    },
+    "studentPricing": {
+      "id": "student-pricing",
+      "title": "How much does student moving cost? (special prices)",
+      "intro": "We know students move often and budgets are tight. That’s why we offer a dedicated student price list — especially low prices near universities (Tel Aviv, Jerusalem, Be’er Sheva, Haifa).",
+      "tableLabel": "Student moving price list",
+      "tableHeaders": ["Type", "Average student price", "Notes"],
+      "rows": [
+        {
+          "service": "Small student apartment (room)",
+          "priceRange": "₪299–649",
+          "notes": "basic set: bed, desk, boxes."
+        },
+        {
+          "service": "Shared apartment (2–3 tenants)",
+          "priceRange": "₪499–1,399",
+          "notes": "cheaper to move together and split the cost."
+        },
+        {
+          "service": "Dorm single-item move",
+          "priceRange": "from ₪249",
+          "notes": "fast and affordable at the end of the academic year."
+        }
+      ]
+    },
+    "specialPricing": {
+      "id": "special-pricing",
+      "title": "Special moves price list (piano, safe, etc.)",
+      "intro": "Some moves require not only physical labor but also experience and specialized equipment. These services cost more due to complexity and risk.",
+      "tableLabel": "Special moves price list",
+      "tableHeaders": ["Service", "Average cost", "Notes"],
+      "rows": [
+        {
+          "service": "Upright piano transport",
+          "priceRange": "₪449–1,199",
+          "notes": "requires an experienced team, straps, sometimes a crane."
+        },
+        {
+          "service": "Heavy safe transport (over 1 ton)",
+          "priceRange": "₪499–999",
+          "notes": "requires specialized lifting equipment."
+        },
+        {
+          "service": "Medical/lab equipment transport",
+          "priceRange": "from ₪399",
+          "notes": "delicate transport, sometimes with cooling."
+        },
+        {
+          "service": "Cabin/caravan transport",
+          "priceRange": "₪799–3,499",
+          "notes": "requires a heavy crane and transport permits."
+        },
+        {
+          "service": "Construction materials transport (pallets)",
+          "priceRange": "₪399–799",
+          "notes": "delivery to site, often with a crane."
+        }
+      ]
+    },
+    "calculatorBestPrice": {
+      "id": "calculator-best-price",
+      "title": "How does our calculator secure the best price for you?",
+      "paragraphs": [
+        "The price list on this page is a great reference. But the final price is determined by the market — that’s the core idea of our approach."
+      ],
+      "steps": [
+        "When you use our moving cost calculator, you start two processes in parallel:",
+        "Instant estimate: the system calculates a preliminary price range.",
+        "Mini-auction: your request is sent to several vetted movers who compete for the job."
+      ],
+      "factorsTitle": "The final price depends on:",
+      "factors": [
+        "Move details (from the calculator): volume of items, number of rooms, boxes, and furniture.",
+        "Distance: in-city moves differ from intercity moves.",
+        "Access and floors: elevator availability and truck access; high floors without elevators increase the price.",
+        "Extra services: disassembly/reassembly, packing, crane transport.",
+        "Insurance: we do not provide insurance — we are a platform connecting you with reliable movers. You must confirm your mover has a valid cargo insurance policy that covers your property. Working with professional movers through us usually means most have such insurance.",
+        "And most importantly — competition. Since you get multiple offers, movers compete for you and offer better prices than direct booking."
+      ],
+      "closing": "So why limit yourself to an estimate?",
+      "cta": "Use our smart tool: fill in the calculator, get an instant estimate, and choose the best real offer from vetted movers!"
     }
   },
   "telAvivMovePage": {
