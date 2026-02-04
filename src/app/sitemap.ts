@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   };
   const priceListSlugsByLocale = {
     he: heDictionary.priceListPage?.slug ?? '',
-    ru: ruDictionary.priceListPage?.slug ?? 'מחירון_הובלות',
+    ru: ruDictionary.priceListPage?.slug ?? 'прайс-лист-на-перевозки',
     en: enDictionary.priceListPage?.slug ?? '',
   };
   const apartmentMoveSlugsByLocale = {

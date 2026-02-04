@@ -18,7 +18,7 @@ const smallMoveSlugsByLocale: Record<Locale, string> = {
 
 const priceListSlugsByLocale: Record<Locale, string> = {
   he: heDictionary.priceListPage?.slug ?? "",
-  ru: ruDictionary.priceListPage?.slug ?? "מחירון_הובלות",
+  ru: ruDictionary.priceListPage?.slug ?? "прайс-лист-на-перевозки",
   en: enDictionary.priceListPage?.slug ?? "",
 };
 
