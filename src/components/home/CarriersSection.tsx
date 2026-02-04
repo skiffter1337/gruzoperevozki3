@@ -238,17 +238,7 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                 </a>
                                 <div className={styles.carrierInfo}>
                                     <div className={styles.carrierName}>{carrier.name}</div>
-                                    <ul className={styles.carrierContacts}>
-                                        <li>
-                                            {carrier.contactInfo.info}
-                                        </li>
-                                        <li>
-                                            {carrier.contactInfo.contacts}
-                                        </li>
-                                        <li>
-                                            {carrier.contactInfo.phoneNumber}
-                                        </li>
-                                    </ul>
+                                    <div className={styles.carrierPhone}>{carrier.contactInfo.phoneNumber}</div>
                                 </div>
                             </div>
                         ))

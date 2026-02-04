@@ -18,7 +18,7 @@ const smallMoveSlugsByLocale: Record<Locale, string> = {
 
 const priceListSlugsByLocale: Record<Locale, string> = {
   he: heDictionary.priceListPage?.slug ?? "",
-  ru: ruDictionary.priceListPage?.slug ?? "מחירון_הובלות",
+  ru: ruDictionary.priceListPage?.slug ?? "прайс-лист-на-перевозки",
   en: enDictionary.priceListPage?.slug ?? "",
 };
 
@@ -30,7 +30,7 @@ const apartmentMoveSlugsByLocale: Record<Locale, string> = {
 
 const pianoMoveSlugsByLocale: Record<Locale, string> = {
   he: heDictionary.pianoMovePage?.slug ?? "הובלת-פסנתר",
-  ru: ruDictionary.pianoMovePage?.slug ?? "perevozka-pianino",
+  ru: ruDictionary.pianoMovePage?.slug ?? "перевозка-пианино",
   en: enDictionary.pianoMovePage?.slug ?? "piano-moving",
 };
 
@@ -42,7 +42,7 @@ const officeMoveSlugsByLocale: Record<Locale, string> = {
 
 const houseMoveSlugsByLocale: Record<Locale, string> = {
   he: heDictionary.houseMovePage?.slug ?? "בית-פרטי",
-  ru: ruDictionary.houseMovePage?.slug ?? "переезд_частного_дома",
+  ru: ruDictionary.houseMovePage?.slug ?? "переезд-частного-дома",
   en: enDictionary.houseMovePage?.slug ?? "private-house",
 };
 

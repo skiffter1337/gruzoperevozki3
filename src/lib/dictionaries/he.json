@@ -12,12 +12,13 @@
         {"label": "הובלת בית פרטי", "path": "בית-פרטי"},
         {"label": "הובלה קטנה", "path": "הובלות_קטנות"},
         {"label": "מחירון הובלות", "path": "מחירון_הובלות"},
-        {"label": "הובלת פסנתר", "path": "הובלת-פסנתר"}
+        {"label": "הובלות מאוחרות", "path": "הובלות-מאוחרות"}
       ],
       "services": [
         {"label": "אריזה", "path": "שירותי-אריזה"},
         {"label": "אחסון", "path": "אחסון_תכולת_דירה"},
-        {"label": "הובלות מאוחרות", "path": "הובלות-מאוחרות"}
+        {"label": "הובלת פסנתר", "path": "הובלת-פסנתר"}
+
       ],
       "contact": [
         {"label": "התקשרו אלינו", "href": "tel:{phone}"},
@@ -64,7 +65,7 @@
           {"label": "הובלת בית פרטי", "path": "בית-פרטי"},
           {"label": "הובלה קטנה", "path": "הובלות_קטנות"},
           {"label": "מחירון הובלות", "path": "מחירון_הובלות"},
-          {"label": "הובלת פסנתר", "path": "הובלת-פסנתר"}
+          {"label": "הובלות מאוחרות", "path": "הובלות-מאוחרות"}
         ]
       },
       "services": {
@@ -72,7 +73,7 @@
         "links": [
           {"label": "אריזה", "path": "שירותי-אריזה"},
           {"label": "אחסון", "path": "אחסון_תכולת_דירה"},
-          {"label": "הובלות מאוחרות", "path": "הובלות-מאוחרות"}
+          {"label": "הובלת פסנתר", "path": "הובלת-פסנתר"}
         ]
       },
       "contacts": {
@@ -216,16 +217,16 @@
       {"label": "גוש דן", "value": "coordinates"}
     ],
     "carriers": [
-      {"name": "Negev Logistic", "region": "south", "image": "/images/south.png", "url": "https://example.com/negev-logistic", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
-      {"name": "Red Sea Cargo", "region": "south", "image": "/images/south.png", "url": "https://example.com/red-sea-cargo", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
-      {"name": "Galil Express", "region": "north", "image": "/images/north.png", "url": "https://example.com/galil-express", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
-      {"name": "Kineret Movers", "region": "north", "image": "/images/north.png", "url": "https://example.com/kineret-movers", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
-      {"name": "Jerusalem Bridge", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/jerusalem-bridge", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
-      {"name": "Golden City Logistics", "region": "jerusalem", "image": "/images/jerusalem.png", "url": "https://example.com/golden-city-logistics", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
-      {"name": "Coastal Route Movers", "region": "lowland", "image": "/images/lowland.png", "url": "https://example.com/coastal-route", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
-      {"name": "Lowland Cargo", "region": "lowland", "image": "/images/lowland.png", "url": "https://example.com/lowland-cargo", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
-      {"name": "Sharon Express", "region": "sharon", "image": "/images/sharon.png", "url": "https://example.com/sharon-express", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}},
-      {"name": "Green Valley Logistics", "region": "sharon", "image": "/images/sharon.png", "url": "https://example.com/green-valley-logistics", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "מספר טלפון"}}
+      {"name": "Urban Moving", "region": "south", "image": "/images/carriers/urban-moving.png", "url": "https://urbanmoving.net", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "050-8318084"}},
+      {"name": "שור הובלות", "region": "south", "image": "/images/carriers/bull-moving.png", "url": "https://shor-hovalot.co.il", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "050-3073160"}},
+      {"name": "Urban Moving", "region": "north", "image": "/images/carriers/urban-moving.png", "url": "https://urbanmoving.net", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "050-8318084"}},
+      {"name": "שור הובלות", "region": "north", "image": "/images/carriers/bull-moving.png", "url": "https://shor-hovalot.co.il", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "050-3073160"}},
+      {"name": "Urban Moving", "region": "jerusalem", "image": "/images/carriers/urban-moving.png", "url": "https://urbanmoving.net", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "050-8318084"}},
+      {"name": "שור הובלות", "region": "jerusalem", "image": "/images/carriers/bull-moving.png", "url": "https://shor-hovalot.co.il", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "050-3073160"}},
+      {"name": "Urban Moving", "region": "lowland", "image": "/images/carriers/urban-moving.png", "url": "https://urbanmoving.net", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "050-8318084"}},
+      {"name": "שור הובלות", "region": "lowland", "image": "/images/carriers/bull-moving.png", "url": "https://shor-hovalot.co.il", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "050-3073160"}},
+      {"name": "Urban Moving", "region": "sharon", "image": "/images/carriers/urban-moving.png", "url": "https://urbanmoving.net", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "050-8318084"}},
+      {"name": "שור הובלות", "region": "sharon", "image": "/images/carriers/bull-moving.png", "url": "https://shor-hovalot.co.il", "contactInfo": {"info": "מֵידָע", "contacts": "אנשי קשר", "phoneNumber": "050-3073160"}}
     ]
   },
   "homeAbout": {
@@ -292,18 +293,18 @@
       },
       {
         "name": "מריה גולדמן",
-        "company": "Galil Express",
+        "company": "Urban Moving",
         "review": "הצוות הגיע בדיוק בזמן והתייחס לציוד בעדינות. המחיר הסופי יצא אפילו טוב יותר מהצפוי.",
         "avatar": "/images/testimonials/person2.png",
-        "carrierUrl": "https://example.com/galil-express",
+        "carrierUrl": "https://urbanmoving.net/",
         "rating": 5
       },
       {
         "name": "דניאל כץ",
-        "company": "Negev Logistic",
+        "company": "Urban Moving",
         "review": "הזמנו מעבר משרד. מחיר ברור, תקשורת מצוינת ואריזה מעולה לציוד – הכל הגיע בשלמותו.",
         "avatar": "/images/testimonials/person3.png",
-        "carrierUrl": "https://example.com/negev-logistic",
+        "carrierUrl": "https://urbanmoving.net/",
         "rating": 5
       }
     ]

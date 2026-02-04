@@ -1062,11 +1062,11 @@ const defaultDictionary: DictionaryType = {
                 image: "/images/north.png",
                 carrierRegion: "north",
                 cityLinks: [
-                    {label: "Хайфа", slug: "perevozki-v-hayfe"},
-                    {label: "Назарет", slug: "perevozki-v-nazarete"},
-                    {label: "Тверия", slug: "perevozki-v-tverii"},
-                    {label: "Акко", slug: "perevozki-v-akko"},
-                    {label: "Кармиэль", slug: "perevozki-v-karmiele"},
+                    {label: "Перевозки в Хайфе", slug: "перевозки-в-хайфе"},
+                    {label: "Перевозки в Назарете", slug: "perevozki-v-nazarete"},
+                    {label: "Перевозки в Тверии", slug: "perevozki-v-tverii"},
+                    {label: "Перевозки в Акко", slug: "perevozki-v-akko"},
+                    {label: "Перевозки в Кармиэле", slug: "perevozki-v-karmiele"},
                 ],
             },
             {
@@ -1100,74 +1100,74 @@ const defaultDictionary: DictionaryType = {
         ],
         carriers: [
             {
-                name: 'Negev Logistic',
+                name: 'Urban Moving',
                 region: 'south',
-                image: '/images/south.png',
-                url: 'https://example.com/negev-logistic',
-                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+                image: '/images/carriers/urban-moving.png',
+                url: 'https://urbanmoving.net/',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "050-8318084"}
             },
             {
-                name: 'Red Sea Cargo',
+                name: 'שור הובלות',
                 region: 'south',
-                image: '/images/south.png',
-                url: 'https://example.com/red-sea-cargo',
-                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+                image: '/images/carriers/bull-moving.png',
+                url: 'https://shor-hovalot.co.il/',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "050-3073160"}
             },
             {
-                name: 'Galil Express',
+                name: 'Urban Moving',
                 region: 'north',
-                image: '/images/north.png',
-                url: 'https://example.com/galil-express',
-                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+                image: '/images/carriers/urban-moving.png',
+                url: 'https://urbanmoving.net/',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "050-8318084"}
             },
             {
-                name: 'Kineret Movers',
-                region: 'north',
-                image: '/images/north.png',
-                url: 'https://example.com/kineret-movers',
-                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+                name: "שור הובלות",
+                region: "north",
+                image: "/images/carriers/bull-moving.png",
+                url: "https://shor-hovalot.co.il",
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "050-3073160"}
             },
             {
-                name: 'Jerusalem Bridge',
+                name: 'Urban Moving',
                 region: 'jerusalem',
                 image: '/images/jerusalem.png',
-                url: 'https://example.com/jerusalem-bridge',
-                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+                url: 'https://urbanmoving.net/',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "050-8318084"}
             },
             {
-                name: 'Golden City Logistics',
-                region: 'jerusalem',
-                image: '/images/jerusalem.png',
-                url: 'https://example.com/golden-city-logistics',
-                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+                name: "שור הובלות",
+                region: "jerusalem",
+                image: "/images/carriers/bull-moving.png",
+                url: "https://shor-hovalot.co.il",
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "050-3073160"}
             },
             {
-                name: 'Coastal Route Movers',
+                name: 'Urban Moving',
                 region: 'lowland',
-                image: '/images/lowland.png',
-                url: 'https://example.com/coastal-route',
-                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+                image: '/images/carries/urban-moving.png',
+                url: 'https://urbanmoving.net/',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "050-8318084"}
             },
             {
-                name: 'Lowland Cargo',
-                region: 'lowland',
-                image: '/images/lowland.png',
-                url: 'https://example.com/lowland-cargo',
-                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+                name: "שור הובלות",
+                region: "lowland",
+                image: "/images/carriers/bull-moving.png",
+                url: "https://shor-hovalot.co.il",
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "050-3073160"}
             },
             {
-                name: 'Sharon Express',
+                name: 'Urban Moving',
                 region: 'sharon',
-                image: '/images/sharon.png',
-                url: 'https://example.com/sharon-express',
-                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+                image: '/images/carriers/urban-moving.png',
+                url: 'https://urbanmoving.net',
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "050-8318084"}
             },
             {
-                name: 'Green Valley Logistics',
-                region: 'sharon',
-                image: '/images/sharon.png',
-                url: 'https://example.com/green-valley-logistics',
-                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "phone number"}
+                name: "שור הובלות",
+                region: "sharon",
+                image: "/images/carriers/bull-moving.png",
+                url: "https://shor-hovalot.co.il",
+                contactInfo: {info: "Information", contacts: "contacts", phoneNumber: "050-3073160"}
             },
         ],
     },
@@ -1216,20 +1216,20 @@ const defaultDictionary: DictionaryType = {
             },
             {
                 name: 'Антон',
-                company: 'Galil Express',
+                company: 'Urban Moving',
                 review:
                     'Пунктуальная команда: приехали точно в оговоренное время и бережно отнеслись к вещам. Получилось даже дешевле, чем ожидали.',
                 avatar: '/images/testimonials/person2.png',
-                carrierUrl: 'https://example.com/galil-express',
+                carrierUrl: 'https://urbanmoving.net',
                 rating: 5,
             },
             {
                 name: 'Даниэль Кац',
-                company: 'Negev Logistic',
+                company: 'Urban Moving',
                 review:
                     'Заказывали офисный переезд. Удобный расчет стоимости, четкая коммуникация и отличная упаковка техники — все приехало целым.',
                 avatar: '/images/testimonials/person3.png',
-                carrierUrl: 'https://example.com/negev-logistic',
+                carrierUrl: 'https://urbanmoving.net/',
                 rating: 5,
             },
         ],
