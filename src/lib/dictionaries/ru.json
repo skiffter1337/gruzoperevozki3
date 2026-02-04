@@ -182,11 +182,11 @@
         "image": "/images/center.png",
         "carrierRegion": null,
         "cityLinks": [
-          {"label": "Перевозки в Тель-Авиве", "slug": "перевозки-в-тель-авиве"},
-          {"label": "Перевозки в Рамат-Гане", "slug": "perevozki-v-ramat-gane"},
-          {"label": "Перевозки в Гиватаиме", "slug": "perevozki-v-givataime"},
-          {"label": "Перевозки в Холоне", "slug": "perevozki-v-holone"},
-          {"label": "Перевозки в Бат-Яме", "slug": "perevozki-v-bat-yame"}
+          {"label": "Тель-Авив", "slug": "перевозки-в-тель-авиве"},
+          {"label": "Рамат-Ган", "slug": "perevozki-v-ramat-gane"},
+          {"label": "Гиватаим", "slug": "perevozki-v-givataime"},
+          {"label": "Холон", "slug": "perevozki-v-holone"},
+          {"label": "Бат-Ям", "slug": "perevozki-v-bat-yame"}
         ]
       },
       {
@@ -195,11 +195,11 @@
         "image": "/images/sharon.png",
         "carrierRegion": "sharon",
         "cityLinks": [
-          {"label": "Перевозки в Нетании", "slug": "perevozki-v-netanii"},
-          {"label": "Перевозки в Герцлии", "slug": "perevozki-v-gertslii"},
-          {"label": "Перевозки в Кфар-Сабе", "slug": "perevozki-v-kfar-sabe"},
-          {"label": "Перевозки в Раанане", "slug": "perevozki-v-raanane"},
-          {"label": "Перевозки в Ход-ха-Шароне", "slug": "perevozki-v-hod-ha-sharone"}
+          {"label": "Нетания", "slug": "perevozki-v-netanii"},
+          {"label": "Герцлия", "slug": "perevozki-v-gertslii"},
+          {"label": "Кфар-Саба", "slug": "perevozki-v-kfar-sabe"},
+          {"label": "Раанана", "slug": "perevozki-v-raanane"},
+          {"label": "Ход-ха-Шарон", "slug": "perevozki-v-hod-ha-sharone"}
         ]
       },
       {
@@ -208,11 +208,11 @@
         "image": "/images/lowland.png",
         "carrierRegion": "lowland",
         "cityLinks": [
-          {"label": "Перевозки в Ришон-ле-Ционе", "slug": "perevozki-v-rishon-le-tsione"},
-          {"label": "Перевозки в Реховоте", "slug": "perevozki-v-rehovote"},
-          {"label": "Перевозки в Рамле", "slug": "perevozki-v-ramle"},
-          {"label": "Перевозки в Лоде", "slug": "perevozki-v-lode"},
-          {"label": "Перевозки в Ашдоде", "slug": "perevozki-v-ashdode"}
+          {"label": "Ришон-ле-Цион", "slug": "perevozki-v-rishon-le-tsione"},
+          {"label": "Реховот", "slug": "perevozki-v-rehovote"},
+          {"label": "Рамла", "slug": "perevozki-v-ramle"},
+          {"label": "Лод", "slug": "perevozki-v-lode"},
+          {"label": "Ашдод", "slug": "perevozki-v-ashdode"}
         ]
       },
       {
@@ -221,11 +221,11 @@
         "image": "/images/jerusalem.png",
         "carrierRegion": "jerusalem",
         "cityLinks": [
-          {"label": "Перевозки в Иерусалиме", "slug": "perevozki-v-ierusalime"},
-          {"label": "Перевозки в Бейт-Шемеше", "slug": "perevozki-v-beit-shemeshe"},
-          {"label": "Перевозки в Маале-Адумиме", "slug": "perevozki-v-maale-adumime"},
-          {"label": "Перевозки в Модиине", "slug": "perevozki-v-modiine"},
-          {"label": "Перевозки в Мевасерет-Ционе", "slug": "perevozki-v-mevaseret-tsione"}
+          {"label": "Иерусалим", "slug": "perevozki-v-ierusalime"},
+          {"label": "Бейт-Шемеш", "slug": "perevozki-v-beit-shemeshe"},
+          {"label": "Маале-Адумим", "slug": "perevozki-v-maale-adumime"},
+          {"label": "Модиин", "slug": "perevozki-v-modiine"},
+          {"label": "Мевасерет-Цион", "slug": "perevozki-v-mevaseret-tsione"}
         ]
       },
       {
@@ -234,11 +234,11 @@
         "image": "/images/north.png",
         "carrierRegion": "north",
         "cityLinks": [
-          {"label": "Перевозки в Хайфе", "slug": "perevozki-v-hayfe"},
-          {"label": "Перевозки в Назарете", "slug": "perevozki-v-nazarete"},
-          {"label": "Перевозки в Тверии", "slug": "perevozki-v-tverii"},
-          {"label": "Перевозки в Акко", "slug": "perevozki-v-akko"},
-          {"label": "Перевозки в Кармиэле", "slug": "perevozki-v-karmiele"}
+          {"label": "Хайфа", "slug": "perevozki-v-hayfe"},
+          {"label": "Назарет", "slug": "perevozki-v-nazarete"},
+          {"label": "Тверия", "slug": "perevozki-v-tverii"},
+          {"label": "Акко", "slug": "perevozki-v-akko"},
+          {"label": "Кармиэль", "slug": "perevozki-v-karmiele"}
         ]
       },
       {
@@ -247,11 +247,11 @@
         "image": "/images/south.png",
         "carrierRegion": "south",
         "cityLinks": [
-          {"label": "Перевозки в Беэр-Шеве", "slug": "perevozki-v-beer-sheve"},
-          {"label": "Перевозки в Ашкелоне", "slug": "perevozki-v-ashkelone"},
-          {"label": "Перевозки в Эйлате", "slug": "perevozki-v-eilate"},
-          {"label": "Перевозки в Димоне", "slug": "perevozki-v-dimone"},
-          {"label": "Перевозки в Нетивоте", "slug": "perevozki-v-netivote"}
+          {"label": "Беэр-Шева", "slug": "perevozki-v-beer-sheve"},
+          {"label": "Ашкелон", "slug": "perevozki-v-ashkelone"},
+          {"label": "Эйлат", "slug": "perevozki-v-eilate"},
+          {"label": "Димона", "slug": "perevozki-v-dimone"},
+          {"label": "Нетивот", "slug": "perevozki-v-netivote"}
         ]
       }
     ]
@@ -905,7 +905,7 @@
         ]
       },
       {
-        "title": "Перевозки в Хайфе от 249 ₪ - 24/7 | Рекомендуемые перевозчики",
+        "title": "Хайфа от 249 ₪ - 24/7 | Рекомендуемые перевозчики",
         "excerpt": "Ищете перевозки в Хайфе и Крайот? Сравните цены у проверенных перевозчиков, сэкономьте до 45% и получите малую перевозку от 249 ₪. Доступны услуги упаковки и крана, есть срочная подача.",
         "slug": "perevozki-v-hajfe",
         "image": "/images/articles/articlePlaceholder.png",
@@ -2444,9 +2444,9 @@
   },
   "telAvivMovePage": {
     "slug": "перевозки-в-тель-авиве",
-    "metaTitle": "Перевозки в Тель-Авиве и центре страны недорого — от 249 ₪",
+    "metaTitle": "Тель-Авив и центре страны недорого — от 249 ₪",
     "metaDescription": "Ищете перевозку в Тель-Авиве? Получите ценовые предложения от рекомендованных перевозчиков, сравните цены и сэкономьте до 45% на стоимости переезда. Небольшие перевозки, перевозка квартир и офисов — от 249 ₪. Услуги упаковки, подъёмный кран (манипулятор) и срочные перевозки.",
-    "title": "Перевозки в Тель-Авиве: умное сравнение цен и экономия до 45%",
+    "title": "Тель-Авив: умное сравнение цен и экономия до 45%",
     "tocTitle": "Содержание: полный гид по переезду в Тель-Авиве",
     "tocItems": [
       {"id": "why-us", "label": "Почему стоит заказать перевозку в Тель-Авиве через наш портал?"},
