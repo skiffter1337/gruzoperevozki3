@@ -247,23 +247,23 @@
         "carrierRegion": null,
         "cityLinks": [
           {
-            "label": "Transportation in Tel Aviv",
+            "label": "Tel Aviv",
             "slug": "transportation-in-tel-aviv"
           },
           {
-            "label": "Transportation in Ramat Gan",
+            "label": "Ramat Gan",
             "slug": "transportation-in-ramat-gan"
           },
           {
-            "label": "Transportation in Giv'atayim",
+            "label": "Giv'atayim",
             "slug": "transportation-in-givatayim"
           },
           {
-            "label": "Transportation in Holon",
+            "label": "Holon",
             "slug": "transportation-in-holon"
           },
           {
-            "label": "Transportation in Bat Yam",
+            "label": "Bat Yam",
             "slug": "transportation-in-bat-yam"
           }
         ]
@@ -275,23 +275,23 @@
         "carrierRegion": "sharon",
         "cityLinks": [
           {
-            "label": "Transportation in Netanya",
+            "label": "Netanya",
             "slug": "transportation-in-netanya"
           },
           {
-            "label": "Transportation in Herzliya",
+            "label": "Herzliya",
             "slug": "transportation-in-herzliya"
           },
           {
-            "label": "Transportation in Kfar Saba",
+            "label": "Kfar Saba",
             "slug": "transportation-in-kfar-saba"
           },
           {
-            "label": "Transportation in Ra'anana",
+            "label": "Ra'anana",
             "slug": "transportation-in-raanana"
           },
           {
-            "label": "Transportation in Hod Hasharon",
+            "label": "Hod Hasharon",
             "slug": "transportation-in-hod-hasharon"
           }
         ]
@@ -303,23 +303,23 @@
         "carrierRegion": "lowland",
         "cityLinks": [
           {
-            "label": "Transportation in Rishon LeZion",
+            "label": "Rishon LeZion",
             "slug": "transportation-in-rishon-lezion"
           },
           {
-            "label": "Transportation in Rehovot",
+            "label": "Rehovot",
             "slug": "transportation-in-rehovot"
           },
           {
-            "label": "Transportation in Ramla",
+            "label": "Ramla",
             "slug": "transportation-in-ramla"
           },
           {
-            "label": "Transportation in Lod",
+            "label": "Lod",
             "slug": "transportation-in-lod"
           },
           {
-            "label": "Transportation in Ashdod",
+            "label": "Ashdod",
             "slug": "transportation-in-ashdod"
           }
         ]
@@ -331,23 +331,23 @@
         "carrierRegion": "jerusalem",
         "cityLinks": [
           {
-            "label": "Transportation in Jerusalem",
+            "label": "Jerusalem",
             "slug": "transportation-in-jerusalem"
           },
           {
-            "label": "Transportation in Beit Shemesh",
+            "label": "Beit Shemesh",
             "slug": "transportation-in-beit-shemesh"
           },
           {
-            "label": "Transportation in Ma'ale Adumim",
+            "label": "Ma'ale Adumim",
             "slug": "transportation-in-maale-adumim"
           },
           {
-            "label": "Transportation in Modi'in",
+            "label": "Modi'in",
             "slug": "transportation-in-modiin"
           },
           {
-            "label": "Transportation in Mevaseret Zion",
+            "label": "Mevaseret Zion",
             "slug": "transportation-in-mevaseret-zion"
           }
         ]
@@ -359,23 +359,23 @@
         "carrierRegion": "north",
         "cityLinks": [
           {
-            "label": "Transportation in Haifa",
+            "label": "Haifa",
             "slug": "transportation-in-haifa"
           },
           {
-            "label": "Transportation in Nazareth",
+            "label": "Nazareth",
             "slug": "transportation-in-nazareth"
           },
           {
-            "label": "Transportation in Tiberias",
+            "label": "Tiberias",
             "slug": "transportation-in-tiberias"
           },
           {
-            "label": "Transportation in Acre",
+            "label": "Acre",
             "slug": "transportation-in-acre"
           },
           {
-            "label": "Transportation in Karmiel",
+            "label": "Karmiel",
             "slug": "transportation-in-karmiel"
           }
         ]
@@ -387,23 +387,23 @@
         "carrierRegion": "south",
         "cityLinks": [
           {
-            "label": "Transportation in Be'er Sheva",
+            "label": "Be'er Sheva",
             "slug": "transportation-in-beer-sheva"
           },
           {
-            "label": "Transportation in Ashkelon",
+            "label": "Ashkelon",
             "slug": "transportation-in-ashkelon"
           },
           {
-            "label": "Transportation in Eilat",
+            "label": "Eilat",
             "slug": "transportation-in-eilat"
           },
           {
-            "label": "Transportation in Dimona",
+            "label": "Dimona",
             "slug": "transportation-in-dimona"
           },
           {
-            "label": "Transportation in Netivot",
+            "label": "Netivot",
             "slug": "transportation-in-netivot"
           }
         ]
@@ -1106,7 +1106,7 @@
         ]
       },
       {
-        "title": "Transportation in Haifa from 249 ₪ - 24/7 | Trusted movers",
+        "title": "Haifa from 249 ₪ - 24/7 | Trusted movers",
         "excerpt": "Looking for transportation in Haifa and the Krayot? Compare quotes from trusted movers, save up to 45%, and get small moves from 249 ₪. Packing and crane services available with immediate availability.",
         "slug": "transportation-in-haifa",
         "image": "/images/articles/articlePlaceholder.png",
