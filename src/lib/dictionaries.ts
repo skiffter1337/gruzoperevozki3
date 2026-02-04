@@ -84,6 +84,12 @@ export interface TelAvivMoveTableRow {
     notes: string;
 }
 
+export interface PriceListTableRow {
+    service: string;
+    priceRange: string;
+    notes: string;
+}
+
 export interface OfficeMoveComparisonRow {
     night: string;
     day: string;
@@ -656,6 +662,91 @@ export type DictionaryType = {
             intro: string;
             items: Array<{title: string; text: string}>;
             closing: string;
+        };
+    };
+    priceListPage: {
+        slug: string;
+        metaTitle: string;
+        metaDescription: string;
+        title: string;
+        tocTitle: string;
+        tocItems: Array<{id: string; label: string}>;
+        advantages: {
+            id: string;
+            title: string;
+            intro: string;
+            bullets: string[];
+        };
+        calculator: {
+            id: string;
+            title: string;
+            paragraphs: string[];
+        };
+        apartmentPricing: {
+            id: string;
+            title: string;
+            paragraphs: string[];
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: PriceListTableRow[];
+        };
+        smallMovePricing: {
+            id: string;
+            title: string;
+            intro: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: PriceListTableRow[];
+        };
+        singleItemsPricing: {
+            id: string;
+            title: string;
+            intro: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: PriceListTableRow[];
+        };
+        officePricing: {
+            id: string;
+            title: string;
+            intro: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: PriceListTableRow[];
+        };
+        furniturePricing: {
+            id: string;
+            title: string;
+            intro: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: PriceListTableRow[];
+        };
+        studentPricing: {
+            id: string;
+            title: string;
+            intro: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: PriceListTableRow[];
+        };
+        specialPricing: {
+            id: string;
+            title: string;
+            intro: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: PriceListTableRow[];
+        };
+        calculatorBestPrice: {
+            id: string;
+            title: string;
+            paragraphs: string[];
+            steps: string[];
+            factorsTitle: string;
+            factors: string[];
+            closing: string;
+            cta: string;
         };
     };
     telAvivMovePage: {
@@ -2003,6 +2094,91 @@ const defaultDictionary: DictionaryType = {
             closing: '',
         },
     },
+    priceListPage: {
+        slug: '',
+        metaTitle: '',
+        metaDescription: '',
+        title: '',
+        tocTitle: '',
+        tocItems: [],
+        advantages: {
+            id: 'advantages',
+            title: '',
+            intro: '',
+            bullets: [],
+        },
+        calculator: {
+            id: 'calculator',
+            title: '',
+            paragraphs: [],
+        },
+        apartmentPricing: {
+            id: 'apartment-pricing',
+            title: '',
+            paragraphs: [],
+            tableLabel: '',
+            tableHeaders: [],
+            rows: [],
+        },
+        smallMovePricing: {
+            id: 'small-move-pricing',
+            title: '',
+            intro: '',
+            tableLabel: '',
+            tableHeaders: [],
+            rows: [],
+        },
+        singleItemsPricing: {
+            id: 'single-items-pricing',
+            title: '',
+            intro: '',
+            tableLabel: '',
+            tableHeaders: [],
+            rows: [],
+        },
+        officePricing: {
+            id: 'office-pricing',
+            title: '',
+            intro: '',
+            tableLabel: '',
+            tableHeaders: [],
+            rows: [],
+        },
+        furniturePricing: {
+            id: 'furniture-pricing',
+            title: '',
+            intro: '',
+            tableLabel: '',
+            tableHeaders: [],
+            rows: [],
+        },
+        studentPricing: {
+            id: 'student-pricing',
+            title: '',
+            intro: '',
+            tableLabel: '',
+            tableHeaders: [],
+            rows: [],
+        },
+        specialPricing: {
+            id: 'special-pricing',
+            title: '',
+            intro: '',
+            tableLabel: '',
+            tableHeaders: [],
+            rows: [],
+        },
+        calculatorBestPrice: {
+            id: 'calculator-best-price',
+            title: '',
+            paragraphs: [],
+            steps: [],
+            factorsTitle: '',
+            factors: [],
+            closing: '',
+            cta: '',
+        },
+    },
     telAvivMovePage: {
         slug: 'tel-aviv-moving',
         metaTitle: 'Moving in Tel Aviv',
@@ -2603,6 +2779,10 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             smallMovePage: {
                 ...defaultDictionary.smallMovePage,
                 ...loadedDict.smallMovePage,
+            },
+            priceListPage: {
+                ...defaultDictionary.priceListPage,
+                ...loadedDict.priceListPage,
             },
             telAvivMovePage: {
                 ...defaultDictionary.telAvivMovePage,

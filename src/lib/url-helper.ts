@@ -16,6 +16,12 @@ const smallMoveSlugsByLocale: Record<Locale, string> = {
   en: enDictionary.smallMovePage?.slug ?? "small-move",
 };
 
+const priceListSlugsByLocale: Record<Locale, string> = {
+  he: heDictionary.priceListPage?.slug ?? "",
+  ru: ruDictionary.priceListPage?.slug ?? "מחירון_הובלות",
+  en: enDictionary.priceListPage?.slug ?? "",
+};
+
 const apartmentMoveSlugsByLocale: Record<Locale, string> = {
   he: heDictionary.apartmentMovePage?.slug ?? "הובלות_דירה",
   ru: ruDictionary.apartmentMovePage?.slug ?? "квартирные",
@@ -82,6 +88,7 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
     : undefined;
 
   const currentSmallMoveSlug = smallMoveSlugsByLocale[currentLocale];
+  const currentPriceListSlug = priceListSlugsByLocale[currentLocale];
   const currentApartmentMoveSlug = apartmentMoveSlugsByLocale[currentLocale];
   const currentPianoMoveSlug = pianoMoveSlugsByLocale[currentLocale];
   const currentOfficeMoveSlug = officeMoveSlugsByLocale[currentLocale];
@@ -110,6 +117,13 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
 
   if (decodedFirstSegment === currentSmallMoveSlug) {
     const targetSlug = encodeURIComponent(smallMoveSlugsByLocale[targetLocale]);
+    const translatedBase = buildLocalizedPath(targetLocale, "transportation");
+    const remaining = rest.length ? `/${rest.join("/")}` : "";
+    return `${translatedBase}/${targetSlug}${remaining}`;
+  }
+
+  if (decodedFirstSegment === currentPriceListSlug && priceListSlugsByLocale[targetLocale]) {
+    const targetSlug = encodeURIComponent(priceListSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
     return `${translatedBase}/${targetSlug}${remaining}`;
