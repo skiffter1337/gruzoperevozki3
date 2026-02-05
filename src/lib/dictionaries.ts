@@ -664,6 +664,62 @@ export type DictionaryType = {
             closing: string;
         };
     };
+    haifaMovePage: {
+        slug: string;
+        metaTitle: string;
+        metaDescription: string;
+        title: string;
+        tocTitle: string;
+        tocItems: Array<{id: string; label: string}>;
+        advantages: {
+            id: string;
+            title: string;
+            bullets: string[];
+        };
+        howToFind: {
+            id: string;
+            title: string;
+            paragraphs: string[];
+            stepsTitle: string;
+            steps: string[];
+            outro: string;
+        };
+        pricing: {
+            id: string;
+            title: string;
+            intro: string;
+            tableLabel: string;
+            tableHeaders: string[];
+            rows: SmallMoveTableRow[];
+            afterTable: string;
+        };
+        challenges: {
+            id: string;
+            title: string;
+            items: Array<{title: string; text: string}>;
+        };
+        smallMoves: {
+            id: string;
+            title: string;
+            text: string;
+        };
+        services: {
+            id: string;
+            title: string;
+            items: Array<{title: string; text: string}>;
+        };
+        faq: {
+            id: string;
+            title: string;
+            items: Array<{question: string; answer: string}>;
+        };
+        closing: {
+            id: string;
+            title: string;
+            text: string;
+            buttonLabel: string;
+        };
+    };
     priceListPage: {
         slug: string;
         metaTitle: string;
@@ -2094,6 +2150,62 @@ const defaultDictionary: DictionaryType = {
             closing: '',
         },
     },
+    haifaMovePage: {
+        slug: '',
+        metaTitle: '',
+        metaDescription: '',
+        title: '',
+        tocTitle: '',
+        tocItems: [],
+        advantages: {
+            id: 'advantages',
+            title: '',
+            bullets: [],
+        },
+        howToFind: {
+            id: 'how-to-find',
+            title: '',
+            paragraphs: [],
+            stepsTitle: '',
+            steps: [],
+            outro: '',
+        },
+        pricing: {
+            id: 'pricing',
+            title: '',
+            intro: '',
+            tableLabel: '',
+            tableHeaders: [],
+            rows: [],
+            afterTable: '',
+        },
+        challenges: {
+            id: 'challenges',
+            title: '',
+            items: [],
+        },
+        smallMoves: {
+            id: 'small-moves',
+            title: '',
+            text: '',
+        },
+        services: {
+            id: 'services',
+            title: '',
+            items: [],
+        },
+        faq: {
+            id: 'faq',
+            title: '',
+            items: [],
+        },
+        closing: {
+            id: 'closing',
+            title: '',
+            text: '',
+            buttonLabel: '',
+        },
+    },
     priceListPage: {
         slug: '',
         metaTitle: '',
@@ -2779,6 +2891,10 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             smallMovePage: {
                 ...defaultDictionary.smallMovePage,
                 ...loadedDict.smallMovePage,
+            },
+            haifaMovePage: {
+                ...defaultDictionary.haifaMovePage,
+                ...loadedDict.haifaMovePage,
             },
             priceListPage: {
                 ...defaultDictionary.priceListPage,

@@ -1994,14 +1994,38 @@
     "title": "Private house move",
     "tocTitle": "Table of contents",
     "tocItems": [
-      {"id": "why-compare", "label": "Why compare private house moving prices on our portal?"},
-      {"id": "process", "label": "How to book a private house move in 3 simple steps?"},
-      {"id": "pricing", "label": "Private house moving prices (market averages)"},
-      {"id": "price-factors", "label": "What affects the price of a private house move?"},
-      {"id": "solutions", "label": "Solutions for any moving task (not just houses)"},
-      {"id": "tips", "label": "Preparation and important tips before moving"},
-      {"id": "faq", "label": "Frequently asked questions"},
-      {"id": "closing", "label": "Ready for a calm and affordable move?"}
+      {
+        "id": "why-compare",
+        "label": "Why compare private house moving prices on our portal?"
+      },
+      {
+        "id": "process",
+        "label": "How to book a private house move in 3 simple steps?"
+      },
+      {
+        "id": "pricing",
+        "label": "Private house moving prices (market averages)"
+      },
+      {
+        "id": "price-factors",
+        "label": "What affects the price of a private house move?"
+      },
+      {
+        "id": "solutions",
+        "label": "Solutions for any moving task (not just houses)"
+      },
+      {
+        "id": "tips",
+        "label": "Preparation and important tips before moving"
+      },
+      {
+        "id": "faq",
+        "label": "Frequently asked questions"
+      },
+      {
+        "id": "closing",
+        "label": "Ready for a calm and affordable move?"
+      }
     ],
     "comparison": {
       "id": "why-compare",
@@ -2025,9 +2049,18 @@
       "title": "How to book a private house move in 3 simple steps?",
       "intro": "Fast and easy — no obligations.",
       "steps": [
-        {"title": "Fill out the form (under 1 minute):", "text": "Share the volume, route, and preferred date."},
-        {"title": "Get multiple offers:", "text": "Available movers send their quotes."},
-        {"title": "Compare and choose the best:", "text": "Pick by price, timeline, and reviews."}
+        {
+          "title": "Fill out the form (under 1 minute):",
+          "text": "Share the volume, route, and preferred date."
+        },
+        {
+          "title": "Get multiple offers:",
+          "text": "Available movers send their quotes."
+        },
+        {
+          "title": "Compare and choose the best:",
+          "text": "Pick by price, timeline, and reviews."
+        }
       ]
     },
     "pricing": {
@@ -2036,13 +2069,37 @@
       "intro": "Prices are indicative.",
       "note": "Through our portal they are usually lower thanks to competition.",
       "tableLabel": "Private house moving prices",
-      "tableHeaders": ["What is included", "Price (₪)", "Service type"],
+      "tableHeaders": [
+        "What is included",
+        "Price (₪)",
+        "Service type"
+      ],
       "rows": [
-        {"notes": "Partial load, basic furniture.", "priceRange": "890 – 1,800", "item": "Small house / townhouse"},
-        {"notes": "Full furniture, appliances, boxes.", "priceRange": "1,800 – 3,500", "item": "3–4 room house"},
-        {"notes": "Large truck, 3–4 movers.", "priceRange": "3,000 – 5,500", "item": "5–6 room house"},
-        {"notes": "Multiple trucks, full team.", "priceRange": "4,500 – 8,500", "item": "Villa / large house"},
-        {"notes": "Generator, safe, piano, etc.", "priceRange": "from 490", "item": "Single items"}
+        {
+          "notes": "Partial load, basic furniture.",
+          "priceRange": "890 – 1,800",
+          "item": "Small house / townhouse"
+        },
+        {
+          "notes": "Full furniture, appliances, boxes.",
+          "priceRange": "1,800 – 3,500",
+          "item": "3–4 room house"
+        },
+        {
+          "notes": "Large truck, 3–4 movers.",
+          "priceRange": "3,000 – 5,500",
+          "item": "5–6 room house"
+        },
+        {
+          "notes": "Multiple trucks, full team.",
+          "priceRange": "4,500 – 8,500",
+          "item": "Villa / large house"
+        },
+        {
+          "notes": "Generator, safe, piano, etc.",
+          "priceRange": "from 490",
+          "item": "Single items"
+        }
       ],
       "afterTable": "Special services (crane, packing, heavy items) are charged separately."
     },
@@ -2050,12 +2107,30 @@
       "id": "price-factors",
       "title": "What affects the price of a private house move?",
       "items": [
-        {"title": "Volume of belongings", "text": "Furniture, appliances, storage, garage, yard."},
-        {"title": "Distance", "text": "Within a city or between cities."},
-        {"title": "Floors and access", "text": "Stairs, slopes, narrow driveways."},
-        {"title": "Special items", "text": "Pianos, safes, servers, generators."},
-        {"title": "Extra services", "text": "Packing, disassembly, crane."},
-        {"title": "Season", "text": "Summer is pricier, winter is cheaper."}
+        {
+          "title": "Volume of belongings",
+          "text": "Furniture, appliances, storage, garage, yard."
+        },
+        {
+          "title": "Distance",
+          "text": "Within a city or between cities."
+        },
+        {
+          "title": "Floors and access",
+          "text": "Stairs, slopes, narrow driveways."
+        },
+        {
+          "title": "Special items",
+          "text": "Pianos, safes, servers, generators."
+        },
+        {
+          "title": "Extra services",
+          "text": "Packing, disassembly, crane."
+        },
+        {
+          "title": "Season",
+          "text": "Summer is pricier, winter is cheaper."
+        }
       ]
     },
     "solutions": {
@@ -2063,14 +2138,38 @@
       "title": "Solutions for any moving task (not just houses)",
       "intro": "We help with:",
       "items": [
-        {"title": "Moves of any house size", "text": "From townhouses to villas."},
-        {"title": "Yard furniture and storage", "text": "Garden equipment and sheds included."},
-        {"title": "Workshops and studios", "text": "Careful handling of equipment."},
-        {"title": "Urgent moves", "text": "Often possible even same-day."},
-        {"title": "Friday/Saturday moves", "text": "We work around your schedule."},
-        {"title": "Small moves", "text": "Single-item transport available."},
-        {"title": "Crane lifts", "text": "Arranged for difficult access."},
-        {"title": "Turnkey packing", "text": "Materials, packing, assembly."}
+        {
+          "title": "Moves of any house size",
+          "text": "From townhouses to villas."
+        },
+        {
+          "title": "Yard furniture and storage",
+          "text": "Garden equipment and sheds included."
+        },
+        {
+          "title": "Workshops and studios",
+          "text": "Careful handling of equipment."
+        },
+        {
+          "title": "Urgent moves",
+          "text": "Often possible even same-day."
+        },
+        {
+          "title": "Friday/Saturday moves",
+          "text": "We work around your schedule."
+        },
+        {
+          "title": "Small moves",
+          "text": "Single-item transport available."
+        },
+        {
+          "title": "Crane lifts",
+          "text": "Arranged for difficult access."
+        },
+        {
+          "title": "Turnkey packing",
+          "text": "Materials, packing, assembly."
+        }
       ]
     },
     "tips": {
@@ -2078,23 +2177,56 @@
       "title": "Preparation and important tips before moving",
       "intro": "Get ready in advance:",
       "items": [
-        {"title": "Sort out unwanted items", "text": "Reduce volume and costs."},
-        {"title": "Label boxes by rooms", "text": "Easier unpacking."},
-        {"title": "Photo appliance connections", "text": "Simpler re-setup."},
-        {"title": "Carry valuables yourself", "text": "Documents and jewelry stay with you."},
-        {"title": "Prepare access for the truck", "text": "Clear driveway and yard."},
-        {"title": "Ensure the new house is ready", "text": "Free up paths for furniture."}
+        {
+          "title": "Sort out unwanted items",
+          "text": "Reduce volume and costs."
+        },
+        {
+          "title": "Label boxes by rooms",
+          "text": "Easier unpacking."
+        },
+        {
+          "title": "Photo appliance connections",
+          "text": "Simpler re-setup."
+        },
+        {
+          "title": "Carry valuables yourself",
+          "text": "Documents and jewelry stay with you."
+        },
+        {
+          "title": "Prepare access for the truck",
+          "text": "Clear driveway and yard."
+        },
+        {
+          "title": "Ensure the new house is ready",
+          "text": "Free up paths for furniture."
+        }
       ]
     },
     "faq": {
       "id": "faq",
       "title": "Frequently asked questions",
       "items": [
-        {"question": "How much does your service cost?", "answer": "Free. You only pay the mover."},
-        {"question": "Is there insurance?", "answer": "Movers must have insurance. Confirm it in writing."},
-        {"question": "How do I verify a mover?", "answer": "All movers are vetted and rated."},
-        {"question": "Why is it cheaper through you?", "answer": "Because movers compete for your job."},
-        {"question": "Can I book same-day?", "answer": "Often yes, even the same day."}
+        {
+          "question": "How much does your service cost?",
+          "answer": "Free. You only pay the mover."
+        },
+        {
+          "question": "Is there insurance?",
+          "answer": "Movers must have insurance. Confirm it in writing."
+        },
+        {
+          "question": "How do I verify a mover?",
+          "answer": "All movers are vetted and rated."
+        },
+        {
+          "question": "Why is it cheaper through you?",
+          "answer": "Because movers compete for your job."
+        },
+        {
+          "question": "Can I book same-day?",
+          "answer": "Often yes, even the same day."
+        }
       ]
     },
     "closing": {
@@ -2381,6 +2513,189 @@
       "closing": "Looking for a small, reliable, and affordable mover? Don’t waste time on phone calls. Leave your details now and get winning quotes for free!"
     }
   },
+  "haifaMovePage": {
+    "slug": "haifa-moving",
+    "metaTitle": "Haifa moving at low prices from ₪249 — 24/7 | Recommended movers",
+    "metaDescription": "Looking for moving services in Haifa and the Krayot? Get quotes from recommended movers, compare prices easily, and save up to 45% on your move. Small moves from ₪249, packing and lift services. Fast availability.",
+    "title": "Haifa moving",
+    "tocTitle": "Table of contents: the complete guide to moving in Haifa and the Krayot (click to jump)",
+    "tocItems": [
+      {
+        "id": "advantages",
+        "label": "Our advantages: why book your Haifa move with us?"
+      },
+      {
+        "id": "how-to-find",
+        "label": "How to find recommended movers in Haifa and save"
+      },
+      {
+        "id": "pricing",
+        "label": "Haifa moving price list — how much does it really cost?"
+      },
+      {
+        "id": "challenges",
+        "label": "Haifa moving challenges: Mount Carmel, the lower city, and everything in between"
+      },
+      {
+        "id": "small-moves",
+        "label": "Small moves in Haifa and the Krayot (students and single items)"
+      },
+      {
+        "id": "services",
+        "label": "Additional services: packing, lift, and carpentry"
+      },
+      {
+        "id": "faq",
+        "label": "Frequently asked questions"
+      }
+    ],
+    "advantages": {
+      "id": "advantages",
+      "title": "Our advantages: moving with us is the best value",
+      "bullets": [
+        "Huge savings: smart price comparison saves up to 45% on moving costs.",
+        "Lowest prices on the market: small moves from ₪249.",
+        "Reliability and professionalism: we work only with vetted, recommended Haifa movers.",
+        "Full coverage: get offers for packing, disassembly, assembly, and transport in one place.",
+        "Wide coverage: service across all Haifa neighborhoods, the Krayot, Nesher, Tirat Carmel, and the north.",
+        "Fast availability: need an urgent move? Find movers for same-day service, including Saturdays."
+      ]
+    },
+    "howToFind": {
+      "id": "how-to-find",
+      "title": "How to find recommended movers in Haifa and save",
+      "paragraphs": [
+        "Haifa is a unique city with challenging topography, so finding a moving company takes more than a quick Google search. Whether you are moving in Neve Sha'anan, Hadar, Carmel, or the lower city, you need a mover who knows the area, narrow streets, and parking rules.",
+        "Instead of wasting time calling every moving company in Haifa, our system does the work for you.",
+        "We are not another moving company — we are an aggregator that connects you in real time with a large database of movers in Haifa and the Krayot."
+      ],
+      "stepsTitle": "How does it work?",
+      "steps": [
+        "You fill in your moving details.",
+        "The request is sent to several Haifa moving companies available on your date.",
+        "Movers compete for your job — you compare offers and choose the best price."
+      ],
+      "outro": "This method ensures you get service from recommended movers, avoid unreliable crews, and save up to 45%."
+    },
+    "pricing": {
+      "id": "pricing",
+      "title": "Haifa moving price list — how much does it really cost?",
+      "intro": "The most common question is “how much does moving in Haifa cost?”. The price depends on distance (within Haifa or outside), volume, floor, and whether a lift is needed. We compiled average prices to help you estimate. Remember — through our system you can get lower prices thanks to competition.",
+      "tableLabel": "Haifa moving price list",
+      "tableHeaders": [
+        "Notes",
+        "Average price range in Haifa",
+        "Move type"
+      ],
+      "rows": [
+        {
+          "notes": "Refrigerator, sofa, washing machine, wardrobe.",
+          "priceRange": "249 - 400 ₪",
+          "item": "Single item move"
+        },
+        {
+          "notes": "Very popular around the Technion and University of Haifa.",
+          "priceRange": "500 - 1,100 ₪",
+          "item": "Student apartment / room"
+        },
+        {
+          "notes": "Price depends on the floor and elevator availability.",
+          "priceRange": "1,000 - 1,800 ₪",
+          "item": "2-room apartment move"
+        },
+        {
+          "notes": "Moving a standard family apartment in Haifa.",
+          "priceRange": "1,400 - 2,500 ₪",
+          "item": "3-room apartment move"
+        },
+        {
+          "notes": "Often includes disassembly and assembly of basic furniture.",
+          "priceRange": "2,000 - 3,600 ₪",
+          "item": "4-room apartment move"
+        },
+        {
+          "notes": "A pre-visit for an accurate quote is recommended.",
+          "priceRange": "2,600 - 5,000 ₪",
+          "item": "5-room apartment move"
+        },
+        {
+          "notes": "Hourly price for a moving lift (required for certain buildings in Haifa).",
+          "priceRange": "300 - 450 ₪",
+          "item": "Lift service add-on"
+        }
+      ],
+      "afterTable": "Prices in the table are estimates only. For a precise and cheaper quote, fill out the form on the site."
+    },
+    "challenges": {
+      "id": "challenges",
+      "title": "Haifa moving challenges: Mount Carmel, the lower city, and everything in between",
+      "items": [
+        {
+          "title": "Narrow and steep streets:",
+          "text": "In neighborhoods like Hadar, Vardiya, or Carmelia, access for a large truck can be impossible. We work with movers who have a varied fleet, including small trucks and vans that fit these streets."
+        },
+        {
+          "title": "Parking constraints:",
+          "text": "In dense areas, finding parking for a truck is challenging. Movers who know Haifa schedule moves for convenient hours or use creative solutions."
+        },
+        {
+          "title": "Buildings without elevators:",
+          "text": "Haifa has many older buildings without elevators. In such cases, a move often requires an external lift to avoid damaging furniture in narrow stairwells."
+        }
+      ]
+    },
+    "smallMoves": {
+      "id": "small-moves",
+      "title": "Small moves in Haifa and the Krayot (students and single items)",
+      "text": "Haifa is a vibrant student city with the Technion and the university attracting thousands of students. We understand that students do not have huge budgets, so we created tailored small-move solutions. If you only need to move a refrigerator, bed, desk, or a few boxes to dorms or a shared apartment, there is no reason to pay for a full truck. Through the portal you can find movers with vans that handle Haifa and Krayot moves at very low prices starting from ₪249. The service also fits single items bought second-hand."
+    },
+    "services": {
+      "id": "services",
+      "title": "Additional services: packing, lift, and carpentry",
+      "items": [
+        {
+          "title": "Packing services:",
+          "text": "No time to pack? A professional packing team will arrive before the move, pack everything in quality boxes, and label them."
+        },
+        {
+          "title": "Haifa moving lift:",
+          "text": "Because of the city’s topography and older buildings, lifts are very common in Haifa. They save time, prevent damage on narrow staircases, and allow items to be moved through the balcony easily."
+        },
+        {
+          "title": "Disassembly and assembly:",
+          "text": "Our movers are also skilled carpenters. They carefully take apart wardrobes, beds, and shelving and reassemble them in the new apartment professionally."
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "question": "How far in advance should I book a move in Haifa?",
+          "answer": "Haifa is in high demand. In summer (July–August), it’s best to book about three weeks ahead. In winter, you can often find availability with just a few days’ notice. In urgent cases, our system can find same-day movers."
+        },
+        {
+          "question": "Do you provide insurance for the move?",
+          "answer": "Important note: we are a platform that connects customers with movers (an aggregator). We work with professionals, but you must verify that your chosen mover has valid cargo insurance. Don’t hesitate to ask to see the policy before work begins."
+        },
+        {
+          "question": "Does the price include boxes?",
+          "answer": "Usually, for larger apartment moves (4–5 rooms), the mover supplies some boxes and packing materials as part of the service. For small moves, it is usually an extra charge. Confirm the details in advance with the moving company."
+        },
+        {
+          "question": "Do you handle moves from Haifa to the center or south?",
+          "answer": "Yes. We provide moves from Haifa to any destination — Tel Aviv, Jerusalem, Be’er Sheva, and even Eilat. The price depends on distance and the amount of belongings."
+        }
+      ]
+    },
+    "closing": {
+      "id": "closing",
+      "title": "Planning a move in Haifa?",
+      "text": "Don’t pay more than you should. Fill in the form, get quotes from the best movers in Haifa and the Krayot, and choose the most cost-effective offer.",
+      "buttonLabel": "Get quotes"
+    }
+  },
   "priceListPage": {
     "slug": "moving-price-list",
     "metaTitle": "Moving price list — relocation prices from ₪249 across Israel",
@@ -2388,16 +2703,46 @@
     "title": "Moving price list",
     "tocTitle": "Table of contents",
     "tocItems": [
-      {"id": "advantages", "label": "Our advantages: why our prices are the lowest?"},
-      {"id": "calculator", "label": "Use our moving calculator to get a price and offers"},
-      {"id": "apartment-pricing", "label": "How much does a move cost? Apartment move price list"},
-      {"id": "small-move-pricing", "label": "Small move price list (from ₪249)"},
-      {"id": "single-items-pricing", "label": "Single-item move price list"},
-      {"id": "office-pricing", "label": "Office move price list"},
-      {"id": "furniture-pricing", "label": "How much does it cost to move furniture? (detailed price list)"},
-      {"id": "student-pricing", "label": "How much does student moving cost? (special prices)"},
-      {"id": "special-pricing", "label": "Special moves price list (piano, safe, etc.)"},
-      {"id": "calculator-best-price", "label": "How does our calculator secure the best price for you?"}
+      {
+        "id": "advantages",
+        "label": "Our advantages: why our prices are the lowest?"
+      },
+      {
+        "id": "calculator",
+        "label": "Use our moving calculator to get a price and offers"
+      },
+      {
+        "id": "apartment-pricing",
+        "label": "How much does a move cost? Apartment move price list"
+      },
+      {
+        "id": "small-move-pricing",
+        "label": "Small move price list (from ₪249)"
+      },
+      {
+        "id": "single-items-pricing",
+        "label": "Single-item move price list"
+      },
+      {
+        "id": "office-pricing",
+        "label": "Office move price list"
+      },
+      {
+        "id": "furniture-pricing",
+        "label": "How much does it cost to move furniture? (detailed price list)"
+      },
+      {
+        "id": "student-pricing",
+        "label": "How much does student moving cost? (special prices)"
+      },
+      {
+        "id": "special-pricing",
+        "label": "Special moves price list (piano, safe, etc.)"
+      },
+      {
+        "id": "calculator-best-price",
+        "label": "How does our calculator secure the best price for you?"
+      }
     ],
     "advantages": {
       "id": "advantages",
@@ -2432,7 +2777,11 @@
         "Important: prices in the table are market averages. Through our portal and competition, you’ll likely get a lower offer."
       ],
       "tableLabel": "Apartment moving price list",
-      "tableHeaders": ["Service type", "Average price (range)", "Notes"],
+      "tableHeaders": [
+        "Service type",
+        "Average price (range)",
+        "Notes"
+      ],
       "rows": [
         {
           "service": "1-room / studio move",
@@ -2481,7 +2830,11 @@
       "title": "Small move price list (from ₪249)",
       "intro": "Small moves are the most popular format in Israel, especially in big cities. They often don’t require a large truck and can be done quickly, even same-day. Prices in this category start from ₪249, making the service accessible and cost-effective.",
       "tableLabel": "Small move price list",
-      "tableHeaders": ["Service type", "Average prices", "Notes"],
+      "tableHeaders": [
+        "Service type",
+        "Average prices",
+        "Notes"
+      ],
       "rows": [
         {
           "service": "Pickup/van move (up to 5 items)",
@@ -2515,7 +2868,11 @@
       "title": "Single-item move price list",
       "intro": "Need to move just one item? There’s no sense paying for a full move. Single-item prices are dynamic: sometimes a nearby mover “on the way” can offer a particularly good price. Our calculator detects these requests and sends them to the right movers.",
       "tableLabel": "Single-item moving price list",
-      "tableHeaders": ["Item", "Average price", "Notes"],
+      "tableHeaders": [
+        "Item",
+        "Average price",
+        "Notes"
+      ],
       "rows": [
         {
           "service": "Fridge transport",
@@ -2549,7 +2906,11 @@
       "title": "Office move price list",
       "intro": "Office moves differ from apartment moves: time is critical. Every day of downtime costs money. Office move prices typically include a team that quickly packs equipment, disassembles workstations, and reassembles everything at the new site.",
       "tableLabel": "Office move price list",
-      "tableHeaders": ["Office size", "Average cost", "Notes"],
+      "tableHeaders": [
+        "Office size",
+        "Average cost",
+        "Notes"
+      ],
       "rows": [
         {
           "service": "1-room office (up to 2 workstations)",
@@ -2578,7 +2939,11 @@
       "title": "How much does it cost to move furniture? (detailed price list)",
       "intro": "Often you only need to move a bedroom set or a new dining area. Furniture transport is usually one of the most affordable options, but the price depends heavily on disassembly and reassembly needs.",
       "tableLabel": "Furniture moving price list",
-      "tableHeaders": ["Furniture", "Average cost", "Notes"],
+      "tableHeaders": [
+        "Furniture",
+        "Average cost",
+        "Notes"
+      ],
       "rows": [
         {
           "service": "Wardrobe (2–4 doors)",
@@ -2617,7 +2982,11 @@
       "title": "How much does student moving cost? (special prices)",
       "intro": "We know students move often and budgets are tight. That’s why we offer a dedicated student price list — especially low prices near universities (Tel Aviv, Jerusalem, Be’er Sheva, Haifa).",
       "tableLabel": "Student moving price list",
-      "tableHeaders": ["Type", "Average student price", "Notes"],
+      "tableHeaders": [
+        "Type",
+        "Average student price",
+        "Notes"
+      ],
       "rows": [
         {
           "service": "Small student apartment (room)",
@@ -2641,7 +3010,11 @@
       "title": "Special moves price list (piano, safe, etc.)",
       "intro": "Some moves require not only physical labor but also experience and specialized equipment. These services cost more due to complexity and risk.",
       "tableLabel": "Special moves price list",
-      "tableHeaders": ["Service", "Average cost", "Notes"],
+      "tableHeaders": [
+        "Service",
+        "Average cost",
+        "Notes"
+      ],
       "rows": [
         {
           "service": "Upright piano transport",
