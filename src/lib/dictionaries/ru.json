@@ -247,23 +247,23 @@
         "carrierRegion": null,
         "cityLinks": [
           {
-            "label": "Перевозки в Тель-Авиве",
+            "label": "Тель-Авив",
             "slug": "перевозки-в-тель-авиве"
           },
           {
-            "label": "Перевозки в Рамат-Гане",
+            "label": "Рамат-Ган",
             "slug": "perevozki-v-ramat-gane"
           },
           {
-            "label": "Перевозки в Гиватаиме",
+            "label": "Гиватаим",
             "slug": "perevozki-v-givataime"
           },
           {
-            "label": "Перевозки в Холоне",
+            "label": "Холон",
             "slug": "perevozki-v-holone"
           },
           {
-            "label": "Перевозки в Бат-Яме",
+            "label": "Бат-Ям",
             "slug": "perevozki-v-bat-yame"
           }
         ]
@@ -275,23 +275,23 @@
         "carrierRegion": "sharon",
         "cityLinks": [
           {
-            "label": "Перевозки в Нетании",
+            "label": "Нетания",
             "slug": "perevozki-v-netanii"
           },
           {
-            "label": "Перевозки в Герцлии",
+            "label": "Герцлия",
             "slug": "perevozki-v-gertslii"
           },
           {
-            "label": "Перевозки в Кфар-Сабе",
+            "label": "Кфар-Саб",
             "slug": "perevozki-v-kfar-sabe"
           },
           {
-            "label": "Перевозки в Раанане",
+            "label": "Раанана",
             "slug": "perevozki-v-raanane"
           },
           {
-            "label": "Перевозки в Ход-ха-Шароне",
+            "label": "Ход-ха-Шарон",
             "slug": "perevozki-v-hod-ha-sharone"
           }
         ]
@@ -303,23 +303,23 @@
         "carrierRegion": "lowland",
         "cityLinks": [
           {
-            "label": "Перевозки в Ришон-ле-Ционе",
+            "label": "Ришон-ле-Цион",
             "slug": "perevozki-v-rishon-le-tsione"
           },
           {
-            "label": "Перевозки в Реховоте",
+            "label": "Реховот",
             "slug": "perevozki-v-rehovote"
           },
           {
-            "label": "Перевозки в Рамле",
+            "label": "Рамла",
             "slug": "perevozki-v-ramle"
           },
           {
-            "label": "Перевозки в Лоде",
+            "label": "Лод",
             "slug": "perevozki-v-lode"
           },
           {
-            "label": "Перевозки в Ашдоде",
+            "label": "Ашдод",
             "slug": "perevozki-v-ashdode"
           }
         ]
@@ -331,23 +331,23 @@
         "carrierRegion": "jerusalem",
         "cityLinks": [
           {
-            "label": "Перевозки в Иерусалиме",
+            "label": "Иерусалим",
             "slug": "perevozki-v-ierusalime"
           },
           {
-            "label": "Перевозки в Бейт-Шемеше",
+            "label": "Бейт-Шемеш",
             "slug": "perevozki-v-beit-shemeshe"
           },
           {
-            "label": "Перевозки в Маале-Адумиме",
+            "label": "Маале-Адумим",
             "slug": "perevozki-v-maale-adumime"
           },
           {
-            "label": "Перевозки в Модиине",
+            "label": "Модиине",
             "slug": "perevozki-v-modiine"
           },
           {
-            "label": "Перевозки в Мевасерет-Ционе",
+            "label": "Мевасерет-Цион",
             "slug": "perevozki-v-mevaseret-tsione"
           }
         ]
@@ -359,23 +359,23 @@
         "carrierRegion": "north",
         "cityLinks": [
           {
-            "label": "Перевозки в Хайфе",
+            "label": "Хайфа",
             "slug": "перевозки-в-хайфе"
           },
           {
-            "label": "Перевозки в Назарете",
+            "label": "Назарет",
             "slug": "perevozki-v-nazarete"
           },
           {
-            "label": "Перевозки в Тверии",
+            "label": "Тверия",
             "slug": "perevozki-v-tverii"
           },
           {
-            "label": "Перевозки в Акко",
+            "label": "Акко",
             "slug": "perevozki-v-akko"
           },
           {
-            "label": "Перевозки в Кармиэле",
+            "label": "Кармиэль",
             "slug": "perevozki-v-karmiele"
           }
         ]
@@ -387,23 +387,23 @@
         "carrierRegion": "south",
         "cityLinks": [
           {
-            "label": "Перевозки в Беэр-Шеве",
+            "label": "Беэр-Шева",
             "slug": "perevozki-v-beer-sheve"
           },
           {
-            "label": "Перевозки в Ашкелоне",
+            "label": "Ашкелон",
             "slug": "perevozki-v-ashkelone"
           },
           {
-            "label": "Перевозки в Эйлате",
+            "label": "Эйлат",
             "slug": "perevozki-v-eilate"
           },
           {
-            "label": "Перевозки в Димоне",
+            "label": "Димона",
             "slug": "perevozki-v-dimone"
           },
           {
-            "label": "Перевозки в Нетивоте",
+            "label": "Нетивот",
             "slug": "perevozki-v-netivote"
           }
         ]

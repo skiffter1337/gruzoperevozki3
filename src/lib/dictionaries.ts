@@ -1062,11 +1062,11 @@ const defaultDictionary: DictionaryType = {
                 image: "/images/north.png",
                 carrierRegion: "north",
                 cityLinks: [
-                    {label: "Перевозки в Хайфе", slug: "перевозки-в-хайфе"},
-                    {label: "Перевозки в Назарете", slug: "perevozki-v-nazarete"},
-                    {label: "Перевозки в Тверии", slug: "perevozki-v-tverii"},
-                    {label: "Перевозки в Акко", slug: "perevozki-v-akko"},
-                    {label: "Перевозки в Кармиэле", slug: "perevozki-v-karmiele"},
+                    {label: "Хайфа", slug: "перевозки-в-хайфе"},
+                    {label: "Назарет", slug: "perevozki-v-nazarete"},
+                    {label: "Тверия", slug: "perevozki-v-tverii"},
+                    {label: "Акко", slug: "perevozki-v-akko"},
+                    {label: "Кармиэль", slug: "perevozki-v-karmiele"},
                 ],
             },
             {
