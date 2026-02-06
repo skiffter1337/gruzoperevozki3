@@ -151,8 +151,11 @@ export default function Header({locale, dictionary}: HeaderProps) {
             return [route, formattedLinks];
         })
     );
+    const popupDisabled: RouteKey[] = ['contact'];
 
-    const hasPopup = (route: RouteKey) => Boolean(popupLinks[route]);
+    const hasPopup = (route: RouteKey) =>
+        !popupDisabled.includes(route) && Boolean(popupLinks[route]?.length);
+
 
     const toggleAccordion = (route: RouteKey) => {
         setActiveAccordion((prev) => (prev === route ? null : route));

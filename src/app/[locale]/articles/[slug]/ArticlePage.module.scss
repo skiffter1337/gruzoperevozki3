@@ -27,7 +27,7 @@
   margin-top: 60px;
 }
 
-@media (max-width: vars.$mobile-breakpoint) {
+@media (max-width: vars.$tablet-breakpoint) {
   .breadcrumbsWrapper {
     display: none;
   }

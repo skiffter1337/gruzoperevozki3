@@ -1,13 +1,13 @@
-import { Metadata } from 'next';
-import { Locale } from '../../../../../i18n-config';
-import { getAllDictionaries, getDictionary } from '@/lib/dictionaries';
+import {Metadata} from 'next';
+import {Locale} from '../../../../../i18n-config';
+import {getAllDictionaries, getDictionary} from '@/lib/dictionaries';
 import {
-  buildLanguageAlternates,
-  buildLocalizedPath,
-  resolveRouteKey,
-  RouteKey,
+    buildLanguageAlternates,
+    buildLocalizedPath,
+    resolveRouteKey,
+    RouteKey,
 } from '@/lib/localized-paths';
-import { DEFAULT_LOCALE, SITE_URL, SUPPORTED_LOCALES } from '@/lib/site-config';
+import {DEFAULT_LOCALE, SITE_URL, SUPPORTED_LOCALES} from '@/lib/site-config';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
 import ArticlesSection from '@/components/home/ArticlesSection';
 import BookingBanner from '@/components/home/BookingBanner';
@@ -27,749 +27,754 @@ import StoragePage from '@/components/services/StoragePage';
 import styles from './region.module.scss';
 
 interface Props {
-  params: Promise<{ locale: Locale; slug: string[] }>;
+    params: Promise<{ locale: Locale; slug: string[] }>;
 }
 
 function decodeSlugSegment(value?: string) {
-  if (!value) return value;
-  return value.includes('%') ? decodeURIComponent(value) : value;
+    if (!value) return value;
+    return value.includes('%') ? decodeURIComponent(value) : value;
 }
 
 function getRouteFromSlug(locale: Locale, slug?: string[]): RouteKey {
-  if (!slug || slug.length === 0) return 'home';
-  const matched = resolveRouteKey(locale, decodeSlugSegment(slug[0]) ?? slug[0]);
-  return matched || 'home';
+    if (!slug || slug.length === 0) return 'home';
+    const matched = resolveRouteKey(locale, decodeSlugSegment(slug[0]) ?? slug[0]);
+    return matched || 'home';
 }
 
 function formatRegionTemplate(template: string, region: string): string {
-  return template.replace('{region}', region);
+    return template.replace('{region}', region);
 }
 
 function buildSmallMovePath(locale: Locale, slug: string) {
-  return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
+    return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
 }
 
 function isSmallMoveSlug(slug: string[], smallMoveSlug: string) {
-  return slug[0] === smallMoveSlug || slug[1] === smallMoveSlug;
+    return slug[0] === smallMoveSlug || slug[1] === smallMoveSlug;
 }
 
 function buildPriceListPath(locale: Locale, slug: string) {
-  return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
+    return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
 }
 
 function isPriceListSlug(slug: string[], priceListSlug: string) {
-  return slug[0] === priceListSlug || slug[1] === priceListSlug;
+    return slug[0] === priceListSlug || slug[1] === priceListSlug;
 }
 
 function buildPianoMovePath(locale: Locale, slug: string) {
-  return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
+    return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
 }
 
 function isPianoMoveSlug(slug: string[], pianoMoveSlug: string) {
-  return slug[0] === pianoMoveSlug || slug[1] === pianoMoveSlug;
+    return slug[0] === pianoMoveSlug || slug[1] === pianoMoveSlug;
 }
 
 function buildTelAvivMovePath(locale: Locale, slug: string) {
-  return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
 }
 
 function isTelAvivMoveSlug(slug: string[], telAvivMoveSlug: string) {
-  return slug[0] === telAvivMoveSlug || slug[1] === telAvivMoveSlug;
+    return slug[0] === telAvivMoveSlug || slug[1] === telAvivMoveSlug;
 }
 
 function buildHaifaMovePath(locale: Locale, slug: string) {
-  return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
 }
 
 function isHaifaMoveSlug(slug: string[], haifaMoveSlug: string) {
-  return slug[0] === haifaMoveSlug || slug[1] === haifaMoveSlug;
+    return slug[0] === haifaMoveSlug || slug[1] === haifaMoveSlug;
 }
 
 const lateMoveSlugsByLocale: Record<Locale, string> = {
-  he: 'הובלות-מאוחרות',
-  ru: 'поздние-перевозки',
-  en: 'late-moves',
+    he: 'הובלות-מאוחרות',
+    ru: 'поздние-перевозки',
+    en: 'late-moves',
 };
 
 function buildLateMovePath(locale: Locale) {
-  return `${buildLocalizedPath(locale, 'transportation')}/${lateMoveSlugsByLocale[locale]}`;
+    return `${buildLocalizedPath(locale, 'transportation')}/${lateMoveSlugsByLocale[locale]}`;
 }
 
 function isLateMoveSlug(slug: string[], locale: Locale) {
-  const lateSlug = lateMoveSlugsByLocale[locale];
-  return slug[0] === lateSlug || slug[1] === lateSlug;
+    const lateSlug = lateMoveSlugsByLocale[locale];
+    return slug[0] === lateSlug || slug[1] === lateSlug;
 }
 
 function buildApartmentMovePath(locale: Locale, slug: string) {
-  return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
+    return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
 }
 
 function isApartmentMoveSlug(slug: string[], apartmentMoveSlug: string) {
-  return slug[0] === apartmentMoveSlug || slug[1] === apartmentMoveSlug;
+    return slug[0] === apartmentMoveSlug || slug[1] === apartmentMoveSlug;
 }
 
 function buildOfficeMovePath(locale: Locale, slug: string) {
-  return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
+    return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
 }
 
 function isOfficeMoveSlug(slug: string[], officeMoveSlug: string) {
-  return slug[0] === officeMoveSlug || slug[1] === officeMoveSlug;
+    return slug[0] === officeMoveSlug || slug[1] === officeMoveSlug;
 }
 
 function buildHouseMovePath(locale: Locale, slug: string) {
-  return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
+    return `${buildLocalizedPath(locale, 'transportation')}/${slug}`;
 }
 
 function isHouseMoveSlug(slug: string[], houseMoveSlug: string) {
-  return slug[0] === houseMoveSlug || slug[1] === houseMoveSlug;
+    return slug[0] === houseMoveSlug || slug[1] === houseMoveSlug;
 }
 
 function buildPackingPath(locale: Locale, slug: string) {
-  return `${buildLocalizedPath(locale, 'services')}/${slug}`;
+    return `${buildLocalizedPath(locale, 'services')}/${slug}`;
 }
 
 function isPackingSlug(slug: string[], packingSlug: string) {
-  return slug[0] === packingSlug || slug[1] === packingSlug;
+    return slug[0] === packingSlug || slug[1] === packingSlug;
 }
 
 function buildStoragePath(locale: Locale, slug: string) {
-  return `${buildLocalizedPath(locale, 'services')}/${slug}`;
+    return `${buildLocalizedPath(locale, 'services')}/${slug}`;
 }
 
 function isStorageSlug(slug: string[], storageSlug: string) {
-  return slug[0] === storageSlug || slug[1] === storageSlug;
+    return slug[0] === storageSlug || slug[1] === storageSlug;
 }
 
 async function buildSmallMoveLanguageAlternates() {
-  const dictionaries = await getAllDictionaries();
-  const languages: Record<string, string> = {};
+    const dictionaries = await getAllDictionaries();
+    const languages: Record<string, string> = {};
 
-  SUPPORTED_LOCALES.forEach((locale) => {
-    const slug = dictionaries[locale].smallMovePage.slug;
-    languages[locale] = `${SITE_URL}${buildSmallMovePath(locale, slug)}`;
-  });
+    SUPPORTED_LOCALES.forEach((locale) => {
+        const slug = dictionaries[locale].smallMovePage.slug;
+        languages[locale] = `${SITE_URL}${buildSmallMovePath(locale, slug)}`;
+    });
 
-  const defaultSlug = dictionaries[DEFAULT_LOCALE].smallMovePage.slug;
-  languages['x-default'] = `${SITE_URL}${buildSmallMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+    const defaultSlug = dictionaries[DEFAULT_LOCALE].smallMovePage.slug;
+    languages['x-default'] = `${SITE_URL}${buildSmallMovePath(DEFAULT_LOCALE, defaultSlug)}`;
 
-  return languages;
+    return languages;
 }
 
 async function buildLateMoveLanguageAlternates() {
-  const languages: Record<string, string> = {};
+    const languages: Record<string, string> = {};
 
-  SUPPORTED_LOCALES.forEach((locale) => {
-    languages[locale] = `${SITE_URL}${buildLateMovePath(locale)}`;
-  });
+    SUPPORTED_LOCALES.forEach((locale) => {
+        languages[locale] = `${SITE_URL}${buildLateMovePath(locale)}`;
+    });
 
-  languages['x-default'] = `${SITE_URL}${buildLateMovePath(DEFAULT_LOCALE)}`;
+    languages['x-default'] = `${SITE_URL}${buildLateMovePath(DEFAULT_LOCALE)}`;
 
-  return languages;
+    return languages;
 }
 
 async function buildPriceListLanguageAlternates() {
-  const dictionaries = await getAllDictionaries();
-  const languages: Record<string, string> = {};
+    const dictionaries = await getAllDictionaries();
+    const languages: Record<string, string> = {};
 
-  SUPPORTED_LOCALES.forEach((locale) => {
-    const slug = dictionaries[locale].priceListPage.slug;
-    if (slug) {
-      languages[locale] = `${SITE_URL}${buildPriceListPath(locale, slug)}`;
+    SUPPORTED_LOCALES.forEach((locale) => {
+        const slug = dictionaries[locale].priceListPage.slug;
+        if (slug) {
+            languages[locale] = `${SITE_URL}${buildPriceListPath(locale, slug)}`;
+        }
+    });
+
+    const defaultSlug = dictionaries[DEFAULT_LOCALE].priceListPage.slug;
+    if (defaultSlug) {
+        languages['x-default'] = `${SITE_URL}${buildPriceListPath(DEFAULT_LOCALE, defaultSlug)}`;
     }
-  });
 
-  const defaultSlug = dictionaries[DEFAULT_LOCALE].priceListPage.slug;
-  if (defaultSlug) {
-    languages['x-default'] = `${SITE_URL}${buildPriceListPath(DEFAULT_LOCALE, defaultSlug)}`;
-  }
-
-  return languages;
+    return languages;
 }
 
 async function buildOfficeMoveLanguageAlternates() {
-  const dictionaries = await getAllDictionaries();
-  const languages: Record<string, string> = {};
+    const dictionaries = await getAllDictionaries();
+    const languages: Record<string, string> = {};
 
-  SUPPORTED_LOCALES.forEach((locale) => {
-    const slug = dictionaries[locale].officeMovePage.slug;
-    languages[locale] = `${SITE_URL}${buildOfficeMovePath(locale, slug)}`;
-  });
+    SUPPORTED_LOCALES.forEach((locale) => {
+        const slug = dictionaries[locale].officeMovePage.slug;
+        languages[locale] = `${SITE_URL}${buildOfficeMovePath(locale, slug)}`;
+    });
 
-  const defaultSlug = dictionaries[DEFAULT_LOCALE].officeMovePage.slug;
-  languages['x-default'] = `${SITE_URL}${buildOfficeMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+    const defaultSlug = dictionaries[DEFAULT_LOCALE].officeMovePage.slug;
+    languages['x-default'] = `${SITE_URL}${buildOfficeMovePath(DEFAULT_LOCALE, defaultSlug)}`;
 
-  return languages;
+    return languages;
 }
 
 async function buildPianoMoveLanguageAlternates() {
-  const dictionaries = await getAllDictionaries();
-  const languages: Record<string, string> = {};
+    const dictionaries = await getAllDictionaries();
+    const languages: Record<string, string> = {};
 
-  SUPPORTED_LOCALES.forEach((locale) => {
-    const slug = dictionaries[locale].pianoMovePage.slug;
-    languages[locale] = `${SITE_URL}${buildPianoMovePath(locale, slug)}`;
-  });
+    SUPPORTED_LOCALES.forEach((locale) => {
+        const slug = dictionaries[locale].pianoMovePage.slug;
+        languages[locale] = `${SITE_URL}${buildPianoMovePath(locale, slug)}`;
+    });
 
-  const defaultSlug = dictionaries[DEFAULT_LOCALE].pianoMovePage.slug;
-  languages['x-default'] = `${SITE_URL}${buildPianoMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+    const defaultSlug = dictionaries[DEFAULT_LOCALE].pianoMovePage.slug;
+    languages['x-default'] = `${SITE_URL}${buildPianoMovePath(DEFAULT_LOCALE, defaultSlug)}`;
 
-  return languages;
+    return languages;
 }
 
 async function buildTelAvivMoveLanguageAlternates() {
-  const dictionaries = await getAllDictionaries();
-  const languages: Record<string, string> = {};
+    const dictionaries = await getAllDictionaries();
+    const languages: Record<string, string> = {};
 
-  SUPPORTED_LOCALES.forEach((locale) => {
-    const slug = dictionaries[locale].telAvivMovePage.slug;
-    languages[locale] = `${SITE_URL}${buildTelAvivMovePath(locale, slug)}`;
-  });
+    SUPPORTED_LOCALES.forEach((locale) => {
+        const slug = dictionaries[locale].telAvivMovePage.slug;
+        languages[locale] = `${SITE_URL}${buildTelAvivMovePath(locale, slug)}`;
+    });
 
-  const defaultSlug = dictionaries[DEFAULT_LOCALE].telAvivMovePage.slug;
-  languages['x-default'] = `${SITE_URL}${buildTelAvivMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+    const defaultSlug = dictionaries[DEFAULT_LOCALE].telAvivMovePage.slug;
+    languages['x-default'] = `${SITE_URL}${buildTelAvivMovePath(DEFAULT_LOCALE, defaultSlug)}`;
 
-  return languages;
+    return languages;
 }
 
 async function buildHaifaMoveLanguageAlternates() {
-  const dictionaries = await getAllDictionaries();
-  const languages: Record<string, string> = {};
+    const dictionaries = await getAllDictionaries();
+    const languages: Record<string, string> = {};
 
-  SUPPORTED_LOCALES.forEach((locale) => {
-    const slug = dictionaries[locale].haifaMovePage.slug;
-    if (!slug) return;
-    languages[locale] = `${SITE_URL}${buildHaifaMovePath(locale, slug)}`;
-  });
+    SUPPORTED_LOCALES.forEach((locale) => {
+        const slug = dictionaries[locale].haifaMovePage.slug;
+        if (!slug) return;
+        languages[locale] = `${SITE_URL}${buildHaifaMovePath(locale, slug)}`;
+    });
 
-  const defaultSlug = dictionaries[DEFAULT_LOCALE].haifaMovePage.slug;
-  if (defaultSlug) {
-    languages['x-default'] = `${SITE_URL}${buildHaifaMovePath(DEFAULT_LOCALE, defaultSlug)}`;
-  }
+    const defaultSlug = dictionaries[DEFAULT_LOCALE].haifaMovePage.slug;
+    if (defaultSlug) {
+        languages['x-default'] = `${SITE_URL}${buildHaifaMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+    }
 
-  return languages;
+    return languages;
 }
 
 async function buildApartmentMoveLanguageAlternates() {
-  const dictionaries = await getAllDictionaries();
-  const languages: Record<string, string> = {};
+    const dictionaries = await getAllDictionaries();
+    const languages: Record<string, string> = {};
 
-  SUPPORTED_LOCALES.forEach((locale) => {
-    const slug = dictionaries[locale].apartmentMovePage.slug;
-    languages[locale] = `${SITE_URL}${buildApartmentMovePath(locale, slug)}`;
-  });
+    SUPPORTED_LOCALES.forEach((locale) => {
+        const slug = dictionaries[locale].apartmentMovePage.slug;
+        languages[locale] = `${SITE_URL}${buildApartmentMovePath(locale, slug)}`;
+    });
 
-  const defaultSlug = dictionaries[DEFAULT_LOCALE].apartmentMovePage.slug;
-  languages['x-default'] = `${SITE_URL}${buildApartmentMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+    const defaultSlug = dictionaries[DEFAULT_LOCALE].apartmentMovePage.slug;
+    languages['x-default'] = `${SITE_URL}${buildApartmentMovePath(DEFAULT_LOCALE, defaultSlug)}`;
 
-  return languages;
+    return languages;
 }
 
 function findRegionIndexBySlug(
-  dictionaries: Awaited<ReturnType<typeof getAllDictionaries>>,
-  slug: string,
+    dictionaries: Awaited<ReturnType<typeof getAllDictionaries>>,
+    slug: string,
 ) {
-  for (const locale of SUPPORTED_LOCALES) {
-    const index = dictionaries[locale].homeRegions.sliderItems.findIndex(
-      (item) => item.slug === slug,
-    );
-    if (index >= 0) {
-      return index;
+    for (const locale of SUPPORTED_LOCALES) {
+        const index = dictionaries[locale].homeRegions.sliderItems.findIndex(
+            (item) => item.slug === slug,
+        );
+        if (index >= 0) {
+            return index;
+        }
     }
-  }
 
-  return -1;
+    return -1;
 }
 
 async function buildRegionLanguageAlternates(regionIndex: number) {
-  const dictionaries = await getAllDictionaries();
-  const languages: Record<string, string> = {};
+    const dictionaries = await getAllDictionaries();
+    const languages: Record<string, string> = {};
 
-  SUPPORTED_LOCALES.forEach((locale) => {
-    const regionSlug = dictionaries[locale].homeRegions.sliderItems[regionIndex]?.slug;
-    if (!regionSlug) return;
-    languages[locale] = `${SITE_URL}${buildLocalizedPath(locale, 'home')}/${regionSlug}`;
-  });
+    SUPPORTED_LOCALES.forEach((locale) => {
+        const regionSlug = dictionaries[locale].homeRegions.sliderItems[regionIndex]?.slug;
+        if (!regionSlug) return;
+        languages[locale] = `${SITE_URL}${buildLocalizedPath(locale, 'home')}/${regionSlug}`;
+    });
 
-  const defaultSlug = dictionaries[DEFAULT_LOCALE].homeRegions.sliderItems[regionIndex]?.slug;
-  if (defaultSlug) {
-    languages['x-default'] = `${SITE_URL}${buildLocalizedPath(DEFAULT_LOCALE, 'home')}/${defaultSlug}`;
-  }
+    const defaultSlug = dictionaries[DEFAULT_LOCALE].homeRegions.sliderItems[regionIndex]?.slug;
+    if (defaultSlug) {
+        languages['x-default'] = `${SITE_URL}${buildLocalizedPath(DEFAULT_LOCALE, 'home')}/${defaultSlug}`;
+    }
 
-  return languages;
+    return languages;
 }
 
 async function buildPackingLanguageAlternates() {
-  const dictionaries = await getAllDictionaries();
-  const languages: Record<string, string> = {};
+    const dictionaries = await getAllDictionaries();
+    const languages: Record<string, string> = {};
 
-  SUPPORTED_LOCALES.forEach((locale) => {
-    const slug = dictionaries[locale].packingPage.slug;
-    languages[locale] = `${SITE_URL}${buildPackingPath(locale, slug)}`;
-  });
+    SUPPORTED_LOCALES.forEach((locale) => {
+        const slug = dictionaries[locale].packingPage.slug;
+        languages[locale] = `${SITE_URL}${buildPackingPath(locale, slug)}`;
+    });
 
-  const defaultSlug = dictionaries[DEFAULT_LOCALE].packingPage.slug;
-  languages['x-default'] = `${SITE_URL}${buildPackingPath(DEFAULT_LOCALE, defaultSlug)}`;
+    const defaultSlug = dictionaries[DEFAULT_LOCALE].packingPage.slug;
+    languages['x-default'] = `${SITE_URL}${buildPackingPath(DEFAULT_LOCALE, defaultSlug)}`;
 
-  return languages;
+    return languages;
 }
 
 async function buildStorageLanguageAlternates() {
-  const dictionaries = await getAllDictionaries();
-  const languages: Record<string, string> = {};
+    const dictionaries = await getAllDictionaries();
+    const languages: Record<string, string> = {};
 
-  SUPPORTED_LOCALES.forEach((locale) => {
-    const slug = dictionaries[locale].storagePage.slug;
-    languages[locale] = `${SITE_URL}${buildStoragePath(locale, slug)}`;
-  });
+    SUPPORTED_LOCALES.forEach((locale) => {
+        const slug = dictionaries[locale].storagePage.slug;
+        languages[locale] = `${SITE_URL}${buildStoragePath(locale, slug)}`;
+    });
 
-  const defaultSlug = dictionaries[DEFAULT_LOCALE].storagePage.slug;
-  languages['x-default'] = `${SITE_URL}${buildStoragePath(DEFAULT_LOCALE, defaultSlug)}`;
+    const defaultSlug = dictionaries[DEFAULT_LOCALE].storagePage.slug;
+    languages['x-default'] = `${SITE_URL}${buildStoragePath(DEFAULT_LOCALE, defaultSlug)}`;
 
-  return languages;
+    return languages;
 }
 
 async function buildHouseMoveLanguageAlternates() {
-  const dictionaries = await getAllDictionaries();
-  const languages: Record<string, string> = {};
+    const dictionaries = await getAllDictionaries();
+    const languages: Record<string, string> = {};
 
-  SUPPORTED_LOCALES.forEach((locale) => {
-    const slug = dictionaries[locale].houseMovePage.slug;
-    languages[locale] = `${SITE_URL}${buildHouseMovePath(locale, slug)}`;
-  });
+    SUPPORTED_LOCALES.forEach((locale) => {
+        const slug = dictionaries[locale].houseMovePage.slug;
+        languages[locale] = `${SITE_URL}${buildHouseMovePath(locale, slug)}`;
+    });
 
-  const defaultSlug = dictionaries[DEFAULT_LOCALE].houseMovePage.slug;
-  languages['x-default'] = `${SITE_URL}${buildHouseMovePath(DEFAULT_LOCALE, defaultSlug)}`;
+    const defaultSlug = dictionaries[DEFAULT_LOCALE].houseMovePage.slug;
+    languages['x-default'] = `${SITE_URL}${buildHouseMovePath(DEFAULT_LOCALE, defaultSlug)}`;
 
-  return languages;
+    return languages;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale, slug } = await params;
-  const dictionary = await getDictionary(locale);
-  const decodedSlug = slug?.map((segment) => decodeSlugSegment(segment) ?? segment) ?? [];
-  const regionSlug = decodedSlug[0];
-  const route = getRouteFromSlug(locale, decodedSlug);
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+    const {locale, slug} = await params;
+    const dictionary = await getDictionary(locale);
+    const decodedSlug = slug?.map((segment) => decodeSlugSegment(segment) ?? segment) ?? [];
+    const regionSlug = decodedSlug[0];
+    const route = getRouteFromSlug(locale, decodedSlug);
 
-  if (isApartmentMoveSlug(decodedSlug, dictionary.apartmentMovePage.slug)) {
-    const canonical = `${SITE_URL}${buildApartmentMovePath(
-      locale,
-      dictionary.apartmentMovePage.slug,
-    )}`;
+    if (isApartmentMoveSlug(decodedSlug, dictionary.apartmentMovePage.slug)) {
+        const canonical = `${SITE_URL}${buildApartmentMovePath(
+            locale,
+            dictionary.apartmentMovePage.slug,
+        )}`;
+
+        return {
+            title: dictionary.apartmentMovePage.metaTitle,
+            description: dictionary.apartmentMovePage.metaDescription,
+            alternates: {
+                canonical,
+                languages: await buildApartmentMoveLanguageAlternates(),
+            },
+            openGraph: {
+                title: dictionary.apartmentMovePage.metaTitle,
+                description: dictionary.apartmentMovePage.metaDescription,
+                url: canonical,
+                locale,
+            },
+        };
+    }
+
+    if (isSmallMoveSlug(decodedSlug, dictionary.smallMovePage.slug)) {
+        const canonical = `${SITE_URL}${buildSmallMovePath(locale, dictionary.smallMovePage.slug)}`;
+
+        return {
+            title: dictionary.smallMovePage.metaTitle,
+            description: dictionary.smallMovePage.metaDescription,
+            alternates: {
+                canonical,
+                languages: await buildSmallMoveLanguageAlternates(),
+            },
+            openGraph: {
+                title: dictionary.smallMovePage.metaTitle,
+                description: dictionary.smallMovePage.metaDescription,
+                url: canonical,
+                locale,
+            },
+        };
+    }
+
+    if (isLateMoveSlug(decodedSlug, locale)) {
+        const canonical = `${SITE_URL}${buildLateMovePath(locale)}`;
+
+        return {
+            title: dictionary.smallMovePage.metaTitle,
+            description: dictionary.smallMovePage.metaDescription,
+            alternates: {
+                canonical,
+                languages: await buildLateMoveLanguageAlternates(),
+            },
+            openGraph: {
+                title: dictionary.smallMovePage.metaTitle,
+                description: dictionary.smallMovePage.metaDescription,
+                url: canonical,
+                locale,
+            },
+        };
+    }
+
+    if (isPriceListSlug(decodedSlug, dictionary.priceListPage.slug)) {
+        const canonical = `${SITE_URL}${buildPriceListPath(locale, dictionary.priceListPage.slug)}`;
+
+        return {
+            title: dictionary.priceListPage.metaTitle,
+            description: dictionary.priceListPage.metaDescription,
+            alternates: {
+                canonical,
+                languages: await buildPriceListLanguageAlternates(),
+            },
+            openGraph: {
+                title: dictionary.priceListPage.metaTitle,
+                description: dictionary.priceListPage.metaDescription,
+                url: canonical,
+                locale,
+            },
+        };
+    }
+
+    if (isHouseMoveSlug(decodedSlug, dictionary.houseMovePage.slug)) {
+        const canonical = `${SITE_URL}${buildHouseMovePath(locale, dictionary.houseMovePage.slug)}`;
+
+        return {
+            title: dictionary.houseMovePage.metaTitle,
+            description: dictionary.houseMovePage.metaDescription,
+            alternates: {
+                canonical,
+                languages: await buildHouseMoveLanguageAlternates(),
+            },
+            openGraph: {
+                title: dictionary.houseMovePage.metaTitle,
+                description: dictionary.houseMovePage.metaDescription,
+                url: canonical,
+                locale,
+            },
+        };
+    }
+
+    if (isTelAvivMoveSlug(decodedSlug, dictionary.telAvivMovePage.slug)) {
+        const canonical = `${SITE_URL}${buildTelAvivMovePath(locale, dictionary.telAvivMovePage.slug)}`;
+
+        return {
+            title: dictionary.telAvivMovePage.metaTitle,
+            description: dictionary.telAvivMovePage.metaDescription,
+            alternates: {
+                canonical,
+                languages: await buildTelAvivMoveLanguageAlternates(),
+            },
+            openGraph: {
+                title: dictionary.telAvivMovePage.metaTitle,
+                description: dictionary.telAvivMovePage.metaDescription,
+                url: canonical,
+                locale,
+            },
+        };
+    }
+
+    if (isHaifaMoveSlug(decodedSlug, dictionary.haifaMovePage.slug)) {
+        const canonical = `${SITE_URL}${buildHaifaMovePath(locale, dictionary.haifaMovePage.slug)}`;
+
+        return {
+            title: dictionary.haifaMovePage.metaTitle,
+            description: dictionary.haifaMovePage.metaDescription,
+            alternates: {
+                canonical,
+                languages: await buildHaifaMoveLanguageAlternates(),
+            },
+            openGraph: {
+                title: dictionary.haifaMovePage.metaTitle,
+                description: dictionary.haifaMovePage.metaDescription,
+                url: canonical,
+                locale,
+            },
+        };
+    }
+
+    if (isPianoMoveSlug(decodedSlug, dictionary.pianoMovePage.slug)) {
+        const canonical = `${SITE_URL}${buildPianoMovePath(locale, dictionary.pianoMovePage.slug)}`;
+
+        return {
+            title: dictionary.pianoMovePage.metaTitle,
+            description: dictionary.pianoMovePage.metaDescription,
+            alternates: {
+                canonical,
+                languages: await buildPianoMoveLanguageAlternates(),
+            },
+            openGraph: {
+                title: dictionary.pianoMovePage.metaTitle,
+                description: dictionary.pianoMovePage.metaDescription,
+                url: canonical,
+                locale,
+            },
+        };
+    }
+
+    if (isOfficeMoveSlug(decodedSlug, dictionary.officeMovePage.slug)) {
+        const canonical = `${SITE_URL}${buildOfficeMovePath(locale, dictionary.officeMovePage.slug)}`;
+
+        return {
+            title: dictionary.officeMovePage.metaTitle,
+            description: dictionary.officeMovePage.metaDescription,
+            alternates: {
+                canonical,
+                languages: await buildOfficeMoveLanguageAlternates(),
+            },
+            openGraph: {
+                title: dictionary.officeMovePage.metaTitle,
+                description: dictionary.officeMovePage.metaDescription,
+                url: canonical,
+                locale,
+            },
+        };
+    }
+
+    if (isPackingSlug(decodedSlug, dictionary.packingPage.slug)) {
+        const canonical = `${SITE_URL}${buildPackingPath(locale, dictionary.packingPage.slug)}`;
+
+        return {
+            title: dictionary.packingPage.metaTitle,
+            description: dictionary.packingPage.metaDescription,
+            alternates: {
+                canonical,
+                languages: await buildPackingLanguageAlternates(),
+            },
+            openGraph: {
+                title: dictionary.packingPage.metaTitle,
+                description: dictionary.packingPage.metaDescription,
+                url: canonical,
+                locale,
+            },
+        };
+    }
+
+    if (isStorageSlug(decodedSlug, dictionary.storagePage.slug)) {
+        const canonical = `${SITE_URL}${buildStoragePath(locale, dictionary.storagePage.slug)}`;
+
+        return {
+            title: dictionary.storagePage.metaTitle,
+            description: dictionary.storagePage.metaDescription,
+            alternates: {
+                canonical,
+                languages: await buildStorageLanguageAlternates(),
+            },
+            openGraph: {
+                title: dictionary.storagePage.metaTitle,
+                description: dictionary.storagePage.metaDescription,
+                url: canonical,
+                locale,
+            },
+        };
+    }
+
+    let regionIndex = dictionary.homeRegions.sliderItems.findIndex((item) => item.slug === regionSlug);
+
+    if (regionIndex < 0 && regionSlug) {
+        const dictionaries = await getAllDictionaries();
+        regionIndex = findRegionIndexBySlug(dictionaries, regionSlug);
+    }
+
+    if (regionIndex >= 0) {
+        const regionItem = dictionary.homeRegions.sliderItems[regionIndex];
+        const title = formatRegionTemplate(dictionary.regionPage.metaTitle, regionItem.title);
+        const description = formatRegionTemplate(dictionary.regionPage.metaDescription, regionItem.title);
+        const canonical = `${SITE_URL}${buildLocalizedPath(locale, 'home')}/${regionItem.slug}`;
+
+        return {
+            title,
+            description,
+            keywords: dictionary.metadata.keywords,
+            alternates: {
+                canonical,
+                languages: await buildRegionLanguageAlternates(regionIndex),
+            },
+            openGraph: {
+                title,
+                description,
+                url: canonical,
+                locale,
+            },
+        };
+    }
+
+    const baseTitle = dictionary.metadata.title;
 
     return {
-      title: dictionary.apartmentMovePage.metaTitle,
-      description: dictionary.apartmentMovePage.metaDescription,
-      alternates: {
-        canonical,
-        languages: await buildApartmentMoveLanguageAlternates(),
-      },
-      openGraph: {
-        title: dictionary.apartmentMovePage.metaTitle,
-        description: dictionary.apartmentMovePage.metaDescription,
-        url: canonical,
-        locale,
-      },
+        title: route === 'home' ? baseTitle : `${baseTitle} — ${dictionary.header.nav[route]}`,
+        description: dictionary.metadata.description,
+        alternates: {
+            canonical: `${SITE_URL}${buildLocalizedPath(locale, route)}`,
+            languages: buildLanguageAlternates(route),
+        },
     };
-  }
-
-  if (isSmallMoveSlug(decodedSlug, dictionary.smallMovePage.slug)) {
-    const canonical = `${SITE_URL}${buildSmallMovePath(locale, dictionary.smallMovePage.slug)}`;
-
-    return {
-      title: dictionary.smallMovePage.metaTitle,
-      description: dictionary.smallMovePage.metaDescription,
-      alternates: {
-        canonical,
-        languages: await buildSmallMoveLanguageAlternates(),
-      },
-      openGraph: {
-        title: dictionary.smallMovePage.metaTitle,
-        description: dictionary.smallMovePage.metaDescription,
-        url: canonical,
-        locale,
-      },
-    };
-  }
-
-  if (isLateMoveSlug(decodedSlug, locale)) {
-    const canonical = `${SITE_URL}${buildLateMovePath(locale)}`;
-
-    return {
-      title: dictionary.smallMovePage.metaTitle,
-      description: dictionary.smallMovePage.metaDescription,
-      alternates: {
-        canonical,
-        languages: await buildLateMoveLanguageAlternates(),
-      },
-      openGraph: {
-        title: dictionary.smallMovePage.metaTitle,
-        description: dictionary.smallMovePage.metaDescription,
-        url: canonical,
-        locale,
-      },
-    };
-  }
-
-  if (isPriceListSlug(decodedSlug, dictionary.priceListPage.slug)) {
-    const canonical = `${SITE_URL}${buildPriceListPath(locale, dictionary.priceListPage.slug)}`;
-
-    return {
-      title: dictionary.priceListPage.metaTitle,
-      description: dictionary.priceListPage.metaDescription,
-      alternates: {
-        canonical,
-        languages: await buildPriceListLanguageAlternates(),
-      },
-      openGraph: {
-        title: dictionary.priceListPage.metaTitle,
-        description: dictionary.priceListPage.metaDescription,
-        url: canonical,
-        locale,
-      },
-    };
-  }
-
-  if (isHouseMoveSlug(decodedSlug, dictionary.houseMovePage.slug)) {
-    const canonical = `${SITE_URL}${buildHouseMovePath(locale, dictionary.houseMovePage.slug)}`;
-
-    return {
-      title: dictionary.houseMovePage.metaTitle,
-      description: dictionary.houseMovePage.metaDescription,
-      alternates: {
-        canonical,
-        languages: await buildHouseMoveLanguageAlternates(),
-      },
-      openGraph: {
-        title: dictionary.houseMovePage.metaTitle,
-        description: dictionary.houseMovePage.metaDescription,
-        url: canonical,
-        locale,
-      },
-    };
-  }
-
-  if (isTelAvivMoveSlug(decodedSlug, dictionary.telAvivMovePage.slug)) {
-    const canonical = `${SITE_URL}${buildTelAvivMovePath(locale, dictionary.telAvivMovePage.slug)}`;
-
-    return {
-      title: dictionary.telAvivMovePage.metaTitle,
-      description: dictionary.telAvivMovePage.metaDescription,
-      alternates: {
-        canonical,
-        languages: await buildTelAvivMoveLanguageAlternates(),
-      },
-      openGraph: {
-        title: dictionary.telAvivMovePage.metaTitle,
-        description: dictionary.telAvivMovePage.metaDescription,
-        url: canonical,
-        locale,
-      },
-    };
-  }
-
-  if (isHaifaMoveSlug(decodedSlug, dictionary.haifaMovePage.slug)) {
-    const canonical = `${SITE_URL}${buildHaifaMovePath(locale, dictionary.haifaMovePage.slug)}`;
-
-    return {
-      title: dictionary.haifaMovePage.metaTitle,
-      description: dictionary.haifaMovePage.metaDescription,
-      alternates: {
-        canonical,
-        languages: await buildHaifaMoveLanguageAlternates(),
-      },
-      openGraph: {
-        title: dictionary.haifaMovePage.metaTitle,
-        description: dictionary.haifaMovePage.metaDescription,
-        url: canonical,
-        locale,
-      },
-    };
-  }
-
-  if (isPianoMoveSlug(decodedSlug, dictionary.pianoMovePage.slug)) {
-    const canonical = `${SITE_URL}${buildPianoMovePath(locale, dictionary.pianoMovePage.slug)}`;
-
-    return {
-      title: dictionary.pianoMovePage.metaTitle,
-      description: dictionary.pianoMovePage.metaDescription,
-      alternates: {
-        canonical,
-        languages: await buildPianoMoveLanguageAlternates(),
-      },
-      openGraph: {
-        title: dictionary.pianoMovePage.metaTitle,
-        description: dictionary.pianoMovePage.metaDescription,
-        url: canonical,
-        locale,
-      },
-    };
-  }
-
-  if (isOfficeMoveSlug(decodedSlug, dictionary.officeMovePage.slug)) {
-    const canonical = `${SITE_URL}${buildOfficeMovePath(locale, dictionary.officeMovePage.slug)}`;
-
-    return {
-      title: dictionary.officeMovePage.metaTitle,
-      description: dictionary.officeMovePage.metaDescription,
-      alternates: {
-        canonical,
-        languages: await buildOfficeMoveLanguageAlternates(),
-      },
-      openGraph: {
-        title: dictionary.officeMovePage.metaTitle,
-        description: dictionary.officeMovePage.metaDescription,
-        url: canonical,
-        locale,
-      },
-    };
-  }
-
-  if (isPackingSlug(decodedSlug, dictionary.packingPage.slug)) {
-    const canonical = `${SITE_URL}${buildPackingPath(locale, dictionary.packingPage.slug)}`;
-
-    return {
-      title: dictionary.packingPage.metaTitle,
-      description: dictionary.packingPage.metaDescription,
-      alternates: {
-        canonical,
-        languages: await buildPackingLanguageAlternates(),
-      },
-      openGraph: {
-        title: dictionary.packingPage.metaTitle,
-        description: dictionary.packingPage.metaDescription,
-        url: canonical,
-        locale,
-      },
-    };
-  }
-
-  if (isStorageSlug(decodedSlug, dictionary.storagePage.slug)) {
-    const canonical = `${SITE_URL}${buildStoragePath(locale, dictionary.storagePage.slug)}`;
-
-    return {
-      title: dictionary.storagePage.metaTitle,
-      description: dictionary.storagePage.metaDescription,
-      alternates: {
-        canonical,
-        languages: await buildStorageLanguageAlternates(),
-      },
-      openGraph: {
-        title: dictionary.storagePage.metaTitle,
-        description: dictionary.storagePage.metaDescription,
-        url: canonical,
-        locale,
-      },
-    };
-  }
-
-  let regionIndex = dictionary.homeRegions.sliderItems.findIndex((item) => item.slug === regionSlug);
-
-  if (regionIndex < 0 && regionSlug) {
-    const dictionaries = await getAllDictionaries();
-    regionIndex = findRegionIndexBySlug(dictionaries, regionSlug);
-  }
-
-  if (regionIndex >= 0) {
-    const regionItem = dictionary.homeRegions.sliderItems[regionIndex];
-    const title = formatRegionTemplate(dictionary.regionPage.metaTitle, regionItem.title);
-    const description = formatRegionTemplate(dictionary.regionPage.metaDescription, regionItem.title);
-    const canonical = `${SITE_URL}${buildLocalizedPath(locale, 'home')}/${regionItem.slug}`;
-
-    return {
-      title,
-      description,
-      keywords: dictionary.metadata.keywords,
-      alternates: {
-        canonical,
-        languages: await buildRegionLanguageAlternates(regionIndex),
-      },
-      openGraph: {
-        title,
-        description,
-        url: canonical,
-        locale,
-      },
-    };
-  }
-
-  const baseTitle = dictionary.metadata.title;
-
-  return {
-    title: route === 'home' ? baseTitle : `${baseTitle} — ${dictionary.header.nav[route]}`,
-    description: dictionary.metadata.description,
-    alternates: {
-      canonical: `${SITE_URL}${buildLocalizedPath(locale, route)}`,
-      languages: buildLanguageAlternates(route),
-    },
-  };
 }
 
-export default async function RegionPage({ params }: Props) {
-  const { locale, slug } = await params;
-  const dictionary = await getDictionary(locale);
-  const decodedSlug = slug?.map((segment) => decodeSlugSegment(segment) ?? segment) ?? [];
-  const regionSlug = decodedSlug[0];
-  const route = getRouteFromSlug(locale, decodedSlug);
-  if (isApartmentMoveSlug(decodedSlug, dictionary.apartmentMovePage.slug)) {
-    return (
-      <ApartmentMovePage
-        locale={locale}
-        dictionary={dictionary.apartmentMovePage}
-        calculatorDictionary={dictionary.homeHero}
-      />
-    );
-  }
-  if (isSmallMoveSlug(decodedSlug, dictionary.smallMovePage.slug)) {
-    return (
-      <SmallMovePage
-        locale={locale}
-        dictionary={dictionary.smallMovePage}
-        calculatorDictionary={dictionary.homeHero}
-      />
-    );
-  }
-  if (isLateMoveSlug(decodedSlug, locale)) {
-    return (
-      <SmallMovePage
-        locale={locale}
-        dictionary={dictionary.smallMovePage}
-        calculatorDictionary={dictionary.homeHero}
-      />
-    );
-  }
-  if (isPriceListSlug(decodedSlug, dictionary.priceListPage.slug)) {
-    return <PriceListPage locale={locale} dictionary={dictionary.priceListPage} />;
-  }
-  if (isHouseMoveSlug(decodedSlug, dictionary.houseMovePage.slug)) {
-    return (
-      <HouseMovePage
-        locale={locale}
-        dictionary={dictionary.houseMovePage}
-        calculatorDictionary={dictionary.homeHero}
-      />
-    );
-  }
-  if (isTelAvivMoveSlug(decodedSlug, dictionary.telAvivMovePage.slug)) {
-    return (
-      <TelAvivMovePage
-        locale={locale}
-        dictionary={dictionary.telAvivMovePage}
-        calculatorDictionary={dictionary.homeHero}
-      />
-    );
-  }
-  if (isHaifaMoveSlug(decodedSlug, dictionary.haifaMovePage.slug)) {
-    return (
-      <HaifaMovePage
-        locale={locale}
-        dictionary={dictionary.haifaMovePage}
-        calculatorDictionary={dictionary.homeHero}
-      />
-    );
-  }
-  if (isPianoMoveSlug(decodedSlug, dictionary.pianoMovePage.slug)) {
-    return (
-      <PianoMovePage
-        locale={locale}
-        dictionary={dictionary.pianoMovePage}
-        calculatorDictionary={dictionary.homeHero}
-      />
-    );
-  }
-  if (isOfficeMoveSlug(decodedSlug, dictionary.officeMovePage.slug)) {
-    return (
-      <OfficeMovePage
-        locale={locale}
-        dictionary={dictionary.officeMovePage}
-        calculatorDictionary={dictionary.homeHero}
-      />
-    );
-  }
-  if (isPackingSlug(decodedSlug, dictionary.packingPage.slug)) {
-    return (
-      <PackingPage
-        locale={locale}
-        dictionary={dictionary.packingPage}
-        calculatorDictionary={dictionary.homeHero}
-      />
-    );
-  }
-  if (isStorageSlug(decodedSlug, dictionary.storagePage.slug)) {
-    return (
-      <StoragePage
-        locale={locale}
-        dictionary={dictionary.storagePage}
-        calculatorDictionary={dictionary.homeHero}
-      />
-    );
-  }
-  let regionItem = dictionary.homeRegions.sliderItems.find((item) => item.slug === regionSlug);
+export default async function RegionPage({params}: Props) {
+    const {locale, slug} = await params;
+    const dictionary = await getDictionary(locale);
+    const decodedSlug = slug?.map((segment) => decodeSlugSegment(segment) ?? segment) ?? [];
+    const regionSlug = decodedSlug[0];
+    const route = getRouteFromSlug(locale, decodedSlug);
+    if (isApartmentMoveSlug(decodedSlug, dictionary.apartmentMovePage.slug)) {
+        return (
+            <ApartmentMovePage
+                locale={locale}
+                dictionary={dictionary.apartmentMovePage}
+                calculatorDictionary={dictionary.homeHero}
+            />
+        );
+    }
+    if (isSmallMoveSlug(decodedSlug, dictionary.smallMovePage.slug)) {
+        return (
+            <SmallMovePage
+                locale={locale}
+                dictionary={dictionary.smallMovePage}
+                calculatorDictionary={dictionary.homeHero}
+            />
+        );
+    }
+    if (isLateMoveSlug(decodedSlug, locale)) {
+        return (
+            <SmallMovePage
+                locale={locale}
+                dictionary={dictionary.smallMovePage}
+                calculatorDictionary={dictionary.homeHero}
+            />
+        );
+    }
+    if (isPriceListSlug(decodedSlug, dictionary.priceListPage.slug)) {
+        return (
+            <PriceListPage locale={locale}
+                           dictionary={dictionary.priceListPage}
+                           calculatorDictionary={dictionary.homeHero}
+            />
+        );
+    }
+    if (isHouseMoveSlug(decodedSlug, dictionary.houseMovePage.slug)) {
+        return (
+            <HouseMovePage
+                locale={locale}
+                dictionary={dictionary.houseMovePage}
+                calculatorDictionary={dictionary.homeHero}
+            />
+        );
+    }
+    if (isTelAvivMoveSlug(decodedSlug, dictionary.telAvivMovePage.slug)) {
+        return (
+            <TelAvivMovePage
+                locale={locale}
+                dictionary={dictionary.telAvivMovePage}
+                calculatorDictionary={dictionary.homeHero}
+            />
+        );
+    }
+    if (isHaifaMoveSlug(decodedSlug, dictionary.haifaMovePage.slug)) {
+        return (
+            <HaifaMovePage
+                locale={locale}
+                dictionary={dictionary.haifaMovePage}
+                calculatorDictionary={dictionary.homeHero}
+            />
+        );
+    }
+    if (isPianoMoveSlug(decodedSlug, dictionary.pianoMovePage.slug)) {
+        return (
+            <PianoMovePage
+                locale={locale}
+                dictionary={dictionary.pianoMovePage}
+                calculatorDictionary={dictionary.homeHero}
+            />
+        );
+    }
+    if (isOfficeMoveSlug(decodedSlug, dictionary.officeMovePage.slug)) {
+        return (
+            <OfficeMovePage
+                locale={locale}
+                dictionary={dictionary.officeMovePage}
+                calculatorDictionary={dictionary.homeHero}
+            />
+        );
+    }
+    if (isPackingSlug(decodedSlug, dictionary.packingPage.slug)) {
+        return (
+            <PackingPage
+                locale={locale}
+                dictionary={dictionary.packingPage}
+                calculatorDictionary={dictionary.homeHero}
+            />
+        );
+    }
+    if (isStorageSlug(decodedSlug, dictionary.storagePage.slug)) {
+        return (
+            <StoragePage
+                locale={locale}
+                dictionary={dictionary.storagePage}
+                calculatorDictionary={dictionary.homeHero}
+            />
+        );
+    }
+    let regionItem = dictionary.homeRegions.sliderItems.find((item) => item.slug === regionSlug);
 
-  if (!regionItem && regionSlug) {
-    const dictionaries = await getAllDictionaries();
-    const regionIndex = findRegionIndexBySlug(dictionaries, regionSlug);
-    regionItem = dictionary.homeRegions.sliderItems[regionIndex];
-  }
+    if (!regionItem && regionSlug) {
+        const dictionaries = await getAllDictionaries();
+        const regionIndex = findRegionIndexBySlug(dictionaries, regionSlug);
+        regionItem = dictionary.homeRegions.sliderItems[regionIndex];
+    }
 
-  if (!regionItem) {
-    return <div className="sr-only">Content placeholder.</div>;
-  }
+    if (!regionItem) {
+        return <div className="sr-only">Content placeholder.</div>;
+    }
 
-  const breadcrumbs = [
-    {
-      label: dictionary.header.nav.home,
-      href: buildLocalizedPath(locale, 'home'),
-    },
-    {
-      label: dictionary.regionPage.breadcrumbZones,
-      href: `${buildLocalizedPath(locale, 'home')}#regions-section`,
-    },
-    {
-      label: regionItem.title,
-      current: true,
-    },
-  ];
+    const breadcrumbs = [
+        {
+            label: dictionary.header.nav.home,
+            href: buildLocalizedPath(locale, 'home'),
+        },
+        {
+            label: dictionary.regionPage.breadcrumbZones,
+            href: `${buildLocalizedPath(locale, 'home')}#regions-section`,
+        },
+        {
+            label: regionItem.title,
+            current: true,
+        },
+    ];
 
 
-  return (
-    <>
-      <section className={styles.page} aria-labelledby="region-page-title">
-        <div className={styles.container}>
-          <div className={styles.breadcrumbsWrapper}>
-            <Breadcrumbs items={breadcrumbs} />
-          </div>
-        </div>
-      </section>
+    return (
+        <>
+            <section className={styles.page} aria-labelledby="region-page-title">
+                <div className={styles.container}>
+                    <div className={styles.breadcrumbsWrapper}>
+                        <Breadcrumbs items={breadcrumbs}/>
+                    </div>
+                </div>
+            </section>
 
-      <BookingBanner
-        locale={locale}
-        dictionary={dictionary.homeHero}
-        headingLevel="h2"
-        regionTitle={regionItem.title}
-      />
+            <BookingBanner
+                locale={locale}
+                dictionary={dictionary.homeHero}
+                headingLevel="h2"
+                regionTitle={regionItem.title}
+            />
 
-      <RegionAdvantagesSection
-        locale={locale}
-        title={dictionary.regionPage.advantagesTitle}
-        dictionary={dictionary.homeWhyUs}
-        cards={dictionary.homeWhyUs.cards}
-      />
+            <RegionAdvantagesSection
+                locale={locale}
+                title={dictionary.regionPage.advantagesTitle}
+                dictionary={dictionary.homeWhyUs}
+                cards={dictionary.homeWhyUs.cards}
+            />
 
-      <RegionCarriersSection
-        title={dictionary.regionPage.carriersTitle}
-        emptyLabel={dictionary.regionPage.noCarriers}
-        dictionary={dictionary.homeCarriers}
-        region={regionItem.carrierRegion}
-      />
+            <RegionCarriersSection
+                title={dictionary.regionPage.carriersTitle}
+                emptyLabel={dictionary.regionPage.noCarriers}
+                dictionary={dictionary.homeCarriers}
+                region={regionItem.carrierRegion}
+            />
 
-      <ArticlesSection locale={locale} dictionary={dictionary.homeArticles} />
+            <ArticlesSection locale={locale} dictionary={dictionary.homeArticles}/>
 
-      <RegionTransportTableSection
-        locale={locale}
-        regionTitle={regionItem.title}
-        regionSlug={regionItem.slug}
-        dictionary={dictionary.regionPage.transportTable}
-      />
-    </>
-  );
+            <RegionTransportTableSection
+                locale={locale}
+                regionTitle={regionItem.title}
+                regionSlug={regionItem.slug}
+                dictionary={dictionary.regionPage.transportTable}
+            />
+        </>
+    );
 }

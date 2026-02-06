@@ -1,13 +1,16 @@
 import { Locale } from '../../../i18n-config';
 import { DictionaryType } from '@/lib/dictionaries';
 import styles from './SmallMovePage.module.scss';
+import {buildLocalizedPath} from "@/lib/localized-paths";
+import BookingBanner from "@/components/home/BookingBanner";
 
 type PriceListPageProps = {
   locale: Locale;
   dictionary: DictionaryType['priceListPage'];
+  calculatorDictionary: DictionaryType['homeHero'];
 };
 
-export default function PriceListPage({ locale, dictionary }: PriceListPageProps) {
+export default function PriceListPage({ locale, dictionary, calculatorDictionary }: PriceListPageProps) {
   const isRtl = locale === 'he';
 
   const renderTable = (
@@ -41,6 +44,7 @@ export default function PriceListPage({ locale, dictionary }: PriceListPageProps
 
   return (
     <div className={styles.page} dir={isRtl ? 'rtl' : 'ltr'}>
+            <BookingBanner locale={locale} dictionary={calculatorDictionary} headingLevel="h2" />
       <section className={styles.hero} aria-labelledby="price-list-title">
         <div className={styles.container}>
           <h1 id="price-list-title" className={styles.title}>

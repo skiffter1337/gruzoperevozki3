@@ -71,6 +71,9 @@
   @media (min-width: vars.$desktop-breakpoint) {
     height: 116px;
   }
+  @media (max-width: 1024px) {
+    flex-direction: row-reverse;
+  }
 
   @media (max-width: vars.$mobile-breakpoint) {
     padding: 0px 16px;

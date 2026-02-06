@@ -31,8 +31,10 @@
 
   @media (max-width: 1023px) {
     margin-top: 24px;
+    display: none;
   }
 }
+
 
 .title {
   font-size: 64px;
@@ -45,6 +47,7 @@
 
   @media (max-width: 1023px) {
     color: vars.$color-white;
+    margin-top: 24px;
   }
 }
 
