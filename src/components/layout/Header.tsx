@@ -35,6 +35,7 @@ interface HeaderProps {
             ru: string;
             en: string;
         };
+        slogan?: string;
         company?: {
             phone?: string;
             phoneFormatted?: string;
@@ -73,9 +74,6 @@ export default function Header({locale, dictionary}: HeaderProps) {
     }, []);
 
     const getComparablePath = (route: RouteKey) => decodeURI(buildLocalizedPath(locale, route));
-
-    const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
-    const isPrimaryHeader = !isHome;
 
     const getNextLocale = () => {
         const currentIndex = locales.indexOf(locale);
@@ -163,9 +161,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
 
     return (
         <header
-            className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${
-                isPrimaryHeader ? styles.primaryVariant : ''
-            } ${isMenuOpen ? styles.mobileMenuOpen : ''}`}
+            className={`${styles.header} ${isScrolled ? styles.scrolled : ''} ${isMenuOpen ? styles.mobileMenuOpen : ''}`}
         >
             <div className={styles.container}>
                 <div className={styles.logo}>
@@ -173,6 +169,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                         <Image src="/logo.png" alt="Company logo" width={160} height={60} priority />
                     </Link>
                 </div>
+                <p className={styles.mobileSlogan}>{dictionary.slogan}</p>
                 <nav className={styles.nav}>
                     <ul className={styles.navList}>
                         {navOrder.map((route, index) => (
@@ -272,7 +269,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                             aria-expanded={isLanguagePopupOpen}
                         >
                             <ChevronDownIcon
-                                color={isMenuOpen ? "#00078E" : isPrimaryHeader ? "white" : "#00078E"}
+                                color="#00078E"
                             />
                             {localeLabels[locale]}
                         </button>
