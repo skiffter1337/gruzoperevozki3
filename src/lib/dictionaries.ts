@@ -3259,6 +3259,27 @@ export type DictionaryType = {
             requiredConsent: string;
         };
     };
+    contactPage: {
+        metaTitle: string;
+        metaDescription: string;
+        breadcrumbCurrent: string;
+        heroTitle: string;
+        nameLabel: string;
+        namePlaceholder: string;
+        emailLabel: string;
+        emailPlaceholder: string;
+        commentLabel: string;
+        commentPlaceholder: string;
+        submitLabel: string;
+        submittingLabel: string;
+        submitError: string;
+        submissionSuccessMessage: string;
+        validation: {
+            requiredName: string;
+            requiredEmail: string;
+            requiredComment: string;
+        };
+    };
     footer: FooterDictionary;
     urls?: Record<string, string>;
 };
@@ -9710,6 +9731,27 @@ const defaultDictionary: DictionaryType = {
             requiredConsent: "Подтвердите правила и условия",
         },
     },
+    contactPage: {
+        metaTitle: 'Контакты | Обратная связь по перевозкам',
+        metaDescription: 'Страница контактов для отзывов, предложений и замечаний. Напишите нам через форму — мы оперативно ответим на ваше обращение.',
+        breadcrumbCurrent: 'Контакты',
+        heroTitle: 'СВЯЗАТЬСЯ С НАМИ',
+        nameLabel: 'Имя',
+        namePlaceholder: 'Введите имя',
+        emailLabel: 'Почта',
+        emailPlaceholder: 'Введите email',
+        commentLabel: 'Текст комментария',
+        commentPlaceholder: 'Напишите ваш отзыв, предложение или замечание',
+        submitLabel: 'Отправить',
+        submittingLabel: 'Отправка...',
+        submitError: 'Не удалось отправить сообщение. Попробуйте еще раз.',
+        submissionSuccessMessage: 'ВАШЕ СООБЩЕНИЕ ОТПРАВЛЕНО',
+        validation: {
+            requiredName: 'Укажите ваше имя',
+            requiredEmail: 'Укажите вашу почту',
+            requiredComment: 'Введите текст комментария',
+        },
+    },
     company: {
         name: "Ваша транспортная компания",
         address: "ул. Примерная 123, Тель-Авив, Израиль",
@@ -10146,6 +10188,14 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
                 validation: {
                     ...defaultDictionary.leaveReviewPage.validation,
                     ...loadedDict.leaveReviewPage?.validation,
+                },
+            },
+            contactPage: {
+                ...defaultDictionary.contactPage,
+                ...loadedDict.contactPage,
+                validation: {
+                    ...defaultDictionary.contactPage.validation,
+                    ...loadedDict.contactPage?.validation,
                 },
             },
         };

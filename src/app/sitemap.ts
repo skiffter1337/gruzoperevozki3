@@ -11,7 +11,7 @@ import ruDictionary from '@/lib/dictionaries/ru.json';
 import enDictionary from '@/lib/dictionaries/en.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes: RouteKey[] = ['home', 'calculate', 'leaveReview'];
+  const routes: RouteKey[] = ['home', 'calculate', 'contact', 'leaveReview'];
   const lastModified = new Date();
 
   const entries: MetadataRoute.Sitemap = [];
