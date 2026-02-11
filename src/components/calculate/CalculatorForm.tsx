@@ -139,7 +139,7 @@ export default function CalculatorForm({
   };
 
   const filteredItems = items.filter((item) => {
-    if (activeRoom !== 'all' && item.room !== activeRoom) return false;
+    if (item.room !== activeRoom) return false;
     if (!searchTerm.trim()) return true;
     return item.name.toLowerCase().includes(searchTerm.trim().toLowerCase());
   });
