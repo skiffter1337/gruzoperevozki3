@@ -267,6 +267,7 @@ export type DictionaryType = {
             ru: string;
             en: string;
         };
+        slogan: string;
     };
     homeHero: {
         title: string;
@@ -9794,6 +9795,7 @@ const defaultDictionary: DictionaryType = {
             ru: 'Russian',
             en: 'English',
         },
+        slogan: "Отсюда начинается переезд"
     },
     footer: {
         ariaLabel: 'Навигация по футеру',
