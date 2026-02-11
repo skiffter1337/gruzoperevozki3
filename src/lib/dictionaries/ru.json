@@ -1425,12 +1425,14 @@
     ],
     "roomTabsLabel": "Комнаты",
     "roomTabs": {
+      "all": "Все",
       "livingRoom": "Гостиная",
       "bedroom": "Спальня",
       "kids": "Детская",
       "kitchen": "Кухня",
       "bathroom": "Ванная и туалет",
-      "balcony": "Балкон / махсан"
+      "balcony": "Балкон / махсан",
+      "other": "Прочее"
     },
     "roomItems": {
       "livingRoom": [
@@ -1496,7 +1498,8 @@
         "Горшки с растениями",
         "Мангал",
         "Велосипед"
-      ]
+      ],
+      "other": []
     },
     "itemNameLabel": "Название предмета",
     "itemNamePlaceholder": "Введите название предмета",

@@ -22,7 +22,10 @@ type SubmissionPayload = {
 };
 
 const formatItems = (items: {name: string; count: number}[]) =>
-    items.map((item) => `${item.name}: ${item.count}`).join('\n');
+    items
+        .filter((item) => item.count > 0)
+        .map((item) => `${item.name}: ${item.count}`)
+        .join('\n');
 
 export async function POST(request: Request) {
     const apiKey = process.env.RESEND_API_KEY;
