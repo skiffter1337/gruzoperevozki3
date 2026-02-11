@@ -135,19 +135,22 @@ export default function ContactPageClient({locale, dictionary, homeLabel}: Conta
                                                 placeholder={dictionary.namePlaceholder}
                                                 value={values.name}
                                                 onChange={(event) => {
-                                                    updateValue('name', event.target.value)
-                                                    setErrors(prev => ({...prev, name: ''}))
+                                                    updateValue('name', event.target.value);
+                                                    setErrors((prev) => ({...prev, name: ''}));
                                                 }}
                                                 autoComplete="name"
                                                 aria-invalid={Boolean(errors.name)}
                                                 aria-describedby={errors.name ? 'contact-name-error' : undefined}
                                                 required
                                             />
-                                            {errors.name && (
-                                                <span id="contact-name-error" className={styles.errorText} role="alert">
-                          {errors.name}
-                        </span>
-                                            )}
+                                            <span
+                                                id="contact-name-error"
+                                                className={`${styles.errorText} ${!errors.name ? styles.errorTextHidden : ''}`}
+                                                role={errors.name ? 'alert' : undefined}
+                                                aria-live="polite"
+                                            >
+                                                {errors.name || '\u00A0'}
+                                            </span>
                                         </div>
 
                                         <div className={styles.field}>
@@ -162,21 +165,22 @@ export default function ContactPageClient({locale, dictionary, homeLabel}: Conta
                                                 placeholder={dictionary.emailPlaceholder}
                                                 value={values.email}
                                                 onChange={(event) => {
-                                                    updateValue('email', event.target.value)
-                                                    setErrors(prev => ({...prev, email: ''}))
-                                                }
-                                                }
+                                                    updateValue('email', event.target.value);
+                                                    setErrors((prev) => ({...prev, email: ''}));
+                                                }}
                                                 autoComplete="email"
                                                 aria-invalid={Boolean(errors.email)}
                                                 aria-describedby={errors.email ? 'contact-email-error' : undefined}
                                                 required
                                             />
-                                            {errors.email && (
-                                                <span id="contact-email-error" className={styles.errorText}
-                                                      role="alert">
-                          {errors.email}
-                        </span>
-                                            )}
+                                            <span
+                                                id="contact-email-error"
+                                                className={`${styles.errorText} ${!errors.email ? styles.errorTextHidden : ''}`}
+                                                role={errors.email ? 'alert' : undefined}
+                                                aria-live="polite"
+                                            >
+                                                {errors.email || '\u00A0'}
+                                            </span>
                                         </div>
                                     </div>
 
@@ -192,20 +196,22 @@ export default function ContactPageClient({locale, dictionary, homeLabel}: Conta
                                                 placeholder={dictionary.commentPlaceholder}
                                                 value={values.comment}
                                                 onChange={(event) => {
-                                                    updateValue('comment', event.target.value)
-                                                    setErrors(prev => ({...prev, comment: ''}))
+                                                    updateValue('comment', event.target.value);
+                                                    setErrors((prev) => ({...prev, comment: ''}));
                                                 }}
                                                 aria-invalid={Boolean(errors.comment)}
                                                 aria-describedby={errors.comment ? 'contact-comment-error' : undefined}
                                                 rows={6}
                                                 required
                                             />
-                                            {errors.comment && (
-                                                <span id="contact-comment-error" className={styles.errorText}
-                                                      role="alert">
-                          {errors.comment}
-                        </span>
-                                            )}
+                                            <span
+                                                id="contact-comment-error"
+                                                className={`${styles.errorText} ${!errors.comment ? styles.errorTextHidden : ''}`}
+                                                role={errors.comment ? 'alert' : undefined}
+                                                aria-live="polite"
+                                            >
+                                                {errors.comment || '\u00A0'}
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
