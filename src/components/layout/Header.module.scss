@@ -45,20 +45,19 @@
   margin: 0 auto;
   padding: 12px 24px;
   transition: padding 0.3s ease;
-
+  flex-direction: row-reverse;
   @media (min-width: vars.$desktop-breakpoint) {
     height: 116px;
   }
   @media (max-width: vars.$mobile-breakpoint) {
     padding: 0 16px;
-    flex-direction: row-reverse;
     min-height: 72px;
   }
 }
 
 .logo {
   flex: 0 0 auto;
-  height: 60px;
+  height: 56px;
   a {
     display: block;
     transition: opacity 0.2s ease;
@@ -70,11 +69,7 @@
 
   img {
     width: auto;
-    height: 80px;
-
-    @media (max-width: vars.$mobile-breakpoint) {
-      height: 56px;
-    }
+    height: 56px;
   }
 }
 
