@@ -131,7 +131,7 @@ export default function CalculatorForm({
       toFloor: values.toFloor,
       serviceType: values.serviceType,
       needsAssembly: values.needsAssembly,
-      items,
+      items: items.filter((item) => item.count > 0),
       activeRoom,
     };
 
@@ -139,7 +139,7 @@ export default function CalculatorForm({
   };
 
   const filteredItems = items.filter((item) => {
-    if (item.room !== activeRoom) return false;
+    if (activeRoom !== 'all' && item.room !== activeRoom) return false;
     if (!searchTerm.trim()) return true;
     return item.name.toLowerCase().includes(searchTerm.trim().toLowerCase());
   });

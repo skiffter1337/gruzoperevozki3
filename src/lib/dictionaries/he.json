@@ -1442,12 +1442,14 @@
     ],
     "roomTabsLabel": "חדרים",
     "roomTabs": {
+      "all": "הכול",
       "livingRoom": "סלון",
       "bedroom": "חדר שינה",
       "kids": "חדר ילדים",
       "kitchen": "מטבח",
       "bathroom": "אמבטיה ושירותים",
-      "balcony": "מרפסת / מחסן"
+      "balcony": "מרפסת / מחסן",
+      "other": "אחר"
     },
     "roomItems": {
       "livingRoom": [
@@ -1513,7 +1515,8 @@
         "עציצים",
         "מנגל",
         "אופניים"
-      ]
+      ],
+      "other": []
     },
     "itemNameLabel": "שם הפריט",
     "itemNamePlaceholder": "הזן שם פריט",

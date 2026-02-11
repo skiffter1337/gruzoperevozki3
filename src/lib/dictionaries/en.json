@@ -1442,12 +1442,14 @@
     ],
     "roomTabsLabel": "Rooms",
     "roomTabs": {
+      "all": "All",
       "livingRoom": "Living room",
       "bedroom": "Bedroom",
       "kids": "Kids room",
       "kitchen": "Kitchen",
       "bathroom": "Bathroom & toilet",
-      "balcony": "Balcony / storage"
+      "balcony": "Balcony / storage",
+      "other": "Other"
     },
     "roomItems": {
       "livingRoom": [
@@ -1513,7 +1515,8 @@
         "Plant pots",
         "BBQ grill",
         "Bicycle"
-      ]
+      ],
+      "other": []
     },
     "itemNameLabel": "Item name",
     "itemNamePlaceholder": "Enter item name",
