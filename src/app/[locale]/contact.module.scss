@@ -117,6 +117,11 @@
 .errorText {
   color: #fee2e2;
   font-size: 13px;
+  min-height: 1em;
+}
+
+.errorTextHidden {
+  visibility: hidden;
 }
 
 .actions {
