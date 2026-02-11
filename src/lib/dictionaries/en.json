@@ -78,7 +78,8 @@
       "he": "Hebrew",
       "ru": "Russian",
       "en": "English"
-    }
+    },
+    "slogan": "Move starts here"
   },
   "footer": {
     "ariaLabel": "Footer navigation",
