@@ -73,7 +73,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           popups: dictionary.header.popups,
           nav: dictionary.header.nav,
           languageSwitcher: dictionary.header.languageSwitcher,
-          slogan: dictionary.header.slogan,
           company: dictionary.company,
         }}
       />
