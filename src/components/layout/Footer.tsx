@@ -5,7 +5,6 @@ import {buildLocalizedPath, RouteKey} from '@/lib/localized-paths';
 import FacebookIcon from '@/components/icons/FacebookIcon';
 import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
 import TelegramIcon from '@/components/icons/TelegramIcon';
-import TwitterIcon from '@/components/icons/TwitterIcon';
 import styles from './Footer.module.scss';
 import {JSX} from "react";
 
@@ -29,7 +28,6 @@ const socialIconMap: Record<FooterSocialLink['network'], JSX.Element> = {
     facebook: <FacebookIcon/>,
     whatsapp: <WhatsAppIcon/>,
     telegram: <TelegramIcon/>,
-    twitter: <TwitterIcon/>,
 };
 
 export default function Footer({locale, dictionary, company}: FooterProps) {

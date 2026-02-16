@@ -216,7 +216,7 @@ export interface FooterLink {
 export interface FooterSocialLink {
     label: string;
     href: string;
-    network: 'facebook' | 'whatsapp' | 'telegram' | 'twitter';
+    network: 'facebook' | 'whatsapp' | 'telegram';
 }
 
 export interface FooterDictionary {
@@ -9839,7 +9839,6 @@ const defaultDictionary: DictionaryType = {
                     {label: 'Facebook', href: 'https://facebook.com', network: 'facebook'},
                     {label: 'WhatsApp', href: 'https://wa.me/', network: 'whatsapp'},
                     {label: 'Telegram', href: 'https://t.me/', network: 'telegram'},
-                    {label: 'Twitter', href: 'https://twitter.com', network: 'twitter'},
                 ],
             },
         },

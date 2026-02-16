@@ -272,10 +272,9 @@
   }
 
   @media (max-width: $tablet-breakpoint) {
-    height: 100%;
-    min-height: 157px;
+    height: 100px;
+    width: 100px;
     max-width: 100%;
-    flex: 1;
   }
 }
 

@@ -184,11 +184,6 @@
             "label": "Telegram",
             "href": "https://t.me/example",
             "network": "telegram"
-          },
-          {
-            "label": "Twitter",
-            "href": "https://twitter.com",
-            "network": "twitter"
           }
         ]
       }
