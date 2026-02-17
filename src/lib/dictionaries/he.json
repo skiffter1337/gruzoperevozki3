@@ -67,7 +67,7 @@
     },
     "nav": {
       "home": "בית",
-      "transportation": "הוֹבָלָה",
+      "transportation": "הובלות",
       "services": "שירותים נוספים",
       "calculate": "חשב עלות",
       "articles": "מאמרים",
@@ -602,11 +602,11 @@
         "icon": "map.svg"
       },
       {
-        "title": "הובלות דחופות: באותו היום וגם בשבת",
+        "title": "הובלות דחופות 24/7 — מהיום להיום, גם בערב.",
         "icon": "speed.svg"
       },
       {
-        "title": "מכלול שירותים מלא: מפירוק ואריזה ועד להובלה",
+        "title": "חבילת שירותים מלאה — מהרכבה ואריזה ועד הובלה זהירה.",
         "icon": "check.svg"
       },
       {
@@ -1571,10 +1571,10 @@
     "removeLabel": "הסר פריט",
     "assemblyLabel": "נדרש פירוק / הרכבה",
     "submitCta": "חשב",
-    "successTitle": "הצליח!",
-    "successMessage": "חישבנו את עלות ההובלה שלך!",
-    "contactPrompt": "הזן פרטים כדי שניצור איתך קשר.",
-    "contactNameLabel": "שם מלא",
+    "successTitle": "עוד צעד אחד!",
+    "successMessage": "מלאו את הטופס, והמובילים יצורו איתכם קשר כדי לברר את כל פרטי המעבר שלכם.",
+    "contactPrompt": "",
+    "contactNameLabel": "שם",
     "contactPhoneLabel": "מספר טלפון",
     "contactCommentLabel": "הערה",
     "sendCta": "שליחה",

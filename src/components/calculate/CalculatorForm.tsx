@@ -69,8 +69,7 @@ export default function CalculatorForm({
     )
   );
   const [errors, setErrors] = useState<{ from?: string; to?: string; date?: string }>({});
-  const fromInputRef = useRef<HTMLInputElement>(null);
-  const toInputRef = useRef<HTMLInputElement>(null);
+  const dateInputRef = useRef<HTMLInputElement>(null);
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
   const suggestionsId = 'israel-location-suggestions';
@@ -87,6 +86,18 @@ export default function CalculatorForm({
           : item
       )
     );
+  };
+
+  const openDatePicker = () => {
+    const input = dateInputRef.current;
+    if (!input) return;
+
+    input.focus();
+    try {
+      input.showPicker?.();
+    } catch {
+      // Some iOS Safari versions can throw here; focus fallback still works.
+    }
   };
 
 
@@ -279,13 +290,15 @@ export default function CalculatorForm({
           {dictionary.dateLabel}
         </label>
         <input
+          ref={dateInputRef}
           id="date"
           name="date"
           type="date"
-          className={`${styles.input} ${errors.date ? styles.inputError : ''}`}
+          className={`${styles.input} ${styles.dateInput} ${errors.date ? styles.inputError : ''}`}
           min={today}
           value={values.date}
           onChange={(event) => updateValue('date', event.target.value)}
+          onClick={openDatePicker}
           required
           aria-invalid={Boolean(errors.date)}
           aria-describedby={errors.date ? 'date-error' : undefined}

@@ -169,7 +169,9 @@
   }
 
   .table {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .tableCell {

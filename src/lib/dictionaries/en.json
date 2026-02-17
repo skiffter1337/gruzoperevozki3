@@ -108,7 +108,7 @@
             "anchor": "regions"
           },
           {
-            "label": "Top carriers",
+            "label": "Recommended Movers",
             "anchor": "carriers"
           },
           {
@@ -192,7 +192,7 @@
   "homeHero": {
     "title": "CALCULATION OF TRANSPORTATION COSTS",
     "titleWithRegion": "CALCULATION OF TRANSPORTATION COSTS TO {region}?",
-    "subtitle": "Get the best price offers from carriers online!",
+    "subtitle": "Receive price quotes from movers online!",
     "fromLabel": "From",
     "fromPlaceholder": "City",
     "toLabel": "To",
@@ -407,7 +407,7 @@
     ]
   },
   "homeCarriers": {
-    "title": "Top Carriers",
+    "title": "Recommended Movers",
     "subtitle": "Choose the service area you need",
     "previousTabLabel": "Previous territory",
     "nextTabLabel": "Next territory",
@@ -574,7 +574,7 @@
     ]
   },
   "homeAbout": {
-    "description": "Your professional and reliable partner for freight transportation in Israel. We take on tasks of any complexity and scale: from small deliveries of individual items to organizing large apartment and office moves across the country. Our goal is to ensure a comfortable and safe transfer of your property. We provide a full range of services, including professional packing, disassembly, careful loading, transportation and final assembly of furniture at your new place, guaranteeing transparent pricing and precise timelines. Entrust logistics to us, and we will turn your move into a simple and predictable task.",
+    "description": "Maavar was built to make your move simple, convenient, and stress-free. With our platform, you can easily receive and compare quotes from trusted movers for any type of move — from single-item deliveries to full apartment and office relocations of any size.\nOur system instantly sends your request to relevant movers, so you can start receiving competitive offers in real time — completely free and with no obligation.\nWe partner only with verified, professional, and reliable movers who are committed to delivering high-quality service and maintaining strict standards.\nOur mission is simple: to help you move smoothly, confidently, and without unnecessary stress.\nWith Maavar, your move is organized, secure, and handled without surprises.",
     "imageAlt": "Mover standing near a delivery truck"
   },
   "homeWhyUs": {
@@ -586,7 +586,7 @@
     "iconAltPrefix": "Advantage icon",
     "cards": [
       {
-        "title": "Save up to 45% (best carrier choice)",
+        "title": "Save up to 45% — choose the best mover.",
         "icon": "economy.svg"
       },
       {
@@ -602,11 +602,11 @@
         "icon": "map.svg"
       },
       {
-        "title": "Urgent moves: same day and Saturday service",
+        "title": "Emergency moving services 24/7 — same-day and evening moves.",
         "icon": "speed.svg"
       },
       {
-        "title": "Full-service moves: from disassembly and packing to transportation",
+        "title": "Full-service moving — from disassembly and packing to careful transportation.",
         "icon": "check.svg"
       },
       {
@@ -1571,9 +1571,9 @@
     "removeLabel": "Remove item",
     "assemblyLabel": "Need dismantling / assembly",
     "submitCta": "Calculate",
-    "successTitle": "SUCCESS!",
-    "successMessage": "We calculated the cost of your move!",
-    "contactPrompt": "Enter your details so we can contact you.",
+    "successTitle": "ONE MORE STEP!",
+    "successMessage": "Fill out the form, and movers will contact you to finalize all the details of your move.",
+    "contactPrompt": "",
     "contactNameLabel": "Full name",
     "contactPhoneLabel": "Phone number",
     "contactCommentLabel": "Comment",

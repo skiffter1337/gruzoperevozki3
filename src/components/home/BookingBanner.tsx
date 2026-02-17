@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent, useMemo, useRef, useState, useEffect } from 'react';
+import { FormEvent, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import GradientButton from '@/components/gradient-button/GradientButton';
 import { DictionaryType } from '@/lib/dictionaries';
@@ -38,8 +38,7 @@ export default function BookingBanner({
   const router = useRouter();
   const [values, setValues] = useState<FormValues>(defaultValues);
   const [errors, setErrors] = useState<FormErrors>({});
-  const fromInputRef = useRef<HTMLInputElement>(null);
-  const toInputRef = useRef<HTMLInputElement>(null);
+  const dateInputRef = useRef<HTMLInputElement>(null);
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
   const HeadingTag = headingLevel;
@@ -51,6 +50,18 @@ export default function BookingBanner({
   const updateField = (key: keyof FormValues, value: string) => {
     setValues((prev) => ({ ...prev, [key]: value }));
     setErrors((prev) => ({ ...prev, [key]: '' }));
+  };
+
+  const openDatePicker = () => {
+    const input = dateInputRef.current;
+    if (!input) return;
+
+    input.focus();
+    try {
+      input.showPicker?.();
+    } catch {
+      // iOS Safari may throw on showPicker; focus fallback still opens the native picker.
+    }
   };
 
   const validate = (): FormErrors => {
@@ -148,14 +159,16 @@ export default function BookingBanner({
                 {dictionary.dateLabel}
               </label>
               <input
+                ref={dateInputRef}
                 id="date"
                 name="date"
                 type="date"
-                className={styles.input}
+                className={`${styles.input} ${styles.dateInput}`}
                 placeholder={dictionary.datePlaceholder}
                 value={values.date}
                 min={today}
                 onChange={(event) => updateField('date', event.target.value)}
+                onClick={openDatePicker}
                 required
                 aria-invalid={Boolean(errors.date)}
               />
