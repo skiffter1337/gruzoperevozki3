@@ -138,7 +138,11 @@ export default function TestimonialsSection({locale, dictionary}: TestimonialsSe
                 </h2>
 
                 <div className={styles.sliderArea}>
-                    <div className={styles.sliderWrapper} aria-label={dictionary.sliderAriaLabel}>
+                    <div
+                        className={styles.sliderWrapper}
+                        aria-label={dictionary.sliderAriaLabel}
+                        dir={locale === 'he' ? 'ltr' : undefined}
+                    >
                         {shouldShowArrows && (
                             <button
                                 type="button"

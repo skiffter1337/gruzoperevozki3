@@ -10,17 +10,20 @@
   direction: ltr;
   padding-top: 30px;
 
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: $wide-breakpoint) {
     height: auto;
     min-height: auto;
     flex-direction: column;
     padding: 0;
   }
+
+
 }
 
 .innerLeft {
   min-height: 680px;
-  background: $primary-color;  width: 50%;
+  background: $primary-color;
+  width: 50%;
   clip-path: polygon(
                   81% 0%,
                   0% 0%,
@@ -32,7 +35,7 @@
   );
   box-shadow: 1px 0 0 0 $primary-color;
 
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: $wide-breakpoint) {
     display: none;
   }
 }
@@ -48,19 +51,25 @@
   padding: 35px 32px;
   z-index: 1;
 
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: $wide-breakpoint) {
     width: 100%;
     min-height: auto;
     padding: 36px 32px 40px;
     order: 1;
   }
+
+  &.rtl {
+    p {
+      direction: rtl;
+    }
+  }
 }
 
 .rightPanel {
   width: 100%;
-  max-width: 500px;
+  max-width: 800px;
 
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: $wide-breakpoint) {
     max-width: 100%;
   }
 }
@@ -71,7 +80,7 @@
   gap: 8px;
   color: $color-white;
 
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: $wide-breakpoint) {
     text-align: center;
   }
 }
@@ -82,7 +91,7 @@
   line-height: 87%;
   margin: 0 0 8px 0;
   text-transform: uppercase;
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: $wide-breakpoint) {
     text-align: center;
     font-size: 60px;
   }
@@ -95,7 +104,7 @@
   margin: 0;
   text-align: left;
 
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: $wide-breakpoint) {
     font-size: 22px;
   }
 }
@@ -109,7 +118,7 @@
 
   transform: translateX(-50%);
 
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: $wide-breakpoint) {
     position: relative;
     top: auto;
     left: auto;
@@ -131,7 +140,7 @@
     max-height: 800px;
   }
 
-  @media (max-width: $desktop-breakpoint) {
+  @media (max-width: $wide-breakpoint) {
 
     display: flex;
     justify-content: end;
@@ -201,7 +210,7 @@
   }
 
   // Для планшетов (по желанию)
-  @media (min-width: 768px) and (max-width: $desktop-breakpoint) {
+  @media (min-width: 768px) and (max-width: $wide-breakpoint) {
     .bgImage {
       max-height: 450px;
       max-width: 450px;

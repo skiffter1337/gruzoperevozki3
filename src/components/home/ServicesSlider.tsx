@@ -159,7 +159,7 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
                 </div>
 
                 <div className={styles.wrapper}>
-                    <div className={styles.sliderWrapper}>
+                    <div className={styles.sliderWrapper} dir={locale === 'he' ? 'ltr' : undefined}>
                         {shouldShowArrows && (
                             <button
                                 type="button"

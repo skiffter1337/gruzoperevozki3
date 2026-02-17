@@ -15,7 +15,7 @@ export type CalculatorFormPayload = {
   serviceType: string;
   needsAssembly: boolean;
   items: InventoryItem[];
-  activeRoom: keyof DictionaryType['calculatePage']['roomTabs'];
+  activeRoom: RoomTabKey;
 };
 
 type CalculatorFormProps = {
@@ -29,10 +29,13 @@ type CalculatorFormProps = {
   onSuccess?: (payload: CalculatorFormPayload) => void;
 };
 
+type RoomTabKey = keyof DictionaryType['calculatePage']['roomTabs'];
+type RoomItemGroupKey = Exclude<RoomTabKey, 'all'>;
+
 type InventoryItem = {
   name: string;
   count: number;
-  room: keyof DictionaryType['calculatePage']['roomTabs'] | 'custom';
+  room: RoomItemGroupKey | 'custom';
 };
 
 export default function CalculatorForm({
@@ -53,15 +56,15 @@ export default function CalculatorForm({
     needsAssembly: false,
   });
 
-  const [activeRoom, setActiveRoom] = useState<keyof typeof dictionary.roomTabs>('livingRoom');
+  const [activeRoom, setActiveRoom] = useState<RoomTabKey>('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [customItemName, setCustomItemName] = useState('');
   const [items, setItems] = useState<InventoryItem[]>(
-    Object.entries(dictionary.roomItems).flatMap(([room, roomItems]) =>
-      roomItems.map((name) => ({
+    (Object.keys(dictionary.roomItems) as RoomItemGroupKey[]).flatMap((room) =>
+      dictionary.roomItems[room].map((name) => ({
         name,
         count: 0,
-        room: room as keyof DictionaryType['calculatePage']['roomTabs'],
+        room,
       }))
     )
   );
@@ -85,6 +88,8 @@ export default function CalculatorForm({
       )
     );
   };
+
+
 
   const addCustomItem = () => {
     const trimmed = customItemName.trim();
@@ -139,7 +144,7 @@ export default function CalculatorForm({
   };
 
   const filteredItems = items.filter((item) => {
-    if (item.room !== activeRoom) return false;
+    if (activeRoom !== 'all' && item.room !== activeRoom) return false;
     if (!searchTerm.trim()) return true;
     return item.name.toLowerCase().includes(searchTerm.trim().toLowerCase());
   });
@@ -315,7 +320,7 @@ export default function CalculatorForm({
 
       <div className={styles.innerCard}>
         <div className={styles.tabs} role="tablist" aria-label={dictionary.roomTabsLabel}>
-          {(Object.keys(dictionary.roomTabs) as Array<keyof typeof dictionary.roomTabs>).map((key) => (
+          {(Object.keys(dictionary.roomTabs) as RoomTabKey[]).map((key) => (
             <button
               key={key}
               type="button"
@@ -379,8 +384,27 @@ export default function CalculatorForm({
               <div className={styles.selectedItemsList}>
                 {selectedItems.map((item) => (
                   <div key={`${item.room}-${item.name}`} className={styles.selectedItemRow}>
-                    <span className={styles.selectedItemCount}>{item.count}</span>
+                    <div className={styles.selectedItemControls}>
+                      <button
+                        type="button"
+                        className={styles.counterButton}
+                        onClick={() => updateItemCount(item.name, item.room, 1)}
+                        aria-label={dictionary.increaseLabel}
+                      >
+                        +
+                      </button>
+                      <span className={styles.selectedItemCount}>{item.count}</span>
+                      <button
+                        type="button"
+                        className={styles.counterButton}
+                        onClick={() => updateItemCount(item.name, item.room, -1)}
+                        aria-label={dictionary.decreaseLabel}
+                      >
+                        −
+                      </button>
+                    </div>
                     <span className={styles.selectedItemName}>{item.name}</span>
+
                   </div>
                 ))}
               </div>

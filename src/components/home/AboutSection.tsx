@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import {DictionaryType} from '@/lib/dictionaries';
 import styles from './AboutSection.module.scss';
+import {Locale} from "../../../i18n-config";
 
 type AboutSectionProps = {
     dictionary: DictionaryType['homeAbout'];
+    locale: Locale;
 };
 
-export default function AboutSection({dictionary}: AboutSectionProps) {
+export default function AboutSection({dictionary, locale}: AboutSectionProps) {
     return (
         <section
             id="about-section"
@@ -15,14 +17,13 @@ export default function AboutSection({dictionary}: AboutSectionProps) {
             itemScope
             itemType="https://schema.org/AboutPage"
         >
-            <div className={styles.innerLeft} />
+            <div className={styles.innerLeft}/>
 
-            <div className={styles.innerRight}>
+            <div
+                className={`${styles.innerRight} ${locale === "he" && styles.rtl}`}
+            >
                 <div className={styles.rightPanel}>
                     <div className={styles.content}>
-                        <h2 id="about-title" className={styles.title} itemProp="headline">
-                            {dictionary.title}
-                        </h2>
                         <p className={styles.description} itemProp="description">
                             {dictionary.description}
                         </p>

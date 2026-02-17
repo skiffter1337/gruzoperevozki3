@@ -190,7 +190,7 @@
     }
   },
   "homeHero": {
-    "title": "CALCULATION OF TRANSPORTATION COSTS?",
+    "title": "CALCULATION OF TRANSPORTATION COSTS",
     "titleWithRegion": "CALCULATION OF TRANSPORTATION COSTS TO {region}?",
     "subtitle": "Get the best price offers from carriers online!",
     "fromLabel": "From",
@@ -548,11 +548,32 @@
           "contacts": "contacts",
           "phoneNumber": "050-3073160"
         }
+      },
+      {
+        "name": "Urban Moving",
+        "region": "coordinates",
+        "image": "/images/carriers/urban-moving.png",
+        "url": "https://urbanmoving.net/",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-8318084"
+        }
+      },
+      {
+        "name": "שור הובלות",
+        "region": "coordinates",
+        "image": "/images/carriers/bull-moving.png",
+        "url": "https://shor-hovalot.co.il",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-3073160"
+        }
       }
     ]
   },
   "homeAbout": {
-    "title": "About us",
     "description": "Your professional and reliable partner for freight transportation in Israel. We take on tasks of any complexity and scale: from small deliveries of individual items to organizing large apartment and office moves across the country. Our goal is to ensure a comfortable and safe transfer of your property. We provide a full range of services, including professional packing, disassembly, careful loading, transportation and final assembly of furniture at your new place, guaranteeing transparent pricing and precise timelines. Entrust logistics to us, and we will turn your move into a simple and predictable task.",
     "imageAlt": "Mover standing near a delivery truck"
   },
@@ -1435,6 +1456,10 @@
     "elevatorLabel": "Is there an elevator?",
     "floorLabel": "Which floor?",
     "floorOptions": [
+      "-3",
+      "-2",
+      "-1",
+      "0",
       "1",
       "2",
       "3",
@@ -1543,6 +1568,7 @@
     "addButton": "Add",
     "decreaseLabel": "Decrease quantity",
     "increaseLabel": "Increase quantity",
+    "removeLabel": "Remove item",
     "assemblyLabel": "Need dismantling / assembly",
     "submitCta": "Calculate",
     "successTitle": "SUCCESS!",
@@ -1617,7 +1643,7 @@
         "Nationwide coverage: available movers in every city and region across Israel.",
         "Immediate availability: need an urgent move? Find movers for same-day and even Saturday moves."
       ],
-      "phoneLabel": "Call now: 05X-XXX-XXXX"
+      "phoneLabel": ""
     },
     "process": {
       "id": "process",
@@ -2316,7 +2342,7 @@
     },
     "cta": {
       "title": "Save hundreds of shekels on a small move",
-      "phoneLabel": "Call now: 05X-XXX-XXXX",
+      "phoneLabel": "",
       "formLabel": "Or leave your details and get up to 3 quotes from recommended movers near you!",
       "buttonLabel": "Start here and get quotes"
     },

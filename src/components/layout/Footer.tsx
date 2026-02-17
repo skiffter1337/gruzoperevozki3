@@ -140,26 +140,10 @@ export default function Footer({locale, dictionary, company}: FooterProps) {
                             <meta itemProp="name" content={company.name}/>
                             <dl className={styles.contactList}>
                                 <div className={styles.contactRow}>
-                                    <dt className={styles.contactLabel}>{dictionary.columns.contacts.addressLabel}</dt>
-                                    <dd className={styles.contactValue} itemProp="address">{company.address}</dd>
-                                </div>
-                                <div className={styles.contactRow}>
                                     <dt className={styles.contactLabel}>{dictionary.columns.contacts.emailLabel}</dt>
                                     <dd className={styles.contactValue}>
                                         <a href={`mailto:${company.email}`} className={styles.link} itemProp="email">
                                             {company.email}
-                                        </a>
-                                    </dd>
-                                </div>
-                                <div className={styles.contactRow}>
-                                    <dt className={styles.contactLabel}>{dictionary.columns.contacts.phoneLabel}</dt>
-                                    <dd className={styles.contactValue}>
-                                        <a
-                                            href={`tel:${sanitizePhone(company.phone)}`}
-                                            className={styles.link}
-                                            itemProp="telephone"
-                                        >
-                                            {company.phoneFormatted || company.phone}
                                         </a>
                                     </dd>
                                 </div>

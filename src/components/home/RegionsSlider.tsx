@@ -197,7 +197,7 @@ export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) 
                         </div>
                     ) : (
                         <>
-                            <div className={styles.sliderWrapper}>
+                            <div className={styles.sliderWrapper} dir={locale === 'he' ? 'ltr' : undefined}>
                                 {shouldShowArrows && (
                                     <button
                                         type="button"

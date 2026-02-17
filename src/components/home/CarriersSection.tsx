@@ -9,15 +9,21 @@ import {Locale} from '../../../i18n-config';
 
 import styles from './CarriersSection.module.scss';
 
-type CarrierRegion = DictionaryType['homeCarriers']['tabs'][number]['value'];
+type CarrierRegion = DictionaryType['homeCarriers']['carriers'][number]['region'];
 
 type CarriersSectionProps = {
     locale: Locale;
     dictionary: DictionaryType['homeCarriers'];
+    regionsDictionary: DictionaryType['homeRegions'];
 };
 
-export default function CarriersSection({dictionary}: CarriersSectionProps) {
-    const [activeRegion, setActiveRegion] = useState<CarrierRegion | null>(dictionary.tabs[0]?.value ?? null);
+export default function CarriersSection({dictionary, regionsDictionary}: CarriersSectionProps) {
+    const regionTabs = useMemo(
+        () => regionsDictionary.sliderItems.map((item) => ({label: item.title, value: item.carrierRegion})),
+        [regionsDictionary.sliderItems]
+    );
+    const centerRegion: CarrierRegion = 'coordinates';
+    const [activeRegion, setActiveRegion] = useState<CarrierRegion>(regionTabs[0]?.value ?? centerRegion);
     const [isMobile, setIsMobile] = useState(false);
     const [tabIndex, setTabIndex] = useState(0);
     const tabsWrapperRef = useRef<HTMLDivElement>(null);
@@ -57,28 +63,27 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
     }, [isMobile]);
 
     const filteredCarriers = useMemo(() => {
-        if (!activeRegion) return dictionary.carriers;
         return dictionary.carriers.filter((carrier) => carrier.region === activeRegion);
     }, [activeRegion, dictionary.carriers]);
 
     const moveTab = (direction: 'next' | 'prev') => {
         if (!isMobile) return;
 
-        const tabCount = dictionary.tabs.length;
+        const tabCount = regionTabs.length;
         const maxIndex = tabCount - 1;
 
         setTabIndex((current) => {
             const nextIndex = direction === 'next'
                 ? (current >= maxIndex ? 0 : current + 1)
                 : (current <= 0 ? maxIndex : current - 1);
-            setActiveRegion(dictionary.tabs[nextIndex]?.value ?? null);
+            setActiveRegion(regionTabs[nextIndex]?.value ?? centerRegion);
 
             return nextIndex;
         });
     };
 
-    const handleTabClick = (region: CarrierRegion, index: number) => {
-        setActiveRegion(region);
+    const handleTabClick = (region: CarrierRegion | null, index: number) => {
+        setActiveRegion(region ?? centerRegion);
         if (isMobile) {
             setTabIndex(index);
         }
@@ -121,7 +126,7 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
     const offset = isMobile ? -tabIndex * slideWidth : 0;
 
     return (
-        <section className={styles.section} aria-labelledby="carriers-title">
+        <section id="carriers-section" className={styles.section} aria-labelledby="carriers-title">
             <div className={styles.container}>
                 <div className={styles.header}>
                     <h2 id="carriers-title" className={styles.title}>
@@ -144,13 +149,13 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                             style={{
                                 transform: isMobile ? `translateX(${offset}px)` : 'none',
                                 transition: isMobile ? 'transform 0.3s ease-in-out' : 'none',
-                                width: isMobile ? `${dictionary.tabs.length * 100}%` : '100%',
+                                width: isMobile ? `${regionTabs.length * 100}%` : '100%',
                             }}
                             role="tablist"
                             aria-label={dictionary.subtitle}
                         >
-                            {dictionary.tabs.map((tab, index) => {
-                                const isActive = activeRegion === tab.value;
+                            {regionTabs.map((tab, index) => {
+                                const isActive = activeRegion === (tab.value ?? centerRegion);
                                 return (
                                     <button
                                         key={`${tab.value}-${index}`}
@@ -158,9 +163,9 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                         className={`${styles.tabButton} ${isActive ? styles.tabActive : ''}`.trim()}
                                         role="tab"
                                         aria-selected={isActive}
-                                        id={`tab-${tab.value}`}
+                                        id={`tab-${index}`}
                                         onClick={() => handleTabClick(tab.value, index)}
-                                        style={{flex: `0 0 ${100 / dictionary.tabs.length}%`}}
+                                        style={{flex: `0 0 ${100 / regionTabs.length}%`}}
                                     >
                                         {tab.label}
                                     </button>
@@ -181,7 +186,7 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                             </button>
 
                             <div className={styles.tabDots} role="tablist" aria-label="Выбор региона">
-                                {dictionary.tabs.map((_, index) => (
+                                {regionTabs.map((_, index) => (
                                     <button
                                         key={`dot-${index}`}
                                         type="button"
@@ -191,7 +196,7 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                                         aria-label={`Перейти к табу ${index + 1}`}
                                         onClick={() => {
                                             setTabIndex(index);
-                                            setActiveRegion(dictionary.tabs[index]?.value ?? null);
+                                            setActiveRegion(regionTabs[index]?.value ?? centerRegion);
                                         }}
                                     />
                                 ))}
@@ -213,7 +218,7 @@ export default function CarriersSection({dictionary}: CarriersSectionProps) {
                     id="carriers-content"
                     className={styles.cardsGrid}
                     role="tabpanel"
-                    aria-labelledby={activeRegion ? `tab-${activeRegion}` : undefined}
+                    aria-labelledby={`tab-${tabIndex}`}
                 >
                     {filteredCarriers.length > 0 ? (
                         filteredCarriers.map((carrier, index) => (

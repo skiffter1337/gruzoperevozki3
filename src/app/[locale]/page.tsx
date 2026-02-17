@@ -49,8 +49,12 @@ export default async function HomePage({ params }: Props) {
       <BookingBanner locale={locale} dictionary={dictionary.homeHero} />
       <ServicesSlider locale={locale} dictionary={dictionary.homeHero} />
       <RegionsSlider locale={locale} dictionary={dictionary.homeRegions} />
-      <CarriersSection locale={locale} dictionary={dictionary.homeCarriers} />
-      <AboutSection dictionary={dictionary.homeAbout} />
+      <CarriersSection
+        locale={locale}
+        dictionary={dictionary.homeCarriers}
+        regionsDictionary={dictionary.homeRegions}
+      />
+      <AboutSection dictionary={dictionary.homeAbout} locale={locale} />
       <WhyUsSection locale={locale} dictionary={dictionary.homeWhyUs} />
       <ArticlesSection locale={locale} dictionary={dictionary.homeArticles} />
       <TestimonialsSection locale={locale} dictionary={dictionary.homeTestimonials} />
