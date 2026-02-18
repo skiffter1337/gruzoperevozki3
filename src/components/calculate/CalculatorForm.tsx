@@ -1,6 +1,6 @@
 'use client';
 
-import {FormEvent, useMemo, useRef, useState} from 'react';
+import {FormEvent, useEffect, useMemo, useRef, useState} from 'react';
 import GradientButton from '@/components/gradient-button/GradientButton';
 import {DictionaryType} from '@/lib/dictionaries';
 import styles from '@/app/[locale]/calculate.module.scss';
@@ -19,6 +19,19 @@ export type CalculatorFormPayload = {
   activeRoom: RoomTabKey;
 };
 
+type CalculatorValues = {
+  from: string;
+  to: string;
+  date: string;
+  fromHasElevator: boolean;
+  fromFloor: string;
+  toHasElevator: boolean;
+  toFloor: string;
+  serviceType: string;
+  boxesRange: string;
+  needsAssembly: boolean;
+};
+
 type CalculatorFormProps = {
   dictionary: DictionaryType['calculatePage'];
   heroDictionary: DictionaryType['homeHero'];
@@ -28,6 +41,8 @@ type CalculatorFormProps = {
     date: string;
   };
   onSuccess?: (payload: CalculatorFormPayload) => void;
+  initialDraft?: CalculatorFormDraft;
+  onDraftChange?: (draft: CalculatorFormDraft) => void;
 };
 
 type RoomTabKey = keyof DictionaryType['calculatePage']['roomTabs'];
@@ -39,42 +54,69 @@ type InventoryItem = {
   room: RoomItemGroupKey | 'custom';
 };
 
+export type CalculatorFormDraft = {
+  values: CalculatorValues;
+  activeRoom: RoomTabKey;
+  searchTerm: string;
+  customItemName: string;
+  items: InventoryItem[];
+};
+
 export default function CalculatorForm({
   dictionary,
   heroDictionary,
   initialValues,
   onSuccess,
+  initialDraft,
+  onDraftChange,
 }: CalculatorFormProps) {
-  const [values, setValues] = useState({
-    from: initialValues.from,
-    to: initialValues.to,
-    date: initialValues.date,
-    fromHasElevator: false,
-    fromFloor: '',
-    toHasElevator: false,
-    toFloor: '',
-    serviceType: dictionary.serviceOptions[0] ?? '',
-    boxesRange: '',
-    needsAssembly: false,
-  });
-
-  const [activeRoom, setActiveRoom] = useState<RoomTabKey>('all');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [customItemName, setCustomItemName] = useState('');
-  const [items, setItems] = useState<InventoryItem[]>(
+  const buildDefaultItems = () =>
     (Object.keys(dictionary.roomItems) as RoomItemGroupKey[]).flatMap((room) =>
       dictionary.roomItems[room].map((name) => ({
         name,
         count: 0,
         room,
       }))
-    )
-  );
+    );
+
+  const [values, setValues] = useState<CalculatorValues>(() => {
+    if (initialDraft) {
+      return initialDraft.values;
+    }
+
+    return {
+      from: initialValues.from,
+      to: initialValues.to,
+      date: initialValues.date,
+      fromHasElevator: false,
+      fromFloor: '',
+      toHasElevator: false,
+      toFloor: '',
+      serviceType: dictionary.serviceOptions[0] ?? '',
+      boxesRange: '',
+      needsAssembly: false,
+    };
+  });
+
+  const [activeRoom, setActiveRoom] = useState<RoomTabKey>(initialDraft?.activeRoom ?? 'all');
+  const [searchTerm, setSearchTerm] = useState(initialDraft?.searchTerm ?? '');
+  const [customItemName, setCustomItemName] = useState(initialDraft?.customItemName ?? '');
+  const [items, setItems] = useState<InventoryItem[]>(() => initialDraft?.items ?? buildDefaultItems());
   const [errors, setErrors] = useState<{ from?: string; to?: string; date?: string }>({});
   const dateInputRef = useRef<HTMLInputElement>(null);
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
   const suggestionsId = 'israel-location-suggestions';
+
+  useEffect(() => {
+    onDraftChange?.({
+      values,
+      activeRoom,
+      searchTerm,
+      customItemName,
+      items,
+    });
+  }, [onDraftChange, values, activeRoom, searchTerm, customItemName, items]);
 
   const updateValue = <Key extends keyof typeof values>(key: Key, value: (typeof values)[Key]) => {
     setValues((prev) => ({ ...prev, [key]: value }));

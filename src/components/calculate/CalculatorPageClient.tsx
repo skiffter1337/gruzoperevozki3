@@ -1,8 +1,8 @@
 'use client';
 
-import {FormEvent, useState} from 'react';
+import {FormEvent, useEffect, useState} from 'react';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
-import CalculatorForm, {CalculatorFormPayload} from '@/components/calculate/CalculatorForm';
+import CalculatorForm, {CalculatorFormDraft, CalculatorFormPayload} from '@/components/calculate/CalculatorForm';
 import GradientButton from '@/components/gradient-button/GradientButton';
 import {DictionaryType} from '@/lib/dictionaries';
 import {buildLocalizedPath} from '@/lib/localized-paths';
@@ -44,6 +44,7 @@ export default function CalculatorPageClient({
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [calculatorPayload, setCalculatorPayload] = useState<CalculatorFormPayload | null>(null);
+    const [calculatorDraft, setCalculatorDraft] = useState<CalculatorFormDraft | undefined>(undefined);
     const [contactValues, setContactValues] = useState<ContactValues>({
         fullName: '',
         phone: '',
@@ -53,6 +54,14 @@ export default function CalculatorPageClient({
     const [contactErrors, setContactErrors] = useState<ContactErrors>({});
     const [submitError, setSubmitError] = useState('');
     const backButtonLabel = locale === 'he' ? 'חזרה' : locale === 'en' ? 'Back' : 'Назад';
+
+    useEffect(() => {
+        if (showContactForm) {
+            window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        }
+    }, [showContactForm]);
 
     const updateContactValue = <Key extends keyof ContactValues>(
         key: Key,
@@ -148,13 +157,13 @@ export default function CalculatorPageClient({
                     current: true,
                 },
             ]
-        : [
-            {
-                label: homeLabel,
-                href: buildLocalizedPath(locale as "ru" | "he" | "en", 'home'),
-            },
-            {label: dictionary.breadcrumbCurrent, current: true},
-        ];
+            : [
+                {
+                    label: homeLabel,
+                    href: buildLocalizedPath(locale as "ru" | "he" | "en", 'home'),
+                },
+                {label: dictionary.breadcrumbCurrent, current: true},
+            ];
 
     return (
         <>
@@ -169,16 +178,22 @@ export default function CalculatorPageClient({
                 )}
             </header>
 
-            {!showContactForm && (<CalculatorForm
+            <div
+                className={`${styles.calculatorSection} ${showContactForm || isSubmitted ? styles.hiddenSection : ''}`}
+                aria-hidden={showContactForm || isSubmitted}
+            >
+                <CalculatorForm
                     dictionary={dictionary}
                     heroDictionary={heroDictionary}
                     initialValues={initialValues}
+                    initialDraft={calculatorDraft}
+                    onDraftChange={setCalculatorDraft}
                     onSuccess={(payload) => {
                         setCalculatorPayload(payload);
                         setShowContactForm(true);
                     }}
                 />
-            )}
+            </div>
 
             {showContactForm && !isSubmitted && (
                 <section className={styles.contactsCard} aria-live="polite">
@@ -303,3 +318,4 @@ export default function CalculatorPageClient({
         </>
     );
 }
+

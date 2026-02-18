@@ -70,6 +70,14 @@
   gap: 20px;
 }
 
+.calculatorSection {
+  display: block;
+}
+
+.hiddenSection {
+  display: none;
+}
+
 .form {
   display: flex;
   gap: 30px;
@@ -622,7 +630,8 @@
 .contactForm {
   display: grid;
   gap: 100px;
-  max-width: 670px;
+
+
 
   @media (max-width: vars.$tablet-breakpoint) {
     gap: 16px;
@@ -664,15 +673,15 @@
 
 .contactButtons {
   display: flex;
+  flex-wrap: nowrap;
   gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+  max-width: 720px;
+}
 
-  @media (max-width: vars.$tablet-breakpoint) {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-  }
+.contactButtons > * {
+  flex: 1 1 0;
 }
 
 .consentRow {
