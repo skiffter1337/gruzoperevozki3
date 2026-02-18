@@ -52,6 +52,7 @@ export default function CalculatorPageClient({
     });
     const [contactErrors, setContactErrors] = useState<ContactErrors>({});
     const [submitError, setSubmitError] = useState('');
+    const backButtonLabel = locale === 'he' ? 'חזרה' : locale === 'en' ? 'Back' : 'Назад';
 
     const updateContactValue = <Key extends keyof ContactValues>(
         key: Key,
@@ -100,11 +101,17 @@ export default function CalculatorPageClient({
             }
 
             setIsSubmitted(true);
-        } catch (error) {
+        } catch {
             setSubmitError(dictionary.submitError);
         } finally {
             setIsSubmitting(false);
         }
+    };
+
+    const handleBackToCalculator = () => {
+        setShowContactForm(false);
+        setContactErrors({});
+        setSubmitError('');
     };
 
     const breadcrumbs = isSubmitted
@@ -134,7 +141,7 @@ export default function CalculatorPageClient({
                 },
                 {
                     label: dictionary.breadcrumbCurrent,
-                    href: buildLocalizedPath(locale as "ru" | "he" | "en", 'calculate'),
+                    onClick: handleBackToCalculator,
                 },
                 {
                     label: dictionary.breadcrumbSubmit,
@@ -244,14 +251,24 @@ export default function CalculatorPageClient({
                         </div>
 
                         <div className={styles.contactActions}>
-                            <GradientButton
-                                type="submit"
-                                ariaLabel={dictionary.sendCta}
-                                size="small"
-                                disabled={!contactValues.consent || isSubmitting}
-                            >
-                                {isSubmitting ? dictionary.sendingCta : dictionary.sendCta}
-                            </GradientButton>
+                            <div className={styles.contactButtons}>
+                                <GradientButton
+                                    type="button"
+                                    ariaLabel={backButtonLabel}
+                                    size="small"
+                                    onClick={handleBackToCalculator}
+                                >
+                                    {backButtonLabel}
+                                </GradientButton>
+                                <GradientButton
+                                    type="submit"
+                                    ariaLabel={dictionary.sendCta}
+                                    size="small"
+                                    disabled={!contactValues.consent || isSubmitting}
+                                >
+                                    {isSubmitting ? dictionary.sendingCta : dictionary.sendCta}
+                                </GradientButton>
+                            </div>
 
                             <label className={styles.consentRow}>
                                 <input

@@ -276,4 +276,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: vars.$tablet-breakpoint) {
+    font-size: 38px;
+  }
 }

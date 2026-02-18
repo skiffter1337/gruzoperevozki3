@@ -7,6 +7,7 @@ export type BreadcrumbItem = {
   label: string;
   href?: string;
   current?: boolean;
+  onClick?: () => void;
 };
 
 type BreadcrumbsProps = {
@@ -19,7 +20,15 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
       <ol className={styles.list}>
         {items.map((item, index) => (
           <li key={`${item.label}-${index}`} className={styles.item}>
-            {item.href && !item.current ? (
+            {item.onClick ? (
+              <button
+                type="button"
+                className={`${styles.link} ${styles.buttonLink} ${item.current ? styles.current : ''}`}
+                onClick={item.onClick}
+              >
+                {item.label}
+              </button>
+            ) : item.href && !item.current ? (
               <Link href={item.href} className={styles.link}>
                 {item.label}
               </Link>

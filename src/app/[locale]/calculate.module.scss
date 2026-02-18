@@ -638,6 +638,19 @@
   }
 }
 
+.contactButtons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .consentRow {
   display: inline-flex;
   flex-direction: row-reverse;

@@ -1,4 +1,4 @@
-import {Locale} from '../../i18n-config';
+﻿import {Locale} from '../../i18n-config';
 import {RouteKey} from './localized-paths';
 
 export interface Feature {
@@ -523,6 +523,9 @@ export type DictionaryType = {
         floorOptions: string[];
         serviceTypeLabel: string;
         serviceOptions: string[];
+        boxesLabel: string;
+        boxesPlaceholder: string;
+        boxesOptions: string[];
         roomTabsLabel: string;
         roomTabs: {
             livingRoom: string;
@@ -8918,6 +8921,22 @@ const defaultDictionary: DictionaryType = {
             'Перевозка дома',
             'Перевозка офиса',
         ],
+        boxesLabel: 'Количество коробок',
+        boxesPlaceholder: 'Выберите количество коробок',
+        boxesOptions: [
+            '1–10 — 1-комнатная квартира',
+            '11–20 — 1-комнатная квартира',
+            '21–30 — квартира 1–2 комнаты',
+            '31–40 — квартира 1–2 комнаты',
+            '41–50 — квартира 2–3 комнаты',
+            '51–60 — 3-комнатная квартира',
+            '61–70 — квартира 3–4 комнаты',
+            '71–80 — квартира 3–4 комнаты',
+            '81–100 — 4-комнатная квартира',
+            '101–120 — квартира 4–5 комнат',
+            '120–140 — 5-комнатная квартира',
+            '140–160 — 6-комнатная квартира',
+        ],
         roomTabsLabel: 'Комнаты',
         roomTabs: {
             all: "Все",
@@ -10277,3 +10296,4 @@ export async function getAllDictionaries(): Promise<Record<Locale, DictionaryTyp
 
     return dictionaries;
 }
+

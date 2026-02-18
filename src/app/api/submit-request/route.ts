@@ -9,6 +9,7 @@ type SubmissionPayload = {
         toHasElevator: boolean;
         toFloor: string;
         serviceType: string;
+        boxesRange: string;
         needsAssembly: boolean;
         items: {name: string; count: number}[];
         activeRoom: string;
@@ -46,6 +47,7 @@ export async function POST(request: Request) {
         `Лифт (куда): ${calculator.toHasElevator ? 'Да' : 'Нет'}`,
         `Этаж (куда): ${calculator.toFloor || 'Не указано'}`,
         `Тип услуги: ${calculator.serviceType}`,
+        `Коробки: ${calculator.boxesRange || 'Не указано'}`,
         `Нужна сборка/разборка: ${calculator.needsAssembly ? 'Да' : 'Нет'}`,
         `Комната: ${calculator.activeRoom}`,
         '',

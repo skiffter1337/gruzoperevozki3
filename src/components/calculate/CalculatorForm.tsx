@@ -13,6 +13,7 @@ export type CalculatorFormPayload = {
   toHasElevator: boolean;
   toFloor: string;
   serviceType: string;
+  boxesRange: string;
   needsAssembly: boolean;
   items: InventoryItem[];
   activeRoom: RoomTabKey;
@@ -53,6 +54,7 @@ export default function CalculatorForm({
     toHasElevator: false,
     toFloor: '',
     serviceType: dictionary.serviceOptions[0] ?? '',
+    boxesRange: '',
     needsAssembly: false,
   });
 
@@ -146,6 +148,7 @@ export default function CalculatorForm({
       toHasElevator: values.toHasElevator,
       toFloor: values.toFloor,
       serviceType: values.serviceType,
+      boxesRange: values.boxesRange,
       needsAssembly: values.needsAssembly,
       items: items.filter((item) => item.count > 0),
       activeRoom,
@@ -324,6 +327,27 @@ export default function CalculatorForm({
           onChange={(event) => updateValue('serviceType', event.target.value)}
         >
           {dictionary.serviceOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className={styles.serviceRow}>
+        <label htmlFor="boxesRange" className={styles.label}>
+          {dictionary.boxesLabel}
+        </label>
+        <select
+          id="boxesRange"
+          name="boxesRange"
+          className={styles.select}
+          value={values.boxesRange}
+          onChange={(event) => updateValue('boxesRange', event.target.value)}
+        >
+          <option value="" disabled>
+            {dictionary.boxesPlaceholder}
+          </option>
+          {dictionary.boxesOptions.map((option) => (
             <option key={option} value={option}>
               {option}
             </option>
