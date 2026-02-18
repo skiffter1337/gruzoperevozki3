@@ -553,6 +553,72 @@
           "contacts": "контакты",
           "phoneNumber": "050-3073160"
         }
+      },
+      {
+        "name": "איליה הובלות",
+        "region": "south",
+        "image": "/images/carriers/carrier.png",
+        "url": "tel:0509449915",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "0509449915"
+        }
+      },
+      {
+        "name": "איליה הובלות",
+        "region": "north",
+        "image": "/images/carriers/carrier.png",
+        "url": "tel:0509449915",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "0509449915"
+        }
+      },
+      {
+        "name": "איליה הובלות",
+        "region": "jerusalem",
+        "image": "/images/carriers/carrier.png",
+        "url": "tel:0509449915",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "0509449915"
+        }
+      },
+      {
+        "name": "איליה הובלות",
+        "region": "lowland",
+        "image": "/images/carriers/carrier.png",
+        "url": "tel:0509449915",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "0509449915"
+        }
+      },
+      {
+        "name": "איליה הובלות",
+        "region": "sharon",
+        "image": "/images/carriers/carrier.png",
+        "url": "tel:0509449915",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "0509449915"
+        }
+      },
+      {
+        "name": "איליה הובלות",
+        "region": "coordinates",
+        "image": "/images/carriers/carrier.png",
+        "url": "tel:0509449915",
+        "contactInfo": {
+          "info": "Информация",
+          "contacts": "контакты",
+          "phoneNumber": "0509449915"
+        }
       }
     ]
   },

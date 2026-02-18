@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import {TouchEvent, useEffect, useMemo, useState} from 'react';
+import {TouchEvent, useEffect, useMemo, useRef, useState} from 'react';
 import Link from 'next/link';
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
 import GradientButton from '@/components/gradient-button/GradientButton';
@@ -20,10 +20,15 @@ export default function TestimonialsSection({locale, dictionary}: TestimonialsSe
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [slidesPerView, setSlidesPerView] = useState(1);
     const [showArrows, setShowArrows] = useState(false);
+    const [viewportWidth, setViewportWidth] = useState(370);
+    const sliderViewportRef = useRef<HTMLDivElement>(null);
 
     const totalSlides = dictionary.sliderItems.length;
     const gap = 16;
-    const slideWidth = 370;
+    const slideWidth = useMemo(
+        () => Math.max((viewportWidth - gap * (slidesPerView - 1)) / slidesPerView, 1),
+        [viewportWidth, slidesPerView]
+    );
     const slideStep = slideWidth + gap;
 
     const totalPages = Math.max(totalSlides - slidesPerView + 1, 1);
@@ -72,6 +77,18 @@ export default function TestimonialsSection({locale, dictionary}: TestimonialsSe
 
         return () => window.removeEventListener('resize', handleResize);
     }, [slidesPerView, showArrows]);
+
+    useEffect(() => {
+        const updateViewport = () => {
+            const width = sliderViewportRef.current?.clientWidth;
+            if (!width) return;
+            setViewportWidth(width);
+        };
+
+        updateViewport();
+        window.addEventListener('resize', updateViewport);
+        return () => window.removeEventListener('resize', updateViewport);
+    }, []);
 
     const goToSlide = (nextIndex: number) => {
         if (!totalSlides) return;
@@ -156,6 +173,7 @@ export default function TestimonialsSection({locale, dictionary}: TestimonialsSe
 
                         <div
                             className={styles.sliderViewport}
+                            ref={sliderViewportRef}
                             onTouchStart={handleTouchStart}
                             onTouchEnd={handleTouchEnd}
                         >
@@ -171,6 +189,7 @@ export default function TestimonialsSection({locale, dictionary}: TestimonialsSe
                                         key={`${testimonial.name}-${index}`}
                                         href={testimonial.carrierUrl}
                                         className={styles.slide}
+                                        style={{width: `${slideWidth}px`}}
                                         aria-label={`${dictionary.cardAriaLabelPrefix} ${testimonial.company}`}
                                         target="_blank"
                                         rel="noopener noreferrer nofollow"

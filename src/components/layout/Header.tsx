@@ -54,6 +54,8 @@ export default function Header({locale, dictionary}: HeaderProps) {
     const [activePopup, setActivePopup] = useState<RouteKey | null>(null);
     const [activeAccordion, setActiveAccordion] = useState<RouteKey | null>(null);
     const [isLanguagePopupOpen, setIsLanguagePopupOpen] = useState(false);
+    const canUseHover = typeof window !== 'undefined'
+        && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     const locales: Locale[] = ['ru', 'en', 'he'];
     const localeIcons: Record<Locale, ReactNode> = {
@@ -169,7 +171,6 @@ export default function Header({locale, dictionary}: HeaderProps) {
                         <Image src="/logo.png" alt="Company logo" width={160} height={60} priority />
                     </Link>
                 </div>
-                <p className={styles.mobileSlogan}>{dictionary.slogan}</p>
                 <nav className={styles.nav}>
                     <ul className={styles.navList}>
                         {navOrder.map((route, index) => (
@@ -214,12 +215,16 @@ export default function Header({locale, dictionary}: HeaderProps) {
                     </ul>
                     <div
                         className={styles.languageSwitcher}
-                        onMouseEnter={() => setIsLanguagePopupOpen(true)}
-                        onMouseLeave={() => setIsLanguagePopupOpen(false)}
+                        onMouseEnter={() => canUseHover && setIsLanguagePopupOpen(true)}
+                        onMouseLeave={() => canUseHover && setIsLanguagePopupOpen(false)}
                     >
                         <button
+                            type="button"
                             className={`${styles.langButton} ${styles.active}`}
-                            onClick={() => setIsLanguagePopupOpen((current) => !current)}
+                            onClick={(event) => {
+                                event.stopPropagation();
+                                setIsLanguagePopupOpen((current) => !current);
+                            }}
                             aria-pressed
                             aria-expanded={isLanguagePopupOpen}
                         >
@@ -233,6 +238,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                                         .map((availableLocale) => (
                                             <li key={availableLocale}>
                                                 <button
+                                                    type="button"
                                                     className={styles.languageOption}
                                                     onClick={() => handleLanguageChange(availableLocale)}
                                                 >
@@ -259,12 +265,14 @@ export default function Header({locale, dictionary}: HeaderProps) {
                     </button>
                     <div
                         className={`${styles.languageSwitcher} ${styles.mobileHeaderLanguage} ${isMenuOpen ? styles.menuOpen : ''}`}
-                        onMouseEnter={() => setIsLanguagePopupOpen(true)}
-                        onMouseLeave={() => setIsLanguagePopupOpen(false)}
                     >
                         <button
+                            type="button"
                             className={`${styles.langButton} ${styles.active}`}
-                            onClick={() => setIsLanguagePopupOpen((current) => !current)}
+                            onClick={(event) => {
+                                event.stopPropagation();
+                                setIsLanguagePopupOpen((current) => !current);
+                            }}
                             aria-pressed
                             aria-expanded={isLanguagePopupOpen}
                         >
@@ -281,6 +289,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
                                         .map((availableLocale) => (
                                             <li key={availableLocale} className={styles.langOption}>
                                                 <button
+                                                    type="button"
                                                     className={styles.languageOption}
                                                     onClick={() => handleLanguageChange(availableLocale)}
                                                 >

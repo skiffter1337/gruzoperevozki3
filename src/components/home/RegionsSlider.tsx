@@ -21,11 +21,16 @@ export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) 
     const [showArrows, setShowArrows] = useState(false);
     const [isDesktop, setIsDesktop] = useState(false);
     const [activeRegionIndex, setActiveRegionIndex] = useState(0);
+    const [viewportWidth, setViewportWidth] = useState(370);
     const sliderTrackRef = useRef<HTMLDivElement>(null);
+    const sliderViewportRef = useRef<HTMLDivElement>(null);
 
     const totalSlides = dictionary.sliderItems.length;
     const gap = 16;
-    const slideWidth = 370;
+    const slideWidth = useMemo(
+        () => Math.max((viewportWidth - gap * (slidesPerView - 1)) / slidesPerView, 1),
+        [viewportWidth, slidesPerView]
+    );
     const slideStep = slideWidth + gap;
 
     const sliderBasePath = useMemo(() => buildLocalizedPath(locale, 'home'), [locale]);
@@ -73,6 +78,18 @@ export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) 
 
         return () => window.removeEventListener('resize', handleResize);
     }, [slidesPerView, showArrows]);
+
+    useEffect(() => {
+        const updateViewport = () => {
+            const width = sliderViewportRef.current?.clientWidth;
+            if (!width) return;
+            setViewportWidth(width);
+        };
+
+        updateViewport();
+        window.addEventListener('resize', updateViewport);
+        return () => window.removeEventListener('resize', updateViewport);
+    }, []);
 
     const goToSlide = (nextIndex: number) => {
         if (!totalSlides) return;
@@ -211,6 +228,7 @@ export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) 
 
                                 <div
                                     className={styles.sliderViewport}
+                                    ref={sliderViewportRef}
                                     onTouchStart={handleTouchStart}
                                     onTouchEnd={handleTouchEnd}
                                 >
@@ -227,6 +245,7 @@ export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) 
                                                 key={`${item.title}-${index}`}
                                                 href={`${sliderBasePath}/${item.slug}`}
                                                 className={styles.slide}
+                                                style={{width: `${slideWidth}px`}}
                                                 aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
                                                 prefetch={false}
                                             >

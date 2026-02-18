@@ -17,7 +17,16 @@ type RegionCarriersSectionProps = {
 
 export default function RegionCarriersSection({title, emptyLabel, dictionary, region}: RegionCarriersSectionProps) {
     const filteredCarriers = useMemo(() => {
-        if (!region) return [];
+        if (!region || region === 'coordinates') {
+            const uniqueByNameAndPhone = new Map<string, DictionaryType['homeCarriers']['carriers'][number]>();
+            for (const carrier of dictionary.carriers) {
+                const key = `${carrier.name}__${carrier.contactInfo.phoneNumber}`;
+                if (!uniqueByNameAndPhone.has(key)) {
+                    uniqueByNameAndPhone.set(key, carrier);
+                }
+            }
+            return Array.from(uniqueByNameAndPhone.values());
+        }
         return dictionary.carriers.filter((carrier) => carrier.region === region);
     }, [dictionary.carriers, region]);
 
@@ -54,11 +63,7 @@ export default function RegionCarriersSection({title, emptyLabel, dictionary, re
                                 </a>
                                 <div className={styles.carrierInfo}>
                                     <div className={styles.carrierName}>{carrier.name}</div>
-                                    <ul className={styles.carrierContacts}>
-                                        <li>{carrier.contactInfo.info}</li>
-                                        <li>{carrier.contactInfo.contacts}</li>
-                                        <li>{carrier.contactInfo.phoneNumber}</li>
-                                    </ul>
+                                    <div className={styles.carrierName}>{carrier.contactInfo.phoneNumber}</div>
                                 </div>
                             </div>
                         ))

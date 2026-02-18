@@ -23,8 +23,9 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [slidesPerView, setSlidesPerView] = useState(1);
     const [showArrows, setShowArrows] = useState(false);
-    const [slideWidth, setSlideWidth] = useState(370);
+    const [viewportWidth, setViewportWidth] = useState(370);
     const sliderTrackRef = useRef<HTMLDivElement>(null);
+    const sliderViewportRef = useRef<HTMLDivElement>(null);
 
     const sliderBasePath = useMemo(() => buildLocalizedPath(locale, 'services'), [locale]);
     const totalSlides = dictionary.sliderItems.length;
@@ -48,12 +49,9 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
             const width = window.innerWidth;
             let newSlidesPerView = 1;
             let newShowArrows = false;
-            let newSlideWidth = 370;
-
             if (width >= 1200) {
                 newSlidesPerView = 4;
                 newShowArrows = true;
-                newSlideWidth = 280;
             } else if (width >= 840) {
                 newSlidesPerView = 2;
                 newShowArrows = false;
@@ -70,10 +68,6 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
             if (newShowArrows !== showArrows) {
                 setShowArrows(newShowArrows);
             }
-
-            if (newSlideWidth !== slideWidth) {
-                setSlideWidth(newSlideWidth);
-            }
         };
 
         updateLayout();
@@ -85,7 +79,24 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
         window.addEventListener('resize', handleResize);
 
         return () => window.removeEventListener('resize', handleResize);
-    }, [slidesPerView, showArrows, slideWidth]);
+    }, [slidesPerView, showArrows]);
+
+    useEffect(() => {
+        const updateViewport = () => {
+            const width = sliderViewportRef.current?.clientWidth;
+            if (!width) return;
+            setViewportWidth(width);
+        };
+
+        updateViewport();
+        window.addEventListener('resize', updateViewport);
+        return () => window.removeEventListener('resize', updateViewport);
+    }, []);
+
+    const slideWidth = useMemo(
+        () => Math.max((viewportWidth - gap * (slidesPerView - 1)) / slidesPerView, 1),
+        [viewportWidth, slidesPerView]
+    );
 
     const slideStep = slideWidth + gap;
 
@@ -173,6 +184,7 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
 
                         <div
                             className={styles.sliderViewport}
+                            ref={sliderViewportRef}
                             onTouchStart={handleTouchStart}
                             onTouchEnd={handleTouchEnd}
                         >
@@ -192,6 +204,7 @@ export default function ServicesSlider({locale, dictionary}: ServicesSliderProps
                                             key={item.slug}
                                             href={`${sliderBasePath}/${item.slug}`}
                                             className={styles.slide}
+                                            style={{width: `${slideWidth}px`}}
                                             aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}
                                             prefetch={false}
                                         >
