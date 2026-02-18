@@ -627,9 +627,9 @@
     "ctaLabel": "Leave a review",
     "sliderItems": [
       {
-        "name": "??????? ??????",
+        "name": "Алексей Иванов",
         "company": "LogiMove",
-        "review": "I booked this moving service for my apartment. Honestly, I was worried about my old furniture, but the team packed everything carefully and even helped carry the sofa upstairs. One wardrobe got a small scratch, but it?s no big deal. Overall satisfied, highly recommend.",
+        "review": "I booked this moving service for my apartment. Honestly, I was worried about my old furniture, but the team packed everything carefully and even helped carry the sofa upstairs. One wardrobe got a small scratch, but it’s no big deal. Overall satisfied, highly recommend.",
         "avatar": "/images/testimonials/person1.png",
         "carrierUrl": "https://example.com/logimove",
         "rating": 5
@@ -637,15 +637,15 @@
       {
         "name": "Michael Thompson",
         "company": "Urban Moving",
-        "review": "I booked a move with a crane. The crane was 30 minutes late, so the movers had to wait, but everything was unloaded without any issues. Overall, I?m satisfied ? the team is professional.",
+        "review": "I booked a move with a crane. The crane was 30 minutes late, so the movers had to wait, but everything was unloaded without any issues. Overall, I’m satisfied — the team is professional.",
         "avatar": "/images/testimonials/person2.png",
         "carrierUrl": "https://urbanmoving.net/",
         "rating": 5
       },
       {
-        "name": "???? ???",
+        "name": "יואב כהן",
         "company": "Urban Moving",
-        "review": "The team works really fast ? they moved my entire 3-room apartment in just 4 hours. Very satisfied, highly recommend!",
+        "review": "The team works really fast — they moved my entire 3-room apartment in just 4 hours. Very satisfied, highly recommend!",
         "avatar": "/images/testimonials/person3.png",
         "carrierUrl": "https://urbanmoving.net/",
         "rating": 5
