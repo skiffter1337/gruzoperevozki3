@@ -24,13 +24,11 @@ type ContactValues = {
     fullName: string;
     phone: string;
     comment: string;
-    consent: boolean;
 };
 
 type ContactErrors = {
     fullName?: string;
     phone?: string;
-    consent?: string;
 };
 
 export default function CalculatorPageClient({
@@ -49,7 +47,6 @@ export default function CalculatorPageClient({
         fullName: '',
         phone: '',
         comment: '',
-        consent: false,
     });
     const [contactErrors, setContactErrors] = useState<ContactErrors>({});
     const [submitError, setSubmitError] = useState('');
@@ -80,10 +77,6 @@ export default function CalculatorPageClient({
         if (!contactValues.phone.trim()) {
             nextErrors.phone = dictionary.validation.requiredPhone;
         }
-        if (!contactValues.consent) {
-            nextErrors.consent = dictionary.validation.requiredConsent;
-        }
-
         setContactErrors(nextErrors);
         if (Object.keys(nextErrors).length > 0) {
             return;
@@ -279,26 +272,11 @@ export default function CalculatorPageClient({
                                     type="submit"
                                     ariaLabel={dictionary.sendCta}
                                     size="small"
-                                    disabled={!contactValues.consent || isSubmitting}
+                                    disabled={isSubmitting}
                                 >
                                     {isSubmitting ? dictionary.sendingCta : dictionary.sendCta}
                                 </GradientButton>
                             </div>
-
-                            <label className={styles.consentRow}>
-                                <input
-                                    type="checkbox"
-                                    checked={contactValues.consent}
-                                    onChange={(event) => updateContactValue('consent', event.target.checked)}
-                                />
-                                <span className={styles.customCheckbox}/>
-                                <span>{dictionary.consentLabel}</span>
-                            </label>
-                            {contactErrors.consent && (
-                                <span className={styles.errorText} role="alert">
-                  {contactErrors.consent}
-                </span>
-                            )}
                             {submitError && (
                                 <span className={styles.errorText} role="alert">
                   {submitError}

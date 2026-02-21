@@ -18,7 +18,6 @@ type SubmissionPayload = {
         fullName: string;
         phone: string;
         comment: string;
-        consent: boolean;
     };
 };
 
@@ -58,7 +57,6 @@ export async function POST(request: Request) {
         `Имя: ${contact.fullName}`,
         `Телефон: ${contact.phone}`,
         `Комментарий: ${contact.comment || 'Нет'}`,
-        `Согласие: ${contact.consent ? 'Да' : 'Нет'}`,
     ].join('\n');
 
     const fromEmail = process.env.RESEND_FROM_EMAIL ?? 'onboarding@resend.dev';

@@ -2270,18 +2270,19 @@
     "boxesLabel": "Number of boxes",
     "boxesPlaceholder": "Select number of boxes",
     "boxesOptions": [
-      "1–10 — 1-room apartment",
-      "11–20 — 1-room apartment",
-      "21–30 — 1–2 room apartment",
-      "31–40 — 1–2 room apartment",
-      "41–50 — 2–3 room apartment",
-      "51–60 — 3-room apartment",
-      "61–70 — 3–4 room apartment",
-      "71–80 — 3–4 room apartment",
-      "81–100 — 4-room apartment",
-      "101–120 — 4–5 room apartment",
-      "120–140 — 5-room apartment",
-      "140–160 — 6-room apartment"
+      "0 - No boxes",
+      "1-10 1-room apartment",
+      "11-20 1-room apartment",
+      "21-30 1-2 room apartment",
+      "31-40 2-room apartment",
+      "41-50 2-3 room apartment",
+      "51-60 3-room apartment",
+      "61-70 3-4 room apartment",
+      "71-80 4-room apartment",
+      "81-100 4-5 room apartment",
+      "101-120 5-room apartment",
+      "121-140 5-6 room apartment",
+      "141-160 6-room apartment"
     ],
     "roomTabsLabel": "Rooms",
     "roomTabs": {
@@ -2293,7 +2294,7 @@
       "bathroom": "Bathroom & toilet",
       "balcony": "Balcony / storage / machsan",
       "sports": "Fitness & recreation",
-      "other": "Miscellaneous"
+      "other": "Other"
     },
     "roomItems": {
       "livingRoom": [
@@ -2448,8 +2449,11 @@
       "requiredDate": "Select a moving date",
       "requiredName": "Enter your full name",
       "requiredPhone": "Enter your phone number",
-      "requiredConsent": "Please confirm the rules and terms"
-    }
+      "requiredConsent": "Please confirm the rules and terms",
+      "requiredServiceType": "Select a service type",
+      "requiredBoxesRange": "Select number of boxes"
+    },
+    "servicePlaceholder": "Select service type"
   },
   "apartmentMovePage": {
     "slug": "apartments",

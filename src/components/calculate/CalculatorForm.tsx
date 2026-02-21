@@ -92,7 +92,7 @@ export default function CalculatorForm({
       fromFloor: '',
       toHasElevator: false,
       toFloor: '',
-      serviceType: dictionary.serviceOptions[0] ?? '',
+      serviceType: '',
       boxesRange: '',
       needsAssembly: false,
     };
@@ -102,7 +102,13 @@ export default function CalculatorForm({
   const [searchTerm, setSearchTerm] = useState(initialDraft?.searchTerm ?? '');
   const [customItemName, setCustomItemName] = useState(initialDraft?.customItemName ?? '');
   const [items, setItems] = useState<InventoryItem[]>(() => initialDraft?.items ?? buildDefaultItems());
-  const [errors, setErrors] = useState<{ from?: string; to?: string; date?: string }>({});
+  const [errors, setErrors] = useState<{
+    from?: string;
+    to?: string;
+    date?: string;
+    serviceType?: string;
+    boxesRange?: string;
+  }>({});
   const dateInputRef = useRef<HTMLInputElement>(null);
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
@@ -166,7 +172,13 @@ export default function CalculatorForm({
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const nextErrors: { from?: string; to?: string; date?: string } = {};
+    const nextErrors: {
+      from?: string;
+      to?: string;
+      date?: string;
+      serviceType?: string;
+      boxesRange?: string;
+    } = {};
     if (!values.from.trim()) {
       nextErrors.from = dictionary.validation.requiredFrom;
     }
@@ -175,6 +187,12 @@ export default function CalculatorForm({
     }
     if (!values.date) {
       nextErrors.date = dictionary.validation.requiredDate;
+    }
+    if (!values.serviceType) {
+      nextErrors.serviceType = dictionary.validation.requiredServiceType;
+    }
+    if (!values.boxesRange) {
+      nextErrors.boxesRange = dictionary.validation.requiredBoxesRange;
     }
 
     setErrors(nextErrors);
@@ -364,16 +382,27 @@ export default function CalculatorForm({
         <select
           id="service"
           name="service"
-          className={styles.select}
+          className={`${styles.select} ${errors.serviceType ? styles.inputError : ''}`}
           value={values.serviceType}
           onChange={(event) => updateValue('serviceType', event.target.value)}
+          required
+          aria-invalid={Boolean(errors.serviceType)}
+          aria-describedby={errors.serviceType ? 'service-error' : undefined}
         >
+          <option value="" disabled>
+            {dictionary.servicePlaceholder}
+          </option>
           {dictionary.serviceOptions.map((option) => (
             <option key={option} value={option}>
               {option}
             </option>
           ))}
         </select>
+        {errors.serviceType && (
+          <span id="service-error" className={styles.errorText} role="alert">
+            {errors.serviceType}
+          </span>
+        )}
       </div>
       <div className={styles.serviceRow}>
         <label htmlFor="boxesRange" className={styles.label}>
@@ -382,9 +411,12 @@ export default function CalculatorForm({
         <select
           id="boxesRange"
           name="boxesRange"
-          className={styles.select}
+          className={`${styles.select} ${errors.boxesRange ? styles.inputError : ''}`}
           value={values.boxesRange}
           onChange={(event) => updateValue('boxesRange', event.target.value)}
+          required
+          aria-invalid={Boolean(errors.boxesRange)}
+          aria-describedby={errors.boxesRange ? 'boxes-error' : undefined}
         >
           <option value="" disabled>
             {dictionary.boxesPlaceholder}
@@ -395,6 +427,11 @@ export default function CalculatorForm({
             </option>
           ))}
         </select>
+        {errors.boxesRange && (
+          <span id="boxes-error" className={styles.errorText} role="alert">
+            {errors.boxesRange}
+          </span>
+        )}
       </div>
 
       <div className={styles.innerCard}>

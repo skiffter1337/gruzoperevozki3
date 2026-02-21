@@ -6,7 +6,6 @@ type ReviewSubmissionPayload = {
     email: string;
     carrier: string;
     comment: string;
-    consent: boolean;
     photoName: string | null;
 };
 
@@ -22,7 +21,7 @@ export async function POST(request: Request) {
     }
 
     const payload = (await request.json()) as ReviewSubmissionPayload;
-    const {rating, name, email, carrier, comment, consent, photoName} = payload;
+    const {rating, name, email, carrier, comment, photoName} = payload;
 
     const emailText = [
         'Новый отзыв с сайта',
@@ -33,7 +32,6 @@ export async function POST(request: Request) {
         `Перевозчик: ${carrier || 'Не указан'}`,
         `Комментарий: ${comment || 'Нет'}`,
         `Фото: ${photoName || 'Не прикреплено'}`,
-        `Согласие: ${consent ? 'Да' : 'Нет'}`,
     ].join('\n');
 
     const fromEmail = process.env.RESEND_FROM_EMAIL ?? 'onboarding@resend.dev';

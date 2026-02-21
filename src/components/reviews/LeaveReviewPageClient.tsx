@@ -20,14 +20,12 @@ type ReviewValues = {
     email: string;
     carrier: string;
     comment: string;
-    consent: boolean;
 };
 
 type ReviewErrors = {
     name?: string;
     email?: string;
     rating?: string;
-    consent?: string;
 };
 
 const MAX_RATING = 5;
@@ -44,7 +42,6 @@ export default function LeaveReviewPageClient({
         email: '',
         carrier: '',
         comment: '',
-        consent: false,
     });
     const [photoFile, setPhotoFile] = useState<File | null>(null);
     const [photoPreview, setPhotoPreview] = useState<string | null>(null);
@@ -90,10 +87,6 @@ export default function LeaveReviewPageClient({
         if (rating <= 0) {
             nextErrors.rating = dictionary.validation.requiredRating;
         }
-        if (!values.consent) {
-            nextErrors.consent = dictionary.validation.requiredConsent;
-        }
-
         setErrors(nextErrors);
         if (Object.keys(nextErrors).length > 0) {
             return;
@@ -114,7 +107,6 @@ export default function LeaveReviewPageClient({
                     email: values.email,
                     carrier: values.carrier,
                     comment: values.comment,
-                    consent: values.consent,
                     photoName: photoFile?.name ?? null,
                 }),
             });
@@ -330,22 +322,6 @@ export default function LeaveReviewPageClient({
                                             {dictionary.submitLabel}
                                         </GradientButton>
                                     </div>
-                                    <label className={styles.consentRow}>
-                                        <input
-                                            type="checkbox"
-                                            name="consent"
-                                            checked={values.consent}
-                                            onChange={(event) => updateValue('consent', event.target.checked)}
-                                            aria-invalid={Boolean(errors.consent)}
-                                        />
-                                        <span className={styles.customCheckbox}/>
-                                        <span>{dictionary.consentLabel}</span>
-                                    </label>
-                                    {errors.consent && (
-                                        <span className={styles.errorText} role="alert">
-                      {errors.consent}
-                    </span>
-                                    )}
                                     {submitError && (
                                         <span className={styles.errorText} role="alert">
                       {submitError}

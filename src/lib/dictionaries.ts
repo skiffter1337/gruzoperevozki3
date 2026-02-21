@@ -528,6 +528,7 @@ export type DictionaryType = {
         floorLabel: string;
         floorOptions: string[];
         serviceTypeLabel: string;
+        servicePlaceholder: string;
         serviceOptions: string[];
         boxesLabel: string;
         boxesPlaceholder: string;
@@ -573,6 +574,8 @@ export type DictionaryType = {
             requiredFrom: string;
             requiredTo: string;
             requiredDate: string;
+            requiredServiceType: string;
+            requiredBoxesRange: string;
             requiredName: string;
             requiredPhone: string;
             requiredConsent: string;
