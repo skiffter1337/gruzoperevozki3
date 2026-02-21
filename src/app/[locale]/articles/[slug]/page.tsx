@@ -30,6 +30,14 @@ const formatTemplate = (template: string, values: TemplateValues) =>
     template,
   );
 
+const normalizeSlug = (value: string) => {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+};
+
 function findArticleIndexBySlug(
   dictionaries: Awaited<ReturnType<typeof getAllDictionaries>>,
   slug: string,
@@ -64,14 +72,17 @@ async function buildArticleLanguageAlternates(articleIndex: number) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
+  const resolvedSlug = normalizeSlug(slug);
   const dictionary = await getDictionary(locale);
-  const articleIndex = dictionary.homeArticles.articles.findIndex((item) => item.slug === slug);
+  const articleIndex = dictionary.homeArticles.articles.findIndex(
+    (item) => item.slug === resolvedSlug,
+  );
   let article = dictionary.homeArticles.articles[articleIndex];
   let resolvedIndex = articleIndex;
 
   if (!article) {
     const dictionaries = await getAllDictionaries();
-    resolvedIndex = findArticleIndexBySlug(dictionaries, slug);
+    resolvedIndex = findArticleIndexBySlug(dictionaries, resolvedSlug);
     if (resolvedIndex >= 0) {
       article = dictionary.homeArticles.articles[resolvedIndex];
     }
@@ -109,8 +120,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const canonical = `${SITE_URL}${buildLocalizedPath(locale, 'articles')}/${article.slug}`;
 
   return {
-    title: metaTitle,
-    description: metaDescription,
+    title: article.metaTitle ?? metaTitle,
+    description: article.metaDescription ?? metaDescription,
     keywords: dictionary.metadata.keywords,
     alternates: {
       canonical,
@@ -120,8 +131,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           : buildLanguageAlternates('articles'),
     },
     openGraph: {
-      title: metaTitle,
-      description: metaDescription,
+      title: article.metaTitle ?? metaTitle,
+      description: article.metaDescription ?? metaDescription,
       url: canonical,
       locale,
     },
@@ -130,12 +141,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ArticlePage({ params }: Props) {
   const { locale, slug } = await params;
+  const resolvedSlug = normalizeSlug(slug);
   const dictionary = await getDictionary(locale);
-  let article = dictionary.homeArticles.articles.find((item) => item.slug === slug);
+  let article = dictionary.homeArticles.articles.find((item) => item.slug === resolvedSlug);
 
   if (!article) {
     const dictionaries = await getAllDictionaries();
-    const index = findArticleIndexBySlug(dictionaries, slug);
+    const index = findArticleIndexBySlug(dictionaries, resolvedSlug);
     if (index >= 0) {
       article = dictionary.homeArticles.articles[index];
     }
@@ -148,6 +160,11 @@ export default async function ArticlePage({ params }: Props) {
   const articleBody = article.body?.length ? article.body : dictionary.articlePage.fallbackBody;
   const galleryItems = article.gallery ?? [];
   const articlesPath = buildLocalizedPath(locale, 'articles');
+  const canonical = `${SITE_URL}${articlesPath}/${article.slug}`;
+  const publishedDate = article.datePublished;
+  const modifiedDate = article.dateModified ?? article.datePublished;
+  const authorName = article.authorName ?? dictionary.metadata.title;
+  const publisherName = article.publisherName ?? dictionary.metadata.title;
 
   const breadcrumbs = [
     {
@@ -171,6 +188,20 @@ export default async function ArticlePage({ params }: Props) {
       itemType="https://schema.org/BlogPosting"
       aria-labelledby="article-title"
     >
+      <meta itemProp="mainEntityOfPage" content={canonical} />
+      <meta itemProp="inLanguage" content={locale} />
+      {publishedDate && <meta itemProp="datePublished" content={publishedDate} />}
+      {modifiedDate && <meta itemProp="dateModified" content={modifiedDate} />}
+      {authorName && (
+        <span itemProp="author" itemScope itemType="https://schema.org/Organization">
+          <meta itemProp="name" content={authorName} />
+        </span>
+      )}
+      {publisherName && (
+        <span itemProp="publisher" itemScope itemType="https://schema.org/Organization">
+          <meta itemProp="name" content={publisherName} />
+        </span>
+      )}
       <div className={styles.container}>
         <div className={styles.breadcrumbsWrapper}>
           <Breadcrumbs items={breadcrumbs} />

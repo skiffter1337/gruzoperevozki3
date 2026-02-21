@@ -53,6 +53,12 @@ export interface ArticleItem {
     image: string;
     body?: string[];
     gallery?: string[];
+    metaTitle?: string;
+    metaDescription?: string;
+    datePublished?: string;
+    dateModified?: string;
+    authorName?: string;
+    publisherName?: string;
 }
 
 export interface TestimonialItem {

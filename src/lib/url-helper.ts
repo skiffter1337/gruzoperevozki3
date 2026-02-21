@@ -10,6 +10,12 @@ const regionSlugsByLocale: Record<Locale, string[]> = {
   en: enDictionary.homeRegions?.sliderItems?.map((item) => item.slug) ?? [],
 };
 
+const articleSlugsByLocale: Record<Locale, string[]> = {
+  he: heDictionary.homeArticles?.articles?.map((item) => item.slug) ?? [],
+  ru: ruDictionary.homeArticles?.articles?.map((item) => item.slug) ?? [],
+  en: enDictionary.homeArticles?.articles?.map((item) => item.slug) ?? [],
+};
+
 const smallMoveSlugsByLocale: Record<Locale, string> = {
   he: heDictionary.smallMovePage?.slug ?? "הובלות_קטנות",
   ru: ruDictionary.smallMovePage?.slug ?? "маленький-переезд",
@@ -274,6 +280,35 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
   const currentNetivotMoveSlug = netivotMoveSlugsByLocale[currentLocale];
   const currentEilatMoveSlug = eilatMoveSlugsByLocale[currentLocale];
   const currentLateMoveSlug = lateMoveSlugsByLocale[currentLocale];
+  const currentSlug = rest.length ? decodeURIComponent(rest[0]) : "";
+  const isArticleSlug = currentSlug
+    ? (Object.keys(articleSlugsByLocale) as Locale[]).some((locale) =>
+        (articleSlugsByLocale[locale] ?? []).includes(currentSlug)
+      )
+    : false;
+
+  if (matchedRoute === "articles" || (decodedFirstSegment && isArticleSlug)) {
+    const translatedBase = buildLocalizedPath(targetLocale, "articles");
+    if (!rest.length) {
+      return translatedBase;
+    }
+
+    const currentSlugs = articleSlugsByLocale[currentLocale] ?? [];
+    const targetSlugs = articleSlugsByLocale[targetLocale] ?? [];
+    let index = currentSlugs.indexOf(currentSlug);
+    if (index < 0) {
+      const fallbackLocale = (Object.keys(articleSlugsByLocale) as Locale[]).find((locale) =>
+        (articleSlugsByLocale[locale] ?? []).includes(currentSlug)
+      );
+      if (fallbackLocale) {
+        index = articleSlugsByLocale[fallbackLocale]?.indexOf(currentSlug) ?? -1;
+      }
+    }
+    const translatedSlug = index >= 0 && targetSlugs[index] ? targetSlugs[index] : currentSlug;
+    const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
+
+    return `${translatedBase}/${translatedSlug}${remaining}`;
+  }
   if (decodedFirstSegment === currentApartmentMoveSlug) {
     const targetSlug = encodeURIComponent(apartmentMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");

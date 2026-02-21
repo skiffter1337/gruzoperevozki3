@@ -282,18 +282,26 @@ export default function ArticlesPageClient({
               </div>
             </div>
 
-            <div className={styles.dots} role="tablist" aria-label={dictionary.sliderAriaLabel}>
-              {Array.from({ length: totalPages }).map((_, index) => (
-                <button
-                  key={`dot-${index}`}
-                  type="button"
-                  className={`${styles.dot} ${activeSlide === index ? styles.dotActive : ''}`.trim()}
-                  aria-label={`${dictionary.dotLabelPrefix} ${index + 1}`}
-                  aria-selected={activeSlide === index}
-                  role="tab"
-                  onClick={() => goToSlide(index)}
-                />
-              ))}
+            <div className={styles.mobileNav} aria-label={dictionary.sliderAriaLabel}>
+              <button
+                type="button"
+                className={styles.navButton}
+                onClick={handlePrev}
+                aria-label={articlesDictionary.previousSlideLabel}
+              >
+                ←
+              </button>
+              <span className={styles.navCounter} aria-live="polite">
+                {activeSlide + 1} / {totalPages}
+              </span>
+              <button
+                type="button"
+                className={styles.navButton}
+                onClick={handleNext}
+                aria-label={articlesDictionary.nextSlideLabel}
+              >
+                →
+              </button>
             </div>
           </div>
         )}

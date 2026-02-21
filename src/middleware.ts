@@ -76,15 +76,18 @@ export function middleware(request: NextRequest) {
 
   // Если нет локали - редирект на локаль по умолчанию
   if (!hasLocale) {
-    // Проверяем, возможно это уже переписанный маршрут с кириллицей
     const firstSegment = pathSegments[0];
-    if (firstSegment && Object.keys(REWRITE_MAP).some(lang =>
-        Object.keys(REWRITE_MAP[lang]).some(key => key === decodeURIComponent(firstSegment))
-    )) {
-      // Это маршрут без локали, но с кириллицей/ивритом
-      const url = request.nextUrl.clone();
-      url.pathname = `/${DEFAULT_LOCALE}${pathname}`;
-      return NextResponse.redirect(url);
+    if (firstSegment) {
+      const decodedSegment = decodeURIComponent(firstSegment);
+      const matchedLocale = Object.keys(REWRITE_MAP).find((lang) =>
+        Object.prototype.hasOwnProperty.call(REWRITE_MAP[lang], decodedSegment),
+      );
+
+      if (matchedLocale) {
+        const url = request.nextUrl.clone();
+        url.pathname = `/${matchedLocale}${pathname}`;
+        return NextResponse.redirect(url);
+      }
     }
 
     const url = request.nextUrl.clone();

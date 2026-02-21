@@ -268,30 +268,38 @@
   color: vars.$color-white;
 }
 
-.dots {
+.mobileNav {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
 }
 
-.dot {
-  width: 23px;
-  height: 23px;
-  cursor: pointer;
-  border-radius: 50%;
+.navButton {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
   border: 1px solid vars.$color-white;
   background: transparent;
-  opacity: 0.6;
+  color: vars.$color-white;
+  font-size: 24px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   transition: vars.$transition-fast;
 
-  &.dotActive {
-    opacity: 1;
-    background: vars.$bg-white-image center / cover no-repeat;
-  }
-
   &:hover {
-    transform: scale(1.1);
-    border-color: vars.$color-white;
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.14);
   }
+}
+
+.navCounter {
+  min-width: 72px;
+  text-align: center;
+  color: vars.$color-white;
+  font-weight: 600;
+  font-size: 14px;
 }
