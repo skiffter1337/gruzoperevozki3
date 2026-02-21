@@ -16,6 +16,7 @@ type ArticlesSectionProps = {
 };
 
 const slideGap = 16;
+const MAX_HOME_ARTICLES = 6;
 
 export default function ArticlesSection({locale, dictionary}: ArticlesSectionProps) {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -25,7 +26,10 @@ export default function ArticlesSection({locale, dictionary}: ArticlesSectionPro
     const [touchStartX, setTouchStartX] = useState<number | null>(null);
     const [touchEndX, setTouchEndX] = useState<number | null>(null);
 
-    const articles = useMemo(() => dictionary.articles, [dictionary.articles]);
+    const articles = useMemo(
+        () => dictionary.articles.slice(0, MAX_HOME_ARTICLES),
+        [dictionary.articles]
+    );
     const totalSlides = articles.length;
 
     useEffect(() => {
