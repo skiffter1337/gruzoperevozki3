@@ -8328,7 +8328,10 @@ const defaultDictionary: DictionaryType = {
             {title: 'Перевозки от 250 шекелей', icon: 'price.svg'},
             {title: 'Перевозки по всей стране', icon: 'country.svg'},
             {title: 'Экстренные перевозки 24/7 — день в день и вечерние выезды.', icon: 'express.svg'},
-            {title: 'Полный комплекс услуг — от разборки и упаковки до аккуратной транспортировки.', icon: 'full-service.svg'},
+            {
+                title: 'Полный комплекс услуг — от разборки и упаковки до аккуратной транспортировки.',
+                icon: 'full-service.svg'
+            },
             {title: 'Только проверенные перевозчики и грузчики', icon: 'trusted.svg'},
         ],
     },
@@ -8906,6 +8909,7 @@ const defaultDictionary: DictionaryType = {
         },
     },
     calculatePage: {
+        servicePlaceholder: "Выберите тип услуги",
         title: "Рассчитать стоимость",
         metaTitle: "Рассчитать стоимость переезда | Быстрый расчет",
         metaDescription: "Узнайте стоимость перевозки по Израилю, указав города отправления и назначения, а также дату переезда.",
@@ -9052,6 +9056,8 @@ const defaultDictionary: DictionaryType = {
             requiredName: 'Укажите ваше имя',
             requiredPhone: 'Укажите номер телефона',
             requiredConsent: 'Подтвердите правила и условия',
+            requiredServiceType: "Выберите тип услуги",
+            requiredBoxesRange: 'Выберите количество коробок',
         },
     },
     apartmentMovePage: {

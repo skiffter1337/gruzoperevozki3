@@ -32,6 +32,14 @@ type CalculatorValues = {
   needsAssembly: boolean;
 };
 
+type ValidationErrors = {
+  from?: string;
+  to?: string;
+  date?: string;
+  serviceType?: string;
+  boxesRange?: string;
+};
+
 type CalculatorFormProps = {
   dictionary: DictionaryType['calculatePage'];
   heroDictionary: DictionaryType['homeHero'];
@@ -102,13 +110,7 @@ export default function CalculatorForm({
   const [searchTerm, setSearchTerm] = useState(initialDraft?.searchTerm ?? '');
   const [customItemName, setCustomItemName] = useState(initialDraft?.customItemName ?? '');
   const [items, setItems] = useState<InventoryItem[]>(() => initialDraft?.items ?? buildDefaultItems());
-  const [errors, setErrors] = useState<{
-    from?: string;
-    to?: string;
-    date?: string;
-    serviceType?: string;
-    boxesRange?: string;
-  }>({});
+  const [errors, setErrors] = useState<ValidationErrors>({});
   const dateInputRef = useRef<HTMLInputElement>(null);
 
   const today = useMemo(() => new Date().toISOString().split('T')[0], []);
@@ -169,16 +171,33 @@ export default function CalculatorForm({
     setCustomItemName('');
   };
 
+  const scrollToFirstError = (nextErrors: ValidationErrors) => {
+    const fieldsByPriority: Array<keyof ValidationErrors> = ['from', 'to', 'date', 'serviceType', 'boxesRange'];
+    const firstErrorField = fieldsByPriority.find((field) => Boolean(nextErrors[field]));
+    if (!firstErrorField) return;
+
+    const fieldIdByErrorKey: Record<keyof ValidationErrors, string> = {
+      from: 'from',
+      to: 'to',
+      date: 'date',
+      serviceType: 'service',
+      boxesRange: 'boxesRange',
+    };
+
+    const fieldId = fieldIdByErrorKey[firstErrorField];
+    const target = document.getElementById(fieldId) as HTMLElement | null;
+    if (!target) return;
+
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if ('focus' in target) {
+      (target as HTMLInputElement | HTMLSelectElement).focus({ preventScroll: true });
+    }
+  };
+
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const nextErrors: {
-      from?: string;
-      to?: string;
-      date?: string;
-      serviceType?: string;
-      boxesRange?: string;
-    } = {};
+    const nextErrors: ValidationErrors = {};
     if (!values.from.trim()) {
       nextErrors.from = dictionary.validation.requiredFrom;
     }
@@ -197,6 +216,7 @@ export default function CalculatorForm({
 
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length > 0) {
+      scrollToFirstError(nextErrors);
       return;
     }
 
