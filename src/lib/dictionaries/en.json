@@ -191,7 +191,7 @@
   },
   "homeHero": {
     "title": "CALCULATION OF TRANSPORTATION COSTS",
-    "titleWithRegion": "CALCULATION OF TRANSPORTATION COSTS TO {region}?",
+    "titleWithRegion": "Calculation of moving costs in the {region} region",
     "subtitle": "Receive price quotes from movers online!",
     "fromLabel": "From",
     "fromPlaceholder": "City",
@@ -237,7 +237,7 @@
     "sliderItemLabelPrefix": "View area",
     "sliderItems": [
       {
-        "title": "Center",
+        "title": "Central",
         "slug": "center",
         "image": "/images/center.png",
         "carrierRegion": null,
@@ -265,7 +265,7 @@
         ]
       },
       {
-        "title": "Sharon Plain",
+        "title": "Sharon",
         "slug": "sharon",
         "image": "/images/sharon.png",
         "carrierRegion": "sharon",
@@ -293,7 +293,7 @@
         ]
       },
       {
-        "title": "Lowlands (Shfela)",
+        "title": "Shfela",
         "slug": "lowland",
         "image": "/images/lowland.png",
         "carrierRegion": "lowland",
@@ -321,7 +321,7 @@
         ]
       },
       {
-        "title": "Jerusalem and surroundings",
+        "title": "Jerusalem",
         "slug": "jerusalem-area",
         "image": "/images/jerusalem.png",
         "carrierRegion": "jerusalem",

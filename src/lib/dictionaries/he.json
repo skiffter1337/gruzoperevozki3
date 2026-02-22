@@ -191,7 +191,7 @@
   },
   "homeHero": {
     "title": "חישוב מחיר להובלה",
-    "titleWithRegion": "חישוב מחיר להובלה {region}",
+    "titleWithRegion": "חישוב מחיר הובלה באזור {region}",
     "subtitle": "קבלו הצעות מחיר מהמובילים אונליין!",
     "fromLabel": "מאיפה",
     "fromPlaceholder": "עיר",
@@ -237,7 +237,7 @@
     "sliderItemLabelPrefix": "צפו באזור",
     "sliderItems": [
       {
-        "title": "מרכז",
+        "title": "המרכז",
         "slug": "המרכז",
         "image": "/images/center.png",
         "carrierRegion": null,

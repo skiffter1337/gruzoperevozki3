@@ -48,7 +48,7 @@ export default function RegionAdvantagesSection({locale, title, dictionary, card
 
             if (width < 1024) {
                 setIsSlider(true);
-                setSlidesPerView(width >= 768 ? 2 : 1);
+                setSlidesPerView(1);
             } else {
                 setIsSlider(false);
                 setSlidesPerView(3);

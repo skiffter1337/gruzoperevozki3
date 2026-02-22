@@ -231,7 +231,7 @@ export default function ArticlesPageClient({
         )}
 
         {isSlider && (
-          <div className={styles.sliderWrapper} dir={locale === 'he' ? 'rtl' : undefined}>
+          <div className={styles.sliderWrapper} dir={locale === 'he' ? 'ltr' : undefined}>
             <div
               className={styles.sliderViewport}
               style={{ width: containerWidth ? `${containerWidth}px` : '100%' }}

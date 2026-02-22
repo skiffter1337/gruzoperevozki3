@@ -120,6 +120,10 @@
   display: flex;
   transition: transform 0.4s ease-in-out;
   will-change: transform;
+
+  .card {
+    max-width: none;
+  }
 }
 
 .dots {
