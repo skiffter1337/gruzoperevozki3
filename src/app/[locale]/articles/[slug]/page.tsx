@@ -8,7 +8,6 @@ import { getAllDictionaries, getDictionary } from '@/lib/dictionaries';
 import { buildLanguageAlternates, buildLocalizedPath } from '@/lib/localized-paths';
 import { DEFAULT_LOCALE, SITE_URL, SUPPORTED_LOCALES } from '@/lib/site-config';
 import Breadcrumbs from '@/components/navigation/Breadcrumbs';
-import ArticleGallery from '@/components/articles/ArticleGallery';
 
 import styles from './ArticlePage.module.scss';
 
@@ -236,15 +235,6 @@ export default async function ArticlePage({ params }: Props) {
           ))}
         </div>
 
-        {galleryItems.length > 0 && (
-          <ArticleGallery
-            images={galleryItems}
-            title={article.title}
-            photosAriaLabel={dictionary.articlePage.photosAriaLabel}
-            photoAltPrefix={dictionary.articlePage.photoAltPrefix}
-            photoTitle={dictionary.articlePage.photoTitle}
-          />
-        )}
 
         <div className={styles.ctaWrapper}>
           <Link

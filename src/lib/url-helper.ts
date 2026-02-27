@@ -104,7 +104,7 @@ const kfarSabaMoveSlugsByLocale: Record<Locale, string> = {
   en: enDictionary.kfarSabaMovePage?.slug ?? "transportation-in-kfar-saba",
 };
 const hodHaSharonMoveSlugsByLocale: Record<Locale, string> = {
-  he: heDictionary.hodHaSharonMovePage?.slug ?? "הובלות-בהוד-השרון",
+  he: heDictionary.hodHaSharonMovePage?.slug ?? "הובלות-בהוד-שרון",
   ru: ruDictionary.hodHaSharonMovePage?.slug ?? "перевозки-в-ход-ха-шароне",
   en: enDictionary.hodHaSharonMovePage?.slug ?? "transportation-in-hod-hasharon",
 };
