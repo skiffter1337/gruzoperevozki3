@@ -2259,13 +2259,13 @@
     ],
     "serviceTypeLabel": "Service type",
     "serviceOptions": [
+      "Up to 5 items",
       "1-room apartment move",
       "2-room apartment move",
       "3-room apartment move",
       "4-room apartment move",
       "5-room apartment move",
-      "House move",
-      "Office move"
+      "Private house"
     ],
     "boxesLabel": "Number of boxes",
     "boxesPlaceholder": "Select number of boxes",
