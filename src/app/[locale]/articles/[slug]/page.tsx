@@ -157,7 +157,6 @@ export default async function ArticlePage({ params }: Props) {
   }
 
   const articleBody = article.body?.length ? article.body : dictionary.articlePage.fallbackBody;
-  const galleryItems = article.gallery ?? [];
   const articlesPath = buildLocalizedPath(locale, 'articles');
   const canonical = `${SITE_URL}${articlesPath}/${article.slug}`;
   const publishedDate = article.datePublished;
