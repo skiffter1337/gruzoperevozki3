@@ -1,9 +1,10 @@
-import {Metadata} from 'next';
+﻿import {Metadata} from 'next';
 import {Locale} from '../../../../../i18n-config';
 import {getAllDictionaries, getDictionary} from '@/lib/dictionaries';
 import {
     buildLanguageAlternates,
     buildLocalizedPath,
+    joinLocalizedPath,
     resolveRouteKey,
     RouteKey,
 } from '@/lib/localized-paths';
@@ -98,7 +99,7 @@ function isPianoMoveSlug(slug: string[], pianoMoveSlug: string) {
 }
 
 function buildTelAvivMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isTelAvivMoveSlug(slug: string[], telAvivMoveSlug: string) {
@@ -106,7 +107,7 @@ function isTelAvivMoveSlug(slug: string[], telAvivMoveSlug: string) {
 }
 
 function buildHolonMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isHolonMoveSlug(slug: string[], holonMoveSlug: string) {
@@ -114,7 +115,7 @@ function isHolonMoveSlug(slug: string[], holonMoveSlug: string) {
 }
 
 function buildGivataimMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isGivataimMoveSlug(slug: string[], givataimMoveSlug: string) {
@@ -122,7 +123,7 @@ function isGivataimMoveSlug(slug: string[], givataimMoveSlug: string) {
 }
 
 function buildBatYamMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isBatYamMoveSlug(slug: string[], batYamMoveSlug: string) {
@@ -130,7 +131,7 @@ function isBatYamMoveSlug(slug: string[], batYamMoveSlug: string) {
 }
 
 function buildRamatGanMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isRamatGanMoveSlug(slug: string[], ramatGanMoveSlug: string) {
@@ -138,7 +139,7 @@ function isRamatGanMoveSlug(slug: string[], ramatGanMoveSlug: string) {
 }
 
 function buildNetanyaMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isNetanyaMoveSlug(slug: string[], netanyaMoveSlug: string) {
@@ -146,7 +147,7 @@ function isNetanyaMoveSlug(slug: string[], netanyaMoveSlug: string) {
 }
 
 function buildRaananaMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isRaananaMoveSlug(slug: string[], raananaMoveSlug: string) {
@@ -154,7 +155,7 @@ function isRaananaMoveSlug(slug: string[], raananaMoveSlug: string) {
 }
 
 function buildHerzliyaMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isHerzliyaMoveSlug(slug: string[], herzliyaMoveSlug: string) {
@@ -162,7 +163,7 @@ function isHerzliyaMoveSlug(slug: string[], herzliyaMoveSlug: string) {
 }
 
 function buildKfarSabaMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isKfarSabaMoveSlug(slug: string[], kfarSabaMoveSlug: string) {
@@ -170,7 +171,7 @@ function isKfarSabaMoveSlug(slug: string[], kfarSabaMoveSlug: string) {
 }
 
 function buildHodHaSharonMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isHodHaSharonMoveSlug(slug: string[], hodHaSharonMoveSlug: string) {
@@ -178,7 +179,7 @@ function isHodHaSharonMoveSlug(slug: string[], hodHaSharonMoveSlug: string) {
 }
 
 function buildRishonLeZionMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isRishonLeZionMoveSlug(slug: string[], rishonLeZionMoveSlug: string) {
@@ -186,7 +187,7 @@ function isRishonLeZionMoveSlug(slug: string[], rishonLeZionMoveSlug: string) {
 }
 
 function buildLodZionMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isLodMoveSlug(slug: string[], lodMoveSlug: string) {
@@ -194,7 +195,7 @@ function isLodMoveSlug(slug: string[], lodMoveSlug: string) {
 }
 
 function buildRehovotMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isRehovotMoveSlug(slug: string[], rehovotMoveSlug: string) {
@@ -202,7 +203,7 @@ function isRehovotMoveSlug(slug: string[], rehovotMoveSlug: string) {
 }
 
 function buildAshdodMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isAshdodMoveSlug(slug: string[], ashdodMoveSlug: string) {
@@ -210,98 +211,98 @@ function isAshdodMoveSlug(slug: string[], ashdodMoveSlug: string) {
 }
 
 function buildRamlaMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isRamlaMoveSlug(slug: string[], ramlaMoveSlug: string) {
     return slug[0] === ramlaMoveSlug || slug[1] === ramlaMoveSlug;
 }
 function buildJerusalemMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isJerusalemMoveSlug(slug: string[], jerusalemMoveSlug: string) {
     return slug[0] === jerusalemMoveSlug || slug[1] === jerusalemMoveSlug;
 }
 function buildModiinMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isModiinMoveSlug(slug: string[], modiinMoveSlug: string) {
     return slug[0] === modiinMoveSlug || slug[1] === modiinMoveSlug;
 }
 function buildBeitShemeshMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isBeitShemeshMoveSlug(slug: string[], beitShemeshMoveSlug: string) {
     return slug[0] === beitShemeshMoveSlug || slug[1] === beitShemeshMoveSlug;
 }
 function buildMevaseretZionMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isMevaseretZionMoveSlug(slug: string[], mevaseretZionMoveSlug: string) {
     return slug[0] === mevaseretZionMoveSlug || slug[1] === mevaseretZionMoveSlug;
 }
 function buildMaaleAdumimMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isMaaleAdumimMoveSlug(slug: string[], maaleAdumimMoveSlug: string) {
     return slug[0] === maaleAdumimMoveSlug || slug[1] === maaleAdumimMoveSlug;
 }
 function buildAkkoMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isAkkoMoveSlug(slug: string[], akkoMoveSlug: string) {
     return slug[0] === akkoMoveSlug || slug[1] === akkoMoveSlug;
 }
 function buildNazarethMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isNazarethMoveSlug(slug: string[], nazarethMoveSlug: string) {
     return slug[0] === nazarethMoveSlug || slug[1] === nazarethMoveSlug;
 }
 function buildKarmielMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isKarmielMoveSlug(slug: string[], karmielMoveSlug: string) {
     return slug[0] === karmielMoveSlug || slug[1] === karmielMoveSlug;
 }
 function buildTiberiasMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isTiberiasMoveSlug(slug: string[], tiberiasMoveSlug: string) {
     return slug[0] === tiberiasMoveSlug || slug[1] === tiberiasMoveSlug;
 }
 function buildBeerShevaMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isBeerShevaMoveSlug(slug: string[], beerShevaMoveSlug: string) {
     return slug[0] === beerShevaMoveSlug || slug[1] === beerShevaMoveSlug;
 }
 function buildDimonaMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isDimonaMoveSlug(slug: string[], dimonaMoveSlug: string) {
     return slug[0] === dimonaMoveSlug || slug[1] === dimonaMoveSlug;
 }
 function buildAshkelonMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isAshkelonMoveSlug(slug: string[], ashkelonMoveSlug: string) {
     return slug[0] === ashkelonMoveSlug || slug[1] === ashkelonMoveSlug;
 }
 function buildNetivotMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isNetivotMoveSlug(slug: string[], netivotMoveSlug: string) {
@@ -309,7 +310,7 @@ function isNetivotMoveSlug(slug: string[], netivotMoveSlug: string) {
 }
 
 function buildEilatMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isEilatMoveSlug(slug: string[], eilatMoveSlug: string) {
@@ -317,7 +318,7 @@ function isEilatMoveSlug(slug: string[], eilatMoveSlug: string) {
 }
 
 function buildHaifaMovePath(locale: Locale, slug: string) {
-    return `${buildLocalizedPath(locale, 'home')}/${slug}`;
+    return `${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 }
 
 function isHaifaMoveSlug(slug: string[], haifaMoveSlug: string) {
@@ -935,7 +936,7 @@ async function buildRegionLanguageAlternates(regionIndex: number) {
     SUPPORTED_LOCALES.forEach((locale) => {
         const regionSlug = dictionaries[locale].homeRegions.sliderItems[regionIndex]?.slug;
         if (!regionSlug) return;
-        languages[locale] = `${SITE_URL}${buildLocalizedPath(locale, 'home')}/${regionSlug}`;
+        languages[locale] = `${SITE_URL}${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
     });
 
     const defaultSlug = dictionaries[DEFAULT_LOCALE].homeRegions.sliderItems[regionIndex]?.slug;
@@ -1726,7 +1727,7 @@ if (isEilatMoveSlug(decodedSlug, dictionary.eilatMovePage.slug)) {
         const regionItem = dictionary.homeRegions.sliderItems[regionIndex];
         const title = formatRegionTemplate(dictionary.regionPage.metaTitle, regionItem.title);
         const description = formatRegionTemplate(dictionary.regionPage.metaDescription, regionItem.title);
-        const canonical = `${SITE_URL}${buildLocalizedPath(locale, 'home')}/${regionItem.slug}`;
+        const canonical = `${SITE_URL}${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
 
         return {
             title,

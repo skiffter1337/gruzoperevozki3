@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from '@/lib/site-config';
 
 const lastModifiedValue = new Date(
@@ -28,7 +28,7 @@ const REWRITE_MAP: Record<string, Record<string, string>> = {
 };
 
 export function middleware(request: NextRequest) {
-  const { pathname, search } = request.nextUrl;
+  const { pathname } = request.nextUrl;
 
   // Статичные ресурсы пропускаем
   if (
@@ -47,34 +47,43 @@ export function middleware(request: NextRequest) {
     });
   }
 
+  // Убираем /he из URL для иврита (default locale)
+  if (pathname === `/${DEFAULT_LOCALE}` || pathname.startsWith(`/${DEFAULT_LOCALE}/`)) {
+    const url = request.nextUrl.clone();
+    url.pathname = pathname.replace(`/${DEFAULT_LOCALE}`, '') || '/';
+    return NextResponse.redirect(url);
+  }
+
   // Перезапись маршрутов с кириллицей/ивритом на латиницу
   const pathSegments = pathname.split('/').filter(Boolean);
+  const hasLocalePrefix = SUPPORTED_LOCALES.some(
+      (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
+  );
+  const locale = hasLocalePrefix ? pathSegments[0] : DEFAULT_LOCALE;
+  const segmentIndex = hasLocalePrefix ? 1 : 0;
+  const segment = decodeURIComponent(pathSegments[segmentIndex] ?? '');
 
-  if (pathSegments.length >= 2) {
-    const locale = pathSegments[0];
-    const segment = decodeURIComponent(pathSegments[1]); // Декодируем для правильного сравнения
+  if (segment && REWRITE_MAP[locale] && segment in REWRITE_MAP[locale]) {
+    const newSegment = REWRITE_MAP[locale][segment];
+    const rest = pathSegments.length > segmentIndex + 1
+      ? '/' + pathSegments.slice(segmentIndex + 1).join('/')
+      : '';
+    const internalPrefix = `/${locale}`;
+    const newPathname = `${internalPrefix}/${newSegment}${rest}`;
 
-    // Проверяем, нужно ли переписать маршрут
-    if (REWRITE_MAP[locale] && segment in REWRITE_MAP[locale]) {
-      const newSegment = REWRITE_MAP[locale][segment];
-      const newPathname = `/${locale}/${newSegment}${pathSegments.length > 2 ? '/' + pathSegments.slice(2).join('/') : ''}`;
+    const url = request.nextUrl.clone();
+    url.pathname = newPathname;
 
-      const url = request.nextUrl.clone();
-      url.pathname = newPathname;
-
-      // Перезаписываем запрос с сохранением query параметров
-      const response = NextResponse.rewrite(url);
-      response.headers.set('Last-Modified', lastModifiedValue);
-      return response;
-    }
+    // Перезаписываем запрос с сохранением query параметров
+    const response = NextResponse.rewrite(url);
+    response.headers.set('Last-Modified', lastModifiedValue);
+    return response;
   }
 
   // Проверка наличия локали в URL
-  const hasLocale = SUPPORTED_LOCALES.some(
-      (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
-  );
+  const hasLocale = hasLocalePrefix;
 
-  // Если нет локали - редирект на локаль по умолчанию
+  // Если нет локали - редирект на нужную локаль или внутренний rewrite
   if (!hasLocale) {
     const firstSegment = pathSegments[0];
     if (firstSegment) {
@@ -83,7 +92,7 @@ export function middleware(request: NextRequest) {
         Object.prototype.hasOwnProperty.call(REWRITE_MAP[lang], decodedSegment),
       );
 
-      if (matchedLocale) {
+      if (matchedLocale && matchedLocale !== DEFAULT_LOCALE) {
         const url = request.nextUrl.clone();
         url.pathname = `/${matchedLocale}${pathname}`;
         return NextResponse.redirect(url);
@@ -93,7 +102,9 @@ export function middleware(request: NextRequest) {
     const url = request.nextUrl.clone();
     const suffix = pathname === '/' ? '' : pathname;
     url.pathname = `/${DEFAULT_LOCALE}${suffix}`;
-    return NextResponse.redirect(url);
+    const response = NextResponse.rewrite(url);
+    response.headers.set('Last-Modified', lastModifiedValue);
+    return response;
   }
 
   const response = NextResponse.next();

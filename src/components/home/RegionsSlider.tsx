@@ -5,7 +5,7 @@ import Link from 'next/link';
 import {TouchEvent, useEffect, useMemo, useRef, useState} from 'react';
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon';
 import {DictionaryType} from '@/lib/dictionaries';
-import {buildLocalizedPath} from '@/lib/localized-paths';
+import {buildLocalizedPath, joinLocalizedPath} from '@/lib/localized-paths';
 import {Locale} from '../../../i18n-config';
 import styles from './RegionsSlider.module.scss';
 
@@ -181,7 +181,7 @@ export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) 
                             {activeRegion && (
                                 <div className={styles.desktopPanel} role="tabpanel">
                                     <Link
-                                        href={`${sliderBasePath}/${activeRegion.slug}`}
+                                        href={joinLocalizedPath(sliderBasePath, activeRegion.slug)}
                                         className={styles.desktopImage}
                                         aria-label={`${dictionary.sliderItemLabelPrefix} ${activeRegion.title}`}
                                         prefetch={false}
@@ -243,7 +243,7 @@ export default function RegionsSlider({locale, dictionary}: RegionsSliderProps) 
                                         {dictionary.sliderItems.map((item, index) => (
                                             <Link
                                                 key={`${item.title}-${index}`}
-                                                href={`${sliderBasePath}/${item.slug}`}
+                                                href={joinLocalizedPath(sliderBasePath, item.slug)}
                                                 className={styles.slide}
                                                 style={{width: `${slideWidth}px`}}
                                                 aria-label={`${dictionary.sliderItemLabelPrefix} ${item.title}`}

@@ -2,7 +2,8 @@ import { Locale } from "../../i18n-config";
 import heDictionary from "./dictionaries/he.json";
 import ruDictionary from "./dictionaries/ru.json";
 import enDictionary from "./dictionaries/en.json";
-import { buildLocalizedPath, resolveRouteKey, switchLocalePath } from "./localized-paths";
+import { buildLocalizedPath, joinLocalizedPath, resolveRouteKey, RouteKey, switchLocalePath } from "./localized-paths";
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES } from "./site-config";
 
 const regionSlugsByLocale: Record<Locale, string[]> = {
   he: heDictionary.homeRegions?.sliderItems?.map((item) => item.slug) ?? [],
@@ -56,6 +57,11 @@ const packingSlugsByLocale: Record<Locale, string> = {
   he: heDictionary.packingPage?.slug ?? "שירותי-אריזה",
   ru: ruDictionary.packingPage?.slug ?? "услуги-упаковки",
   en: enDictionary.packingPage?.slug ?? "packing-services",
+};
+const storageSlugsByLocale: Record<Locale, string> = {
+  he: heDictionary.storagePage?.slug ?? "אחסון_תכולת_דירה",
+  ru: ruDictionary.storagePage?.slug ?? "хранение-имущества-квартиры",
+  en: enDictionary.storagePage?.slug ?? "apartment-storage",
 };
 
 const telAvivMoveSlugsByLocale: Record<Locale, string> = {
@@ -231,13 +237,16 @@ const translateRegionSlug = (sourceLocale: Locale, targetLocale: Locale, slug: s
  */
 export function getTranslatedUrl(currentPath: string, targetLocale: Locale): string {
   const segments = currentPath.split("/").filter(Boolean);
-  const currentLocale = segments[0] as Locale | undefined;
+  const possibleLocale = segments[0] as Locale | undefined;
+  const hasLocalePrefix = possibleLocale && SUPPORTED_LOCALES.includes(possibleLocale);
+  const currentLocale = hasLocalePrefix ? possibleLocale : DEFAULT_LOCALE;
+  const pathSegments = hasLocalePrefix ? segments.slice(1) : segments;
 
   if (!currentLocale || currentLocale === targetLocale) {
     return switchLocalePath(currentPath, targetLocale);
   }
 
-  const [firstSegment, ...rest] = segments.slice(1);
+  const [firstSegment, ...rest] = pathSegments;
   const decodedFirstSegment = firstSegment ? decodeURIComponent(firstSegment) : "";
   const matchedRoute = decodedFirstSegment
     ? resolveRouteKey(currentLocale, decodedFirstSegment)
@@ -280,6 +289,7 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
   const currentNetivotMoveSlug = netivotMoveSlugsByLocale[currentLocale];
   const currentEilatMoveSlug = eilatMoveSlugsByLocale[currentLocale];
   const currentLateMoveSlug = lateMoveSlugsByLocale[currentLocale];
+  const currentStorageSlug = storageSlugsByLocale[currentLocale];
   const currentSlug = rest.length ? decodeURIComponent(rest[0]) : "";
   const isArticleSlug = currentSlug
     ? (Object.keys(articleSlugsByLocale) as Locale[]).some((locale) =>
@@ -307,236 +317,236 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
     const translatedSlug = index >= 0 && targetSlugs[index] ? targetSlugs[index] : currentSlug;
     const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
 
-    return `${translatedBase}/${translatedSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, translatedSlug)}${remaining}`;
   }
   if (decodedFirstSegment === currentApartmentMoveSlug) {
     const targetSlug = encodeURIComponent(apartmentMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 
   if (decodedFirstSegment === currentPianoMoveSlug) {
     const targetSlug = encodeURIComponent(pianoMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 
   if (decodedFirstSegment === currentOfficeMoveSlug) {
     const targetSlug = encodeURIComponent(officeMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 
   if (decodedFirstSegment === currentSmallMoveSlug) {
     const targetSlug = encodeURIComponent(smallMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 
   if (decodedFirstSegment === currentPriceListSlug && priceListSlugsByLocale[targetLocale]) {
     const targetSlug = encodeURIComponent(priceListSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 
   if (decodedFirstSegment === currentHouseMoveSlug) {
     const targetSlug = encodeURIComponent(houseMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 
   if (decodedFirstSegment === currentTelAvivMoveSlug) {
     const targetSlug = encodeURIComponent(telAvivMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
   if (decodedFirstSegment === currentHolonMoveSlug) {
     const targetSlug = encodeURIComponent(holonMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
   if (decodedFirstSegment === currentGivataimMoveSlug) {
     const targetSlug = encodeURIComponent(givataimMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
   if (decodedFirstSegment === currentBatYamMoveSlug) {
     const targetSlug = encodeURIComponent(batYamMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
   if (decodedFirstSegment === currentRamatGanMoveSlug) {
     const targetSlug = encodeURIComponent(ramatGanMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
   if (decodedFirstSegment === currentNetanyaMoveSlug) {
     const targetSlug = encodeURIComponent(netanyaMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
   if (decodedFirstSegment === currentRaananaMoveSlug) {
     const targetSlug = encodeURIComponent(raananaMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
   if (decodedFirstSegment === currentHerzliyaMoveSlug) {
     const targetSlug = encodeURIComponent(herzliyaMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
   if (decodedFirstSegment === currentKfarSabaMoveSlug) {
     const targetSlug = encodeURIComponent(kfarSabaMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
   if (decodedFirstSegment === currentHodHaSharonMoveSlug) {
     const targetSlug = encodeURIComponent(hodHaSharonMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
  if (decodedFirstSegment === currentRishonLeZionMoveSlug) {
     const targetSlug = encodeURIComponent(rishonLeZionMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
  if (decodedFirstSegment === currentLodZionMoveSlug) {
     const targetSlug = encodeURIComponent(lodMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
  if (decodedFirstSegment === currentRehovotZionMoveSlug) {
     const targetSlug = encodeURIComponent(rehovotMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
  if (decodedFirstSegment === currentAshdodMoveSlug) {
     const targetSlug = encodeURIComponent(ashdodMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
  if (decodedFirstSegment === currentRamlaMoveSlug) {
     const targetSlug = encodeURIComponent(ramlaMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
  if (decodedFirstSegment === currentJerusalemMoveSlug) {
     const targetSlug = encodeURIComponent(jerusalemMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
  if (decodedFirstSegment === currentModiinMoveSlug) {
     const targetSlug = encodeURIComponent(modiinMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentBeitShemeshMoveSlug) {
     const targetSlug = encodeURIComponent(beitShemeshMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentMevaseretZionMoveSlug) {
     const targetSlug = encodeURIComponent(mevaseretZionMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentMaaleAdumimMoveSlug) {
     const targetSlug = encodeURIComponent(maaleAdumimMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentHaifaMoveSlug) {
     const targetSlug = encodeURIComponent(haifaMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentAkkoMoveSlug) {
     const targetSlug = encodeURIComponent(akkoMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentNazarethMoveSlug) {
     const targetSlug = encodeURIComponent(nazarethMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentKarmielMoveSlug) {
     const targetSlug = encodeURIComponent(karmielMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentTiberiasMoveSlug) {
     const targetSlug = encodeURIComponent(tiberiasMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentBeerShevaMoveSlug) {
     const targetSlug = encodeURIComponent(beerShevaMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentDimonaMoveSlug) {
     const targetSlug = encodeURIComponent(dimonaMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentAshkelonMoveSlug) {
     const targetSlug = encodeURIComponent(ashkelonMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentNetivotMoveSlug) {
     const targetSlug = encodeURIComponent(netivotMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 if (decodedFirstSegment === currentEilatMoveSlug) {
     const targetSlug = encodeURIComponent(eilatMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "home");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 
   if (decodedFirstSegment === currentLateMoveSlug) {
     const targetSlug = encodeURIComponent(lateMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 
   const currentPackingSlug = packingSlugsByLocale[currentLocale];
@@ -544,7 +554,7 @@ if (decodedFirstSegment === currentEilatMoveSlug) {
     const targetSlug = encodeURIComponent(packingSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "services");
     const remaining = rest.length ? `/${rest.join("/")}` : "";
-    return `${translatedBase}/${targetSlug}${remaining}`;
+    return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
   }
 
   if (matchedRoute === "transportation" && rest.length > 0) {
@@ -553,218 +563,218 @@ if (decodedFirstSegment === currentEilatMoveSlug) {
       const targetSlug = encodeURIComponent(apartmentMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "transportation");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentPianoMoveSlug) {
       const targetSlug = encodeURIComponent(pianoMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "transportation");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentOfficeMoveSlug) {
       const targetSlug = encodeURIComponent(officeMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "transportation");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentSmallMoveSlug) {
       const targetSlug = encodeURIComponent(smallMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "transportation");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentHouseMoveSlug) {
       const targetSlug = encodeURIComponent(houseMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "transportation");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentTelAvivMoveSlug) {
       const targetSlug = encodeURIComponent(telAvivMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentHolonMoveSlug) {
       const targetSlug = encodeURIComponent(holonMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentGivataimMoveSlug) {
       const targetSlug = encodeURIComponent(givataimMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentBatYamMoveSlug) {
       const targetSlug = encodeURIComponent(batYamMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentRamatGanMoveSlug) {
       const targetSlug = encodeURIComponent(ramatGanMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentNetanyaMoveSlug) {
       const targetSlug = encodeURIComponent(netanyaMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentRaananaMoveSlug) {
       const targetSlug = encodeURIComponent(raananaMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentHerzliyaMoveSlug) {
       const targetSlug = encodeURIComponent(herzliyaMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentKfarSabaMoveSlug) {
       const targetSlug = encodeURIComponent(kfarSabaMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentHodHaSharonMoveSlug) {
       const targetSlug = encodeURIComponent(hodHaSharonMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentRishonLeZionMoveSlug) {
       const targetSlug = encodeURIComponent(rishonLeZionMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentLodZionMoveSlug) {
       const targetSlug = encodeURIComponent(lodMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentRehovotZionMoveSlug) {
       const targetSlug = encodeURIComponent(rehovotMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentAshdodMoveSlug) {
       const targetSlug = encodeURIComponent(ashdodMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentRamlaMoveSlug) {
       const targetSlug = encodeURIComponent(ramlaMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentJerusalemMoveSlug) {
       const targetSlug = encodeURIComponent(jerusalemMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentModiinMoveSlug) {
       const targetSlug = encodeURIComponent(modiinMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentBeitShemeshMoveSlug) {
       const targetSlug = encodeURIComponent(beitShemeshMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentMevaseretZionMoveSlug) {
       const targetSlug = encodeURIComponent(mevaseretZionMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentMaaleAdumimMoveSlug) {
       const targetSlug = encodeURIComponent(maaleAdumimMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentHaifaMoveSlug) {
       const targetSlug = encodeURIComponent(haifaMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentAkkoMoveSlug) {
       const targetSlug = encodeURIComponent(akkoMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentNazarethMoveSlug) {
       const targetSlug = encodeURIComponent(nazarethMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentKarmielMoveSlug) {
       const targetSlug = encodeURIComponent(karmielMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentTiberiasMoveSlug) {
       const targetSlug = encodeURIComponent(tiberiasMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentBeerShevaMoveSlug) {
       const targetSlug = encodeURIComponent(beerShevaMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentDimonaMoveSlug) {
       const targetSlug = encodeURIComponent(dimonaMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
         if (decodedRest === currentAshkelonMoveSlug) {
       const targetSlug = encodeURIComponent(ashkelonMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
   if (decodedRest === currentNetivotMoveSlug) {
       const targetSlug = encodeURIComponent(netivotMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
  if (decodedRest === currentEilatMoveSlug) {
       const targetSlug = encodeURIComponent(eilatMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "home");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
 
     if (decodedRest === currentLateMoveSlug) {
       const targetSlug = encodeURIComponent(lateMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "transportation");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
   }
 
@@ -774,13 +784,72 @@ if (decodedFirstSegment === currentEilatMoveSlug) {
       const targetSlug = encodeURIComponent(packingSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "services");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
+    }
+    if (decodedRest === currentStorageSlug) {
+      const targetSlug = encodeURIComponent(storageSlugsByLocale[targetLocale]);
+      const translatedBase = buildLocalizedPath(targetLocale, "services");
+      const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
     if (decodedRest === currentPianoMoveSlug) {
       const targetSlug = encodeURIComponent(pianoMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "services");
       const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
-      return `${translatedBase}/${targetSlug}${remaining}`;
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
+    }
+  }
+
+  if (rest.length > 0) {
+    const decodedRest = decodeURIComponent(rest[0]);
+    const knownNestedSlugs: Array<{ current: string; target: string; route: RouteKey }> = [
+      { current: currentApartmentMoveSlug, target: apartmentMoveSlugsByLocale[targetLocale], route: "transportation" },
+      { current: currentPianoMoveSlug, target: pianoMoveSlugsByLocale[targetLocale], route: "transportation" },
+      { current: currentOfficeMoveSlug, target: officeMoveSlugsByLocale[targetLocale], route: "transportation" },
+      { current: currentSmallMoveSlug, target: smallMoveSlugsByLocale[targetLocale], route: "transportation" },
+      { current: currentHouseMoveSlug, target: houseMoveSlugsByLocale[targetLocale], route: "transportation" },
+      { current: currentPriceListSlug, target: priceListSlugsByLocale[targetLocale], route: "transportation" },
+      { current: currentLateMoveSlug, target: lateMoveSlugsByLocale[targetLocale], route: "transportation" },
+      { current: currentPackingSlug, target: packingSlugsByLocale[targetLocale], route: "services" },
+      { current: currentStorageSlug, target: storageSlugsByLocale[targetLocale], route: "services" },
+      { current: currentTelAvivMoveSlug, target: telAvivMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentHolonMoveSlug, target: holonMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentGivataimMoveSlug, target: givataimMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentBatYamMoveSlug, target: batYamMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentRamatGanMoveSlug, target: ramatGanMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentNetanyaMoveSlug, target: netanyaMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentRaananaMoveSlug, target: raananaMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentHerzliyaMoveSlug, target: herzliyaMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentKfarSabaMoveSlug, target: kfarSabaMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentHodHaSharonMoveSlug, target: hodHaSharonMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentRishonLeZionMoveSlug, target: rishonLeZionMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentLodZionMoveSlug, target: lodMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentRehovotZionMoveSlug, target: rehovotMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentAshdodMoveSlug, target: ashdodMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentRamlaMoveSlug, target: ramlaMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentJerusalemMoveSlug, target: jerusalemMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentModiinMoveSlug, target: modiinMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentBeitShemeshMoveSlug, target: beitShemeshMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentMevaseretZionMoveSlug, target: mevaseretZionMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentMaaleAdumimMoveSlug, target: maaleAdumimMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentHaifaMoveSlug, target: haifaMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentAkkoMoveSlug, target: akkoMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentNazarethMoveSlug, target: nazarethMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentKarmielMoveSlug, target: karmielMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentTiberiasMoveSlug, target: tiberiasMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentBeerShevaMoveSlug, target: beerShevaMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentDimonaMoveSlug, target: dimonaMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentAshkelonMoveSlug, target: ashkelonMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentNetivotMoveSlug, target: netivotMoveSlugsByLocale[targetLocale], route: "home" },
+      { current: currentEilatMoveSlug, target: eilatMoveSlugsByLocale[targetLocale], route: "home" },
+    ];
+    const knownNestedSlug = knownNestedSlugs.find((item) => item.current === decodedRest && item.target);
+
+    if (knownNestedSlug) {
+      const targetSlug = encodeURIComponent(knownNestedSlug.target);
+      const translatedBase = buildLocalizedPath(targetLocale, knownNestedSlug.route);
+      const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
+      return `${joinLocalizedPath(translatedBase, targetSlug)}${remaining}`;
     }
   }
 
@@ -790,7 +859,7 @@ if (decodedFirstSegment === currentEilatMoveSlug) {
     const translatedSlugEncoded = encodeURIComponent(translatedSlug);
     const restPath = rest.length ? `/${rest.join("/")}` : "";
 
-    return `${translatedBase}/${translatedSlugEncoded}${restPath}`;
+    return `${joinLocalizedPath(translatedBase, translatedSlugEncoded)}${restPath}`;
   }
 
   return switchLocalePath(currentPath, targetLocale);

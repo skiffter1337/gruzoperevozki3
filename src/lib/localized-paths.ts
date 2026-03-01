@@ -48,11 +48,21 @@ export function getSegment(locale: Locale, route: RouteKey): string {
 
 export function buildLocalizedPath(locale: Locale, route: RouteKey): string {
   const segment = getSegment(locale, route);
+  if (locale === DEFAULT_LOCALE) {
+    return segment ? `/${segment}` : "/";
+  }
   return segment ? `/${locale}/${segment}` : `/${locale}`;
 }
 
 export function buildAbsoluteUrl(locale: Locale, route: RouteKey): string {
   return `${SITE_URL}${buildLocalizedPath(locale, route)}`;
+}
+
+export function joinLocalizedPath(base: string, slug: string): string {
+  if (!base || base === "/") {
+    return `/${slug}`;
+  }
+  return `${base}/${slug}`;
 }
 
 export function resolveRouteKey(locale: Locale, segment: string): RouteKey | undefined {
@@ -74,8 +84,10 @@ export function buildLanguageAlternates(route: RouteKey) {
 
 export function switchLocalePath(pathname: string, targetLocale: Locale): string {
   const segments = pathname.split("/").filter(Boolean);
-  const currentLocale = segments[0] as Locale | undefined;
-  const remainingSegments = segments.slice(1);
+  const possibleLocale = segments[0] as Locale | undefined;
+  const hasLocalePrefix = possibleLocale && SUPPORTED_LOCALES.includes(possibleLocale);
+  const currentLocale = hasLocalePrefix ? possibleLocale : DEFAULT_LOCALE;
+  const remainingSegments = hasLocalePrefix ? segments.slice(1) : segments;
 
   if (!SUPPORTED_LOCALES.includes(currentLocale as Locale)) {
     return buildLocalizedPath(targetLocale, "home");
@@ -86,5 +98,5 @@ export function switchLocalePath(pathname: string, targetLocale: Locale): string
   const matchedRoute = resolveRouteKey(currentLocale as Locale, decodedFirstSegment) || "home";
   const targetPath = buildLocalizedPath(targetLocale, matchedRoute);
 
-  return rest.length ? `${targetPath}/${rest.join("/")}` : targetPath;
+  return rest.length ? joinLocalizedPath(targetPath, rest.join("/")) : targetPath;
 }
