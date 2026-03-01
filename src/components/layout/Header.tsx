@@ -86,8 +86,10 @@ export default function Header({locale, dictionary}: HeaderProps) {
     const handleLanguageChange = async (newLocale?: Locale) => {
         const targetLocale = newLocale ?? getNextLocale();
         if (targetLocale === locale) return;
-        const translatedPath = getTranslatedUrl(pathname, targetLocale);
-        router.push(translatedPath);
+        const runtimePath = typeof window !== 'undefined' ? window.location.pathname : pathname;
+        const translatedPath = getTranslatedUrl(runtimePath || pathname, targetLocale);
+        const search = typeof window !== 'undefined' ? window.location.search : '';
+        router.push(`${translatedPath}${search}`);
         setIsLanguagePopupOpen(false);
     };
 

@@ -220,6 +220,76 @@ const lateMoveSlugsByLocale: Record<Locale, string> = {
   en: "late-moves",
 };
 
+type SlugFamily = {
+  route: RouteKey;
+  byLocale: Record<Locale, string>;
+};
+
+const knownSlugFamilies: SlugFamily[] = [
+  { route: "transportation", byLocale: apartmentMoveSlugsByLocale },
+  { route: "transportation", byLocale: pianoMoveSlugsByLocale },
+  { route: "transportation", byLocale: officeMoveSlugsByLocale },
+  { route: "transportation", byLocale: smallMoveSlugsByLocale },
+  { route: "transportation", byLocale: houseMoveSlugsByLocale },
+  { route: "transportation", byLocale: priceListSlugsByLocale },
+  { route: "transportation", byLocale: lateMoveSlugsByLocale },
+  { route: "services", byLocale: packingSlugsByLocale },
+  { route: "services", byLocale: storageSlugsByLocale },
+  { route: "home", byLocale: telAvivMoveSlugsByLocale },
+  { route: "home", byLocale: holonMoveSlugsByLocale },
+  { route: "home", byLocale: givataimMoveSlugsByLocale },
+  { route: "home", byLocale: batYamMoveSlugsByLocale },
+  { route: "home", byLocale: ramatGanMoveSlugsByLocale },
+  { route: "home", byLocale: netanyaMoveSlugsByLocale },
+  { route: "home", byLocale: raananaMoveSlugsByLocale },
+  { route: "home", byLocale: herzliyaMoveSlugsByLocale },
+  { route: "home", byLocale: kfarSabaMoveSlugsByLocale },
+  { route: "home", byLocale: hodHaSharonMoveSlugsByLocale },
+  { route: "home", byLocale: rishonLeZionMoveSlugsByLocale },
+  { route: "home", byLocale: lodMoveSlugsByLocale },
+  { route: "home", byLocale: rehovotMoveSlugsByLocale },
+  { route: "home", byLocale: ashdodMoveSlugsByLocale },
+  { route: "home", byLocale: ramlaMoveSlugsByLocale },
+  { route: "home", byLocale: jerusalemMoveSlugsByLocale },
+  { route: "home", byLocale: modiinMoveSlugsByLocale },
+  { route: "home", byLocale: beitShemeshMoveSlugsByLocale },
+  { route: "home", byLocale: mevaseretZionMoveSlugsByLocale },
+  { route: "home", byLocale: maaleAdumimMoveSlugsByLocale },
+  { route: "home", byLocale: haifaMoveSlugsByLocale },
+  { route: "home", byLocale: akkoMoveSlugsByLocale },
+  { route: "home", byLocale: nazarethMoveSlugsByLocale },
+  { route: "home", byLocale: karmielMoveSlugsByLocale },
+  { route: "home", byLocale: tiberiasMoveSlugsByLocale },
+  { route: "home", byLocale: beerShevaMoveSlugsByLocale },
+  { route: "home", byLocale: dimonaMoveSlugsByLocale },
+  { route: "home", byLocale: ashkelonMoveSlugsByLocale },
+  { route: "home", byLocale: netivotMoveSlugsByLocale },
+  { route: "home", byLocale: eilatMoveSlugsByLocale },
+];
+
+const findSlugTranslation = (slug: string, targetLocale: Locale) => {
+  for (const family of knownSlugFamilies) {
+    for (const locale of SUPPORTED_LOCALES) {
+      if (family.byLocale[locale] === slug) {
+        const targetSlug = family.byLocale[targetLocale];
+        if (targetSlug) {
+          return { route: family.route, slug: targetSlug };
+        }
+      }
+    }
+  }
+
+  return undefined;
+};
+
+const decodePathSegment = (segment: string) => {
+  try {
+    return decodeURIComponent(segment);
+  } catch {
+    return segment;
+  }
+};
+
 const translateRegionSlug = (sourceLocale: Locale, targetLocale: Locale, slug: string) => {
   const sourceSlugs = regionSlugsByLocale[sourceLocale];
   const targetSlugs = regionSlugsByLocale[targetLocale];
@@ -230,6 +300,17 @@ const translateRegionSlug = (sourceLocale: Locale, targetLocale: Locale, slug: s
   }
 
   return targetSlugs[regionIndex] ?? slug;
+};
+
+const resolveRouteFromAnyLocale = (segment: string): RouteKey | undefined => {
+  for (const locale of SUPPORTED_LOCALES) {
+    const route = resolveRouteKey(locale, segment);
+    if (route) {
+      return route;
+    }
+  }
+
+  return undefined;
 };
 
 /**
@@ -247,9 +328,9 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
   }
 
   const [firstSegment, ...rest] = pathSegments;
-  const decodedFirstSegment = firstSegment ? decodeURIComponent(firstSegment) : "";
+  const decodedFirstSegment = firstSegment ? decodePathSegment(firstSegment) : "";
   const matchedRoute = decodedFirstSegment
-    ? resolveRouteKey(currentLocale, decodedFirstSegment)
+    ? resolveRouteKey(currentLocale, decodedFirstSegment) ?? resolveRouteFromAnyLocale(decodedFirstSegment)
     : undefined;
 
   const currentSmallMoveSlug = smallMoveSlugsByLocale[currentLocale];
@@ -290,16 +371,18 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
   const currentEilatMoveSlug = eilatMoveSlugsByLocale[currentLocale];
   const currentLateMoveSlug = lateMoveSlugsByLocale[currentLocale];
   const currentStorageSlug = storageSlugsByLocale[currentLocale];
-  const currentSlug = rest.length ? decodeURIComponent(rest[0]) : "";
+  const currentSlug = matchedRoute === "articles"
+    ? (rest.length ? decodePathSegment(rest[0]) : "")
+    : decodedFirstSegment;
   const isArticleSlug = currentSlug
     ? (Object.keys(articleSlugsByLocale) as Locale[]).some((locale) =>
         (articleSlugsByLocale[locale] ?? []).includes(currentSlug)
       )
     : false;
 
-  if (matchedRoute === "articles" || (decodedFirstSegment && isArticleSlug)) {
+  if (matchedRoute === "articles" || isArticleSlug) {
     const translatedBase = buildLocalizedPath(targetLocale, "articles");
-    if (!rest.length) {
+    if (!currentSlug) {
       return translatedBase;
     }
 
@@ -315,10 +398,33 @@ export function getTranslatedUrl(currentPath: string, targetLocale: Locale): str
       }
     }
     const translatedSlug = index >= 0 && targetSlugs[index] ? targetSlugs[index] : currentSlug;
-    const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
+    const consumedRest = matchedRoute === "articles" ? rest.slice(1) : rest;
+    const remaining = consumedRest.length ? `/${consumedRest.join("/")}` : "";
 
     return `${joinLocalizedPath(translatedBase, translatedSlug)}${remaining}`;
   }
+
+  if (rest.length > 0) {
+    const decodedRest = decodePathSegment(rest[0]);
+    const nestedKnownSlug = findSlugTranslation(decodedRest, targetLocale);
+    if (nestedKnownSlug) {
+      const translatedBase = buildLocalizedPath(targetLocale, nestedKnownSlug.route);
+      const translatedSlug = encodeURIComponent(nestedKnownSlug.slug);
+      const remaining = rest.length > 1 ? `/${rest.slice(1).join("/")}` : "";
+      return `${joinLocalizedPath(translatedBase, translatedSlug)}${remaining}`;
+    }
+  }
+
+  if (decodedFirstSegment) {
+    const topKnownSlug = findSlugTranslation(decodedFirstSegment, targetLocale);
+    if (topKnownSlug) {
+      const translatedBase = buildLocalizedPath(targetLocale, topKnownSlug.route);
+      const translatedSlug = encodeURIComponent(topKnownSlug.slug);
+      const remaining = rest.length ? `/${rest.join("/")}` : "";
+      return `${joinLocalizedPath(translatedBase, translatedSlug)}${remaining}`;
+    }
+  }
+
   if (decodedFirstSegment === currentApartmentMoveSlug) {
     const targetSlug = encodeURIComponent(apartmentMoveSlugsByLocale[targetLocale]);
     const translatedBase = buildLocalizedPath(targetLocale, "transportation");
@@ -558,7 +664,7 @@ if (decodedFirstSegment === currentEilatMoveSlug) {
   }
 
   if (matchedRoute === "transportation" && rest.length > 0) {
-    const decodedRest = decodeURIComponent(rest[0]);
+    const decodedRest = decodePathSegment(rest[0]);
     if (decodedRest === currentApartmentMoveSlug) {
       const targetSlug = encodeURIComponent(apartmentMoveSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "transportation");
@@ -779,7 +885,7 @@ if (decodedFirstSegment === currentEilatMoveSlug) {
   }
 
   if (matchedRoute === "services" && rest.length > 0) {
-    const decodedRest = decodeURIComponent(rest[0]);
+    const decodedRest = decodePathSegment(rest[0]);
     if (decodedRest === currentPackingSlug) {
       const targetSlug = encodeURIComponent(packingSlugsByLocale[targetLocale]);
       const translatedBase = buildLocalizedPath(targetLocale, "services");
@@ -801,7 +907,7 @@ if (decodedFirstSegment === currentEilatMoveSlug) {
   }
 
   if (rest.length > 0) {
-    const decodedRest = decodeURIComponent(rest[0]);
+    const decodedRest = decodePathSegment(rest[0]);
     const knownNestedSlugs: Array<{ current: string; target: string; route: RouteKey }> = [
       { current: currentApartmentMoveSlug, target: apartmentMoveSlugsByLocale[targetLocale], route: "transportation" },
       { current: currentPianoMoveSlug, target: pianoMoveSlugsByLocale[targetLocale], route: "transportation" },

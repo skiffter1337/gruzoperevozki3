@@ -936,7 +936,7 @@ async function buildRegionLanguageAlternates(regionIndex: number) {
     SUPPORTED_LOCALES.forEach((locale) => {
         const regionSlug = dictionaries[locale].homeRegions.sliderItems[regionIndex]?.slug;
         if (!regionSlug) return;
-        languages[locale] = `${SITE_URL}${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
+        languages[locale] = `${SITE_URL}${joinLocalizedPath(buildLocalizedPath(locale, 'home'), regionSlug)}`;
     });
 
     const defaultSlug = dictionaries[DEFAULT_LOCALE].homeRegions.sliderItems[regionIndex]?.slug;
@@ -1727,7 +1727,7 @@ if (isEilatMoveSlug(decodedSlug, dictionary.eilatMovePage.slug)) {
         const regionItem = dictionary.homeRegions.sliderItems[regionIndex];
         const title = formatRegionTemplate(dictionary.regionPage.metaTitle, regionItem.title);
         const description = formatRegionTemplate(dictionary.regionPage.metaDescription, regionItem.title);
-        const canonical = `${SITE_URL}${joinLocalizedPath(buildLocalizedPath(locale, 'home'), slug)}`;
+        const canonical = `${SITE_URL}${joinLocalizedPath(buildLocalizedPath(locale, 'home'), regionSlug)}`;
 
         return {
             title,

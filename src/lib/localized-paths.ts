@@ -70,6 +70,17 @@ export function resolveRouteKey(locale: Locale, segment: string): RouteKey | und
   return (Object.keys(routes) as RouteKey[]).find((key) => routes[key] === segment);
 }
 
+function resolveRouteKeyFromAnyLocale(segment: string): RouteKey | undefined {
+  for (const locale of SUPPORTED_LOCALES) {
+    const route = resolveRouteKey(locale, segment);
+    if (route) {
+      return route;
+    }
+  }
+
+  return undefined;
+}
+
 export function buildLanguageAlternates(route: RouteKey) {
   const languages: Record<string, string> = {};
 
@@ -95,8 +106,19 @@ export function switchLocalePath(pathname: string, targetLocale: Locale): string
 
   const [firstSegment, ...rest] = remainingSegments;
   const decodedFirstSegment = firstSegment ? decodeURIComponent(firstSegment) : "";
-  const matchedRoute = resolveRouteKey(currentLocale as Locale, decodedFirstSegment) || "home";
-  const targetPath = buildLocalizedPath(targetLocale, matchedRoute);
+  const matchedRoute = decodedFirstSegment
+    ? resolveRouteKey(currentLocale as Locale, decodedFirstSegment) ??
+      resolveRouteKeyFromAnyLocale(decodedFirstSegment)
+    : undefined;
 
+  if (!matchedRoute) {
+    if (!remainingSegments.length) {
+      return buildLocalizedPath(targetLocale, "home");
+    }
+
+    return joinLocalizedPath(buildLocalizedPath(targetLocale, "home"), remainingSegments.join("/"));
+  }
+
+  const targetPath = buildLocalizedPath(targetLocale, matchedRoute);
   return rest.length ? joinLocalizedPath(targetPath, rest.join("/")) : targetPath;
 }
