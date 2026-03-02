@@ -172,18 +172,13 @@
         "socialLinks": [
           {
             "label": "Facebook",
-            "href": "https://facebook.com",
+            "href": "https://www.facebook.com/share/18KG6Lz3vM/?mibextid=wwXIfr",
             "network": "facebook"
           },
           {
             "label": "WhatsApp",
             "href": "https://wa.me/{phoneDigits}",
             "network": "whatsapp"
-          },
-          {
-            "label": "Telegram",
-            "href": "https://t.me/example",
-            "network": "telegram"
           }
         ]
       }
@@ -635,6 +630,139 @@
           "info": "Information",
           "contacts": "contacts",
           "phoneNumber": "0509449915"
+        }
+      }
+    ,
+      {
+        "name": "????? ??????",
+        "region": "south",
+        "image": "/images/carriers/mike.png",
+        "url": "https://wa.me/972504579655",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-457-9655"
+        }
+      },
+      {
+        "name": "???? ??????",
+        "region": "south",
+        "image": "/images/carriers/oleg.png",
+        "url": "https://wa.me/972508316994",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-831-6994"
+        }
+      },
+      {
+        "name": "????? ??????",
+        "region": "north",
+        "image": "/images/carriers/mike.png",
+        "url": "https://wa.me/972504579655",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-457-9655"
+        }
+      },
+      {
+        "name": "???? ??????",
+        "region": "north",
+        "image": "/images/carriers/oleg.png",
+        "url": "https://wa.me/972508316994",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-831-6994"
+        }
+      },
+      {
+        "name": "????? ??????",
+        "region": "jerusalem",
+        "image": "/images/carriers/mike.png",
+        "url": "https://wa.me/972504579655",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-457-9655"
+        }
+      },
+      {
+        "name": "???? ??????",
+        "region": "jerusalem",
+        "image": "/images/carriers/oleg.png",
+        "url": "https://wa.me/972508316994",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-831-6994"
+        }
+      },
+      {
+        "name": "????? ??????",
+        "region": "lowland",
+        "image": "/images/carriers/mike.png",
+        "url": "https://wa.me/972504579655",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-457-9655"
+        }
+      },
+      {
+        "name": "???? ??????",
+        "region": "lowland",
+        "image": "/images/carriers/oleg.png",
+        "url": "https://wa.me/972508316994",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-831-6994"
+        }
+      },
+      {
+        "name": "????? ??????",
+        "region": "sharon",
+        "image": "/images/carriers/mike.png",
+        "url": "https://wa.me/972504579655",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-457-9655"
+        }
+      },
+      {
+        "name": "???? ??????",
+        "region": "sharon",
+        "image": "/images/carriers/oleg.png",
+        "url": "https://wa.me/972508316994",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-831-6994"
+        }
+      },
+      {
+        "name": "????? ??????",
+        "region": "coordinates",
+        "image": "/images/carriers/mike.png",
+        "url": "https://wa.me/972504579655",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-457-9655"
+        }
+      },
+      {
+        "name": "???? ??????",
+        "region": "coordinates",
+        "image": "/images/carriers/oleg.png",
+        "url": "https://wa.me/972508316994",
+        "contactInfo": {
+          "info": "Information",
+          "contacts": "contacts",
+          "phoneNumber": "050-831-6994"
         }
       }
     ]

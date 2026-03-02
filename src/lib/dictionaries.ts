@@ -9895,9 +9895,8 @@ const defaultDictionary: DictionaryType = {
                 phoneLabel: 'Телефон',
                 socialLabel: 'Мы в соцсетях',
                 socialLinks: [
-                    {label: 'Facebook', href: 'https://facebook.com', network: 'facebook'},
+                    {label: 'Facebook', href: 'https://www.facebook.com/share/18KG6Lz3vM/?mibextid=wwXIfr', network: 'facebook'},
                     {label: 'WhatsApp', href: 'https://wa.me/', network: 'whatsapp'},
-                    {label: 'Telegram', href: 'https://t.me/', network: 'telegram'},
                 ],
             },
         },
