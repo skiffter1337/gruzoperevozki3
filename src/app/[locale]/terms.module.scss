@@ -47,9 +47,28 @@
   font-weight: 700;
 }
 
+.content {
+  display: grid;
+  gap: 12px;
+  direction: rtl;
+  text-align: right;
+}
+
 .text {
   margin: 0;
   font-size: 18px;
   line-height: 1.5;
+}
+
+.list,
+.sublist {
+  margin: 0;
+  padding-inline-start: 20px;
+  display: grid;
+  gap: 12px;
+}
+
+.sublist {
+  margin-top: 8px;
 }
 

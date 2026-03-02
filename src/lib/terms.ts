@@ -1,4 +1,4 @@
-import { Locale } from "../../i18n-config";
+﻿import { Locale } from "../../i18n-config";
 import { buildLocalizedPath } from "@/lib/localized-paths";
 
 export const termsLabelByLocale: Record<Locale, string> = {
@@ -14,7 +14,5 @@ export const termsValidationByLocale: Record<Locale, string> = {
 };
 
 export function getTermsPath(locale: Locale): string {
-  const homePath = buildLocalizedPath(locale, "home");
-  return homePath === "/" ? "/terms" : `${homePath}/terms`;
+  return buildLocalizedPath(locale, "terms");
 }
-

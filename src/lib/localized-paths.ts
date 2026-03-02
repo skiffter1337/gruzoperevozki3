@@ -1,4 +1,4 @@
-import { Locale } from "../../i18n-config";
+﻿import { Locale } from "../../i18n-config";
 import { DEFAULT_LOCALE, SITE_URL, SUPPORTED_LOCALES } from "./site-config";
 
 export type RouteKey =
@@ -8,7 +8,8 @@ export type RouteKey =
   | "calculate"
   | "articles"
   | "contact"
-  | "leaveReview";
+  | "leaveReview"
+  | "terms";
 
 type LocalizedSegments = Record<Locale, Record<RouteKey, string>>;
 
@@ -21,6 +22,7 @@ const localizedSegments: LocalizedSegments = {
     articles: "מאמרים",
     contact: "צור-קשר",
     leaveReview: "השארת-חוות-דעת",
+    terms: "תקנון-ותנאים",
   },
   ru: {
     home: "",
@@ -30,6 +32,7 @@ const localizedSegments: LocalizedSegments = {
     articles: "статьи",
     contact: "контакты",
     leaveReview: "оставить-отзыв",
+    terms: "pravila-i-usloviya",
   },
   en: {
     home: "",
@@ -39,6 +42,7 @@ const localizedSegments: LocalizedSegments = {
     articles: "articles",
     contact: "contact",
     leaveReview: "leave-review",
+    terms: "terms-and-conditions",
   },
 };
 
@@ -122,3 +126,4 @@ export function switchLocalePath(pathname: string, targetLocale: Locale): string
   const targetPath = buildLocalizedPath(targetLocale, matchedRoute);
   return rest.length ? joinLocalizedPath(targetPath, rest.join("/")) : targetPath;
 }
+
