@@ -8,6 +8,8 @@ import {buildLocalizedPath} from '@/lib/localized-paths';
 import {Locale} from '../../../i18n-config';
 import styles from '@/app/[locale]/leave-review.module.scss';
 import {PhotoIcon} from "@/components/home/PhotoIcon";
+import Link from 'next/link';
+import {getTermsPath, termsLabelByLocale, termsValidationByLocale} from '@/lib/terms';
 
 type LeaveReviewPageClientProps = {
     locale: Locale;
@@ -46,6 +48,7 @@ export default function LeaveReviewPageClient({
     const [photoFile, setPhotoFile] = useState<File | null>(null);
     const [photoPreview, setPhotoPreview] = useState<string | null>(null);
     const [errors, setErrors] = useState<ReviewErrors>({});
+    const [isConsentChecked, setIsConsentChecked] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
@@ -88,6 +91,10 @@ export default function LeaveReviewPageClient({
             nextErrors.rating = dictionary.validation.requiredRating;
         }
         setErrors(nextErrors);
+        if (!isConsentChecked) {
+            setSubmitError(dictionary.validation.requiredConsent || termsValidationByLocale[locale]);
+            return;
+        }
         if (Object.keys(nextErrors).length > 0) {
             return;
         }
@@ -116,7 +123,7 @@ export default function LeaveReviewPageClient({
             }
 
             setIsSubmitted(true);
-        } catch (error) {
+        } catch {
             setSubmitError(dictionary.submitError);
         } finally {
             setIsSubmitting(false);
@@ -313,6 +320,21 @@ export default function LeaveReviewPageClient({
                                 </div>
 
                                 <div className={styles.actions}>
+                                    <div className={styles.consentRow}>
+                                        <input
+                                            id="review-consent"
+                                            type="checkbox"
+                                            checked={isConsentChecked}
+                                            onChange={(event) => {
+                                                setIsConsentChecked(event.target.checked);
+                                                setSubmitError(null);
+                                            }}
+                                        />
+                                        <label htmlFor="review-consent" className={styles.customCheckbox} aria-hidden="true"/>
+                                        <Link href={getTermsPath(locale)} className={styles.consentLink}>
+                                            {dictionary.consentLabel || termsLabelByLocale[locale]}
+                                        </Link>
+                                    </div>
                                     <div className={styles.submitRow}>
                                         <GradientButton
                                             type="submit"

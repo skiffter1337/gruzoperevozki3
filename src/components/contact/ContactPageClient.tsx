@@ -6,6 +6,8 @@ import GradientButton from '@/components/gradient-button/GradientButton';
 import {DictionaryType} from '@/lib/dictionaries';
 import {buildLocalizedPath} from '@/lib/localized-paths';
 import {Locale} from '../../../i18n-config';
+import Link from 'next/link';
+import {getTermsPath, termsLabelByLocale, termsValidationByLocale} from '@/lib/terms';
 import styles from '@/app/[locale]/contact.module.scss';
 
 type ContactPageClientProps = {
@@ -24,6 +26,7 @@ type ContactErrors = {
     name?: string;
     email?: string;
     comment?: string;
+    consent?: string;
 };
 
 export default function ContactPageClient({locale, dictionary, homeLabel}: ContactPageClientProps) {
@@ -33,6 +36,7 @@ export default function ContactPageClient({locale, dictionary, homeLabel}: Conta
         comment: '',
     });
     const [errors, setErrors] = useState<ContactErrors>({});
+    const [isConsentChecked, setIsConsentChecked] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [submitError, setSubmitError] = useState<string | null>(null);
@@ -54,6 +58,9 @@ export default function ContactPageClient({locale, dictionary, homeLabel}: Conta
         }
         if (!values.comment.trim()) {
             nextErrors.comment = dictionary.validation.requiredComment;
+        }
+        if (!isConsentChecked) {
+            nextErrors.consent = termsValidationByLocale[locale];
         }
 
         setErrors(nextErrors);
@@ -217,6 +224,26 @@ export default function ContactPageClient({locale, dictionary, homeLabel}: Conta
                                 </div>
 
                                 <div className={styles.actions}>
+                                    <div className={styles.consentRow}>
+                                        <input
+                                            id="contact-consent"
+                                            type="checkbox"
+                                            checked={isConsentChecked}
+                                            onChange={(event) => {
+                                                setIsConsentChecked(event.target.checked);
+                                                setErrors((prev) => ({...prev, consent: undefined}));
+                                            }}
+                                        />
+                                        <label htmlFor="contact-consent" className={styles.customCheckbox} aria-hidden="true"/>
+                                        <Link href={getTermsPath(locale)} className={styles.consentLink}>
+                                            {termsLabelByLocale[locale]}
+                                        </Link>
+                                    </div>
+                                    {errors.consent && (
+                                        <span className={styles.errorText} role="alert">
+                      {errors.consent}
+                    </span>
+                                    )}
                                     <div className={styles.submitRow}>
                                         <GradientButton
                                             type="submit"

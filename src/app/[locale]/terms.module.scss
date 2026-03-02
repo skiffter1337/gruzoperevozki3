@@ -1,0 +1,55 @@
+@use '@/styles/variables' as vars;
+
+.page {
+  padding: 120px 16px 80px;
+  background: vars.$bg-white-image center / cover no-repeat;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding-top: 60px;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 60px auto 0;
+  padding: 0 vars.$container-padding;
+  display: grid;
+  gap: 32px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding: 0;
+    margin-top: 0;
+  }
+}
+
+.breadcrumbsWrapper {
+  justify-self: start;
+  margin-top: 24px;
+}
+
+.card {
+  background: vars.$primary-color;
+  border-radius: vars.$radius-xl;
+  padding: 48px;
+  color: vars.$color-white;
+  box-shadow: vars.$shadow-lg;
+  display: grid;
+  gap: 16px;
+
+  @media (max-width: vars.$tablet-breakpoint) {
+    padding: 24px;
+  }
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+}
+
+.text {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+}
+

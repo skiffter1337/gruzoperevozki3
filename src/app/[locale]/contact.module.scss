@@ -136,6 +136,56 @@
   justify-content: center;
 }
 
+.consentRow {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 16px;
+
+  input[type='checkbox'] {
+    display: none;
+  }
+
+  .customCheckbox {
+    min-width: 22px;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: vars.$bg-white-image center / cover no-repeat;
+    border: 2px solid vars.$color-white;
+    position: relative;
+    cursor: pointer;
+    transition: all vars.$transition-base;
+
+    &::after {
+      content: 'вњ“';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: vars.$primary-blue;
+      font-size: 14px;
+      opacity: 0;
+      transition: opacity vars.$transition-base;
+    }
+  }
+
+  input[type='checkbox']:checked + .customCheckbox {
+    background: vars.$bg-white-image center / cover no-repeat;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.consentLink {
+  color: vars.$color-white;
+  text-decoration: underline;
+}
+
 .successMessage {
   margin: 0 auto;
   text-align: center;

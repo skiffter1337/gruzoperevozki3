@@ -673,10 +673,10 @@
     "sliderItems": [
       {
         "name": "Алексей Иванов",
-        "company": "LogiMove",
+        "company": "שור הובלות",
         "review": "Заказывал переезд квартиры. Честно, я переживал из-за старой мебели, но ребята всё аккуратно упаковали и даже помогли поднять диван на этаж. Один шкаф немного поцарапался, но ничего критичного. В целом доволен, рекомендую.",
         "avatar": "/images/testimonials/person1.png",
-        "carrierUrl": "https://example.com/logimove",
+        "carrierUrl": "https://shor-hovalot.co.il/",
         "rating": 5
       },
       {

@@ -256,6 +256,11 @@
   }
 }
 
+.consentLink {
+  color: vars.$color-white;
+  text-decoration: underline;
+}
+
 .srOnly {
   position: absolute;
   width: 1px;

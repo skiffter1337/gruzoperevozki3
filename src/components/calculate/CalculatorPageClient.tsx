@@ -6,6 +6,9 @@ import CalculatorForm, {CalculatorFormDraft, CalculatorFormPayload} from '@/comp
 import GradientButton from '@/components/gradient-button/GradientButton';
 import {DictionaryType} from '@/lib/dictionaries';
 import {buildLocalizedPath} from '@/lib/localized-paths';
+import Link from 'next/link';
+import {getTermsPath, termsLabelByLocale, termsValidationByLocale} from '@/lib/terms';
+import {Locale} from '../../../i18n-config';
 import styles from '@/app/[locale]/calculate.module.scss';
 
 type CalculatorPageClientProps = {
@@ -29,6 +32,7 @@ type ContactValues = {
 type ContactErrors = {
     fullName?: string;
     phone?: string;
+    consent?: string;
 };
 
 export default function CalculatorPageClient({
@@ -49,6 +53,7 @@ export default function CalculatorPageClient({
         comment: '',
     });
     const [contactErrors, setContactErrors] = useState<ContactErrors>({});
+    const [isConsentChecked, setIsConsentChecked] = useState(false);
     const [submitError, setSubmitError] = useState('');
     const backButtonLabel = locale === 'he' ? 'חזרה' : locale === 'en' ? 'Back' : 'Назад';
 
@@ -76,6 +81,9 @@ export default function CalculatorPageClient({
         }
         if (!contactValues.phone.trim()) {
             nextErrors.phone = dictionary.validation.requiredPhone;
+        }
+        if (!isConsentChecked) {
+            nextErrors.consent = dictionary.validation.requiredConsent || termsValidationByLocale[locale as Locale];
         }
         setContactErrors(nextErrors);
         if (Object.keys(nextErrors).length > 0) {
@@ -259,6 +267,26 @@ export default function CalculatorPageClient({
                         </div>
 
                         <div className={styles.contactActions}>
+                            <div className={styles.consentRow}>
+                                <input
+                                    id="calculator-consent"
+                                    type="checkbox"
+                                    checked={isConsentChecked}
+                                    onChange={(event) => {
+                                        setIsConsentChecked(event.target.checked);
+                                        setContactErrors((prev) => ({...prev, consent: undefined}));
+                                    }}
+                                />
+                                <label htmlFor="calculator-consent" className={styles.customCheckbox} aria-hidden="true"/>
+                                <Link href={getTermsPath(locale as Locale)} className={styles.consentLink}>
+                                    {dictionary.consentLabel || termsLabelByLocale[locale as Locale]}
+                                </Link>
+                            </div>
+                            {contactErrors.consent && (
+                                <span className={styles.errorText} role="alert">
+                  {contactErrors.consent}
+                </span>
+                            )}
                             <div className={styles.contactButtons}>
                                 <GradientButton
                                     type="button"

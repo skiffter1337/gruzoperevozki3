@@ -8348,11 +8348,11 @@ const defaultDictionary: DictionaryType = {
         sliderItems: [
             {
                 name: 'Алексей Морозов',
-                company: 'LogiMove',
+                company: 'שור הובלות',
                 review:
                     'Организовали перевозку за сутки: погрузили, аккуратно упаковали и доставили без единой царапины. Буду рекомендовать коллегам.',
                 avatar: '/images/testimonials/person1.png',
-                carrierUrl: 'https://example.com/logimove',
+                carrierUrl: 'https://shor-hovalot.co.il/',
                 rating: 5,
             },
             {
