@@ -267,6 +267,7 @@ export type DictionaryType = {
             articles: string;
             contact: string;
             leaveReview: string;
+            terms: string;
         };
         languageSwitcher: {
             he: string;
@@ -9847,7 +9848,8 @@ const defaultDictionary: DictionaryType = {
             "calculate": "Calculate cost",
             "articles": "Articles",
             "contact": "Contact",
-            "leaveReview": "Leave a review"
+            "leaveReview": "Leave a review",
+            "terms": "Terms"
         },
         languageSwitcher: {
             he: 'Hebrew',
