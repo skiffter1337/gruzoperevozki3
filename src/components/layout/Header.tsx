@@ -29,6 +29,7 @@ interface HeaderProps {
             articles: string;
             contact: string;
             leaveReview: string;
+            terms: string;
         };
         languageSwitcher: {
             he: string;
@@ -107,6 +108,7 @@ export default function Header({locale, dictionary}: HeaderProps) {
         articles: dictionary.nav.articles,
         contact: dictionary.nav.contact,
         leaveReview: dictionary.nav.leaveReview,
+        terms: dictionary.nav.terms,
     };
 
     const sanitizePhone = (phone?: string) => phone?.replace(/\D/g, '');
