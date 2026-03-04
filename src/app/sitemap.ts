@@ -69,7 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const givataimMoveSlugsByLocale = {
     he: heDictionary.givataimMovePage?.slug ?? "Ч”Ч•Ч‘ЧњЧ•ЧЄ-Ч‘Ч’Ч‘ЧўЧЄЧ™Ч™Чќ",
     ru: ruDictionary.givataimMovePage?.slug ?? "РїРµСЂРµРІРѕР·РєРё-РІ-РіРёРІР°С‚Р°РёРјРµ",
-    en: enDictionary.givataimMovePage?.slug ?? "transportation-in-givataim",
+    en: enDictionary.givataimMovePage?.slug ?? "transportation-in-givatayim",
   };
   const haifaMoveSlugsByLocale = {
     he: heDictionary.haifaMovePage?.slug ?? "Ч”Ч•Ч‘ЧњЧ•ЧЄ-Ч‘Ч—Ч™Ч¤Ч”",

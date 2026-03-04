@@ -77,7 +77,7 @@ const holonMoveSlugsByLocale: Record<Locale, string> = {
 const givataimMoveSlugsByLocale: Record<Locale, string> = {
   he: heDictionary.givataimMovePage?.slug ?? "הובלות-בגבעתיים",
   ru: ruDictionary.givataimMovePage?.slug ?? "перевозки-в-гиватаиме",
-  en: enDictionary.givataimMovePage?.slug ?? "transportation-in-givataim",
+  en: enDictionary.givataimMovePage?.slug ?? "transportation-in-givatayim",
 };
 const batYamMoveSlugsByLocale: Record<Locale, string> = {
   he: heDictionary.batYamMovePage?.slug ?? "הובלות-בבת-ים",
