@@ -116,7 +116,7 @@ export default function StoragePage({
                 <div className={styles.tableCell} role="cell">
                   {row.item}
                 </div>
-                <div className={styles.tableCell} role="cell">
+                <div className={styles.tableCell} role="cell" dir="ltr">
                   {row.priceRange}
                 </div>
                 <div className={styles.tableCell} role="cell">

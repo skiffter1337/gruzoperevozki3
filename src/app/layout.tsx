@@ -17,6 +17,11 @@ export const metadata: Metadata = {
   description: 'Professional moving and transportation services',
   keywords: 'moving, transportation, relocation',
   robots: 'index, follow',
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

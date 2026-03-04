@@ -222,7 +222,7 @@ export interface FooterLink {
 export interface FooterSocialLink {
     label: string;
     href: string;
-    network: 'facebook' | 'whatsapp' | 'telegram';
+    network: 'facebook' | 'instagram' | 'telegram';
 }
 
 export interface FooterDictionary {
@@ -9837,7 +9837,7 @@ const defaultDictionary: DictionaryType = {
             contact: [
                 {label: "Call us", href: "tel:{phone}"},
                 {label: "Email", href: "mailto:{email}"},
-                {label: "WhatsApp", href: "https://wa.me/{phoneDigits}"},
+                {label: "Telegram @Maavar_support", href: "https://t.me/Maavar_support"},
                 {label: "Facebook", href: "#"},
             ],
         },
@@ -9898,7 +9898,8 @@ const defaultDictionary: DictionaryType = {
                 socialLabel: 'Мы в соцсетях',
                 socialLinks: [
                     {label: 'Facebook', href: 'https://www.facebook.com/share/18KG6Lz3vM/?mibextid=wwXIfr', network: 'facebook'},
-                    {label: 'WhatsApp', href: 'https://wa.me/', network: 'whatsapp'},
+                    {label: 'Instagram', href: 'https://www.instagram.com/maavar.israel?igsh=ZDIzYnlrb2xjdmg0&utm_source=qr', network: 'instagram'},
+                    {label: 'Telegram @Maavar_support', href: 'https://t.me/Maavar_support', network: 'telegram'},
                 ],
             },
         },

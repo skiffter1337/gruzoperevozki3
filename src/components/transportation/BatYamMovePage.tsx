@@ -89,7 +89,7 @@ export default function BatYamMovePage({
                         {dictionary.pricing.rows.map((row) => (
                             <div key={row.type} className={styles.tableRow} role="row">
                                 <div className={styles.tableCell} role="cell">{row.type}</div>
-                                <div className={styles.tableCell} role="cell">{row.priceRange}</div>
+                                <div className={styles.tableCell} role="cell" dir="ltr">{row.priceRange}</div>
                                 <div className={styles.tableCell} role="cell">{row.notes}</div>
                             </div>
                         ))}

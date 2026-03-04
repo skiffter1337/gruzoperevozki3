@@ -22,9 +22,12 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const dictionary = await getDictionary(locale);
+  const fixedHomeTitle = 'חישוב עלות הובלה עם הנחה של עד 45% בישראל - Maavar';
 
   return {
-    title: dictionary.metadata.title,
+    title: {
+      absolute: fixedHomeTitle,
+    },
     description: dictionary.metadata.description,
     keywords: dictionary.metadata.keywords,
     alternates: {
@@ -32,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: buildLanguageAlternates('home'),
     },
     openGraph: {
-      title: dictionary.metadata.title,
+      title: fixedHomeTitle,
       description: dictionary.metadata.description,
       url: `${SITE_URL}${buildLocalizedPath(locale, 'home')}`,
       locale,

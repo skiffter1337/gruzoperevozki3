@@ -3,7 +3,7 @@ import {Locale} from '../../../i18n-config';
 import {DictionaryType, FooterLink, FooterSocialLink} from '@/lib/dictionaries';
 import {buildLocalizedPath, RouteKey} from '@/lib/localized-paths';
 import FacebookIcon from '@/components/icons/FacebookIcon';
-import WhatsAppIcon from '@/components/icons/WhatsAppIcon';
+import InstagramIcon from '@/components/icons/InstagramIcon';
 import TelegramIcon from '@/components/icons/TelegramIcon';
 import styles from './Footer.module.scss';
 import {JSX} from "react";
@@ -26,7 +26,7 @@ const anchorTargets: Record<Exclude<NonNullable<FooterLink['anchor']>, 'calculat
 
 const socialIconMap: Record<FooterSocialLink['network'], JSX.Element> = {
     facebook: <FacebookIcon/>,
-    whatsapp: <WhatsAppIcon/>,
+    instagram: <InstagramIcon/>,
     telegram: <TelegramIcon/>,
 };
 

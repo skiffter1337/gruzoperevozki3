@@ -31,7 +31,7 @@ export default function PriceListPage({ locale, dictionary, calculatorDictionary
           <div className={styles.tableCell} role="cell">
             {row.service}
           </div>
-          <div className={styles.tableCell} role="cell">
+          <div className={styles.tableCell} role="cell" dir="ltr">
             {row.priceRange}
           </div>
           <div className={styles.tableCell} role="cell">

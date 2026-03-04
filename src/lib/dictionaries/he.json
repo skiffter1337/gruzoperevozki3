@@ -57,7 +57,7 @@
         },
         {
           "label": "וואטסאפ",
-          "href": "https://wa.me/{phoneDigits}"
+          "href": "https://t.me/Maavar_support"
         },
         {
           "label": "פייסבוק",
@@ -176,9 +176,14 @@
             "network": "facebook"
           },
           {
-            "label": "WhatsApp",
-            "href": "https://wa.me/{phoneDigits}",
-            "network": "whatsapp"
+            "label": "Instagram",
+            "href": "https://www.instagram.com/maavar.israel?igsh=ZDIzYnlrb2xjdmg0&utm_source=qr",
+            "network": "instagram"
+          },
+          {
+            "label": "Telegram @Maavar_support",
+            "href": "https://t.me/Maavar_support",
+            "network": "telegram"
           }
         ]
       }
@@ -282,7 +287,7 @@
             "slug": "הובלות-ברעננה"
           },
           {
-            "label": "הוד שרון",
+            "label": "הוד השרון",
             "slug": "הובלות-בהוד-שרון"
           }
         ]
@@ -637,7 +642,7 @@
         "name": "מיכאל הובלות",
         "region": "south",
         "image": "/images/carriers/mike.png",
-        "url": "https://wa.me/972504579655",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "מֵידָע",
           "contacts": "אנשי קשר",
@@ -648,7 +653,7 @@
         "name": "אולג הובלות",
         "region": "south",
         "image": "/images/carriers/oleg.png",
-        "url": "https://wa.me/972508316994",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "מֵידָע",
           "contacts": "אנשי קשר",
@@ -659,7 +664,7 @@
         "name": "מיכאל הובלות",
         "region": "north",
         "image": "/images/carriers/mike.png",
-        "url": "https://wa.me/972504579655",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "מֵידָע",
           "contacts": "אנשי קשר",
@@ -670,7 +675,7 @@
         "name": "אולג הובלות",
         "region": "north",
         "image": "/images/carriers/oleg.png",
-        "url": "https://wa.me/972508316994",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "מֵידָע",
           "contacts": "אנשי קשר",
@@ -681,7 +686,7 @@
         "name": "מיכאל הובלות",
         "region": "jerusalem",
         "image": "/images/carriers/mike.png",
-        "url": "https://wa.me/972504579655",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "מֵידָע",
           "contacts": "אנשי קשר",
@@ -692,7 +697,7 @@
         "name": "אולג הובלות",
         "region": "jerusalem",
         "image": "/images/carriers/oleg.png",
-        "url": "https://wa.me/972508316994",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "מֵידָע",
           "contacts": "אנשי קשר",
@@ -703,7 +708,7 @@
         "name": "מיכאל הובלות",
         "region": "lowland",
         "image": "/images/carriers/mike.png",
-        "url": "https://wa.me/972504579655",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "מֵידָע",
           "contacts": "אנשי קשר",
@@ -714,7 +719,7 @@
         "name": "אולג הובלות",
         "region": "lowland",
         "image": "/images/carriers/oleg.png",
-        "url": "https://wa.me/972508316994",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "מֵידָע",
           "contacts": "אנשי קשר",
@@ -725,7 +730,7 @@
         "name": "מיכאל הובלות",
         "region": "sharon",
         "image": "/images/carriers/mike.png",
-        "url": "https://wa.me/972504579655",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "מֵידָע",
           "contacts": "אנשי קשר",
@@ -736,7 +741,7 @@
         "name": "אולג הובלות",
         "region": "sharon",
         "image": "/images/carriers/oleg.png",
-        "url": "https://wa.me/972508316994",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "מֵידָע",
           "contacts": "אנשי קשר",
@@ -747,7 +752,7 @@
         "name": "מיכאל הובלות",
         "region": "coordinates",
         "image": "/images/carriers/mike.png",
-        "url": "https://wa.me/972504579655",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "מֵידָע",
           "contacts": "אנשי קשר",
@@ -758,7 +763,7 @@
         "name": "אולג הובלות",
         "region": "coordinates",
         "image": "/images/carriers/oleg.png",
-        "url": "https://wa.me/972508316994",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "מֵידָע",
           "contacts": "אנשי קשר",
@@ -7831,30 +7836,30 @@
   },
   "hodHaSharonMovePage": {
     "slug": "הובלות-בהוד-שרון",
-    "metaTitle": "הובלות בהוד שרון במחיר הוגן — החל מ-249 ₪",
-    "metaDescription": "מחפשים הובלה בהוד שרון? קבלו הצעות מחיר ממובילים מומלצים, השוו מחירים וחסכו עד 45%. הובלות קטנות, דירות ומשרדים — החל מ-249 ₪. אריזה, פירוק/הרכבה ומנוף לפי צורך.",
-    "title": "הוד שרון: השוואת מחירים חכמה וחיסכון של עד 45%",
-    "tocTitle": "תוכן עניינים: המדריך המלא למעבר דירה בהוד שרון",
+    "metaTitle": "הובלות הוד השרון במחיר הוגן — החל מ-249 ₪",
+    "metaDescription": "מחפשים הובלה הוד השרון? קבלו הצעות מחיר ממובילים מומלצים, השוו מחירים וחסכו עד 45%. הובלות קטנות, דירות ומשרדים — החל מ-249 ₪. אריזה, פירוק/הרכבה ומנוף לפי צורך.",
+    "title": "הוד השרון: השוואת מחירים חכמה וחיסכון של עד 45%",
+    "tocTitle": "תוכן עניינים: המדריך המלא למעבר דירה הוד השרון",
     "tocItems": [
       {
         "id": "why-us",
-        "label": "למה להזמין הובלה בהוד השרון דרך הפורטל שלנו?"
+        "label": "למה להזמין הובלה הוד השרון דרך הפורטל שלנו?"
       },
       {
         "id": "pricing",
-        "label": "מחירון הובלות בהוד השרון — כמה זה באמת עולה?"
+        "label": "מחירון הובלות הוד השרון — כמה זה באמת עולה?"
       },
       {
         "id": "challenges",
-        "label": "אתגרי הובלה בהוד השרון: גישה, מעליות ותזמון"
+        "label": "אתגרי הובלה הוד השרון: גישה, מעליות ותזמון"
       },
       {
         "id": "small-moves",
-        "label": "הובלות קטנות בהוד השרון — פריטים בודדים ומעברים קטנים"
+        "label": "הובלות קטנות הוד השרון — פריטים בודדים ומעברים קטנים"
       },
       {
         "id": "office-moves",
-        "label": "הובלות משרדים ועסקים בהוד השרון"
+        "label": "הובלות משרדים ועסקים הוד השרון"
       },
       {
         "id": "extra-services",
@@ -7867,7 +7872,7 @@
     ],
     "why": {
       "id": "why-us",
-      "title": "למה להזמין הובלה בהוד השרון דרך הפורטל שלנו?",
+      "title": "למה להזמין הובלההוד השרון דרך הפורטל שלנו?",
       "paragraphs": [
         "הוד השרון היא עיר נוחה באזור השרון, אבל מעבר דירה מוצלח עדיין דורש תכנון: נפח התכולה, קומה, גישה למשאית ושעת יציאה כדי להימנע מעומסים.",
         "הפורטל שלנו אינו חברת הובלות אחת — זו פלטפורמה שבה מובילים מומלצים מתחרים על ההזמנה שלכם. אתם משווים הצעות ובוחרים את המשתלמת ביותר."
@@ -7885,12 +7890,12 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "מחירון הובלות בהוד השרון — כמה זה באמת עולה?",
+      "title": "מחירון הובלות הוד השרון — כמה זה באמת עולה?",
       "intro": "המחיר תלוי בגודל הדירה, קומה, מעלית, מרחק ותאריך (סוף חודש וקיץ לרוב יקרים יותר). להלן טווחים מקובלים לפי הצעות באזור.",
-      "tableLabel": "מחירון הובלות בהוד השרון",
+      "tableLabel": "מחירון הובלות הוד השרון",
       "tableHeaders": [
         "סוג הובלה",
-        "טווח מחירים משוער בהוד השרון",
+        "טווח מחירים משוער הוד השרון",
         "הערות"
       ],
       "rows": [

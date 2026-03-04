@@ -85,7 +85,7 @@ export default function TelAvivMovePage({
                 <div className={styles.tableCell} role="cell">
                   {row.type}
                 </div>
-                <div className={styles.tableCell} role="cell">
+                <div className={styles.tableCell} role="cell" dir="ltr">
                   {row.priceRange}
                 </div>
                 <div className={styles.tableCell} role="cell">

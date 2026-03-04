@@ -89,7 +89,7 @@ export default function PianoMovePage({
                 <div className={styles.tableCell} role="cell">
                   {row.notes}
                 </div>
-                <div className={styles.tableCell} role="cell">
+                <div className={styles.tableCell} role="cell" dir="ltr">
                   {row.priceRange}
                 </div>
                 <div className={styles.tableCell} role="cell">

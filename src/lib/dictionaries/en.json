@@ -56,8 +56,8 @@
           "href": "mailto:{email}"
         },
         {
-          "label": "WhatsApp",
-          "href": "https://wa.me/{phoneDigits}"
+          "label": "Telegram @Maavar_support",
+          "href": "https://t.me/Maavar_support"
         },
         {
           "label": "Facebook",
@@ -176,9 +176,14 @@
             "network": "facebook"
           },
           {
-            "label": "WhatsApp",
-            "href": "https://wa.me/{phoneDigits}",
-            "network": "whatsapp"
+            "label": "Instagram",
+            "href": "https://www.instagram.com/maavar.israel?igsh=ZDIzYnlrb2xjdmg0&utm_source=qr",
+            "network": "instagram"
+          },
+          {
+            "label": "Telegram @Maavar_support",
+            "href": "https://t.me/Maavar_support",
+            "network": "telegram"
           }
         ]
       }
@@ -637,7 +642,7 @@
         "name": "מיכאל הובלות",
         "region": "south",
         "image": "/images/carriers/mike.png",
-        "url": "https://wa.me/972504579655",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
@@ -648,7 +653,7 @@
         "name": "אולג הובלות",
         "region": "south",
         "image": "/images/carriers/oleg.png",
-        "url": "https://wa.me/972508316994",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
@@ -659,7 +664,7 @@
         "name": "מיכאל הובלות",
         "region": "north",
         "image": "/images/carriers/mike.png",
-        "url": "https://wa.me/972504579655",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
@@ -670,7 +675,7 @@
         "name": "אולג הובלות",
         "region": "north",
         "image": "/images/carriers/oleg.png",
-        "url": "https://wa.me/972508316994",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
@@ -681,7 +686,7 @@
         "name": "מיכאל הובלות",
         "region": "jerusalem",
         "image": "/images/carriers/mike.png",
-        "url": "https://wa.me/972504579655",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
@@ -692,7 +697,7 @@
         "name": "אולג הובלות",
         "region": "jerusalem",
         "image": "/images/carriers/oleg.png",
-        "url": "https://wa.me/972508316994",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
@@ -703,7 +708,7 @@
         "name": "מיכאל הובלות",
         "region": "lowland",
         "image": "/images/carriers/mike.png",
-        "url": "https://wa.me/972504579655",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
@@ -714,7 +719,7 @@
         "name": "אולג הובלות",
         "region": "lowland",
         "image": "/images/carriers/oleg.png",
-        "url": "https://wa.me/972508316994",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
@@ -725,7 +730,7 @@
         "name": "מיכאל הובלות",
         "region": "sharon",
         "image": "/images/carriers/mike.png",
-        "url": "https://wa.me/972504579655",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
@@ -736,7 +741,7 @@
         "name": "אולג הובלות",
         "region": "sharon",
         "image": "/images/carriers/oleg.png",
-        "url": "https://wa.me/972508316994",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
@@ -747,7 +752,7 @@
         "name": "מיכאל הובלות",
         "region": "coordinates",
         "image": "/images/carriers/mike.png",
-        "url": "https://wa.me/972504579655",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
@@ -758,7 +763,7 @@
         "name": "אולג הובלות",
         "region": "coordinates",
         "image": "/images/carriers/oleg.png",
-        "url": "https://wa.me/972508316994",
+        "url": "https://t.me/Maavar_support",
         "contactInfo": {
           "info": "Information",
           "contacts": "contacts",
