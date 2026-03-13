@@ -4,7 +4,7 @@ import { Locale } from '../../../i18n-config';
 import Header from '@/components/layout/Header';
 import { getDictionary } from '@/lib/dictionaries';
 import { buildLanguageAlternates, buildLocalizedPath } from '@/lib/localized-paths';
-import { SITE_URL } from '@/lib/site-config';
+import { FAVICON_ICONS, SITE_URL } from '@/lib/site-config';
 import { notFound } from 'next/navigation';
 import LocaleDirection from '@/components/LocaleDirection';
 import Footer from '@/components/layout/Footer';
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
 
   if (!isLocale(locale)) {
-    return {};
+    return { icons: FAVICON_ICONS };
   }
 
   const dictionary = await getDictionary(locale);
@@ -37,6 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     description: dictionary.metadata.description,
     keywords: dictionary.metadata.keywords,
+    icons: FAVICON_ICONS,
     alternates: {
       canonical: `${SITE_URL}${buildLocalizedPath(locale, 'home')}`,
       languages: buildLanguageAlternates('home'),

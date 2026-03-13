@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import { ReactNode } from 'react';
-import { DEFAULT_LOCALE } from '@/lib/site-config';
+import { DEFAULT_LOCALE, FAVICON_ICONS, FAVICON_PNG_PATH } from '@/lib/site-config';
 import './globals.scss';
 
 const montserrat = Montserrat({
@@ -17,11 +17,7 @@ export const metadata: Metadata = {
   description: 'Professional moving and transportation services',
   keywords: 'moving, transportation, relocation',
   robots: 'index, follow',
-  icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
-    apple: '/logo.png',
-  },
+  icons: FAVICON_ICONS,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -30,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/logo.png" type="image/png" />
+        <link rel="icon" href={FAVICON_PNG_PATH} type="image/png" />
       </head>
       <body className={montserrat.className}>{children}</body>
     </html>
