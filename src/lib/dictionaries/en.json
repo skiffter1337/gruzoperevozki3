@@ -16,7 +16,7 @@
           "path": "offices"
         },
         {
-          "label": "Private house move",
+          "label": "Private Home Moving",
           "path": "private-house"
         },
         {
@@ -24,7 +24,7 @@
           "path": "small-move"
         },
         {
-          "label": "Moving price list",
+          "label": "Moving Cost Guide",
           "path": "moving-price-list"
         },
         {
@@ -69,7 +69,7 @@
       "home": "Home",
       "transportation": "Transportation",
       "services": "Additional services",
-      "calculate": "Calculate cost",
+      "calculate": "Get a Quote",
       "articles": "Articles",
       "contact": "Contact",
       "leaveReview": "Leave a review"
@@ -129,7 +129,7 @@
             "path": "offices"
           },
           {
-            "label": "Private house move",
+            "label": "Private Home Moving",
             "path": "private-house"
           },
           {
@@ -137,7 +137,7 @@
             "path": "small-move"
           },
           {
-            "label": "Moving price list",
+            "label": "Moving Cost Guide",
             "path": "moving-price-list"
           }
         ]
@@ -190,7 +190,7 @@
     }
   },
   "homeHero": {
-    "title": "CALCULATION OF TRANSPORTATION COSTS",
+    "title": "MOVING COST CALCULATOR",
     "titleWithRegion": "Calculation of moving costs in the {region} region",
     "subtitle": "Receive price quotes from movers online!",
     "fromLabel": "From",
@@ -200,7 +200,7 @@
     "dateLabel": "Move date",
     "datePlaceholder": "Choose a date",
     "submit": "Continue checkout",
-    "submitLabel": "to get price offers",
+    "submitLabel": "to get quotes",
     "requiredMessage": "Please fill in all fields",
     "sliderHeading": "Services",
     "sliderCta": "Learn more",
@@ -934,7 +934,7 @@
       "title": "How much does it cost? Updated packing price list",
       "intro": "One of the most common questions is “How much does it cost to pack a home?” The price depends on apartment size, the amount of belongings, and packing complexity (for example, how many fragile items). The table below shows average ranges to set expectations.",
       "note": "Please note: these are average prices.",
-      "tableLabel": "Packing and moving price list",
+      "tableLabel": "Packing and moving cost guide",
       "tableHeaders": [
         "What is included?",
         "Average price range",
@@ -1546,7 +1546,7 @@
           "Introduction",
           "Moving a private house in Israel is a large-scale process that often includes multiple floors, a garden, large furniture, and many household items.",
           "In 2026, moving a private house usually takes 6–12 hours depending on total volume, number of rooms, and distance.",
-          "Features of a Private House Move",
+          "Features of a Private Home Moving",
           "Multiple rooms (3–6+), bedrooms, living room, kitchen, and sometimes attic or basement.",
           "Large furniture and appliances, outdoor/seasonal items, and access challenges such as narrow pathways or small elevators.",
           "Packing and furniture disassembly are often required.",
@@ -3031,9 +3031,9 @@
   },
   "houseMovePage": {
     "slug": "private-house",
-    "metaTitle": "Private house move — house moving from ₪890",
+    "metaTitle": "Private Home Moving — house moving from ₪890",
     "metaDescription": "Private house moves at great prices. Moves from ₪890. Nationwide coverage with vetted movers. Save up to 45%.",
-    "title": "Private house move",
+    "title": "Private Home Moving",
     "tocTitle": "Table of contents",
     "tocItems": [
       {
@@ -3042,7 +3042,7 @@
       },
       {
         "id": "process",
-        "label": "How to book a private house move in 3 simple steps?"
+        "label": "How to book a private home moving in 3 simple steps?"
       },
       {
         "id": "pricing",
@@ -3050,7 +3050,7 @@
       },
       {
         "id": "price-factors",
-        "label": "What affects the price of a private house move?"
+        "label": "What affects the price of a private home moving?"
       },
       {
         "id": "solutions",
@@ -3088,7 +3088,7 @@
     },
     "process": {
       "id": "process",
-      "title": "How to book a private house move in 3 simple steps?",
+      "title": "How to book a private home moving in 3 simple steps?",
       "intro": "Fast and easy — no obligations.",
       "steps": [
         {
@@ -3147,7 +3147,7 @@
     },
     "priceFactors": {
       "id": "price-factors",
-      "title": "What affects the price of a private house move?",
+      "title": "What affects the price of a private home moving?",
       "items": [
         {
           "title": "Volume of belongings",
@@ -3572,7 +3572,7 @@
       },
       {
         "id": "pricing",
-        "label": "Haifa moving price list — how much does it really cost?"
+        "label": "Haifa moving cost guide — how much does it really cost?"
       },
       {
         "id": "challenges",
@@ -3621,9 +3621,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Haifa moving price list — how much does it really cost?",
+      "title": "Haifa moving cost guide — how much does it really cost?",
       "intro": "The most common question is “how much does moving in Haifa cost?”. The price depends on distance (within Haifa or outside), volume, floor, and whether a lift is needed. We compiled average prices to help you estimate. Remember — through our system you can get lower prices thanks to competition.",
-      "tableLabel": "Haifa moving price list",
+      "tableLabel": "Haifa moving cost guide",
       "tableHeaders": [
         "Notes",
         "Average price range in Haifa",
@@ -3740,9 +3740,9 @@
   },
   "priceListPage": {
     "slug": "moving-price-list",
-    "metaTitle": "Moving price list — relocation prices from ₪249 across Israel",
+    "metaTitle": "Moving cost guide — relocation prices from ₪249 across Israel",
     "metaDescription": "Affordable small moves. Relocations from ₪249. Nationwide service. Only vetted movers. Save up to 45%.",
-    "title": "Moving price list",
+    "title": "Moving cost guide",
     "tocTitle": "Table of contents",
     "tocItems": [
       {
@@ -3803,7 +3803,7 @@
       "id": "calculator",
       "title": "Use our moving calculator to get a price and offers",
       "paragraphs": [
-        "Planning a move? The first question is usually: “How much will it cost?” You’re likely looking for the latest 2025 moving price list.",
+        "Planning a move? The first question is usually: “How much will it cost?” You’re likely looking for the latest 2025 moving cost guide.",
         "To be fully transparent, we’ve collected all price ranges on this page. But why stop at an estimate?",
         "The best way to know your exact moving cost is to use our advanced moving calculator. It’s not just an estimate tool — it’s the first step to real savings.",
         "How does it work?",
@@ -3818,7 +3818,7 @@
         "Apartment moves are the most common service, and “How much does it cost to move an apartment?” is the top question. The price depends on apartment size, item volume, and extra services (packing, disassembly, lift/crane). The table below shows average market prices for reference.",
         "Important: prices in the table are market averages. Through our portal and competition, you’ll likely get a lower offer."
       ],
-      "tableLabel": "Apartment moving price list",
+      "tableLabel": "Apartment moving cost guide",
       "tableHeaders": [
         "Service type",
         "Average price (range)",
@@ -3856,7 +3856,7 @@
           "notes": "a mover visit is recommended for accurate pricing."
         },
         {
-          "service": "Private house move",
+          "service": "Private Home Moving",
           "priceRange": "₪2,999–5,999",
           "notes": "depends on floors and yard/entry access."
         },
@@ -3909,7 +3909,7 @@
       "id": "single-items-pricing",
       "title": "Single-item move price list",
       "intro": "Need to move just one item? There’s no sense paying for a full move. Single-item prices are dynamic: sometimes a nearby mover “on the way” can offer a particularly good price. Our calculator detects these requests and sends them to the right movers.",
-      "tableLabel": "Single-item moving price list",
+      "tableLabel": "Single-item moving cost guide",
       "tableHeaders": [
         "Item",
         "Average price",
@@ -3980,7 +3980,7 @@
       "id": "furniture-pricing",
       "title": "How much does it cost to move furniture? (detailed price list)",
       "intro": "Often you only need to move a bedroom set or a new dining area. Furniture transport is usually one of the most affordable options, but the price depends heavily on disassembly and reassembly needs.",
-      "tableLabel": "Furniture moving price list",
+      "tableLabel": "Furniture moving cost guide",
       "tableHeaders": [
         "Furniture",
         "Average cost",
@@ -4023,7 +4023,7 @@
       "id": "student-pricing",
       "title": "How much does student moving cost? (special prices)",
       "intro": "We know students move often and budgets are tight. That’s why we offer a dedicated student price list — especially low prices near universities (Tel Aviv, Jerusalem, Be’er Sheva, Haifa).",
-      "tableLabel": "Student moving price list",
+      "tableLabel": "Student moving cost guide",
       "tableHeaders": [
         "Type",
         "Average student price",
@@ -4122,7 +4122,7 @@
       },
       {
         "id": "pricing",
-        "label": "Tel Aviv moving price list — what does it really cost?"
+        "label": "Tel Aviv moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -4165,9 +4165,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Tel Aviv moving price list — what does it really cost?",
+      "title": "Tel Aviv moving cost guide — what does it really cost?",
       "intro": "How much does it cost to move an apartment in Tel Aviv? The price depends on the apartment size, floor, elevator availability, and seasonality (summer vs winter). To help you plan your budget, we compiled a table of average prices based on offers from recommended movers in the city.",
-      "tableLabel": "Tel Aviv moving price list",
+      "tableLabel": "Tel Aviv moving cost guide",
       "tableHeaders": [
         "Type of move",
         "Estimated price range in Tel Aviv",
@@ -4308,7 +4308,7 @@
       },
       {
         "id": "pricing",
-        "label": "Eilat moving price list — what does it really cost?"
+        "label": "Eilat moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -4351,9 +4351,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Eilat moving price list — what does it really cost?",
+      "title": "Eilat moving cost guide — what does it really cost?",
       "intro": "Local moves inside Eilat are usually straightforward, while intercity moves to/from Eilat depend heavily on distance, volume, and schedule. Below are reference ranges for local jobs and basic services.",
-      "tableLabel": "Eilat moving price list",
+      "tableLabel": "Eilat moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Eilat",
@@ -4494,7 +4494,7 @@
       },
       {
         "id": "pricing",
-        "label": "Netivot moving price list — what does it really cost?"
+        "label": "Netivot moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -4537,9 +4537,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Netivot moving price list — what does it really cost?",
+      "title": "Netivot moving cost guide — what does it really cost?",
       "intro": "Prices depend on volume, floors/elevator, access, and distance (especially intercity). Below are typical ranges based on offers for Netivot.",
-      "tableLabel": "Netivot moving price list",
+      "tableLabel": "Netivot moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Netivot",
@@ -4680,7 +4680,7 @@
       },
       {
         "id": "pricing",
-        "label": "Ashkelon moving price list — what does it really cost?"
+        "label": "Ashkelon moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -4723,9 +4723,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Ashkelon moving price list — what does it really cost?",
+      "title": "Ashkelon moving cost guide — what does it really cost?",
       "intro": "Prices depend on volume, floors/elevator, access, and seasonality (summer, end of month). Below are typical ranges based on offers for Ashkelon.",
-      "tableLabel": "Ashkelon moving price list",
+      "tableLabel": "Ashkelon moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Ashkelon",
@@ -4866,7 +4866,7 @@
       },
       {
         "id": "pricing",
-        "label": "Dimona moving price list — what does it really cost?"
+        "label": "Dimona moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -4909,9 +4909,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Dimona moving price list — what does it really cost?",
+      "title": "Dimona moving cost guide — what does it really cost?",
       "intro": "Prices depend on volume, floors/elevator, access, and distance (especially for intercity moves). Below are typical ranges based on offers for Dimona.",
-      "tableLabel": "Dimona moving price list",
+      "tableLabel": "Dimona moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Dimona",
@@ -5052,7 +5052,7 @@
       },
       {
         "id": "pricing",
-        "label": "Beer Sheva moving price list — what does it really cost?"
+        "label": "Beer Sheva moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -5095,9 +5095,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Beer Sheva moving price list — what does it really cost?",
+      "title": "Beer Sheva moving cost guide— what does it really cost?",
       "intro": "Prices depend on volume, floor level, elevator availability, access, and seasonality (end of month, summer, student moves). Here are typical ranges based on local offers in Beer Sheva.",
-      "tableLabel": "Beer Sheva moving price list",
+      "tableLabel": "Beer Sheva moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Beer Sheva",
@@ -5238,7 +5238,7 @@
       },
       {
         "id": "pricing",
-        "label": "Tiberias moving price list: what it really costs"
+        "label": "Tiberias moving cost guide: what it really costs"
       },
       {
         "id": "challenges",
@@ -5281,9 +5281,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Tiberias moving price list: what it really costs",
+      "title": "Tiberias moving cost guide: what it really costs",
       "intro": "Moving costs in Tiberias depend on volume, floor, elevator availability, access for the truck (especially in hilly areas), and seasonality. Below are typical price ranges based on common offers.",
-      "tableLabel": "Tiberias moving price list",
+      "tableLabel": "Tiberias moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Tiberias",
@@ -5425,7 +5425,7 @@
       },
       {
         "id": "pricing",
-        "label": "Karmiel moving price list — what does it really cost?"
+        "label": "Karmiel moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -5468,9 +5468,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Karmiel moving price list — what does it really cost?",
+      "title": "Karmiel moving cost guide — what does it really cost?",
       "intro": "Pricing depends on volume, floor level, elevator access, parking/loading conditions, and whether a lift crane is needed. Here are typical ranges based on movers’ offers to help you plan your budget.",
-      "tableLabel": "Karmiel moving price list",
+      "tableLabel": "Karmiel moving cost guide",
       "tableHeaders": [
         "Move type",
         "Typical price range in Karmiel",
@@ -5611,7 +5611,7 @@
       },
       {
         "id": "pricing",
-        "label": "Nazareth moving price list — what does it really cost?"
+        "label": "Nazareth moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -5654,9 +5654,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Nazareth moving price list — what does it really cost?",
+      "title": "Nazareth moving cost guide — what does it really cost?",
       "intro": "Pricing depends on volume, floors, elevator availability, access for the vehicle, and seasonality. Below are typical ranges based on offers from recommended carriers.",
-      "tableLabel": "Nazareth moving price list",
+      "tableLabel": "Nazareth moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Nazareth",
@@ -5798,7 +5798,7 @@
       },
       {
         "id": "pricing",
-        "label": "Akko moving price list — what does it really cost?"
+        "label": "Akko moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -5841,9 +5841,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Akko moving price list — what does it really cost?",
+      "title": "Akko moving cost guide — what does it really cost?",
       "intro": "Pricing depends on volume, floor level, elevator access, parking/loading conditions, and whether a lift crane is needed. Here are typical ranges based on movers’ offers to help you plan your budget.",
-      "tableLabel": "Akko moving price list",
+      "tableLabel": "Akko moving cost guide",
       "tableHeaders": [
         "Move type",
         "Typical price range in Akko",
@@ -5984,7 +5984,7 @@
       },
       {
         "id": "pricing",
-        "label": "Ma'ale Adumim moving price list — what does it really cost?"
+        "label": "Ma'ale Adumim moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -6027,9 +6027,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Ma'ale Adumim moving price list — what does it really cost?",
+      "title": "Ma'ale Adumim moving cost guide — what does it really cost?",
       "intro": "Pricing depends on volume, floor level, elevator access, distance, and building/entrance conditions. Here are practical averages to help you plan your budget.",
-      "tableLabel": "Ma'ale Adumim moving price list",
+      "tableLabel": "Ma'ale Adumim moving cost guide",
       "tableHeaders": [
         "Move type",
         "Typical price range in Ma'ale Adumim",
@@ -6170,7 +6170,7 @@
       },
       {
         "id": "pricing",
-        "label": "Mevaseret Zion moving price list — what does it really cost?"
+        "label": "Mevaseret Zion moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -6213,9 +6213,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Mevaseret Zion moving price list — what does it really cost?",
+      "title": "Mevaseret Zion moving cost guide — what does it really cost?",
       "intro": "Pricing depends on volume, floor, elevator availability, parking distance, and whether furniture needs to be disassembled. Below are typical ranges based on carrier offers.",
-      "tableLabel": "Mevaseret Zion moving price list",
+      "tableLabel": "Mevaseret Zion moving cost guide",
       "tableHeaders": [
         "Move type",
         "Typical price range in Mevaseret Zion",
@@ -6356,7 +6356,7 @@
       },
       {
         "id": "pricing",
-        "label": "Beit Shemesh moving price list — what does it really cost?"
+        "label": "Beit Shemesh moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -6399,9 +6399,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Beit Shemesh moving price list — what does it really cost?",
+      "title": "Beit Shemesh moving cost guide — what does it really cost?",
       "intro": "Pricing depends on floor, elevator availability, walking distance from the truck to the entrance, and whether items must be carried via stairs or balcony. Below are typical ranges based on mover offers in Beit Shemesh.",
-      "tableLabel": "Beit Shemesh moving price list",
+      "tableLabel": "Beit Shemesh moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Beit Shemesh",
@@ -6542,7 +6542,7 @@
       },
       {
         "id": "pricing",
-        "label": "Modiin moving price list — what does it really cost?"
+        "label": "Modiin moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -6585,9 +6585,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Modiin moving price list — what does it really cost?",
+      "title": "Modiin moving cost guide — what does it really cost?",
       "intro": "Pricing depends on the volume, floor/elevator, distance (local vs intercity) and any extra services. Below are typical ranges based on average offers.",
-      "tableLabel": "Modiin moving price list",
+      "tableLabel": "Modiin moving cost guide",
       "tableHeaders": [
         "Move type",
         "Typical price range in Modiin",
@@ -6728,7 +6728,7 @@
       },
       {
         "id": "pricing",
-        "label": "Jerusalem moving price list — what does it really cost?"
+        "label": "Jerusalem moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -6771,9 +6771,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Jerusalem moving price list — what does it really cost?",
+      "title": "Jerusalem moving cost guide — what does it really cost?",
       "intro": "Pricing depends on volume, floor level, elevator access, parking/entrance conditions, and whether a lifting crane is required. Here are practical averages to help you plan your budget.",
-      "tableLabel": "Jerusalem moving price list",
+      "tableLabel": "Jerusalem moving cost guide",
       "tableHeaders": [
         "Move type",
         "Typical price range in Jerusalem",
@@ -6914,7 +6914,7 @@
       },
       {
         "id": "pricing",
-        "label": "Ramla moving price list — what does it really cost?"
+        "label": "Ramla moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -6957,9 +6957,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Ramla moving price list — what does it really cost?",
+      "title": "Ramla moving cost guide — what does it really cost?",
       "intro": "Moving costs in Ramla depend on volume, floor/elevator, distance, and truck access. Below are typical price ranges based on common offers in the city.",
-      "tableLabel": "Ramla moving price list",
+      "tableLabel": "Ramla moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Ramla",
@@ -7100,7 +7100,7 @@
       },
       {
         "id": "pricing",
-        "label": "Ashdod moving price list — what does it really cost?"
+        "label": "Ashdod moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -7143,9 +7143,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Ashdod moving price list — what does it really cost?",
+      "title": "Ashdod moving cost guide — what does it really cost?",
       "intro": "Pricing depends on volume, floor level, elevator availability, distance, and access to the building. Here are typical ranges based on movers’ offers in Ashdod.",
-      "tableLabel": "Ashdod moving price list",
+      "tableLabel": "Ashdod moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Ashdod",
@@ -7286,7 +7286,7 @@
       },
       {
         "id": "pricing",
-        "label": "Rehovot moving price list — what does it really cost?"
+        "label": "Rehovot moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -7329,9 +7329,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Rehovot moving price list — what does it really cost?",
+      "title": "Rehovot moving cost guide — what does it really cost?",
       "intro": "Price depends on volume, floor, elevator availability, distance, and timing (end-of-month/summer can be higher). Here are typical ranges based on offers in Rehovot.",
-      "tableLabel": "Rehovot moving price list",
+      "tableLabel": "Rehovot moving cost guidet",
       "tableHeaders": [
         "Move type",
         "Typical price range in Rehovot",
@@ -7472,7 +7472,7 @@
       },
       {
         "id": "pricing",
-        "label": "Lod moving price list — what does it really cost?"
+        "label": "Lod moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -7515,9 +7515,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Lod moving price list — what does it really cost?",
+      "title": "Lod moving cost guide — what does it really cost?",
       "intro": "Pricing depends on volume, floor, elevator availability, distance, and access to the entrance. Below are typical ranges based on movers’ offers.",
-      "tableLabel": "Moving price list in Lod",
+      "tableLabel": "Moving cost guide in Lod",
       "tableHeaders": [
         "Move type",
         "Typical price range in Lod",
@@ -7704,7 +7704,7 @@
       "id": "pricing",
       "title": "Rishon LeZion moving prices — what does it really cost?",
       "intro": "Final price depends on volume, floor, elevator, distance to parking, and furniture disassembly. Below are typical ranges seen in the city.",
-      "tableLabel": "Moving price list in Rishon LeZion",
+      "tableLabel": "Moving cost guide in Rishon LeZion",
       "tableHeaders": [
         "Move type",
         "Typical price range in Rishon LeZion",
@@ -7845,7 +7845,7 @@
       },
       {
         "id": "pricing",
-        "label": "Hod HaSharon moving price list — what does it really cost?"
+        "label": "Hod HaSharon moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -7888,9 +7888,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Hod HaSharon moving price list — what does it really cost?",
+      "title": "Hod HaSharon moving cost guide— what does it really cost?",
       "intro": "Pricing depends on apartment size, floor, elevator availability, distance, and the date (end-of-month and summer can be higher). Below are typical ranges based on local offers.",
-      "tableLabel": "Moving price list in Hod HaSharon",
+      "tableLabel": "Moving cost guide in Hod HaSharon",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Hod HaSharon",
@@ -8031,7 +8031,7 @@
       },
       {
         "id": "pricing",
-        "label": "Kfar Saba moving price list — what does it really cost?"
+        "label": "Kfar Saba moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -8074,9 +8074,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Kfar Saba moving price list — what does it really cost?",
+      "title": "Kfar Saba moving cost guide — what does it really cost?",
       "intro": "Your final price depends on volume, floor level, elevator availability, distance, and access conditions. Below are typical ranges based on mover quotes in Kfar Saba.",
-      "tableLabel": "Kfar Saba moving price list",
+      "tableLabel": "Kfar Saba moving cost guide",
       "tableHeaders": [
         "Move type",
         "Typical price range in Kfar Saba",
@@ -8218,7 +8218,7 @@
       },
       {
         "id": "pricing",
-        "label": "Herzliya moving price list — what does it really cost?"
+        "label": "Herzliya moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -8261,9 +8261,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Herzliya moving price list — what does it really cost?",
+      "title": "Herzliya moving cost guide — what does it really cost?",
       "intro": "Pricing depends on volume, floor, elevator availability, distance, and access/parking conditions. Here are typical average ranges based on local offers.",
-      "tableLabel": "Herzliya moving price list",
+      "tableLabel": "Herzliya moving cost guide",
       "tableHeaders": [
         "Move type",
         "Typical price range in Herzliya",
@@ -8404,7 +8404,7 @@
       },
       {
         "id": "pricing",
-        "label": "Ra’anana moving price list — what does it really cost?"
+        "label": "Ra’anana moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -8447,9 +8447,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Ra’anana moving price list — what does it really cost?",
+      "title": "Ra’anana moving cost guide — what does it really cost?",
       "intro": "Your moving price depends on volume, floor, elevator availability, distance, and any building coordination (e.g., gated entry or elevator booking). Below are typical price ranges based on offers from recommended movers.",
-      "tableLabel": "Ra’anana moving price list",
+      "tableLabel": "Ra’anana moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Ra’anana",
@@ -8590,7 +8590,7 @@
       },
       {
         "id": "pricing",
-        "label": "Netanya moving price list — what does it really cost?"
+        "label": "Netanya moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -8633,9 +8633,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Netanya moving price list — what does it really cost?",
+      "title": "Netanya moving cost guide — what does it really cost?",
       "intro": "Pricing depends on volume, floor level, elevator availability, parking distance, and season. Below are typical ranges based on offers from recommended movers in Netanya.",
-      "tableLabel": "Netanya moving price list",
+      "tableLabel": "Netanya moving cost guide",
       "tableHeaders": [
         "Move type",
         "Typical price range in Netanya",
@@ -8822,7 +8822,7 @@
       "id": "pricing",
       "title": "Ramat Gan moving prices — what does it really cost?",
       "intro": "Pricing depends on volume, floor, elevator availability, distance, and how close a truck can park to the entrance. Below are typical ranges based on offers from recommended movers.",
-      "tableLabel": "Ramat Gan moving price list",
+      "tableLabel": "Ramat Gan moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Ramat Gan",
@@ -8963,7 +8963,7 @@
       },
       {
         "id": "pricing",
-        "label": "Bat Yam moving price list — what does it really cost?"
+        "label": "Bat Yam moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -9006,9 +9006,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Bat Yam moving price list — what does it really cost?",
+      "title": "Bat Yam moving cost guide — what does it really cost?",
       "intro": "How much does an apartment move in Bat Yam cost? Pricing depends on volume, floor, elevator availability, distance, and vehicle access. Below are typical ranges based on offers from recommended movers.",
-      "tableLabel": "Bat Yam moving price list",
+      "tableLabel": "Bat Yam moving cost guide",
       "tableHeaders": [
         "Move type",
         "Typical price range in Bat Yam",
@@ -9194,7 +9194,7 @@
       "id": "pricing",
       "title": "Giv'atayim moving prices — what it really costs",
       "intro": "Pricing depends on volume, floor, elevator availability, and how easy it is to park near the building. Below are average ranges based on offers from recommended movers.",
-      "tableLabel": "Giv'atayim moving price list",
+      "tableLabel": "Giv'atayim moving cost guide",
       "tableHeaders": [
         "Move type",
         "Estimated price range in Giv'atayim",
@@ -9335,7 +9335,7 @@
       },
       {
         "id": "pricing",
-        "label": "Holon moving price list — what does it really cost?"
+        "label": "Holon moving cost guide — what does it really cost?"
       },
       {
         "id": "challenges",
@@ -9378,9 +9378,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Holon moving price list — what does it really cost?",
+      "title": "Holon moving cost guide — what does it really cost?",
       "intro": "Pricing depends on volume, floor, elevator availability, distance and season. Below are typical ranges based on our movers’ offers.",
-      "tableLabel": "Holon moving price list",
+      "tableLabel": "Holon moving cost guide",
       "tableHeaders": [
         "Move type",
         "Typical price range in Holon",
@@ -9521,7 +9521,7 @@
       },
       {
         "id": "pricing",
-        "label": "Piano moving price list — what does it really cost?"
+        "label": "Piano moving cost guide — what does it really cost?"
       },
       {
         "id": "upright-vs-grand",
@@ -9562,9 +9562,9 @@
     },
     "pricing": {
       "id": "pricing",
-      "title": "Piano moving price list — what does it really cost?",
+      "title": "Piano moving cost guide — what does it really cost?",
       "intro": "The price depends on the type of piano (upright/grand), floor, elevator availability, and travel distance. We have compiled an average price table to help you estimate:",
-      "tableLabel": "Piano moving price list",
+      "tableLabel": "Piano moving cost guide",
       "tableHeaders": [
         "Notes and details",
         "Estimated price range (₪)",
