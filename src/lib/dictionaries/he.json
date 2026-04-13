@@ -69,7 +69,7 @@
       "home": "בית",
       "transportation": "הובלות",
       "services": "שירותים נוספים",
-      "calculate": "חישוב עלות",
+      "calculate": "מחשבון עלות",
       "articles": "מאמרים",
       "contact": "צור קשר",
       "leaveReview": "השארת חוות דעת"
@@ -112,7 +112,7 @@
             "anchor": "carriers"
           },
           {
-            "label": "חישוב עלות",
+            "label": "מחשבון עלות",
             "anchor": "calculate"
           }
         ]
@@ -2368,7 +2368,7 @@
     "placeholderNotice": "כאן תופיע בקרוב טופס מפורט. שמרנו את המידע שמילאתם.",
     "receivedDataTitle": "נתונים שהתקבלו",
     "missingData": "לא התקבל מידע. חזרו לעמוד הבית ומלאו את הטופס.",
-    "breadcrumbCurrent": "חישוב עלות",
+    "breadcrumbCurrent": "מחשבון עלות",
     "breadcrumbSubmit": "שליחת בקשה",
     "breadcrumbSuccess": "הבקשה נשלחה",
     "heroHeading": "מחשבון עלות הובלה",
