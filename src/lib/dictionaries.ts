@@ -251,6 +251,86 @@ export interface FooterDictionary {
     };
 }
 
+export type SmallMovePageDictionary = {
+    slug: string;
+    metaTitle: string;
+    metaDescription: string;
+    title: string;
+    tocTitle: string;
+    tocItems: Array<{ id: string; label: string }>;
+    comparison: {
+        title: string;
+        bullets: string[];
+    };
+    cta: {
+        title: string;
+        phoneLabel: string;
+        formLabel: string;
+        buttonLabel: string;
+    };
+    pricing: {
+        id: string;
+        title: string;
+        intro: string;
+        note: string;
+        tableLabel: string;
+        tableHeaders: string[];
+        rows: SmallMoveTableRow[];
+        afterTable: string;
+    };
+    definition: {
+        id: string;
+        title: string;
+        text: string;
+    };
+    audience: {
+        id: string;
+        title: string;
+        intro: string;
+        items: Array<{ title: string; text: string }>;
+    };
+    priceFactors: {
+        id: string;
+        title: string;
+        items: Array<{ title: string; text: string }>;
+    };
+    popularServices: {
+        id: string;
+        title: string;
+        items: Array<{ title: string; text: string }>;
+    };
+    crane: {
+        id: string;
+        title: string;
+        intro: string;
+        items: string[];
+        outro: string;
+    };
+    cheap: {
+        id: string;
+        title: string;
+        intro: string;
+        items: Array<{ title: string; text: string }>;
+    };
+    faq: {
+        id: string;
+        title: string;
+        items: Array<{ question: string; answer: string }>;
+    };
+    comparisonProcess: {
+        id: string;
+        title: string;
+        steps: Array<{ title: string; text: string }>;
+    };
+    findCompany: {
+        id: string;
+        title: string;
+        intro: string;
+        items: Array<{ title: string; text: string }>;
+        closing: string;
+    };
+};
+
 export type DictionaryType = {
     metadata: {
         title: string;
@@ -699,85 +779,8 @@ export type DictionaryType = {
             buttonLabel: string;
         };
     };
-    smallMovePage: {
-        slug: string;
-        metaTitle: string;
-        metaDescription: string;
-        title: string;
-        tocTitle: string;
-        tocItems: Array<{ id: string; label: string }>;
-        comparison: {
-            title: string;
-            bullets: string[];
-        };
-        cta: {
-            title: string;
-            phoneLabel: string;
-            formLabel: string;
-            buttonLabel: string;
-        };
-        pricing: {
-            id: string;
-            title: string;
-            intro: string;
-            note: string;
-            tableLabel: string;
-            tableHeaders: string[];
-            rows: SmallMoveTableRow[];
-            afterTable: string;
-        };
-        definition: {
-            id: string;
-            title: string;
-            text: string;
-        };
-        audience: {
-            id: string;
-            title: string;
-            intro: string;
-            items: Array<{ title: string; text: string }>;
-        };
-        priceFactors: {
-            id: string;
-            title: string;
-            items: Array<{ title: string; text: string }>;
-        };
-        popularServices: {
-            id: string;
-            title: string;
-            items: Array<{ title: string; text: string }>;
-        };
-        crane: {
-            id: string;
-            title: string;
-            intro: string;
-            items: string[];
-            outro: string;
-        };
-        cheap: {
-            id: string;
-            title: string;
-            intro: string;
-            items: Array<{ title: string; text: string }>;
-        };
-        faq: {
-            id: string;
-            title: string;
-            items: Array<{ question: string; answer: string }>;
-        };
-        comparisonProcess: {
-            id: string;
-            title: string;
-            steps: Array<{ title: string; text: string }>;
-        };
-        findCompany: {
-            id: string;
-            title: string;
-            intro: string;
-            items: Array<{ title: string; text: string }>;
-            closing: string;
-        };
-    };
+    smallMovePage: SmallMovePageDictionary;
+    lateMovePage: SmallMovePageDictionary;
     haifaMovePage: {
         slug: string;
         metaTitle: string;
@@ -9257,6 +9260,85 @@ const defaultDictionary: DictionaryType = {
             closing: '',
         },
     },
+    lateMovePage: {
+        slug: 'late-moves',
+        metaTitle: 'Late moves',
+        metaDescription: 'Late moves description.',
+        title: 'Late moves',
+        tocTitle: 'Table of contents',
+        tocItems: [],
+        comparison: {
+            title: 'Why compare late moves with us?',
+            bullets: [],
+        },
+        cta: {
+            title: 'Find a late move slot',
+            phoneLabel: 'Call us now',
+            formLabel: 'Or leave a request',
+            buttonLabel: 'Start here',
+        },
+        pricing: {
+            id: 'pricing',
+            title: 'Late move price list',
+            intro: '',
+            note: '',
+            tableLabel: 'Late move price table',
+            tableHeaders: [],
+            rows: [],
+            afterTable: '',
+        },
+        definition: {
+            id: 'definition',
+            title: 'What is a late move?',
+            text: '',
+        },
+        audience: {
+            id: 'audience',
+            title: 'Who is this service for?',
+            intro: '',
+            items: [],
+        },
+        priceFactors: {
+            id: 'price-factors',
+            title: 'What affects the price?',
+            items: [],
+        },
+        popularServices: {
+            id: 'popular-services',
+            title: 'Popular late move services',
+            items: [],
+        },
+        crane: {
+            id: 'crane',
+            title: 'When do you need a crane?',
+            intro: '',
+            items: [],
+            outro: '',
+        },
+        cheap: {
+            id: 'cheap',
+            title: 'How to save on late moves?',
+            intro: '',
+            items: [],
+        },
+        faq: {
+            id: 'faq',
+            title: 'FAQ',
+            items: [],
+        },
+        comparisonProcess: {
+            id: 'comparison-process',
+            title: 'How comparison works',
+            steps: [],
+        },
+        findCompany: {
+            id: 'find-company',
+            title: 'Find a late move company',
+            intro: '',
+            items: [],
+            closing: '',
+        },
+    },
     haifaMovePage: {
         slug: '',
         metaTitle: '',
@@ -9898,7 +9980,7 @@ const defaultDictionary: DictionaryType = {
                 socialLabel: 'Мы в соцсетях',
                 socialLinks: [
                     {label: 'Facebook', href: 'https://www.facebook.com/share/18KG6Lz3vM/?mibextid=wwXIfr', network: 'facebook'},
-                    {label: 'Instagram', href: 'https://www.instagram.com/maavar.israel?igsh=ZDIzYnlrb2xjdmg0&utm_source=qr', network: 'instagram'},
+                    {label: 'Instagram', href: 'https://www.instagram.com/maavar.co.il?igsh=ZDIzYnlrb2xjdmg0&utm_source=qr', network: 'instagram'},
                     {label: 'Telegram @Maavar_support', href: 'https://t.me/Maavar_support', network: 'telegram'},
                 ],
             },
@@ -10206,6 +10288,10 @@ export async function getDictionary(locale: Locale): Promise<DictionaryType> {
             smallMovePage: {
                 ...defaultDictionary.smallMovePage,
                 ...loadedDict.smallMovePage,
+            },
+            lateMovePage: {
+                ...defaultDictionary.lateMovePage,
+                ...loadedDict.lateMovePage,
             },
             haifaMovePage: {
                 ...defaultDictionary.haifaMovePage,

@@ -1044,15 +1044,15 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
         const canonical = `${SITE_URL}${buildLateMovePath(locale)}`;
 
         return {
-            title: dictionary.smallMovePage.metaTitle,
-            description: dictionary.smallMovePage.metaDescription,
+            title: dictionary.lateMovePage.metaTitle,
+            description: dictionary.lateMovePage.metaDescription,
             alternates: {
                 canonical,
                 languages: await buildLateMoveLanguageAlternates(),
             },
             openGraph: {
-                title: dictionary.smallMovePage.metaTitle,
-                description: dictionary.smallMovePage.metaDescription,
+                title: dictionary.lateMovePage.metaTitle,
+                description: dictionary.lateMovePage.metaDescription,
                 url: canonical,
                 locale,
             },
@@ -1786,7 +1786,7 @@ export default async function RegionPage({params}: Props) {
         return (
             <SmallMovePage
                 locale={locale}
-                dictionary={dictionary.smallMovePage}
+                dictionary={dictionary.lateMovePage}
                 calculatorDictionary={dictionary.homeHero}
             />
         );

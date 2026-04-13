@@ -177,7 +177,7 @@
           },
           {
             "label": "Instagram",
-            "href": "https://www.instagram.com/maavar.israel?igsh=ZDIzYnlrb2xjdmg0&utm_source=qr",
+            "href": "https://www.instagram.com/maavar.co.il?igsh=ZDIzYnlrb2xjdmg0&utm_source=qr",
             "network": "instagram"
           },
           {
@@ -3553,6 +3553,291 @@
         }
       ],
       "closing": "Looking for a small, reliable, and affordable mover? Don’t waste time on phone calls. Leave your details now and get winning quotes for free!"
+    }
+  },
+  "lateMovePage": {
+    "slug": "late-moves",
+    "metaTitle": "Late evening and night moves from ₪249",
+    "metaDescription": "Need a move after work, in the evening, or on Saturday night? Compare recommended movers, find an available late slot, and save up to 45%.",
+    "title": "Late evening and night moves",
+    "tocTitle": "Table of contents",
+    "tocItems": [
+      {
+        "id": "pricing",
+        "label": "How much do late moves cost? Price list"
+      },
+      {
+        "id": "definition",
+        "label": "What is a late move?"
+      },
+      {
+        "id": "audience",
+        "label": "Who is an evening or night move for?"
+      },
+      {
+        "id": "price-factors",
+        "label": "What affects the price of a late move?"
+      },
+      {
+        "id": "popular-services",
+        "label": "Popular late move services"
+      },
+      {
+        "id": "crane",
+        "label": "When do you need a crane for a late move?"
+      },
+      {
+        "id": "cheap",
+        "label": "How to book a late move for less?"
+      },
+      {
+        "id": "faq",
+        "label": "FAQ"
+      },
+      {
+        "id": "comparison-process",
+        "label": "How comparison works and saves up to 45%"
+      },
+      {
+        "id": "find-company",
+        "label": "Find a mover for a late slot"
+      }
+    ],
+    "comparison": {
+      "title": "Why find late moves through us?",
+      "bullets": [
+        "We send your request to recommended movers who may have available evening slots.",
+        "You can find service after work, on Friday, or on Saturday night by agreement with the mover.",
+        "Compare several offers by price, arrival time, and terms.",
+        "Useful for urgent jobs: one item, a studio, a small apartment, office equipment, or boxes.",
+        "Movers clarify floor, elevator, parking, and building rules in advance to keep the late slot on track.",
+        "Quote comparison can help you save up to 45% even outside standard working hours."
+      ]
+    },
+    "cta": {
+      "title": "Need a move this evening?",
+      "phoneLabel": "",
+      "formLabel": "Leave a request and get offers from movers who can work late.",
+      "buttonLabel": "Get quotes"
+    },
+    "pricing": {
+      "id": "pricing",
+      "title": "How much do late moves cost? Price list",
+      "intro": "The price depends on the moving volume, start time, mover availability, route, and loading conditions. These are general ranges for evening and late moves.",
+      "note": "Late hours, Friday, Saturday night, or same-day requests may include an extra charge. It is best to compare several quotes for an exact price.",
+      "tableLabel": "Late move price list",
+      "tableHeaders": [
+        "Additional notes",
+        "Estimated price",
+        "Late move type"
+      ],
+      "rows": [
+        {
+          "notes": "One item after work: fridge, sofa, washing machine.",
+          "priceRange": "₪249-499",
+          "item": "Evening single-item move"
+        },
+        {
+          "notes": "A few boxes and basic furniture, usually without a large crew.",
+          "priceRange": "₪650-1,300",
+          "item": "Late studio move"
+        },
+        {
+          "notes": "Depends on floors, elevator, parking, and unloading time.",
+          "priceRange": "₪1,200-2,400",
+          "item": "Evening 1-2 room move"
+        },
+        {
+          "notes": "Availability is limited and terms are agreed in advance.",
+          "priceRange": "Exact quote",
+          "item": "Friday or Saturday night"
+        },
+        {
+          "notes": "Relevant when you need it today and a mover is available.",
+          "priceRange": "May include surcharge",
+          "item": "Urgent late move"
+        },
+        {
+          "notes": "When the item does not fit in the elevator or stairwell.",
+          "priceRange": "₪300-500 per hour",
+          "item": "Crane surcharge"
+        }
+      ],
+      "afterTable": "For an accurate quote, include the time, addresses, floors, elevator, item list, and building restrictions. Movers will quote your exact situation."
+    },
+    "definition": {
+      "id": "definition",
+      "title": "What is a late move?",
+      "text": "A late move is a move performed after standard working hours: in the evening, close to night, after apartment handover, after office closing, or on Saturday night. The main challenge is finding an available mover and coordinating building access, parking, and allowed noise hours in advance."
+    },
+    "audience": {
+      "id": "audience",
+      "title": "Who is an evening or night move for?",
+      "intro": "A late slot is useful when daytime does not work:",
+      "items": [
+        {
+          "title": "People who work during the day:",
+          "text": "move after work without taking a day off."
+        },
+        {
+          "title": "Urgent apartment handover:",
+          "text": "when keys must be returned today or tomorrow morning, an evening slot can close the job faster."
+        },
+        {
+          "title": "Offices and stores:",
+          "text": "equipment, documents, and furniture can be moved after closing to avoid disrupting customers and staff."
+        },
+        {
+          "title": "Single-item moves:",
+          "text": "a fridge, sofa, bed, or a few boxes can often move in the evening if the route fits."
+        }
+      ]
+    },
+    "priceFactors": {
+      "id": "price-factors",
+      "title": "What affects the price of a late move?",
+      "items": [
+        {
+          "title": "Start time:",
+          "text": "after 18:00, late night, Friday, or Saturday night may cost more because availability is limited."
+        },
+        {
+          "title": "Urgency:",
+          "text": "same-day requests usually cost more than booking a few days ahead."
+        },
+        {
+          "title": "Building access:",
+          "text": "elevator, floor, distance from parking to entrance, and house rules matter more during late hours."
+        },
+        {
+          "title": "Moving volume:",
+          "text": "one item or a studio is faster, while a furnished apartment requires more people and time."
+        },
+        {
+          "title": "Route:",
+          "text": "intercity moves and multiple stops raise the price, especially if the route ends late at night."
+        }
+      ]
+    },
+    "popularServices": {
+      "id": "popular-services",
+      "title": "Popular late move services",
+      "items": [
+        {
+          "title": "Evening single-item move:",
+          "text": "for a Yad2 purchase, sofa, fridge, washing machine, or mattress when daytime delivery is not possible."
+        },
+        {
+          "title": "Mini move after work:",
+          "text": "a few boxes, a bed, a desk, and appliances from a studio or rental apartment."
+        },
+        {
+          "title": "Office move after closing:",
+          "text": "computers, documents, chairs, desks, and small cabinets without interrupting the workday."
+        },
+        {
+          "title": "Packing and disassembly:",
+          "text": "when time is short, the mover can add packing materials, bed or wardrobe disassembly by agreement."
+        }
+      ]
+    },
+    "crane": {
+      "id": "crane",
+      "title": "When do you need a crane for a late move?",
+      "intro": "A crane may be needed even for an evening job if regular carrying is impossible:",
+      "items": [
+        "a sofa, wardrobe, mattress, or appliance does not fit in the elevator or stairwell;",
+        "a high floor makes manual carrying too slow and expensive;",
+        "you need to shorten loading time and reduce damage risk."
+      ],
+      "outro": "Late-hour crane service must be coordinated in advance because equipment availability and building rules may limit working hours."
+    },
+    "cheap": {
+      "id": "cheap",
+      "title": "How to book a late move for less?",
+      "intro": "A late slot does not always mean a high price. Preparation and comparison help:",
+      "items": [
+        {
+          "title": "Compare multiple offers:",
+          "text": "when several movers see one request, competition can lower the price."
+        },
+        {
+          "title": "Be flexible with time:",
+          "text": "a 1-2 hour window may allow the mover to add your job to an existing route."
+        },
+        {
+          "title": "Prepare items in advance:",
+          "text": "disassemble furniture, pack boxes, and clear access so the crew spends less time."
+        },
+        {
+          "title": "List restrictions upfront:",
+          "text": "floor, elevator, parking, gate, building rules, and allowed working hours help avoid on-site surcharges."
+        }
+      ]
+    },
+    "faq": {
+      "id": "faq",
+      "title": "Late move FAQ",
+      "items": [
+        {
+          "question": "Can I book a move for this evening?",
+          "answer": "Often yes, if movers are available in your area. The more precise your item list and addresses are, the faster you get a real quote."
+        },
+        {
+          "question": "Is a late move always more expensive?",
+          "answer": "Not always. A surcharge is possible because of timing and urgency, but comparing offers helps find a better deal."
+        },
+        {
+          "question": "Can I move at night in a residential building?",
+          "answer": "It depends on building rules, neighbors, and the type of work. Check in advance whether noise, elevator use, and parking near the entrance are allowed late in the evening."
+        },
+        {
+          "question": "What should I prepare before the mover arrives in the evening?",
+          "answer": "Pack items, disassemble furniture if needed, clear access, prepare parking, and notify security or building management if access is restricted."
+        }
+      ]
+    },
+    "comparisonProcess": {
+      "id": "comparison-process",
+      "title": "How comparison works and saves up to 45%",
+      "steps": [
+        {
+          "title": "Submit a request:",
+          "text": "state that you need a late move, then add time, addresses, floors, and the item list."
+        },
+        {
+          "title": "Get offers:",
+          "text": "movers with a suitable evening slot contact you with a price."
+        },
+        {
+          "title": "Choose the option:",
+          "text": "compare cost, arrival time, and terms, then choose a mover without endless calls."
+        }
+      ]
+    },
+    "findCompany": {
+      "id": "find-company",
+      "title": "Find a mover for a late slot nationwide",
+      "intro": "We help you quickly find a mover who can work late and fits your job:",
+      "items": [
+        {
+          "title": "Vetted movers:",
+          "text": "requests go to recommended movers experienced with apartments, offices, and small moves."
+        },
+        {
+          "title": "Flexible slots:",
+          "text": "search for evening, late evening, Friday, or Saturday night by agreement."
+        },
+        {
+          "title": "Clear pricing:",
+          "text": "the mover sees the details in advance and quotes your route and time."
+        },
+        {
+          "title": "Lower cancellation risk:",
+          "text": "accurate access, elevator, and parking details help choose the right crew."
+        }
+      ],
+      "closing": "Need a late move without endless phone calls? Leave a request and compare offers from available movers."
     }
   },
   "haifaMovePage": {
